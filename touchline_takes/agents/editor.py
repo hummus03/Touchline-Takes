@@ -89,6 +89,7 @@ class EditorAgent(Agent):
         for draft in state.drafts_with_status("checked"):
             start = time.perf_counter()
             problems = self.review(draft)
+            draft.add_metrics(editor_reviews=1, editor_rejections=1 if problems else 0)
             if not problems:
                 draft.status, draft.feedback = "approved", []
                 self.log(state, "approved", draft.title, draft.id)

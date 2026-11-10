@@ -98,6 +98,7 @@ class FactCheckAgent(Agent):
         claims = [c for c in checks if c.is_claim]
         bad = [c for c in claims if not c.supported]
         draft.claims = [c.to_dict() for c in checks]
+        draft.add_metrics(claims_checked=len(claims), claims_unsupported=len(bad))
         ratio = len(bad) / len(claims) if claims else 1.0
         lead_bad = bool(claims) and not claims[0].supported
         if not claims:

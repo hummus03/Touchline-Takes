@@ -44,7 +44,7 @@ code { background: var(--line); padding: 1px 5px; border-radius: 4px; font-size:
 .nav a:hover, .nav a:focus-visible { background: rgba(255,255,255,.16); }
 .tagline { margin: 6px auto 0; padding-bottom: 16px; opacity: .9; font-style: italic; }
 
-main { padding: 28px 16px 48px; }
+main.wrap { padding-top: 28px; padding-bottom: 48px; }
 .section-title { font-size: 1.05rem; text-transform: uppercase; letter-spacing: .12em; border-left: 6px solid var(--card-yellow); padding-left: 10px; margin: 0 0 16px; }
 .layout { display: grid; grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr); gap: 32px; }
 @media (max-width: 860px) { .layout { grid-template-columns: 1fr; } }

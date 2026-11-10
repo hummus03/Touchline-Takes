@@ -1,0 +1,185 @@
+{
+ "description": "Fixture stories with known-good expectations for scripts/evaluate.py. Fictional events and people.",
+ "stories": [
+  {
+   "title": "Arsenal beat Chelsea 2-1 in tense London derby",
+   "summary": "Arsenal came from behind to beat Chelsea 2-1 at the Emirates. Midfielder Tomas Reyes equalised before half-time and striker Leo Hartmann headed the winner in the 78th minute, lifting Arsenal to second in the Premier League.",
+   "expected": {
+    "league": "Premier League",
+    "teams": [
+     "Arsenal",
+     "Chelsea"
+    ],
+    "topic": "match_report",
+    "sentiment": "positive"
+   },
+   "inject_hallucination": true,
+   "expect_outcome": "published",
+   "url": "https://example.com/eval/1",
+   "source": "Eval Wire",
+   "published": "2026-11-02T12:00:00+00:00"
+  },
+  {
+   "title": "Liverpool held to goalless draw by Everton",
+   "summary": "Liverpool were held to a 0-0 draw by Everton at Anfield. Everton goalkeeper Sam Okafor made seven saves as the visitors frustrated the Premier League leaders, who had 24 shots.",
+   "expected": {
+    "league": "Premier League",
+    "teams": [
+     "Liverpool",
+     "Everton"
+    ],
+    "topic": "match_report",
+    "sentiment": "negative"
+   },
+   "expect_outcome": "published",
+   "url": "https://example.com/eval/2",
+   "source": "Eval Wire",
+   "published": "2026-11-03T12:00:00+00:00",
+   "inject_hallucination": false
+  },
+  {
+   "title": "Tottenham boss sacked after 3-0 defeat at Brentford",
+   "summary": "Tottenham have sacked head coach Marco Lindqvist after a 3-0 defeat at Brentford left the club 14th in the Premier League. Fans were furious after a sixth defeat in nine games.",
+   "expected": {
+    "league": "Premier League",
+    "teams": [
+     "Tottenham",
+     "Brentford"
+    ],
+    "topic": "manager",
+    "sentiment": "negative"
+   },
+   "inject_hallucination": true,
+   "expect_outcome": "published",
+   "url": "https://example.com/eval/3",
+   "source": "Eval Wire",
+   "published": "2026-11-04T12:00:00+00:00"
+  },
+  {
+   "title": "Newcastle in talks to sign Dortmund winger Felix Amari",
+   "summary": "Newcastle are in talks with Borussia Dortmund over a January transfer for winger Felix Amari. The 23-year-old has scored six goals this season and Newcastle are weighing a fee of around 40 million euros.",
+   "expected": {
+    "league": "Premier League",
+    "teams": [
+     "Newcastle",
+     "Borussia Dortmund"
+    ],
+    "topic": "transfer",
+    "sentiment": "neutral"
+   },
+   "expect_outcome": "published",
+   "url": "https://example.com/eval/4",
+   "source": "Eval Wire",
+   "published": "2026-11-05T12:00:00+00:00",
+   "inject_hallucination": false
+  },
+  {
+   "title": "Aston Villa captain ruled out for six weeks with hamstring injury",
+   "summary": "Aston Villa captain Dan Mercer has been ruled out for six weeks with a hamstring injury suffered against Fulham. Villa will be without their captain for the busy December schedule.",
+   "expected": {
+    "league": "Premier League",
+    "teams": [
+     "Aston Villa",
+     "Fulham"
+    ],
+    "topic": "injury",
+    "sentiment": "negative"
+   },
+   "expect_outcome": "published",
+   "url": "https://example.com/eval/5",
+   "source": "Eval Wire",
+   "published": "2026-11-06T12:00:00+00:00",
+   "inject_hallucination": false
+  },
+  {
+   "title": "VAR row as Brighton denied late penalty against West Ham",
+   "summary": "Brighton were furious after VAR declined to award a late penalty in their 1-1 draw with West Ham. Manager Oscar Feld said the decision was a disgrace.",
+   "expected": {
+    "league": "Premier League",
+    "teams": [
+     "Brighton",
+     "West Ham"
+    ],
+    "topic": "discipline",
+    "sentiment": "negative"
+   },
+   "expect_outcome": "published",
+   "url": "https://example.com/eval/6",
+   "source": "Eval Wire",
+   "published": "2026-11-07T12:00:00+00:00",
+   "inject_hallucination": false
+  },
+  {
+   "title": "Manchester City thrash Wolves 4-0",
+   "summary": "Manchester City thrashed Wolves 4-0 at the Etihad. Forward Kai Brandt scored twice and City have now won four Premier League games in a row.",
+   "expected": {
+    "league": "Premier League",
+    "teams": [
+     "Manchester City",
+     "Wolves"
+    ],
+    "topic": "match_report",
+    "sentiment": "positive"
+   },
+   "expect_outcome": "published",
+   "url": "https://example.com/eval/7",
+   "source": "Eval Wire",
+   "published": "2026-11-08T12:00:00+00:00",
+   "inject_hallucination": false
+  },
+  {
+   "title": "Real Madrid stunned 2-0 by Sevilla in La Liga upset",
+   "summary": "Real Madrid suffered a shock 2-0 defeat away at Sevilla. Striker Ivan Molero scored both goals as Real Madrid dropped to third, two points behind Barcelona.",
+   "expected": {
+    "league": "La Liga",
+    "teams": [
+     "Real Madrid",
+     "Sevilla",
+     "Barcelona"
+    ],
+    "topic": "match_report",
+    "sentiment": "negative"
+   },
+   "expect_outcome": "rejected",
+   "url": "https://example.com/eval/8",
+   "source": "Eval Wire",
+   "published": "2026-11-09T12:00:00+00:00",
+   "inject_hallucination": false
+  },
+  {
+   "title": "Celtic beat Rangers 3-1 to extend Scottish Premiership lead",
+   "summary": "Celtic beat Rangers 3-1 at Celtic Park to move five points clear at the top of the Scottish Premiership. Winger Ross Callan scored twice in a dominant second-half display.",
+   "expected": {
+    "league": "Scottish Premiership",
+    "teams": [
+     "Celtic",
+     "Rangers"
+    ],
+    "topic": "match_report",
+    "sentiment": "positive"
+   },
+   "expect_outcome": "published",
+   "url": "https://example.com/eval/9",
+   "source": "Eval Wire",
+   "published": "2026-11-01T12:00:00+00:00",
+   "inject_hallucination": false
+  },
+  {
+   "title": "Inter Milan agree contract extension with Paolo Ricci",
+   "summary": "Inter Milan have agreed a contract extension with centre-back Paolo Ricci until 2030. The 27-year-old has made 140 Serie A appearances.",
+   "expected": {
+    "league": "Serie A",
+    "teams": [
+     "Inter Milan"
+    ],
+    "topic": "transfer",
+    "sentiment": "positive"
+   },
+   "expect_outcome": "published",
+   "url": "https://example.com/eval/10",
+   "source": "Eval Wire",
+   "published": "2026-11-02T12:00:00+00:00",
+   "inject_hallucination": false
+  }
+ ]
+}
