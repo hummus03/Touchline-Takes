@@ -1,0 +1,4 @@
+[
+  {"match": "Classify this football story.\nAllowed topics",
+   "response": "Sure! {\"league\": \"Premier League\", \"teams\": [\"Man Utd\", \"Fulham\"], \"topic\": \"preview\", \"sentiment\": \"neutral\", \"emotion\": \"fear\"}"}
+]
