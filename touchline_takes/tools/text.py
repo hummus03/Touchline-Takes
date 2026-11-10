@@ -22,6 +22,8 @@ elsewhere also plus both either neither whatever whoever nobody everyone anyone
 one few many much some all any every each until unless while though although even only just
 football fans form momentum pressure confidence numbers data history patience nothing everything
 results matches games seasons things truth question questions answer reality mood time
+every expect credit make give call look think forget remember imagine honestly frankly
+sometimes maybe perhaps somebody well sure fair worse better big huge trust watch talk
 """.split())
 
 
