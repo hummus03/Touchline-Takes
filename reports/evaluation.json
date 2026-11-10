@@ -136,8 +136,8 @@
         "cost_usd_per_article": 0.0,
         "projected_cost_usd_per_article_claude_opus_5_5": 0.0,
         "tokens_per_article": 0.0,
-        "agent_latency_s_per_article": 0.0052,
-        "pipeline_s_per_article": 0.0332
+        "agent_latency_s_per_article": 0.0053,
+        "pipeline_s_per_article": 0.0339
       },
       "expectations": {
         "passed": 10,
@@ -250,8 +250,8 @@
         "cost_usd_per_article": 0.0,
         "projected_cost_usd_per_article_claude_opus_5_5": 0.009065,
         "tokens_per_article": 1126.6,
-        "agent_latency_s_per_article": 0.0077,
-        "pipeline_s_per_article": 0.0359
+        "agent_latency_s_per_article": 0.013,
+        "pipeline_s_per_article": 0.0406
       },
       "expectations": {
         "passed": 10,
