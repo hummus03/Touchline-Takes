@@ -1,0 +1,50 @@
+[
+ {
+  "id": "sample-1",
+  "date": "2026-11-21",
+  "league": "Premier League",
+  "home": "Arsenal",
+  "away": "Liverpool",
+  "source": "sample fixtures"
+ },
+ {
+  "id": "sample-2",
+  "date": "2026-11-21",
+  "league": "Premier League",
+  "home": "Manchester City",
+  "away": "Newcastle",
+  "source": "sample fixtures"
+ },
+ {
+  "id": "sample-3",
+  "date": "2026-11-22",
+  "league": "Premier League",
+  "home": "Manchester United",
+  "away": "Fulham",
+  "source": "sample fixtures"
+ },
+ {
+  "id": "sample-4",
+  "date": "2026-11-22",
+  "league": "Premier League",
+  "home": "Chelsea",
+  "away": "Tottenham",
+  "source": "sample fixtures"
+ },
+ {
+  "id": "sample-5",
+  "date": "2026-11-22",
+  "league": "Premier League",
+  "home": "Everton",
+  "away": "Brighton",
+  "source": "sample fixtures"
+ },
+ {
+  "id": "sample-6",
+  "date": "2026-11-23",
+  "league": "Premier League",
+  "home": "Aston Villa",
+  "away": "West Ham",
+  "source": "sample fixtures"
+ }
+]

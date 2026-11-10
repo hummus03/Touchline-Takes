@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+<title>Sample Football Desk</title>
+<link>https://example.org/desk</link>
+<description>Offline sample feed bundled with Touchline Takes. Fictional stories for testing only.</description>
+<item>
+<title>Arsenal beat Chelsea 2-1 in a tense London derby at the Emirates</title>
+<link>https://example.org/desk/arsenal-chelsea-report</link>
+<description>Arsenal came from behind to beat Chelsea 2-1 at the Emirates on Saturday. Tomas Reyes equalised before half-time and Leo Hartmann headed the winner in the 78th minute, lifting Arsenal to second in the Premier League table.</description>
+<pubDate>Sat, 08 Nov 2026 18:05:00 GMT</pubDate>
+<guid>https://example.org/desk/arsenal-chelsea-report</guid>
+</item>
+<item>
+<title>Celtic extend Scottish Premiership lead with 3-1 win over Rangers</title>
+<link>https://example.org/desk/celtic-rangers-derby</link>
+<description>Celtic beat Rangers 3-1 at Celtic Park to move five points clear at the top of the Scottish Premiership. Winger Ross Callan scored twice in a dominant second-half display.</description>
+<pubDate>Sat, 08 Nov 2026 15:00:00 GMT</pubDate>
+<guid>https://example.org/desk/celtic-rangers-derby</guid>
+</item>
+<item>
+<title>Bayern Munich come from behind to win 3-2 at Bayer Leverkusen</title>
+<link>https://example.org/desk/bayern-leverkusen-thriller</link>
+<description>Bayern Munich scored twice in the final ten minutes to win 3-2 at Bayer Leverkusen in the Bundesliga. Substitute Jonas Weber struck the winner in stoppage time to send Bayern top.</description>
+<pubDate>Sat, 08 Nov 2026 19:30:00 GMT</pubDate>
+<guid>https://example.org/desk/bayern-leverkusen-thriller</guid>
+</item>
+<item>
+<title>Manchester United preview: Ruben Castell wants response against Fulham</title>
+<link>https://example.org/desk/united-fulham-preview</link>
+<description>Manchester United manager Ruben Castell wants a response when his side host Fulham this weekend. United have lost two of their last three Premier League games and are 11th in the table.</description>
+<pubDate>Mon, 10 Nov 2026 12:00:00 GMT</pubDate>
+<guid>https://example.org/desk/united-fulham-preview</guid>
+</item>
+<item>
+<title>Inter Milan agree contract extension with defender Paolo Ricci</title>
+<link>https://example.org/desk/inter-ricci-extension</link>
+<description>Inter Milan have agreed a contract extension with centre-back Paolo Ricci until 2030. The 27-year-old Italy international has made 140 Serie A appearances for the club.</description>
+<pubDate>Mon, 10 Nov 2026 11:00:00 GMT</pubDate>
+<guid>https://example.org/desk/inter-ricci-extension</guid>
+</item>
+<item>
+<title>Grassroots clubs welcome new pitch funding</title>
+<link>https://example.org/desk/grassroots-pitch-funding</link>
+<description>Local clubs across the country have welcomed new funding for artificial pitches. Organisers said the money would help more children play the game through the winter.</description>
+<pubDate>Mon, 10 Nov 2026 08:00:00 GMT</pubDate>
+<guid>https://example.org/desk/grassroots-pitch-funding</guid>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,381 @@
+Div,Date,HomeTeam,AwayTeam,FTHG,FTAG,FTR
+E0,06/08/2022,Brighton,Fulham,2,0,H
+E0,06/08/2022,Man United,West Ham,0,1,A
+E0,06/08/2022,Man City,Ipswich,7,0,H
+E0,06/08/2022,Crystal Palace,Chelsea,2,4,A
+E0,06/08/2022,Newcastle,Wolves,1,0,H
+E0,06/08/2022,Tottenham,Leicester,0,2,A
+E0,06/08/2022,Bournemouth,Southampton,1,1,D
+E0,06/08/2022,Arsenal,Everton,2,1,H
+E0,06/08/2022,Brentford,Liverpool,0,2,A
+E0,06/08/2022,Nott'm Forest,Aston Villa,4,1,H
+E0,13/08/2022,West Ham,Brighton,0,2,A
+E0,13/08/2022,Ipswich,Fulham,0,0,D
+E0,13/08/2022,Chelsea,Man United,2,0,H
+E0,13/08/2022,Wolves,Man City,1,5,A
+E0,13/08/2022,Leicester,Crystal Palace,0,1,A
+E0,13/08/2022,Southampton,Newcastle,1,2,A
+E0,13/08/2022,Everton,Tottenham,1,1,D
+E0,13/08/2022,Liverpool,Bournemouth,0,1,A
+E0,13/08/2022,Aston Villa,Arsenal,1,1,D
+E0,13/08/2022,Nott'm Forest,Brentford,1,0,H
+E0,20/08/2022,Brighton,Ipswich,2,0,H
+E0,20/08/2022,West Ham,Chelsea,4,1,H
+E0,20/08/2022,Fulham,Wolves,4,0,H
+E0,20/08/2022,Man United,Leicester,3,0,H
+E0,20/08/2022,Man City,Southampton,2,1,H
+E0,20/08/2022,Crystal Palace,Everton,2,1,H
+E0,20/08/2022,Newcastle,Liverpool,0,1,A
+E0,20/08/2022,Tottenham,Aston Villa,2,0,H
+E0,20/08/2022,Bournemouth,Nott'm Forest,2,0,H
+E0,20/08/2022,Arsenal,Brentford,3,1,H
+E0,27/08/2022,Chelsea,Brighton,2,2,D
+E0,27/08/2022,Wolves,Ipswich,3,2,H
+E0,27/08/2022,Leicester,West Ham,1,1,D
+E0,27/08/2022,Southampton,Fulham,2,2,D
+E0,27/08/2022,Everton,Man United,2,2,D
+E0,27/08/2022,Liverpool,Man City,2,4,A
+E0,27/08/2022,Aston Villa,Crystal Palace,1,0,H
+E0,27/08/2022,Nott'm Forest,Newcastle,1,2,A
+E0,27/08/2022,Brentford,Tottenham,0,2,A
+E0,27/08/2022,Arsenal,Bournemouth,2,5,A
+E0,03/09/2022,Brighton,Wolves,0,0,D
+E0,03/09/2022,Chelsea,Leicester,3,0,H
+E0,03/09/2022,Ipswich,Southampton,0,2,A
+E0,03/09/2022,West Ham,Everton,3,0,H
+E0,03/09/2022,Fulham,Liverpool,1,0,H
+E0,03/09/2022,Man United,Aston Villa,3,1,H
+E0,03/09/2022,Man City,Nott'm Forest,5,4,H
+E0,03/09/2022,Crystal Palace,Brentford,1,0,H
+E0,03/09/2022,Newcastle,Arsenal,0,1,A
+E0,03/09/2022,Tottenham,Bournemouth,1,1,D
+E0,10/09/2022,Leicester,Brighton,1,1,D
+E0,10/09/2022,Southampton,Wolves,2,3,A
+E0,10/09/2022,Everton,Chelsea,2,2,D
+E0,10/09/2022,Liverpool,Ipswich,4,1,H
+E0,10/09/2022,Aston Villa,West Ham,3,1,H
+E0,10/09/2022,Nott'm Forest,Fulham,1,0,H
+E0,10/09/2022,Brentford,Man United,1,2,A
+E0,10/09/2022,Arsenal,Man City,1,2,A
+E0,10/09/2022,Bournemouth,Crystal Palace,1,1,D
+E0,10/09/2022,Tottenham,Newcastle,3,2,H
+E0,17/09/2022,Brighton,Southampton,4,0,H
+E0,17/09/2022,Leicester,Everton,2,1,H
+E0,17/09/2022,Wolves,Liverpool,0,1,A
+E0,17/09/2022,Chelsea,Aston Villa,1,3,A
+E0,17/09/2022,Ipswich,Nott'm Forest,1,0,H
+E0,17/09/2022,West Ham,Brentford,3,1,H
+E0,17/09/2022,Fulham,Arsenal,1,1,D
+E0,17/09/2022,Man United,Bournemouth,0,1,A
+E0,17/09/2022,Man City,Tottenham,1,2,A
+E0,17/09/2022,Crystal Palace,Newcastle,1,0,H
+E0,24/09/2022,Everton,Brighton,1,1,D
+E0,24/09/2022,Liverpool,Southampton,2,0,H
+E0,24/09/2022,Aston Villa,Leicester,4,1,H
+E0,24/09/2022,Nott'm Forest,Wolves,2,1,H
+E0,24/09/2022,Brentford,Chelsea,1,0,H
+E0,24/09/2022,Arsenal,Ipswich,2,0,H
+E0,24/09/2022,Bournemouth,West Ham,2,0,H
+E0,24/09/2022,Tottenham,Fulham,4,1,H
+E0,24/09/2022,Newcastle,Man United,0,1,A
+E0,24/09/2022,Crystal Palace,Man City,1,3,A
+E0,01/10/2022,Brighton,Liverpool,2,2,D
+E0,01/10/2022,Everton,Aston Villa,1,2,A
+E0,01/10/2022,Southampton,Nott'm Forest,4,6,A
+E0,01/10/2022,Leicester,Brentford,2,1,H
+E0,01/10/2022,Wolves,Arsenal,0,2,A
+E0,01/10/2022,Chelsea,Bournemouth,0,2,A
+E0,01/10/2022,Ipswich,Tottenham,1,1,D
+E0,01/10/2022,West Ham,Newcastle,1,3,A
+E0,01/10/2022,Fulham,Crystal Palace,2,2,D
+E0,01/10/2022,Man United,Man City,1,3,A
+E0,08/10/2022,Aston Villa,Brighton,3,0,H
+E0,08/10/2022,Nott'm Forest,Liverpool,0,2,A
+E0,08/10/2022,Brentford,Everton,1,2,A
+E0,08/10/2022,Arsenal,Southampton,4,1,H
+E0,08/10/2022,Bournemouth,Leicester,2,3,A
+E0,08/10/2022,Tottenham,Wolves,2,2,D
+E0,08/10/2022,Newcastle,Chelsea,5,0,H
+E0,08/10/2022,Crystal Palace,Ipswich,1,0,H
+E0,08/10/2022,Man City,West Ham,3,0,H
+E0,08/10/2022,Man United,Fulham,3,1,H
+E0,16/10/2022,Brighton,Nott'm Forest,1,2,A
+E0,16/10/2022,Aston Villa,Brentford,5,0,H
+E0,16/10/2022,Liverpool,Arsenal,1,0,H
+E0,16/10/2022,Everton,Bournemouth,2,1,H
+E0,16/10/2022,Southampton,Tottenham,1,2,A
+E0,16/10/2022,Leicester,Newcastle,2,4,A
+E0,16/10/2022,Wolves,Crystal Palace,2,0,H
+E0,16/10/2022,Chelsea,Man City,2,2,D
+E0,16/10/2022,Ipswich,Man United,1,4,A
+E0,16/10/2022,West Ham,Fulham,6,0,H
+E0,23/10/2022,Brentford,Brighton,0,3,A
+E0,23/10/2022,Arsenal,Nott'm Forest,2,1,H
+E0,23/10/2022,Bournemouth,Aston Villa,2,0,H
+E0,23/10/2022,Tottenham,Liverpool,1,1,D
+E0,23/10/2022,Newcastle,Everton,0,1,A
+E0,23/10/2022,Crystal Palace,Southampton,6,2,H
+E0,23/10/2022,Man City,Leicester,3,1,H
+E0,23/10/2022,Man United,Wolves,3,1,H
+E0,23/10/2022,Fulham,Chelsea,3,2,H
+E0,23/10/2022,West Ham,Ipswich,3,0,H
+E0,30/10/2022,Brighton,Arsenal,2,1,H
+E0,30/10/2022,Brentford,Bournemouth,1,0,H
+E0,30/10/2022,Nott'm Forest,Tottenham,0,1,A
+E0,30/10/2022,Aston Villa,Newcastle,2,2,D
+E0,30/10/2022,Liverpool,Crystal Palace,1,1,D
+E0,30/10/2022,Everton,Man City,2,4,A
+E0,30/10/2022,Southampton,Man United,1,2,A
+E0,30/10/2022,Leicester,Fulham,3,4,A
+E0,30/10/2022,Wolves,West Ham,0,3,A
+E0,30/10/2022,Chelsea,Ipswich,2,2,D
+E0,06/11/2022,Bournemouth,Brighton,2,2,D
+E0,06/11/2022,Tottenham,Arsenal,0,0,D
+E0,06/11/2022,Newcastle,Brentford,2,1,H
+E0,06/11/2022,Crystal Palace,Nott'm Forest,1,1,D
+E0,06/11/2022,Man City,Aston Villa,4,2,H
+E0,06/11/2022,Man United,Liverpool,3,2,H
+E0,06/11/2022,Fulham,Everton,5,3,H
+E0,06/11/2022,West Ham,Southampton,2,2,D
+E0,06/11/2022,Ipswich,Leicester,3,1,H
+E0,06/11/2022,Chelsea,Wolves,1,2,A
+E0,13/11/2022,Brighton,Tottenham,1,2,A
+E0,13/11/2022,Bournemouth,Newcastle,0,2,A
+E0,13/11/2022,Arsenal,Crystal Palace,1,1,D
+E0,13/11/2022,Brentford,Man City,2,0,H
+E0,13/11/2022,Nott'm Forest,Man United,4,0,H
+E0,13/11/2022,Aston Villa,Fulham,1,1,D
+E0,13/11/2022,Liverpool,West Ham,2,2,D
+E0,13/11/2022,Everton,Ipswich,2,0,H
+E0,13/11/2022,Southampton,Chelsea,4,1,H
+E0,13/11/2022,Leicester,Wolves,7,1,H
+E0,20/11/2022,Newcastle,Brighton,1,2,A
+E0,20/11/2022,Crystal Palace,Tottenham,0,4,A
+E0,20/11/2022,Man City,Bournemouth,3,2,H
+E0,20/11/2022,Man United,Arsenal,0,0,D
+E0,20/11/2022,Fulham,Brentford,1,1,D
+E0,20/11/2022,West Ham,Nott'm Forest,2,0,H
+E0,20/11/2022,Ipswich,Aston Villa,1,2,A
+E0,20/11/2022,Chelsea,Liverpool,1,0,H
+E0,20/11/2022,Wolves,Everton,1,2,A
+E0,20/11/2022,Leicester,Southampton,2,2,D
+E0,27/11/2022,Brighton,Crystal Palace,1,2,A
+E0,27/11/2022,Newcastle,Man City,3,3,D
+E0,27/11/2022,Tottenham,Man United,3,1,H
+E0,27/11/2022,Bournemouth,Fulham,0,1,A
+E0,27/11/2022,Arsenal,West Ham,2,2,D
+E0,27/11/2022,Brentford,Ipswich,1,1,D
+E0,27/11/2022,Nott'm Forest,Chelsea,1,0,H
+E0,27/11/2022,Aston Villa,Wolves,4,1,H
+E0,27/11/2022,Liverpool,Leicester,5,0,H
+E0,27/11/2022,Everton,Southampton,3,1,H
+E0,04/12/2022,Man City,Brighton,1,2,A
+E0,04/12/2022,Man United,Crystal Palace,1,1,D
+E0,04/12/2022,Fulham,Newcastle,1,1,D
+E0,04/12/2022,West Ham,Tottenham,2,3,A
+E0,04/12/2022,Ipswich,Bournemouth,1,4,A
+E0,04/12/2022,Chelsea,Arsenal,2,1,H
+E0,04/12/2022,Wolves,Brentford,1,1,D
+E0,04/12/2022,Leicester,Nott'm Forest,0,2,A
+E0,04/12/2022,Southampton,Aston Villa,3,5,A
+E0,04/12/2022,Everton,Liverpool,0,1,A
+E0,11/12/2022,Brighton,Man United,0,3,A
+E0,11/12/2022,Man City,Fulham,0,1,A
+E0,11/12/2022,Crystal Palace,West Ham,2,1,H
+E0,11/12/2022,Newcastle,Ipswich,0,1,A
+E0,11/12/2022,Tottenham,Chelsea,1,4,A
+E0,11/12/2022,Bournemouth,Wolves,0,1,A
+E0,11/12/2022,Arsenal,Leicester,7,0,H
+E0,11/12/2022,Brentford,Southampton,2,2,D
+E0,11/12/2022,Nott'm Forest,Everton,2,3,A
+E0,11/12/2022,Aston Villa,Liverpool,2,2,D
+E0,18/12/2022,Fulham,Brighton,3,3,D
+E0,18/12/2022,West Ham,Man United,0,0,D
+E0,18/12/2022,Ipswich,Man City,0,3,A
+E0,18/12/2022,Chelsea,Crystal Palace,0,0,D
+E0,18/12/2022,Wolves,Newcastle,2,1,H
+E0,18/12/2022,Leicester,Tottenham,1,2,A
+E0,18/12/2022,Southampton,Bournemouth,0,3,A
+E0,18/12/2022,Everton,Arsenal,0,4,A
+E0,18/12/2022,Liverpool,Brentford,3,1,H
+E0,18/12/2022,Aston Villa,Nott'm Forest,2,2,D
+E0,26/12/2022,Brighton,West Ham,3,1,H
+E0,26/12/2022,Fulham,Ipswich,3,0,H
+E0,26/12/2022,Man United,Chelsea,3,1,H
+E0,26/12/2022,Man City,Wolves,5,2,H
+E0,26/12/2022,Crystal Palace,Leicester,1,0,H
+E0,26/12/2022,Newcastle,Southampton,7,0,H
+E0,26/12/2022,Tottenham,Everton,1,0,H
+E0,26/12/2022,Bournemouth,Liverpool,1,3,A
+E0,26/12/2022,Arsenal,Aston Villa,1,2,A
+E0,26/12/2022,Brentford,Nott'm Forest,1,1,D
+E0,02/01/2023,Ipswich,Brighton,4,1,H
+E0,02/01/2023,Chelsea,West Ham,4,1,H
+E0,02/01/2023,Wolves,Fulham,3,0,H
+E0,02/01/2023,Leicester,Man United,3,1,H
+E0,02/01/2023,Southampton,Man City,2,0,H
+E0,02/01/2023,Everton,Crystal Palace,2,0,H
+E0,02/01/2023,Liverpool,Newcastle,3,1,H
+E0,02/01/2023,Aston Villa,Tottenham,1,2,A
+E0,02/01/2023,Nott'm Forest,Bournemouth,2,1,H
+E0,02/01/2023,Brentford,Arsenal,1,3,A
+E0,09/01/2023,Brighton,Chelsea,0,1,A
+E0,09/01/2023,Ipswich,Wolves,2,3,A
+E0,09/01/2023,West Ham,Leicester,2,2,D
+E0,09/01/2023,Fulham,Southampton,2,1,H
+E0,09/01/2023,Man United,Everton,1,3,A
+E0,09/01/2023,Man City,Liverpool,3,0,H
+E0,09/01/2023,Crystal Palace,Aston Villa,0,4,A
+E0,09/01/2023,Newcastle,Nott'm Forest,4,0,H
+E0,09/01/2023,Tottenham,Brentford,2,0,H
+E0,09/01/2023,Bournemouth,Arsenal,2,0,H
+E0,16/01/2023,Wolves,Brighton,2,1,H
+E0,16/01/2023,Leicester,Chelsea,1,5,A
+E0,16/01/2023,Southampton,Ipswich,1,1,D
+E0,16/01/2023,Everton,West Ham,1,2,A
+E0,16/01/2023,Liverpool,Fulham,0,1,A
+E0,16/01/2023,Aston Villa,Man United,1,0,H
+E0,16/01/2023,Nott'm Forest,Man City,2,1,H
+E0,16/01/2023,Brentford,Crystal Palace,3,0,H
+E0,16/01/2023,Arsenal,Newcastle,0,1,A
+E0,16/01/2023,Bournemouth,Tottenham,1,0,H
+E0,23/01/2023,Brighton,Leicester,2,0,H
+E0,23/01/2023,Wolves,Southampton,2,3,A
+E0,23/01/2023,Chelsea,Everton,3,0,H
+E0,23/01/2023,Ipswich,Liverpool,0,5,A
+E0,23/01/2023,West Ham,Aston Villa,0,0,D
+E0,23/01/2023,Fulham,Nott'm Forest,1,0,H
+E0,23/01/2023,Man United,Brentford,2,0,H
+E0,23/01/2023,Man City,Arsenal,5,2,H
+E0,23/01/2023,Crystal Palace,Bournemouth,1,2,A
+E0,23/01/2023,Newcastle,Tottenham,1,1,D
+E0,30/01/2023,Southampton,Brighton,1,2,A
+E0,30/01/2023,Everton,Leicester,1,1,D
+E0,30/01/2023,Liverpool,Wolves,3,0,H
+E0,30/01/2023,Aston Villa,Chelsea,1,0,H
+E0,30/01/2023,Nott'm Forest,Ipswich,6,0,H
+E0,30/01/2023,Brentford,West Ham,1,0,H
+E0,30/01/2023,Arsenal,Fulham,2,0,H
+E0,30/01/2023,Bournemouth,Man United,4,2,H
+E0,30/01/2023,Tottenham,Man City,1,2,A
+E0,30/01/2023,Newcastle,Crystal Palace,2,1,H
+E0,06/02/2023,Brighton,Everton,1,1,D
+E0,06/02/2023,Southampton,Liverpool,2,4,A
+E0,06/02/2023,Leicester,Aston Villa,2,1,H
+E0,06/02/2023,Wolves,Nott'm Forest,4,0,H
+E0,06/02/2023,Chelsea,Brentford,2,0,H
+E0,06/02/2023,Ipswich,Arsenal,0,4,A
+E0,06/02/2023,West Ham,Bournemouth,2,3,A
+E0,06/02/2023,Fulham,Tottenham,1,2,A
+E0,06/02/2023,Man United,Newcastle,0,0,D
+E0,06/02/2023,Man City,Crystal Palace,1,1,D
+E0,13/02/2023,Liverpool,Brighton,2,1,H
+E0,13/02/2023,Aston Villa,Everton,1,0,H
+E0,13/02/2023,Nott'm Forest,Southampton,2,1,H
+E0,13/02/2023,Brentford,Leicester,1,0,H
+E0,13/02/2023,Arsenal,Wolves,1,0,H
+E0,13/02/2023,Bournemouth,Chelsea,2,2,D
+E0,13/02/2023,Tottenham,Ipswich,6,2,H
+E0,13/02/2023,Newcastle,West Ham,1,0,H
+E0,13/02/2023,Crystal Palace,Fulham,2,0,H
+E0,13/02/2023,Man City,Man United,4,1,H
+E0,20/02/2023,Brighton,Aston Villa,2,0,H
+E0,20/02/2023,Liverpool,Nott'm Forest,3,0,H
+E0,20/02/2023,Everton,Brentford,3,0,H
+E0,20/02/2023,Southampton,Arsenal,1,1,D
+E0,20/02/2023,Leicester,Bournemouth,2,1,H
+E0,20/02/2023,Wolves,Tottenham,2,4,A
+E0,20/02/2023,Chelsea,Newcastle,0,3,A
+E0,20/02/2023,Ipswich,Crystal Palace,5,1,H
+E0,20/02/2023,West Ham,Man City,0,2,A
+E0,20/02/2023,Fulham,Man United,2,2,D
+E0,27/02/2023,Nott'm Forest,Brighton,2,1,H
+E0,27/02/2023,Brentford,Aston Villa,2,2,D
+E0,27/02/2023,Arsenal,Liverpool,1,2,A
+E0,27/02/2023,Bournemouth,Everton,2,1,H
+E0,27/02/2023,Tottenham,Southampton,5,1,H
+E0,27/02/2023,Newcastle,Leicester,1,0,H
+E0,27/02/2023,Crystal Palace,Wolves,1,2,A
+E0,27/02/2023,Man City,Chelsea,2,1,H
+E0,27/02/2023,Man United,Ipswich,2,0,H
+E0,27/02/2023,Fulham,West Ham,0,1,A
+E0,07/03/2023,Brighton,Brentford,4,2,H
+E0,07/03/2023,Nott'm Forest,Arsenal,0,3,A
+E0,07/03/2023,Aston Villa,Bournemouth,3,0,H
+E0,07/03/2023,Liverpool,Tottenham,1,1,D
+E0,07/03/2023,Everton,Newcastle,0,2,A
+E0,07/03/2023,Southampton,Crystal Palace,0,1,A
+E0,07/03/2023,Leicester,Man City,2,0,H
+E0,07/03/2023,Wolves,Man United,1,1,D
+E0,07/03/2023,Chelsea,Fulham,0,1,A
+E0,07/03/2023,Ipswich,West Ham,0,5,A
+E0,14/03/2023,Arsenal,Brighton,1,1,D
+E0,14/03/2023,Bournemouth,Brentford,3,1,H
+E0,14/03/2023,Tottenham,Nott'm Forest,2,0,H
+E0,14/03/2023,Newcastle,Aston Villa,2,1,H
+E0,14/03/2023,Crystal Palace,Liverpool,1,3,A
+E0,14/03/2023,Man City,Everton,6,0,H
+E0,14/03/2023,Man United,Southampton,8,1,H
+E0,14/03/2023,Fulham,Leicester,2,1,H
+E0,14/03/2023,West Ham,Wolves,3,1,H
+E0,14/03/2023,Ipswich,Chelsea,1,2,A
+E0,21/03/2023,Brighton,Bournemouth,0,3,A
+E0,21/03/2023,Arsenal,Tottenham,1,0,H
+E0,21/03/2023,Brentford,Newcastle,1,3,A
+E0,21/03/2023,Nott'm Forest,Crystal Palace,1,0,H
+E0,21/03/2023,Aston Villa,Man City,2,3,A
+E0,21/03/2023,Liverpool,Man United,3,1,H
+E0,21/03/2023,Everton,Fulham,1,1,D
+E0,21/03/2023,Southampton,West Ham,0,1,A
+E0,21/03/2023,Leicester,Ipswich,2,2,D
+E0,21/03/2023,Wolves,Chelsea,3,1,H
+E0,28/03/2023,Tottenham,Brighton,1,0,H
+E0,28/03/2023,Newcastle,Bournemouth,3,1,H
+E0,28/03/2023,Crystal Palace,Arsenal,0,2,A
+E0,28/03/2023,Man City,Brentford,3,0,H
+E0,28/03/2023,Man United,Nott'm Forest,1,3,A
+E0,28/03/2023,Fulham,Aston Villa,1,2,A
+E0,28/03/2023,West Ham,Liverpool,1,2,A
+E0,28/03/2023,Ipswich,Everton,1,2,A
+E0,28/03/2023,Chelsea,Southampton,3,0,H
+E0,28/03/2023,Wolves,Leicester,3,1,H
+E0,04/04/2023,Brighton,Newcastle,3,1,H
+E0,04/04/2023,Tottenham,Crystal Palace,2,1,H
+E0,04/04/2023,Bournemouth,Man City,1,0,H
+E0,04/04/2023,Arsenal,Man United,2,3,A
+E0,04/04/2023,Brentford,Fulham,0,0,D
+E0,04/04/2023,Nott'm Forest,West Ham,2,1,H
+E0,04/04/2023,Aston Villa,Ipswich,1,0,H
+E0,04/04/2023,Liverpool,Chelsea,1,1,D
+E0,04/04/2023,Everton,Wolves,0,1,A
+E0,04/04/2023,Southampton,Leicester,0,1,A
+E0,11/04/2023,Crystal Palace,Brighton,1,1,D
+E0,11/04/2023,Man City,Newcastle,2,2,D
+E0,11/04/2023,Man United,Tottenham,0,0,D
+E0,11/04/2023,Fulham,Bournemouth,1,2,A
+E0,11/04/2023,West Ham,Arsenal,2,0,H
+E0,11/04/2023,Ipswich,Brentford,0,2,A
+E0,11/04/2023,Chelsea,Nott'm Forest,4,1,H
+E0,11/04/2023,Wolves,Aston Villa,2,2,D
+E0,11/04/2023,Leicester,Liverpool,0,4,A
+E0,11/04/2023,Southampton,Everton,0,1,A
+E0,18/04/2023,Brighton,Man City,4,1,H
+E0,18/04/2023,Crystal Palace,Man United,0,0,D
+E0,18/04/2023,Newcastle,Fulham,0,1,A
+E0,18/04/2023,Tottenham,West Ham,2,1,H
+E0,18/04/2023,Bournemouth,Ipswich,1,3,A
+E0,18/04/2023,Arsenal,Chelsea,3,0,H
+E0,18/04/2023,Brentford,Wolves,0,1,A
+E0,18/04/2023,Nott'm Forest,Leicester,2,1,H
+E0,18/04/2023,Aston Villa,Southampton,3,1,H
+E0,18/04/2023,Liverpool,Everton,2,1,H
+E0,25/04/2023,Man United,Brighton,3,1,H
+E0,25/04/2023,Fulham,Man City,0,2,A
+E0,25/04/2023,West Ham,Crystal Palace,0,1,A
+E0,25/04/2023,Ipswich,Newcastle,2,1,H
+E0,25/04/2023,Chelsea,Tottenham,2,3,A
+E0,25/04/2023,Wolves,Bournemouth,2,0,H
+E0,25/04/2023,Leicester,Arsenal,0,4,A
+E0,25/04/2023,Southampton,Brentford,1,0,H
+E0,25/04/2023,Everton,Nott'm Forest,3,2,H
+E0,25/04/2023,Liverpool,Aston Villa,0,5,A

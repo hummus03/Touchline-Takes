@@ -1,0 +1,284 @@
+{
+ "Arsenal": {
+  "league": "Premier League",
+  "data_name": "Arsenal",
+  "aliases": [
+   "Arsenal",
+   "Gunners"
+  ]
+ },
+ "Aston Villa": {
+  "league": "Premier League",
+  "data_name": "Aston Villa",
+  "aliases": [
+   "Aston Villa"
+  ]
+ },
+ "Bournemouth": {
+  "league": "Premier League",
+  "data_name": "Bournemouth",
+  "aliases": [
+   "Bournemouth",
+   "Cherries"
+  ]
+ },
+ "Brentford": {
+  "league": "Premier League",
+  "data_name": "Brentford",
+  "aliases": [
+   "Brentford"
+  ]
+ },
+ "Brighton": {
+  "league": "Premier League",
+  "data_name": "Brighton",
+  "aliases": [
+   "Brighton",
+   "Brighton & Hove Albion",
+   "Seagulls"
+  ]
+ },
+ "Chelsea": {
+  "league": "Premier League",
+  "data_name": "Chelsea",
+  "aliases": [
+   "Chelsea"
+  ]
+ },
+ "Crystal Palace": {
+  "league": "Premier League",
+  "data_name": "Crystal Palace",
+  "aliases": [
+   "Crystal Palace"
+  ]
+ },
+ "Everton": {
+  "league": "Premier League",
+  "data_name": "Everton",
+  "aliases": [
+   "Everton",
+   "Toffees"
+  ]
+ },
+ "Fulham": {
+  "league": "Premier League",
+  "data_name": "Fulham",
+  "aliases": [
+   "Fulham",
+   "Cottagers"
+  ]
+ },
+ "Ipswich": {
+  "league": "Premier League",
+  "data_name": "Ipswich",
+  "aliases": [
+   "Ipswich",
+   "Ipswich Town"
+  ]
+ },
+ "Leicester": {
+  "league": "Premier League",
+  "data_name": "Leicester",
+  "aliases": [
+   "Leicester",
+   "Leicester City",
+   "Foxes"
+  ]
+ },
+ "Liverpool": {
+  "league": "Premier League",
+  "data_name": "Liverpool",
+  "aliases": [
+   "Liverpool"
+  ]
+ },
+ "Manchester City": {
+  "league": "Premier League",
+  "data_name": "Man City",
+  "aliases": [
+   "Manchester City",
+   "Man City"
+  ]
+ },
+ "Manchester United": {
+  "league": "Premier League",
+  "data_name": "Man United",
+  "aliases": [
+   "Manchester United",
+   "Man United",
+   "Man Utd"
+  ]
+ },
+ "Newcastle": {
+  "league": "Premier League",
+  "data_name": "Newcastle",
+  "aliases": [
+   "Newcastle",
+   "Newcastle United",
+   "Magpies"
+  ]
+ },
+ "Nottingham Forest": {
+  "league": "Premier League",
+  "data_name": "Nott'm Forest",
+  "aliases": [
+   "Nottingham Forest",
+   "Nott'm Forest"
+  ]
+ },
+ "Southampton": {
+  "league": "Premier League",
+  "data_name": "Southampton",
+  "aliases": [
+   "Southampton"
+  ]
+ },
+ "Tottenham": {
+  "league": "Premier League",
+  "data_name": "Tottenham",
+  "aliases": [
+   "Tottenham",
+   "Tottenham Hotspur",
+   "Spurs"
+  ]
+ },
+ "West Ham": {
+  "league": "Premier League",
+  "data_name": "West Ham",
+  "aliases": [
+   "West Ham",
+   "West Ham United",
+   "Hammers"
+  ]
+ },
+ "Wolves": {
+  "league": "Premier League",
+  "data_name": "Wolves",
+  "aliases": [
+   "Wolves",
+   "Wolverhampton Wanderers",
+   "Wolverhampton"
+  ]
+ },
+ "Real Madrid": {
+  "league": "La Liga",
+  "data_name": "Real Madrid",
+  "aliases": [
+   "Real Madrid"
+  ]
+ },
+ "Barcelona": {
+  "league": "La Liga",
+  "data_name": "Barcelona",
+  "aliases": [
+   "Barcelona",
+   "Barca"
+  ]
+ },
+ "Atletico Madrid": {
+  "league": "La Liga",
+  "data_name": "Atletico Madrid",
+  "aliases": [
+   "Atletico Madrid",
+   "Atlético Madrid",
+   "Atletico"
+  ]
+ },
+ "Sevilla": {
+  "league": "La Liga",
+  "data_name": "Sevilla",
+  "aliases": [
+   "Sevilla"
+  ]
+ },
+ "Inter Milan": {
+  "league": "Serie A",
+  "data_name": "Inter Milan",
+  "aliases": [
+   "Inter Milan"
+  ]
+ },
+ "AC Milan": {
+  "league": "Serie A",
+  "data_name": "AC Milan",
+  "aliases": [
+   "AC Milan"
+  ]
+ },
+ "Juventus": {
+  "league": "Serie A",
+  "data_name": "Juventus",
+  "aliases": [
+   "Juventus",
+   "Juve"
+  ]
+ },
+ "Napoli": {
+  "league": "Serie A",
+  "data_name": "Napoli",
+  "aliases": [
+   "Napoli"
+  ]
+ },
+ "Bayern Munich": {
+  "league": "Bundesliga",
+  "data_name": "Bayern Munich",
+  "aliases": [
+   "Bayern Munich",
+   "Bayern"
+  ]
+ },
+ "Borussia Dortmund": {
+  "league": "Bundesliga",
+  "data_name": "Borussia Dortmund",
+  "aliases": [
+   "Borussia Dortmund",
+   "Dortmund"
+  ]
+ },
+ "Bayer Leverkusen": {
+  "league": "Bundesliga",
+  "data_name": "Bayer Leverkusen",
+  "aliases": [
+   "Bayer Leverkusen",
+   "Leverkusen"
+  ]
+ },
+ "Paris Saint-Germain": {
+  "league": "Ligue 1",
+  "data_name": "Paris Saint-Germain",
+  "aliases": [
+   "Paris Saint-Germain",
+   "PSG"
+  ]
+ },
+ "Marseille": {
+  "league": "Ligue 1",
+  "data_name": "Marseille",
+  "aliases": [
+   "Marseille"
+  ]
+ },
+ "Celtic": {
+  "league": "Scottish Premiership",
+  "data_name": "Celtic",
+  "aliases": [
+   "Celtic"
+  ]
+ },
+ "Rangers": {
+  "league": "Scottish Premiership",
+  "data_name": "Rangers",
+  "aliases": [
+   "Rangers"
+  ]
+ },
+ "Hearts": {
+  "league": "Scottish Premiership",
+  "data_name": "Hearts",
+  "aliases": [
+   "Hearts",
+   "Heart of Midlothian"
+  ]
+ }
+}
