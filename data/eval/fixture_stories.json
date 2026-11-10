@@ -1,5 +1,5 @@
 {
- "description": "Fixture stories with known-good expectations for scripts/evaluate.py. Fictional events and people.",
+ "description": "Fixture stories with known-good expectations for scripts/evaluate.py. Fictional events and people. Labels were written by hand from the story text; expect_outcome is set only where the right newsroom decision is clear-cut.",
  "stories": [
   {
    "title": "Arsenal beat Chelsea 2-1 in tense London derby",
@@ -17,7 +17,8 @@
    "expect_outcome": "published",
    "url": "https://example.com/eval/1",
    "source": "Eval Wire",
-   "published": "2026-11-02T12:00:00+00:00"
+   "published": "2026-11-02T12:00:00+00:00",
+   "inject_contradiction": false
   },
   {
    "title": "Liverpool held to goalless draw by Everton",
@@ -35,7 +36,8 @@
    "url": "https://example.com/eval/2",
    "source": "Eval Wire",
    "published": "2026-11-03T12:00:00+00:00",
-   "inject_hallucination": false
+   "inject_hallucination": false,
+   "inject_contradiction": false
   },
   {
    "title": "Tottenham boss sacked after 3-0 defeat at Brentford",
@@ -53,7 +55,8 @@
    "expect_outcome": "published",
    "url": "https://example.com/eval/3",
    "source": "Eval Wire",
-   "published": "2026-11-04T12:00:00+00:00"
+   "published": "2026-11-04T12:00:00+00:00",
+   "inject_contradiction": false
   },
   {
    "title": "Newcastle in talks to sign Dortmund winger Felix Amari",
@@ -71,7 +74,8 @@
    "url": "https://example.com/eval/4",
    "source": "Eval Wire",
    "published": "2026-11-05T12:00:00+00:00",
-   "inject_hallucination": false
+   "inject_hallucination": false,
+   "inject_contradiction": false
   },
   {
    "title": "Aston Villa captain ruled out for six weeks with hamstring injury",
@@ -89,7 +93,8 @@
    "url": "https://example.com/eval/5",
    "source": "Eval Wire",
    "published": "2026-11-06T12:00:00+00:00",
-   "inject_hallucination": false
+   "inject_hallucination": false,
+   "inject_contradiction": false
   },
   {
    "title": "VAR row as Brighton denied late penalty against West Ham",
@@ -107,7 +112,8 @@
    "url": "https://example.com/eval/6",
    "source": "Eval Wire",
    "published": "2026-11-07T12:00:00+00:00",
-   "inject_hallucination": false
+   "inject_hallucination": false,
+   "inject_contradiction": false
   },
   {
    "title": "Manchester City thrash Wolves 4-0",
@@ -125,7 +131,8 @@
    "url": "https://example.com/eval/7",
    "source": "Eval Wire",
    "published": "2026-11-08T12:00:00+00:00",
-   "inject_hallucination": false
+   "inject_hallucination": false,
+   "inject_contradiction": false
   },
   {
    "title": "Real Madrid stunned 2-0 by Sevilla in La Liga upset",
@@ -144,7 +151,8 @@
    "url": "https://example.com/eval/8",
    "source": "Eval Wire",
    "published": "2026-11-09T12:00:00+00:00",
-   "inject_hallucination": false
+   "inject_hallucination": false,
+   "inject_contradiction": false
   },
   {
    "title": "Celtic beat Rangers 3-1 to extend Scottish Premiership lead",
@@ -162,7 +170,8 @@
    "url": "https://example.com/eval/9",
    "source": "Eval Wire",
    "published": "2026-11-01T12:00:00+00:00",
-   "inject_hallucination": false
+   "inject_hallucination": false,
+   "inject_contradiction": false
   },
   {
    "title": "Inter Milan agree contract extension with Paolo Ricci",
@@ -179,7 +188,281 @@
    "url": "https://example.com/eval/10",
    "source": "Eval Wire",
    "published": "2026-11-02T12:00:00+00:00",
+   "inject_hallucination": false,
+   "inject_contradiction": false
+  },
+  {
+   "title": "Manchester United lost 2-1 to Fulham at Old Trafford",
+   "summary": "Manchester United lost 2-1 at home to Fulham on Sunday. Fulham winger Ade Bankole scored the winner in the 88th minute, leaving United 13th in the Premier League.",
+   "expected": {
+    "league": "Premier League",
+    "teams": [
+     "Manchester United",
+     "Fulham"
+    ],
+    "topic": "match_report",
+    "sentiment": "negative"
+   },
+   "inject_contradiction": true,
+   "expect_outcome": "published",
+   "url": "https://example.com/eval/11",
+   "source": "Eval Wire",
+   "published": "2026-11-03T12:00:00+00:00",
    "inject_hallucination": false
+  },
+  {
+   "title": "Paris Saint-Germain beaten 1-0 by Marseille",
+   "summary": "Paris Saint-Germain were beaten 1-0 by Marseille at the Velodrome, their first Ligue 1 defeat in 11 matches. Midfielder Yanis Belkacem scored the only goal.",
+   "expected": {
+    "league": "Ligue 1",
+    "teams": [
+     "Paris Saint-Germain",
+     "Marseille"
+    ],
+    "topic": "match_report",
+    "sentiment": "negative"
+   },
+   "url": "https://example.com/eval/12",
+   "source": "Eval Wire",
+   "published": "2026-11-04T12:00:00+00:00",
+   "inject_hallucination": false,
+   "inject_contradiction": false
+  },
+  {
+   "title": "Juventus and Napoli draw 2-2 in Turin",
+   "summary": "Juventus drew 2-2 with Napoli in Turin. Napoli striker Marco Bellini scored twice in nine minutes before Juventus hit back late.",
+   "expected": {
+    "league": "Serie A",
+    "teams": [
+     "Juventus",
+     "Napoli"
+    ],
+    "topic": "match_report",
+    "sentiment": "neutral"
+   },
+   "url": "https://example.com/eval/13",
+   "source": "Eval Wire",
+   "published": "2026-11-05T12:00:00+00:00",
+   "inject_hallucination": false,
+   "inject_contradiction": false
+  },
+  {
+   "title": "Chelsea appoint Lukas Brandt as head coach",
+   "summary": "Chelsea have appointed Lukas Brandt as head coach on a three-year contract after the departure of their previous boss.",
+   "expected": {
+    "league": "Premier League",
+    "teams": [
+     "Chelsea"
+    ],
+    "topic": "manager",
+    "sentiment": "neutral"
+   },
+   "url": "https://example.com/eval/14",
+   "source": "Eval Wire",
+   "published": "2026-11-06T12:00:00+00:00",
+   "inject_hallucination": false,
+   "inject_contradiction": false
+  },
+  {
+   "title": "Liverpool striker ruled out for three months with knee injury",
+   "summary": "Liverpool striker Darwin Ekong will miss three months after knee surgery, a blow to the Premier League leaders before the busy winter schedule.",
+   "expected": {
+    "league": "Premier League",
+    "teams": [
+     "Liverpool"
+    ],
+    "topic": "injury",
+    "sentiment": "negative"
+   },
+   "url": "https://example.com/eval/15",
+   "source": "Eval Wire",
+   "published": "2026-11-07T12:00:00+00:00",
+   "inject_hallucination": false,
+   "inject_contradiction": false
+  },
+  {
+   "title": "Everton complete loan signing of Wolves forward Jay Rivers",
+   "summary": "Everton have completed the loan signing of Wolves forward Jay Rivers until the end of the season. The 21-year-old scored 4 goals for Wolves last season.",
+   "expected": {
+    "league": "Premier League",
+    "teams": [
+     "Everton",
+     "Wolves"
+    ],
+    "topic": "transfer",
+    "sentiment": "neutral"
+   },
+   "expect_outcome": "published",
+   "url": "https://example.com/eval/16",
+   "source": "Eval Wire",
+   "published": "2026-11-08T12:00:00+00:00",
+   "inject_hallucination": false,
+   "inject_contradiction": false
+  },
+  {
+   "title": "Newcastle thrash Southampton 5-0 at St James' Park",
+   "summary": "Newcastle thrashed Southampton 5-0 at St James' Park. Striker Callum Weir scored a hat-trick as Newcastle climbed to fourth in the Premier League.",
+   "expected": {
+    "league": "Premier League",
+    "teams": [
+     "Newcastle",
+     "Southampton"
+    ],
+    "topic": "match_report",
+    "sentiment": "positive"
+   },
+   "inject_hallucination": true,
+   "inject_contradiction": true,
+   "expect_outcome": "published",
+   "url": "https://example.com/eval/17",
+   "source": "Eval Wire",
+   "published": "2026-11-09T12:00:00+00:00"
+  },
+  {
+   "title": "Brentford fined after players surround referee",
+   "summary": "Brentford have been fined after players surrounded the referee during their defeat to Crystal Palace. The club said it would not appeal the decision.",
+   "expected": {
+    "league": "Premier League",
+    "teams": [
+     "Brentford",
+     "Crystal Palace"
+    ],
+    "topic": "discipline",
+    "sentiment": "negative"
+   },
+   "expect_outcome": "published",
+   "url": "https://example.com/eval/18",
+   "source": "Eval Wire",
+   "published": "2026-11-01T12:00:00+00:00",
+   "inject_hallucination": false,
+   "inject_contradiction": false
+  },
+  {
+   "title": "Celtic boss Rory Quinn signs new contract",
+   "summary": "Celtic manager Rory Quinn has signed a new contract until 2029 after leading the club to back-to-back titles.",
+   "expected": {
+    "league": "Scottish Premiership",
+    "teams": [
+     "Celtic"
+    ],
+    "topic": "manager",
+    "sentiment": "neutral"
+   },
+   "url": "https://example.com/eval/19",
+   "source": "Eval Wire",
+   "published": "2026-11-02T12:00:00+00:00",
+   "inject_hallucination": false,
+   "inject_contradiction": false
+  },
+  {
+   "title": "Bayern Munich come from behind to win 3-2 at Bayer Leverkusen",
+   "summary": "Bayern Munich scored twice in the final ten minutes to win 3-2 at Bayer Leverkusen in the Bundesliga. Substitute Jonas Weber struck the winner in stoppage time to send Bayern top.",
+   "expected": {
+    "league": "Bundesliga",
+    "teams": [
+     "Bayern Munich",
+     "Bayer Leverkusen"
+    ],
+    "topic": "match_report",
+    "sentiment": "positive"
+   },
+   "url": "https://example.com/eval/20",
+   "source": "Eval Wire",
+   "published": "2026-11-03T12:00:00+00:00",
+   "inject_hallucination": false,
+   "inject_contradiction": false
+  },
+  {
+   "title": "Aston Villa stun Manchester City with 1-0 win",
+   "summary": "Aston Villa stunned Manchester City with a 1-0 win at Villa Park. Defender Ollie Grant headed the only goal as City suffered a third straight defeat.",
+   "expected": {
+    "league": "Premier League",
+    "teams": [
+     "Aston Villa",
+     "Manchester City"
+    ],
+    "topic": "match_report",
+    "sentiment": "positive"
+   },
+   "inject_contradiction": true,
+   "expect_outcome": "published",
+   "url": "https://example.com/eval/21",
+   "source": "Eval Wire",
+   "published": "2026-11-04T12:00:00+00:00",
+   "inject_hallucination": false
+  },
+  {
+   "title": "England name squad for World Cup qualifiers",
+   "summary": "England have named their squad for next month's World Cup qualifiers, with three uncapped players included.",
+   "expected": {
+    "league": "International",
+    "teams": [],
+    "topic": "general",
+    "sentiment": "neutral"
+   },
+   "expect_outcome": "not drafted",
+   "url": "https://example.com/eval/22",
+   "source": "Eval Wire",
+   "published": "2026-11-05T12:00:00+00:00",
+   "inject_hallucination": false,
+   "inject_contradiction": false
+  },
+  {
+   "title": "West Ham held 2-2 by Bournemouth after late equaliser",
+   "summary": "West Ham were held to a 2-2 draw by Bournemouth at the London Stadium. Bournemouth defender Kofi Asante equalised in the 90th minute.",
+   "expected": {
+    "league": "Premier League",
+    "teams": [
+     "West Ham",
+     "Bournemouth"
+    ],
+    "topic": "match_report",
+    "sentiment": "negative"
+   },
+   "expect_outcome": "published",
+   "url": "https://example.com/eval/23",
+   "source": "Eval Wire",
+   "published": "2026-11-06T12:00:00+00:00",
+   "inject_hallucination": false,
+   "inject_contradiction": false
+  },
+  {
+   "title": "Crystal Palace winger handed three-match ban for red card",
+   "summary": "Crystal Palace winger Eze Martins has been handed a three-match ban after his red card against Everton. Palace will appeal, calling the decision harsh.",
+   "expected": {
+    "league": "Premier League",
+    "teams": [
+     "Crystal Palace",
+     "Everton"
+    ],
+    "topic": "discipline",
+    "sentiment": "negative"
+   },
+   "expect_outcome": "published",
+   "url": "https://example.com/eval/24",
+   "source": "Eval Wire",
+   "published": "2026-11-07T12:00:00+00:00",
+   "inject_hallucination": false,
+   "inject_contradiction": false
+  },
+  {
+   "title": "Ipswich beat Leicester 2-0 for first win of the season",
+   "summary": "Ipswich beat Leicester 2-0 to earn their first Premier League win of the season. Goalkeeper Ben Hollis kept a clean sheet.",
+   "expected": {
+    "league": "Premier League",
+    "teams": [
+     "Ipswich",
+     "Leicester"
+    ],
+    "topic": "match_report",
+    "sentiment": "positive"
+   },
+   "expect_outcome": "published",
+   "url": "https://example.com/eval/25",
+   "source": "Eval Wire",
+   "published": "2026-11-08T12:00:00+00:00",
+   "inject_hallucination": false,
+   "inject_contradiction": false
   }
  ]
 }

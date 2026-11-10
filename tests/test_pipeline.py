@@ -68,3 +68,11 @@ def test_cli_runs_once(settings, monkeypatch, capsys):
     assert main(["--offline", "--auto-publish", "--quiet"]) == 0
     out = capsys.readouterr().out
     assert '"published"' in out and "Summary" in out
+
+
+def test_llm_verifier_is_wired_from_settings(settings):
+    """FACTCHECK_VERIFIER=llm attaches the verifier when an LLM is configured."""
+    room = Newsroom.build(settings.with_overrides(factcheck_verifier="llm"),
+                          llm=ScriptedWriterLLM())
+    assert room.factcheck.verifier is not None
+    assert Newsroom.build(settings).factcheck.verifier is None

@@ -21,6 +21,7 @@ from touchline_takes.agents.base import Agent
 from touchline_takes.db import Database
 from touchline_takes.state import Draft, Evidence, NewsroomState, Story
 from touchline_takes.tools.llm import LLMClient, LLMError
+from touchline_takes.tools.relations import extract_results
 from touchline_takes.tools.stats import ResultsStore
 from touchline_takes.tools.teams import TeamDirectory
 from touchline_takes.tools.text import split_paragraphs
@@ -218,8 +219,8 @@ class WriterAgent(Agent):
         skip = {t.lower() for t in story.teams} | {
             a.lower() for t in story.teams for a in self.teams.aliases(t)}
         names = []
-        for match in re.finditer(r"(?:[A-Z][a-zà-ÿ'’\-]+\s){1,3}[A-Z][a-zà-ÿ'’\-]+",
-                                 story.summary):
+        word = r"[A-Z][a-zà-ÿ'’]+(?:-[A-Z]?[a-zà-ÿ'’]+)*"  # allows "Saint-Germain"
+        for match in re.finditer(rf"(?:{word}\s){{1,3}}{word}", story.summary):
             words = match.group(0).split()
             while words and words[0].lower() in ROLE_WORDS:
                 words = words[1:]
@@ -231,20 +232,15 @@ class WriterAgent(Agent):
                 names.append(name)
         return names[:2]
 
-    @staticmethod
-    def _result_fact(story: Story, teams: list[str], score: re.Match) -> str:
+    def _result_fact(self, story: Story, teams: list[str], score: re.Match) -> str:
         """Phrase the result, naming the winner only when the source makes it unambiguous."""
-        high, low = sorted((int(score.group(1)), int(score.group(2))), reverse=True)
-        first, second = teams[0], teams[1]
-        if high == low:
-            return f"{first} and {second} drew {high}-{low}"
-        title = story.title.lower()
-        if re.search(r"\b(stunned|beaten|thrashed|defeated|humbled)\b.*\bby\b", title):
-            return f"{second} beat {first} {high}-{low}"
-        if re.search(r"\b(beat|beats|thrash\w*|win|wins|won|victory|come from behind)\b",
-                     title):
-            return f"{first} beat {second} {high}-{low}"
-        return f"The game between {first} and {second} ended {score.group(0)}"
+        pair = frozenset(teams[:2])
+        for result in extract_results(story.text, self.teams):
+            if result.teams == pair:
+                if result.draw or result.winner:
+                    return result.describe()
+                break
+        return f"The game between {teams[0]} and {teams[1]} ended {score.group(0)}"
 
     @staticmethod
     def _detail(story: Story) -> str | None:

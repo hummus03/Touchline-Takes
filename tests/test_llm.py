@@ -81,6 +81,19 @@ def test_scripted_writer_hallucinates_only_first_time():
     assert "200 million" not in revised
 
 
+def test_scripted_writer_contradicts_relations():
+    """Contradiction mode flips winners and swaps team stats without new words."""
+    facts = ["Arsenal beat Chelsea 2-1, per X [S1].", "In data, Arsenal have 3 wins [ST1].",
+             "In data, Chelsea have 2 wins [ST2]."]
+    out = ScriptedWriterLLM.contradict(facts)
+    assert out[0].startswith("Chelsea beat Arsenal 2-1")
+    assert "Chelsea have 3 wins [ST1][ST2]" in out[1] and "Arsenal have 2 wins" in out[2]
+    llm = ScriptedWriterLLM(contradict_on=("Arsenal",))
+    prompt = "WORKING TITLE: T\n- FACT: Arsenal beat Chelsea 2-1 [S1].\n- TAKE: Big."
+    assert "Chelsea beat Arsenal" in llm.complete(prompt).text
+    assert "Arsenal beat Chelsea" in llm.complete(prompt + "\nREVISION REQUEST: x").text
+
+
 def test_parse_json_object():
     """JSON is extracted from chatty replies."""
     assert parse_json_object('ok {"a": 1} done') == {"a": 1}

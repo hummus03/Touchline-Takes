@@ -124,8 +124,10 @@ class ScriptedWriterLLM(FakeLLM):
 
     It rewrites the grounded fact list from the Writer's prompt in a house voice.
     For prompts mentioning any phrase in ``hallucinate_on`` it also invents
-    unsupported claims on the *first* attempt (not on revisions), which lets the
-    evaluation exercise the fact-check -> revise loop deterministically.
+    unsupported claims on the *first* attempt (not on revisions); for phrases in
+    ``contradict_on`` it flips match winners and swaps team stats, keeping every
+    word so only relation-level checks can catch it. Both let the evaluation
+    exercise the fact-check -> revise loop deterministically.
     """
 
     provider = "scripted"
@@ -135,9 +137,24 @@ class ScriptedWriterLLM(FakeLLM):
         "The squad trained twice on Sunday at Wembley [S1].",
     ]
 
-    def __init__(self, hallucinate_on: tuple[str, ...] = ()) -> None:
+    def __init__(self, hallucinate_on: tuple[str, ...] = (),
+                 contradict_on: tuple[str, ...] = ()) -> None:
         self.hallucinate_on = tuple(hallucinate_on)
+        self.contradict_on = tuple(contradict_on)
         super().__init__(self._write, model="scripted-writer")
+
+    @staticmethod
+    def contradict(facts: list[str]) -> list[str]:
+        """Garble relations while keeping every word: flip the winner, swap team stats."""
+        out = [re.sub(r"^(.+?) beat (.+?) (\d+-\d+)", r"\2 beat \1 \3", f) for f in facts]
+        form = [i for i, f in enumerate(out) if re.search(r", (.+?) have \d+ wins?", f)]
+        if len(form) >= 2:
+            first, second = (re.search(r", (.+?) have", out[i]).group(1) for i in form[:2])
+            out[form[0]] = out[form[0]].replace(f", {first} have", f", {second} have")
+            out[form[1]] = out[form[1]].replace(f", {second} have", f", {first} have")
+            out[form[0]] = re.sub(r"\[ST\d\]", "[ST1][ST2]", out[form[0]])
+            out[form[1]] = re.sub(r"\[ST\d\]", "[ST1][ST2]", out[form[1]])
+        return out
 
     def _write(self, prompt: str, _system: str) -> str:
         title = re.search(r"^WORKING TITLE: (.+)$", prompt, re.M)
@@ -145,6 +162,8 @@ class ScriptedWriterLLM(FakeLLM):
         takes = re.findall(r"^- TAKE: (.+)$", prompt, re.M)
         lines = list(facts)
         revising = "REVISION REQUEST" in prompt
+        if not revising and any(p in prompt for p in self.contradict_on):
+            lines = self.contradict(lines)
         if not revising and any(p in prompt for p in self.hallucinate_on):
             lines[1:1] = self.INVENTED
         body = [" ".join(lines[:3]), " ".join(lines[3:])] + [" ".join(takes)]

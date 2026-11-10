@@ -1,0 +1,758 @@
+{
+ "description": "Claim-level fact-check cases: correct paraphrases (false-positive probes), token-level errors and relation-level errors (same words, wrong relationship). expected = what a perfect checker should say. split=dev cases were used while building the relation checks; split=heldout cases were written afterwards and not tuned on.",
+ "cases": [
+  {
+   "category": "correct",
+   "claim": "Arsenal beat Chelsea 2-1, as reported by Eval Wire [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Arsenal beat Chelsea 2-1 in tense London derby. Arsenal came from behind to beat Chelsea 2-1 at the Emirates. Midfielder Tomas Reyes equalised before half-time and striker Leo Hartmann headed the winner in the 78th minute, lifting Arsenal to second in the Premier League."
+    }
+   ],
+   "expected": "supported",
+   "split": "dev"
+  },
+  {
+   "category": "correct",
+   "claim": "Chelsea were beaten 2-1 by Arsenal [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Arsenal beat Chelsea 2-1 in tense London derby. Arsenal came from behind to beat Chelsea 2-1 at the Emirates. Midfielder Tomas Reyes equalised before half-time and striker Leo Hartmann headed the winner in the 78th minute, lifting Arsenal to second in the Premier League."
+    }
+   ],
+   "expected": "supported",
+   "split": "dev"
+  },
+  {
+   "category": "correct",
+   "claim": "Arsenal came from behind to win 2-1 against Chelsea [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Arsenal beat Chelsea 2-1 in tense London derby. Arsenal came from behind to beat Chelsea 2-1 at the Emirates. Midfielder Tomas Reyes equalised before half-time and striker Leo Hartmann headed the winner in the 78th minute, lifting Arsenal to second in the Premier League."
+    }
+   ],
+   "expected": "supported",
+   "split": "dev"
+  },
+  {
+   "category": "correct",
+   "claim": "Leo Hartmann headed the winner in the 78th minute [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Arsenal beat Chelsea 2-1 in tense London derby. Arsenal came from behind to beat Chelsea 2-1 at the Emirates. Midfielder Tomas Reyes equalised before half-time and striker Leo Hartmann headed the winner in the 78th minute, lifting Arsenal to second in the Premier League."
+    }
+   ],
+   "expected": "supported",
+   "split": "dev"
+  },
+  {
+   "category": "correct",
+   "claim": "Liverpool and Everton drew 0-0 at Anfield [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Liverpool held to goalless draw by Everton. Liverpool were held to a 0-0 draw by Everton at Anfield. Everton goalkeeper Sam Okafor made seven saves as the visitors frustrated the Premier League leaders, who had 24 shots."
+    }
+   ],
+   "expected": "supported",
+   "split": "dev"
+  },
+  {
+   "category": "correct",
+   "claim": "Everton held Liverpool to a 0-0 draw [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Liverpool held to goalless draw by Everton. Liverpool were held to a 0-0 draw by Everton at Anfield. Everton goalkeeper Sam Okafor made seven saves as the visitors frustrated the Premier League leaders, who had 24 shots."
+    }
+   ],
+   "expected": "supported",
+   "split": "dev"
+  },
+  {
+   "category": "correct",
+   "claim": "Sevilla beat Real Madrid 2-0 [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Real Madrid stunned 2-0 by Sevilla in La Liga upset. Real Madrid suffered a shock 2-0 defeat away at Sevilla. Striker Ivan Molero scored both goals as Real Madrid dropped to third, two points behind Barcelona."
+    }
+   ],
+   "expected": "supported",
+   "split": "dev"
+  },
+  {
+   "category": "correct",
+   "claim": "Real Madrid lost 2-0 at Sevilla [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Real Madrid stunned 2-0 by Sevilla in La Liga upset. Real Madrid suffered a shock 2-0 defeat away at Sevilla. Striker Ivan Molero scored both goals as Real Madrid dropped to third, two points behind Barcelona."
+    }
+   ],
+   "expected": "supported",
+   "split": "dev"
+  },
+  {
+   "category": "correct",
+   "claim": "Brentford beat Tottenham 3-0 [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Tottenham boss sacked after 3-0 defeat at Brentford. Tottenham have sacked head coach Marco Lindqvist after a 3-0 defeat at Brentford left the club 14th in the Premier League."
+    }
+   ],
+   "expected": "supported",
+   "split": "dev"
+  },
+  {
+   "category": "correct",
+   "claim": "Tottenham sacked Marco Lindqvist after losing 3-0 to Brentford [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Tottenham boss sacked after 3-0 defeat at Brentford. Tottenham have sacked head coach Marco Lindqvist after a 3-0 defeat at Brentford left the club 14th in the Premier League."
+    }
+   ],
+   "expected": "supported",
+   "split": "dev"
+  },
+  {
+   "category": "correct",
+   "claim": "Dan Mercer is out for 6 weeks [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Aston Villa captain ruled out for 6 weeks with hamstring injury. Aston Villa captain Dan Mercer has been ruled out for 6 weeks with a hamstring injury suffered against Fulham."
+    }
+   ],
+   "expected": "supported",
+   "split": "dev"
+  },
+  {
+   "category": "correct",
+   "claim": "Felix Amari, 23, has scored 6 goals this season [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Newcastle in talks to sign Dortmund winger Felix Amari. The 23-year-old has scored 6 goals this season and Newcastle are weighing a fee of around 40 million euros."
+    }
+   ],
+   "expected": "supported",
+   "split": "dev"
+  },
+  {
+   "category": "correct",
+   "claim": "Brighton and West Ham drew 1-1 [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Brighton were furious after VAR declined to award a late penalty in their 1-1 draw with West Ham."
+    }
+   ],
+   "expected": "supported",
+   "split": "dev"
+  },
+  {
+   "category": "correct",
+   "claim": "In our results data, Arsenal have 3 wins, 1 draw and 1 defeat from their last 5 league games: 10 points [ST1].",
+   "evidence": [
+    {
+     "id": "ST1",
+     "kind": "stats",
+     "text": "Arsenal last 5 league matches in results data: 3 wins, 1 draw, 1 defeat, 10 points, 8 goals scored, 4 conceded (sequence WWDLW)."
+    }
+   ],
+   "expected": "supported",
+   "split": "dev"
+  },
+  {
+   "category": "correct",
+   "claim": "In our results data, Chelsea have 2 wins, 2 draws and 1 defeat from their last 5 league games [ST1][ST2].",
+   "evidence": [
+    {
+     "id": "ST1",
+     "kind": "stats",
+     "text": "Arsenal last 5 league matches in results data: 3 wins, 1 draw, 1 defeat, 10 points, 8 goals scored, 4 conceded (sequence WWDLW)."
+    },
+    {
+     "id": "ST2",
+     "kind": "stats",
+     "text": "Chelsea last 5 league matches in results data: 2 wins, 2 draws, 1 defeat, 8 points, 9 goals scored, 5 conceded (sequence WDLDW)."
+    }
+   ],
+   "expected": "supported",
+   "split": "dev"
+  },
+  {
+   "category": "correct",
+   "claim": "The Touchline Takes Analyst model gives Arsenal a 45% chance of winning, the draw 27% and Liverpool 28% [M1].",
+   "evidence": [
+    {
+     "id": "M1",
+     "kind": "model",
+     "text": "Touchline Takes Analyst model (logistic regression on results data): Arsenal win 45%, draw 27%, Liverpool win 28%."
+    }
+   ],
+   "expected": "supported",
+   "split": "dev"
+  },
+  {
+   "category": "correct",
+   "claim": "The last meeting, on 2025-03-10, finished Newcastle 0-2 Manchester City [ST3].",
+   "evidence": [
+    {
+     "id": "ST3",
+     "kind": "stats",
+     "text": "Last meeting in results data: 2025-03-10, Newcastle 0-2 Manchester City."
+    }
+   ],
+   "expected": "supported",
+   "split": "dev"
+  },
+  {
+   "category": "correct",
+   "claim": "Manchester City won 2-0 at Newcastle when they last met [ST3].",
+   "evidence": [
+    {
+     "id": "ST3",
+     "kind": "stats",
+     "text": "Last meeting in results data: 2025-03-10, Newcastle 0-2 Manchester City."
+    }
+   ],
+   "expected": "supported",
+   "split": "dev"
+  },
+  {
+   "category": "invented_entity",
+   "claim": "Arsenal beat Chelsea 2-1 with a goal from Kai Brandt [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Arsenal beat Chelsea 2-1 in tense London derby. Arsenal came from behind to beat Chelsea 2-1 at the Emirates. Midfielder Tomas Reyes equalised before half-time and striker Leo Hartmann headed the winner in the 78th minute, lifting Arsenal to second in the Premier League."
+    }
+   ],
+   "expected": "unsupported",
+   "split": "dev"
+  },
+  {
+   "category": "invented_number",
+   "claim": "Arsenal beat Chelsea 3-1 at the Emirates [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Arsenal beat Chelsea 2-1 in tense London derby. Arsenal came from behind to beat Chelsea 2-1 at the Emirates. Midfielder Tomas Reyes equalised before half-time and striker Leo Hartmann headed the winner in the 78th minute, lifting Arsenal to second in the Premier League."
+    }
+   ],
+   "expected": "unsupported",
+   "split": "dev"
+  },
+  {
+   "category": "invented_number",
+   "claim": "Liverpool had 31 shots against Everton [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Liverpool held to goalless draw by Everton. Liverpool were held to a 0-0 draw by Everton at Anfield. Everton goalkeeper Sam Okafor made seven saves as the visitors frustrated the Premier League leaders, who had 24 shots."
+    }
+   ],
+   "expected": "unsupported",
+   "split": "dev"
+  },
+  {
+   "category": "no_citation",
+   "claim": "Arsenal beat Chelsea 2-1.",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Arsenal beat Chelsea 2-1 in tense London derby. Arsenal came from behind to beat Chelsea 2-1 at the Emirates. Midfielder Tomas Reyes equalised before half-time and striker Leo Hartmann headed the winner in the 78th minute, lifting Arsenal to second in the Premier League."
+    }
+   ],
+   "expected": "unsupported",
+   "split": "dev"
+  },
+  {
+   "category": "unknown_citation",
+   "claim": "Arsenal beat Chelsea 2-1 [S4].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Arsenal beat Chelsea 2-1 in tense London derby. Arsenal came from behind to beat Chelsea 2-1 at the Emirates. Midfielder Tomas Reyes equalised before half-time and striker Leo Hartmann headed the winner in the 78th minute, lifting Arsenal to second in the Premier League."
+    }
+   ],
+   "expected": "unsupported",
+   "split": "dev"
+  },
+  {
+   "category": "flipped_winner",
+   "claim": "Chelsea beat Arsenal 2-1 at the Emirates [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Arsenal beat Chelsea 2-1 in tense London derby. Arsenal came from behind to beat Chelsea 2-1 at the Emirates. Midfielder Tomas Reyes equalised before half-time and striker Leo Hartmann headed the winner in the 78th minute, lifting Arsenal to second in the Premier League."
+    }
+   ],
+   "expected": "unsupported",
+   "split": "dev"
+  },
+  {
+   "category": "flipped_winner",
+   "claim": "Real Madrid beat Sevilla 2-0 [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Real Madrid stunned 2-0 by Sevilla in La Liga upset. Real Madrid suffered a shock 2-0 defeat away at Sevilla. Striker Ivan Molero scored both goals as Real Madrid dropped to third, two points behind Barcelona."
+    }
+   ],
+   "expected": "unsupported",
+   "split": "dev"
+  },
+  {
+   "category": "flipped_winner",
+   "claim": "Tottenham won 3-0 at Brentford [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Tottenham boss sacked after 3-0 defeat at Brentford. Tottenham have sacked head coach Marco Lindqvist after a 3-0 defeat at Brentford left the club 14th in the Premier League."
+    }
+   ],
+   "expected": "unsupported",
+   "split": "dev"
+  },
+  {
+   "category": "flipped_winner",
+   "claim": "Arsenal were beaten 2-1 by Chelsea [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Arsenal beat Chelsea 2-1 in tense London derby. Arsenal came from behind to beat Chelsea 2-1 at the Emirates. Midfielder Tomas Reyes equalised before half-time and striker Leo Hartmann headed the winner in the 78th minute, lifting Arsenal to second in the Premier League."
+    }
+   ],
+   "expected": "unsupported",
+   "split": "dev"
+  },
+  {
+   "category": "flipped_winner",
+   "claim": "Newcastle beat Manchester City 2-0 when they last met [ST3].",
+   "evidence": [
+    {
+     "id": "ST3",
+     "kind": "stats",
+     "text": "Last meeting in results data: 2025-03-10, Newcastle 0-2 Manchester City."
+    }
+   ],
+   "expected": "unsupported",
+   "split": "dev"
+  },
+  {
+   "category": "wrong_score",
+   "claim": "Celtic beat Rangers 2-1 at Celtic Park [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Celtic beat Rangers 3-1 at Celtic Park to move 2 points clear at the top of the Scottish Premiership."
+    }
+   ],
+   "expected": "unsupported",
+   "split": "dev"
+  },
+  {
+   "category": "draw_vs_win",
+   "claim": "Liverpool beat Everton 0-0 [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Liverpool held to goalless draw by Everton. Liverpool were held to a 0-0 draw by Everton at Anfield. Everton goalkeeper Sam Okafor made seven saves as the visitors frustrated the Premier League leaders, who had 24 shots."
+    }
+   ],
+   "expected": "unsupported",
+   "split": "dev"
+  },
+  {
+   "category": "draw_vs_win",
+   "claim": "Brighton beat West Ham 1-1 [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Brighton were furious after VAR declined to award a late penalty in their 1-1 draw with West Ham."
+    }
+   ],
+   "expected": "unsupported",
+   "split": "dev"
+  },
+  {
+   "category": "swapped_stats",
+   "claim": "In our results data, Chelsea have 3 wins, 1 draw and 1 defeat [ST1][ST2].",
+   "evidence": [
+    {
+     "id": "ST1",
+     "kind": "stats",
+     "text": "Arsenal last 5 league matches in results data: 3 wins, 1 draw, 1 defeat, 10 points, 8 goals scored, 4 conceded (sequence WWDLW)."
+    },
+    {
+     "id": "ST2",
+     "kind": "stats",
+     "text": "Chelsea last 5 league matches in results data: 2 wins, 2 draws, 1 defeat, 8 points, 9 goals scored, 5 conceded (sequence WDLDW)."
+    }
+   ],
+   "expected": "unsupported",
+   "split": "dev"
+  },
+  {
+   "category": "swapped_stats",
+   "claim": "In our results data, Arsenal have 8 points from 5 games [ST1][ST2].",
+   "evidence": [
+    {
+     "id": "ST1",
+     "kind": "stats",
+     "text": "Arsenal last 5 league matches in results data: 3 wins, 1 draw, 1 defeat, 10 points, 8 goals scored, 4 conceded (sequence WWDLW)."
+    },
+    {
+     "id": "ST2",
+     "kind": "stats",
+     "text": "Chelsea last 5 league matches in results data: 2 wins, 2 draws, 1 defeat, 8 points, 9 goals scored, 5 conceded (sequence WDLDW)."
+    }
+   ],
+   "expected": "unsupported",
+   "split": "dev"
+  },
+  {
+   "category": "swapped_probability",
+   "claim": "The Analyst model makes Liverpool 45% favourites, with Arsenal on 28% [M1].",
+   "evidence": [
+    {
+     "id": "M1",
+     "kind": "model",
+     "text": "Touchline Takes Analyst model (logistic regression on results data): Arsenal win 45%, draw 27%, Liverpool win 28%."
+    }
+   ],
+   "expected": "unsupported",
+   "split": "dev"
+  },
+  {
+   "category": "wrong_unit",
+   "claim": "Dan Mercer is out for 6 months [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Aston Villa captain ruled out for 6 weeks with hamstring injury. Aston Villa captain Dan Mercer has been ruled out for 6 weeks with a hamstring injury suffered against Fulham."
+    }
+   ],
+   "expected": "unsupported",
+   "split": "dev"
+  },
+  {
+   "category": "wrong_unit",
+   "claim": "Felix Amari has scored 23 goals this season [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Newcastle in talks to sign Dortmund winger Felix Amari. The 23-year-old has scored 6 goals this season and Newcastle are weighing a fee of around 40 million euros."
+    }
+   ],
+   "expected": "unsupported",
+   "split": "dev"
+  },
+  {
+   "category": "wrong_unit",
+   "claim": "Leo Hartmann scored the winner after 78 seconds [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Arsenal beat Chelsea 2-1 in tense London derby. Arsenal came from behind to beat Chelsea 2-1 at the Emirates. Midfielder Tomas Reyes equalised before half-time and striker Leo Hartmann headed the winner in the 78th minute, lifting Arsenal to second in the Premier League."
+    }
+   ],
+   "expected": "unsupported",
+   "split": "dev"
+  },
+  {
+   "category": "correct",
+   "claim": "Celtic beat Rangers 3-1 to go 2 points clear [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Celtic beat Rangers 3-1 at Celtic Park to move 2 points clear at the top of the Scottish Premiership."
+    }
+   ],
+   "expected": "supported",
+   "split": "dev"
+  },
+  {
+   "split": "heldout",
+   "category": "correct",
+   "claim": "Bayern Munich won 3-2 at Bayer Leverkusen [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Bayern Munich come from behind to win 3-2 at Bayer Leverkusen. Substitute Jonas Weber struck the winner in stoppage time as Bayern went 4 points clear in the Bundesliga."
+    }
+   ],
+   "expected": "supported"
+  },
+  {
+   "split": "heldout",
+   "category": "correct",
+   "claim": "Jonas Weber's stoppage-time winner sent Bayern 4 points clear [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Bayern Munich come from behind to win 3-2 at Bayer Leverkusen. Substitute Jonas Weber struck the winner in stoppage time as Bayern went 4 points clear in the Bundesliga."
+    }
+   ],
+   "expected": "supported"
+  },
+  {
+   "split": "heldout",
+   "category": "correct",
+   "claim": "Marseille beat Paris Saint-Germain 1-0 [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Marseille stun PSG. Paris Saint-Germain lost 1-0 to Marseille at the Velodrome, their first league defeat in 11 matches."
+    }
+   ],
+   "expected": "supported"
+  },
+  {
+   "split": "heldout",
+   "category": "correct",
+   "claim": "PSG's run ended at 11 matches [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Marseille stun PSG. Paris Saint-Germain lost 1-0 to Marseille at the Velodrome, their first league defeat in 11 matches."
+    }
+   ],
+   "expected": "supported"
+  },
+  {
+   "split": "heldout",
+   "category": "correct",
+   "claim": "Juventus and Napoli drew 2-2 [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Juventus and Napoli share the points. Juventus drew 2-2 with Napoli in Turin, with Napoli striker Marco Bellini scoring twice in 9 minutes."
+    }
+   ],
+   "expected": "supported"
+  },
+  {
+   "split": "heldout",
+   "category": "correct",
+   "claim": "Tom Aske will miss 3 months for Fulham [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Fulham defender out for 3 months. Fulham have confirmed defender Tom Aske will miss 3 months with a knee injury."
+    }
+   ],
+   "expected": "supported"
+  },
+  {
+   "split": "heldout",
+   "category": "correct",
+   "claim": "Fulham have 9 points from their last 5 league games, while Manchester United have 5 [ST1][ST2].",
+   "evidence": [
+    {
+     "id": "ST1",
+     "kind": "stats",
+     "text": "Manchester United last 5 league matches in results data: 1 win, 2 draws, 2 defeats, 5 points, 6 goals scored, 8 conceded (sequence LDWDL)."
+    },
+    {
+     "id": "ST2",
+     "kind": "stats",
+     "text": "Fulham last 5 league matches in results data: 3 wins, 0 draws, 2 defeats, 9 points, 7 goals scored, 6 conceded (sequence WLWWL)."
+    }
+   ],
+   "expected": "supported"
+  },
+  {
+   "split": "heldout",
+   "category": "correct",
+   "claim": "Our model gives Manchester United a 52% chance against Fulham [M1].",
+   "evidence": [
+    {
+     "id": "M1",
+     "kind": "model",
+     "text": "Touchline Takes Analyst model (logistic regression on results data): Manchester United win 52%, draw 25%, Fulham win 23%."
+    }
+   ],
+   "expected": "supported"
+  },
+  {
+   "split": "heldout",
+   "category": "flipped_winner",
+   "claim": "Bayer Leverkusen beat Bayern Munich 3-2 [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Bayern Munich come from behind to win 3-2 at Bayer Leverkusen. Substitute Jonas Weber struck the winner in stoppage time as Bayern went 4 points clear in the Bundesliga."
+    }
+   ],
+   "expected": "unsupported"
+  },
+  {
+   "split": "heldout",
+   "category": "flipped_winner",
+   "claim": "Paris Saint-Germain won 1-0 against Marseille [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Marseille stun PSG. Paris Saint-Germain lost 1-0 to Marseille at the Velodrome, their first league defeat in 11 matches."
+    }
+   ],
+   "expected": "unsupported"
+  },
+  {
+   "split": "heldout",
+   "category": "draw_vs_win",
+   "claim": "Napoli beat Juventus 2-2 in Turin [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Juventus and Napoli share the points. Juventus drew 2-2 with Napoli in Turin, with Napoli striker Marco Bellini scoring twice in 9 minutes."
+    }
+   ],
+   "expected": "unsupported"
+  },
+  {
+   "split": "heldout",
+   "category": "wrong_score",
+   "claim": "Juventus and Napoli drew 1-1 [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Juventus and Napoli share the points. Juventus drew 2-2 with Napoli in Turin, with Napoli striker Marco Bellini scoring twice in 9 minutes."
+    }
+   ],
+   "expected": "unsupported"
+  },
+  {
+   "split": "heldout",
+   "category": "swapped_stats",
+   "claim": "Manchester United have 9 points from their last 5 league games [ST1][ST2].",
+   "evidence": [
+    {
+     "id": "ST1",
+     "kind": "stats",
+     "text": "Manchester United last 5 league matches in results data: 1 win, 2 draws, 2 defeats, 5 points, 6 goals scored, 8 conceded (sequence LDWDL)."
+    },
+    {
+     "id": "ST2",
+     "kind": "stats",
+     "text": "Fulham last 5 league matches in results data: 3 wins, 0 draws, 2 defeats, 9 points, 7 goals scored, 6 conceded (sequence WLWWL)."
+    }
+   ],
+   "expected": "unsupported"
+  },
+  {
+   "split": "heldout",
+   "category": "swapped_probability",
+   "claim": "Fulham are given a 52% chance by the model [M1].",
+   "evidence": [
+    {
+     "id": "M1",
+     "kind": "model",
+     "text": "Touchline Takes Analyst model (logistic regression on results data): Manchester United win 52%, draw 25%, Fulham win 23%."
+    }
+   ],
+   "expected": "unsupported"
+  },
+  {
+   "split": "heldout",
+   "category": "wrong_unit",
+   "claim": "Tom Aske will miss 3 weeks [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Fulham defender out for 3 months. Fulham have confirmed defender Tom Aske will miss 3 months with a knee injury."
+    }
+   ],
+   "expected": "unsupported"
+  },
+  {
+   "split": "heldout",
+   "category": "wrong_unit",
+   "claim": "Marco Bellini scored twice in 9 seconds [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Juventus and Napoli share the points. Juventus drew 2-2 with Napoli in Turin, with Napoli striker Marco Bellini scoring twice in 9 minutes."
+    }
+   ],
+   "expected": "unsupported"
+  },
+  {
+   "split": "heldout",
+   "category": "invented_number",
+   "claim": "Bayern Munich are 5 points clear [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Bayern Munich come from behind to win 3-2 at Bayer Leverkusen. Substitute Jonas Weber struck the winner in stoppage time as Bayern went 4 points clear in the Bundesliga."
+    }
+   ],
+   "expected": "unsupported"
+  },
+  {
+   "split": "heldout",
+   "category": "invented_entity",
+   "claim": "Marseille beat PSG 1-0 thanks to Kylian Fernandes [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Marseille stun PSG. Paris Saint-Germain lost 1-0 to Marseille at the Velodrome, their first league defeat in 11 matches."
+    }
+   ],
+   "expected": "unsupported"
+  }
+ ]
+}

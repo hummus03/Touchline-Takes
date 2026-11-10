@@ -59,6 +59,7 @@ class Settings:
     vector_store: str = "chroma"
     chroma_dir: str = str(DATA_DIR / "chroma")
     classifier_provider: str = "local"
+    factcheck_verifier: str = "rules"
     dedupe_threshold: float = 0.8
     auto_publish: bool = False
     max_revisions: int = 2
@@ -107,6 +108,7 @@ class Settings:
             vector_store=get("VECTOR_STORE", "chroma").strip().lower() or "chroma",
             chroma_dir=_resolve(get("CHROMA_DIR", defaults.chroma_dir)),
             classifier_provider=get("CLASSIFIER_PROVIDER", "local").strip().lower() or "local",
+            factcheck_verifier=get("FACTCHECK_VERIFIER", "rules").strip().lower() or "rules",
             dedupe_threshold=float(get("DEDUPE_THRESHOLD", "0.8") or 0.8),
             auto_publish=_as_bool(get("AUTO_PUBLISH")),
             max_revisions=int(get("MAX_REVISIONS", "2") or 2),

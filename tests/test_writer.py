@@ -98,3 +98,14 @@ def test_revise_increments_and_skips_known(db, teams, story):
     writer.run(state)
     assert draft.revision == 1 and draft.status == "drafted"
     assert writer.plan(NewsroomState(stories=[story])) == []
+
+
+def test_result_fact_uses_relations_and_hyphenated_names(db, teams):
+    """The lede names the winner from any phrasing; hyphenated names stay whole."""
+    story = make_story(3, title="Paris Saint-Germain beaten 1-0 by Marseille",
+                       summary="Paris Saint-Germain were beaten 1-0 by Marseille. Yanis "
+                       "Belkacem scored.", league="Ligue 1",
+                       teams=["Paris Saint-Germain", "Marseille"], topic="match_report")
+    comp = make_writer(db, teams).compose(Assignment("match_report", story=story))
+    assert comp.facts[0].startswith("Marseille beat Paris Saint-Germain 1-0")
+    assert "The names in the frame: Yanis Belkacem [S1]." in comp.facts

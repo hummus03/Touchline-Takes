@@ -6,6 +6,7 @@ It reports, per writer configuration:
 * share of claims with a source (first drafts, and in published articles),
 * Editor and Fact-checker rejection rates and retry counts,
 * expectation checks (which fixture stories should publish or be spiked),
+* fact-checker precision/recall on labelled claim cases, token-only vs relation-aware,
 * cost and latency per article,
 
 plus classifier accuracy against labelled expectations and the Analyst's
@@ -26,13 +27,14 @@ from statistics import mean
 from typing import Any
 from xml.sax.saxutils import escape
 
-from touchline_takes.agents.factcheck import check_draft
+from touchline_takes.agents.factcheck import ClaimChecker, check_draft
 from touchline_takes.config import DATA_DIR, PROJECT_ROOT, Settings
 from touchline_takes.pipeline import Newsroom
-from touchline_takes.state import Draft
+from touchline_takes.state import Draft, Evidence
 from touchline_takes.tools.llm import DEFAULT_MODELS, LLMClient, ScriptedWriterLLM, estimate_cost
 
 FIXTURE_PATH = DATA_DIR / "eval" / "fixture_stories.json"
+CLAIM_CASES_PATH = DATA_DIR / "eval" / "claim_cases.json"
 REPORT_DIR = PROJECT_ROOT / "reports"
 
 
@@ -75,6 +77,40 @@ def classifier_scores(newsroom: Newsroom, stories: list[dict[str, Any]]) -> dict
             "errors": errors}
 
 
+def claim_case_scores(path: Path = CLAIM_CASES_PATH) -> dict[str, Any]:
+    """Score the fact-checker on labelled claims; the positive class is "unsupported"."""
+    cases = json.loads(path.read_text(encoding="utf-8"))["cases"]
+    out: dict[str, Any] = {}
+    for mode, relations in (("token_only", False), ("relation_aware", True)):
+        for split in sorted({c["split"] for c in cases}):
+            subset = [c for c in cases if c["split"] == split]
+            tp = fp = fn = tn = 0
+            misses = []
+            per_category: dict[str, list[int]] = {}
+            for case in subset:
+                evidence = [Evidence(source="eval", **e) for e in case["evidence"]]
+                got = ClaimChecker(evidence, relations=relations).check(case["claim"])
+                flagged, bad = not got.supported, case["expected"] == "unsupported"
+                tp, fp = tp + (flagged and bad), fp + (flagged and not bad)
+                fn, tn = fn + (not flagged and bad), tn + (not flagged and not bad)
+                hits = per_category.setdefault(case["category"], [0, 0])
+                hits[0] += flagged == bad
+                hits[1] += 1
+                if flagged != bad:
+                    misses.append(f"{case['category']}: {case['claim']}")
+            precision = tp / (tp + fp) if tp + fp else 1.0
+            recall = tp / (tp + fn) if tp + fn else 1.0
+            out[f"{mode}/{split}"] = {
+                "cases": len(subset), "accuracy": round((tp + tn) / len(subset), 3),
+                "precision": round(precision, 3), "recall": round(recall, 3),
+                "f1": round(2 * precision * recall / (precision + recall), 3)
+                if precision + recall else 0.0,
+                "false_positive_rate": round(fp / (fp + tn), 3) if fp + tn else 0.0,
+                "per_category": {k: f"{v[0]}/{v[1]}" for k, v in sorted(per_category.items())},
+                "misses": misses}
+    return out
+
+
 def draft_scores(drafts: list[Draft], duration: float) -> dict[str, Any]:
     """Sourcing, rejection, retry and cost/latency metrics over a run's drafts."""
     published = [d for d in drafts if d.status == "published"]
@@ -94,6 +130,7 @@ def draft_scores(drafts: list[Draft], duration: float) -> dict[str, Any]:
         "claims_with_source_share_published": round(
             sum(c.supported for c in pub_claims) / len(pub_claims), 3) if pub_claims else None,
         "unsupported_claims_caught": unsupported,
+        "contradictions_caught": sum(d.metrics.get("claims_contradicted", 0) for d in drafts),
         "factcheck_bounces": fc_bounces,
         "editor_reviews": editor_reviews,
         "editor_rejection_rate": round(editor_rejections / editor_reviews, 3)
@@ -158,9 +195,10 @@ def evaluate() -> dict[str, Any]:
     """Run every configuration and assemble the report."""
     stories = load_fixtures()
     flagged = tuple(s["title"] for s in stories if s.get("inject_hallucination"))
+    swapped = tuple(s["title"] for s in stories if s.get("inject_contradiction"))
     with tempfile.TemporaryDirectory() as tmp:
         runs = [run_config("template_writer", None, stories, Path(tmp)),
-                run_config("scripted_llm_writer", ScriptedWriterLLM(flagged), stories,
+                run_config("scripted_llm_writer", ScriptedWriterLLM(flagged, swapped), stories,
                            Path(tmp))]
         classifier = classifier_scores(runs[0]["newsroom"], stories)
         model = runs[0]["newsroom"].analyst.ensure_model().report
@@ -175,6 +213,7 @@ def evaluate() -> dict[str, Any]:
     }
     report = {
         "fixture_stories": len(stories), "classifier": classifier, "predictor": model_summary,
+        "claim_checks": claim_case_scores(),
         "configs": {r["config"]: {"scores": r["scores"], "expectations": r["expectations"],
                                   "rejection_reasons": r["rejection_reasons"]} for r in runs},
     }
@@ -211,6 +250,22 @@ def to_markdown(report: dict[str, Any]) -> str:
             lines += ["", "Expectation mismatches:"]
             lines += [f"- {r['story']}: expected {r['expected']}, got {r['got']}"
                       for r in failed]
+    lines += ["", "## Fact-checker on labelled claims (positive class = unsupported)", "",
+              "`dev` cases were used while building the relation checks; `heldout` cases were "
+              "written afterwards and not tuned on.", "",
+              "| Checker / split | Cases | Accuracy | Precision | Recall | F1 "
+              "| False-positive rate |",
+              "|---|---|---|---|---|---|---|"]
+    for name, row in report["claim_checks"].items():
+        lines.append(f"| {name} | {row['cases']} | {row['accuracy']} | {row['precision']} | "
+                     f"{row['recall']} | {row['f1']} | {row['false_positive_rate']} |")
+    cats = sorted({c for row in report["claim_checks"].values() for c in row["per_category"]})
+    names = list(report["claim_checks"])
+    lines += ["", "Correct verdicts per category:", "",
+              "| Category | " + " | ".join(names) + " |", "|---|" + "---|" * len(names)]
+    for cat in cats:
+        lines.append(f"| {cat} | " + " | ".join(
+            report["claim_checks"][n]["per_category"].get(cat, "-") for n in names) + " |")
     clf = report["classifier"]
     lines += ["", "## Classifier (lexicon) vs labelled fixtures", "",
               "| Field | Accuracy |", "|---|---|"]

@@ -2,8 +2,10 @@
 # pylint: disable=redefined-outer-name
 
 from touchline_takes.agents.editor import EditorAgent, StyleGuide
-from touchline_takes.agents.factcheck import FactCheckAgent, check_draft, unsupported_claims
+from touchline_takes.agents.factcheck import (ClaimChecker, FactCheckAgent, LLMVerifier,
+                                              check_draft, unsupported_claims)
 from touchline_takes.state import Draft, Evidence, NewsroomState
+from touchline_takes.tools.llm import FakeLLM
 
 EVIDENCE = [
     Evidence("S1", "story", "Test Wire: Arsenal beat Chelsea 2-1. Leo Hartmann scored the "
@@ -96,3 +98,54 @@ def test_editor_bounded_retries_logged(db):
     assert len(draft.rejection_history) == 3
     reasons = db.recent_rejections()
     assert len(reasons) == 3 and "too short" in reasons[0]["reasons"][0]
+
+
+STATS = [Evidence("ST1", "stats", "Arsenal last 5 league matches in results: 3 wins, 1 draw, "
+                  "1 defeat, 10 points, 8 goals scored.", "results"),
+         Evidence("ST2", "stats", "Chelsea last 5 league matches in results: 2 wins, 2 draws, "
+                  "1 defeat, 8 points, 9 goals scored.", "results")]
+
+
+def test_claim_checker_relation_kinds():
+    """Same words, wrong relationship: caught only with relation checks on."""
+    checker = ClaimChecker(EVIDENCE + STATS)
+    flipped = checker.check("Chelsea beat Arsenal 2-1 [S1].")
+    assert not flipped.supported and flipped.kind == "result_conflict" and flipped.contradiction
+    swapped = checker.check("Chelsea have 3 wins and 10 points [ST1][ST2].")
+    assert swapped.kind == "attribution"
+    unit = checker.check("Leo Hartmann scored in the 78th second [S1].")
+    assert unit.kind == "unit"
+    assert checker.check("Arsenal were beaten 2-1 by Chelsea [S1].").kind == "result_conflict"
+    assert checker.check("Chelsea were beaten 2-1 by Arsenal [S1].").supported
+    assert checker.check("Arsenal have 3 wins, 1 draw and 10 points [ST1][ST2].").supported
+    token_only = ClaimChecker(EVIDENCE + STATS, relations=False)
+    assert token_only.check("Chelsea beat Arsenal 2-1 [S1].").supported
+
+
+def test_contradiction_always_sends_back(db):
+    """One contradicted claim bounces the draft even when it is a small minority."""
+    body = GOOD.replace("Leo Hartmann scored in the 78th minute [S1].",
+                        "Leo Hartmann scored in the 78th minute [S1]. Chelsea beat Arsenal "
+                        "2-1 [S1].")
+    draft = make_draft(body)
+    FactCheckAgent(db).run(NewsroomState(drafts=[draft]))
+    assert draft.status == "needs_revision"
+    assert draft.feedback[0].startswith("contradicted claim (contradicts source")
+    assert draft.metrics["claims_contradicted"] == 1
+
+
+def test_llm_verifier_downgrades_claims(db):
+    """The optional LLM verifier can reject rule-passing claims; bad output falls back."""
+    llm = FakeLLM(['{"results": [{"id": 2, "verdict": "contradicted", "reason": "wrong minute"}]}'])
+    draft = make_draft()
+    agent = FactCheckAgent(db, verifier=LLMVerifier(llm))
+    agent.run(NewsroomState(drafts=[draft]))
+    assert "Claims:" in llm.calls[0]["prompt"] and "[S1]" in llm.calls[0]["prompt"]
+    assert draft.status == "needs_revision"
+    assert "LLM verifier: contradicted (wrong minute)" in draft.feedback[0]
+
+    broken = make_draft()
+    state = NewsroomState(drafts=[broken])
+    FactCheckAgent(db, verifier=LLMVerifier(FakeLLM(["no json"]))).run(state)
+    assert broken.status == "checked"
+    assert any(log.action == "verifier_fallback" for log in state.logs)

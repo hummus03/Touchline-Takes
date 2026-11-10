@@ -19,7 +19,7 @@ from typing import Callable
 from touchline_takes.agents.analyst import AnalystAgent
 from touchline_takes.agents.classifier import ClassifierAgent, LexiconClassifier, LLMClassifier
 from touchline_takes.agents.editor import EditorAgent
-from touchline_takes.agents.factcheck import FactCheckAgent
+from touchline_takes.agents.factcheck import FactCheckAgent, LLMVerifier
 from touchline_takes.agents.ingest import IngestAgent
 from touchline_takes.agents.publisher import PublisherAgent
 from touchline_takes.agents.writer import WriterAgent
@@ -78,6 +78,8 @@ class Newsroom:
             settings.classifier_provider == "llm" and llm is not None) else lexicon
         research = ResearchIndex(build_vector_store(settings, embeddings), embeddings, llm=llm)
         label = results_label(settings.results_dir)
+        verifier = LLMVerifier(llm) if (
+            settings.factcheck_verifier == "llm" and llm is not None) else None
         return cls(
             settings=settings, db=db, llm=llm, research=research,
             ingest=IngestAgent(db, FeedClient(settings.sample_feed_dir,
@@ -92,7 +94,7 @@ class Newsroom:
                                  settings.offline, retrain),
             writer=WriterAgent(db, teams, ResultsStore(load_results(settings.results_dir), label),
                                research, llm, settings.max_articles_per_run),
-            factcheck=FactCheckAgent(db, settings.max_revisions),
+            factcheck=FactCheckAgent(db, settings.max_revisions, teams=teams, verifier=verifier),
             editor=EditorAgent(db, max_revisions=settings.max_revisions),
             publisher=PublisherAgent(db, settings.auto_publish),
         )

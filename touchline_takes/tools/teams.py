@@ -36,6 +36,11 @@ class TeamDirectory:
                 found.append(team)
         return found
 
+    def find_team_spans(self, text: str) -> list[tuple[str, int, int]]:
+        """Every team mention as ``(display name, start, end)`` in order of appearance."""
+        return [(self._alias_to_team[m.group(1).lower()], m.start(), m.end())
+                for m in self._pattern.finditer(text or "")]
+
     def canonical(self, name: str) -> str:
         """Display name for any alias (or the input if unknown)."""
         return self._alias_to_team.get((name or "").lower(), name)

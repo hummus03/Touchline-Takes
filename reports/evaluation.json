@@ -1,14 +1,18 @@
 {
-  "fixture_stories": 10,
+  "fixture_stories": 25,
   "classifier": {
-    "n": 10,
+    "n": 25,
     "accuracy": {
       "league": 1.0,
-      "topic": 1.0,
-      "sentiment": 1.0,
+      "topic": 0.96,
+      "sentiment": 0.92,
       "teams": 1.0
     },
-    "errors": []
+    "errors": [
+      "Celtic boss Rory Quinn signs new contrac: topic expected 'manager', got 'transfer'",
+      "Aston Villa stun Manchester City with 1-: sentiment expected 'positive', got 'neutral'",
+      "Crystal Palace winger handed three-match: sentiment expected 'negative', got 'neutral'"
+    ]
   },
   "predictor": {
     "model": {
@@ -117,31 +121,141 @@
     ],
     "beats_baseline": true
   },
+  "claim_checks": {
+    "token_only/dev": {
+      "cases": 38,
+      "accuracy": 0.632,
+      "precision": 1.0,
+      "recall": 0.263,
+      "f1": 0.417,
+      "false_positive_rate": 0.0,
+      "per_category": {
+        "correct": "19/19",
+        "draw_vs_win": "0/2",
+        "flipped_winner": "0/5",
+        "invented_entity": "1/1",
+        "invented_number": "2/2",
+        "no_citation": "1/1",
+        "swapped_probability": "0/1",
+        "swapped_stats": "0/2",
+        "unknown_citation": "1/1",
+        "wrong_score": "0/1",
+        "wrong_unit": "0/3"
+      },
+      "misses": [
+        "flipped_winner: Chelsea beat Arsenal 2-1 at the Emirates [S1].",
+        "flipped_winner: Real Madrid beat Sevilla 2-0 [S1].",
+        "flipped_winner: Tottenham won 3-0 at Brentford [S1].",
+        "flipped_winner: Arsenal were beaten 2-1 by Chelsea [S1].",
+        "flipped_winner: Newcastle beat Manchester City 2-0 when they last met [ST3].",
+        "wrong_score: Celtic beat Rangers 2-1 at Celtic Park [S1].",
+        "draw_vs_win: Liverpool beat Everton 0-0 [S1].",
+        "draw_vs_win: Brighton beat West Ham 1-1 [S1].",
+        "swapped_stats: In our results data, Chelsea have 3 wins, 1 draw and 1 defeat [ST1][ST2].",
+        "swapped_stats: In our results data, Arsenal have 8 points from 5 games [ST1][ST2].",
+        "swapped_probability: The Analyst model makes Liverpool 45% favourites, with Arsenal on 28% [M1].",
+        "wrong_unit: Dan Mercer is out for 6 months [S1].",
+        "wrong_unit: Felix Amari has scored 23 goals this season [S1].",
+        "wrong_unit: Leo Hartmann scored the winner after 78 seconds [S1]."
+      ]
+    },
+    "token_only/heldout": {
+      "cases": 18,
+      "accuracy": 0.611,
+      "precision": 1.0,
+      "recall": 0.3,
+      "f1": 0.462,
+      "false_positive_rate": 0.0,
+      "per_category": {
+        "correct": "8/8",
+        "draw_vs_win": "0/1",
+        "flipped_winner": "0/2",
+        "invented_entity": "1/1",
+        "invented_number": "1/1",
+        "swapped_probability": "0/1",
+        "swapped_stats": "0/1",
+        "wrong_score": "1/1",
+        "wrong_unit": "0/2"
+      },
+      "misses": [
+        "flipped_winner: Bayer Leverkusen beat Bayern Munich 3-2 [S1].",
+        "flipped_winner: Paris Saint-Germain won 1-0 against Marseille [S1].",
+        "draw_vs_win: Napoli beat Juventus 2-2 in Turin [S1].",
+        "swapped_stats: Manchester United have 9 points from their last 5 league games [ST1][ST2].",
+        "swapped_probability: Fulham are given a 52% chance by the model [M1].",
+        "wrong_unit: Tom Aske will miss 3 weeks [S1].",
+        "wrong_unit: Marco Bellini scored twice in 9 seconds [S1]."
+      ]
+    },
+    "relation_aware/dev": {
+      "cases": 38,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "false_positive_rate": 0.0,
+      "per_category": {
+        "correct": "19/19",
+        "draw_vs_win": "2/2",
+        "flipped_winner": "5/5",
+        "invented_entity": "1/1",
+        "invented_number": "2/2",
+        "no_citation": "1/1",
+        "swapped_probability": "1/1",
+        "swapped_stats": "2/2",
+        "unknown_citation": "1/1",
+        "wrong_score": "1/1",
+        "wrong_unit": "3/3"
+      },
+      "misses": []
+    },
+    "relation_aware/heldout": {
+      "cases": 18,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "false_positive_rate": 0.0,
+      "per_category": {
+        "correct": "8/8",
+        "draw_vs_win": "1/1",
+        "flipped_winner": "2/2",
+        "invented_entity": "1/1",
+        "invented_number": "1/1",
+        "swapped_probability": "1/1",
+        "swapped_stats": "1/1",
+        "wrong_score": "1/1",
+        "wrong_unit": "2/2"
+      },
+      "misses": []
+    }
+  },
   "configs": {
     "template_writer": {
       "scores": {
-        "drafts": 12,
-        "published": 11,
-        "rejected": 1,
+        "drafts": 26,
+        "published": 21,
+        "rejected": 5,
         "claims_with_source_share_first_pass": 1.0,
         "claims_with_source_share_published": 1.0,
         "unsupported_claims_caught": 0,
+        "contradictions_caught": 0,
         "factcheck_bounces": 0,
-        "editor_reviews": 14,
-        "editor_rejection_rate": 0.214,
-        "retries_total": 2,
-        "retries_mean": 0.167,
+        "editor_reviews": 36,
+        "editor_rejection_rate": 0.417,
+        "retries_total": 10,
+        "retries_mean": 0.385,
         "retries_max": 2,
         "llm_calls_per_article": 0.0,
         "cost_usd_per_article": 0.0,
         "projected_cost_usd_per_article_claude_opus_5_5": 0.0,
         "tokens_per_article": 0.0,
-        "agent_latency_s_per_article": 0.0053,
-        "pipeline_s_per_article": 0.0339
+        "agent_latency_s_per_article": 0.0089,
+        "pipeline_s_per_article": 0.0303
       },
       "expectations": {
-        "passed": 10,
-        "total": 10,
+        "passed": 19,
+        "total": 19,
         "results": [
           {
             "story": "Arsenal beat Chelsea 2-1 in tense London derby",
@@ -199,6 +313,60 @@
           },
           {
             "story": "Inter Milan agree contract extension with Paolo Ricci",
+            "expected": "published",
+            "got": "published",
+            "ok": true
+          },
+          {
+            "story": "Manchester United lost 2-1 to Fulham at Old Trafford",
+            "expected": "published",
+            "got": "published",
+            "ok": true
+          },
+          {
+            "story": "Everton complete loan signing of Wolves forward Jay Rivers",
+            "expected": "published",
+            "got": "published",
+            "ok": true
+          },
+          {
+            "story": "Newcastle thrash Southampton 5-0 at St James' Park",
+            "expected": "published",
+            "got": "published",
+            "ok": true
+          },
+          {
+            "story": "Brentford fined after players surround referee",
+            "expected": "published",
+            "got": "published",
+            "ok": true
+          },
+          {
+            "story": "Aston Villa stun Manchester City with 1-0 win",
+            "expected": "published",
+            "got": "published",
+            "ok": true
+          },
+          {
+            "story": "England name squad for World Cup qualifiers",
+            "expected": "not drafted",
+            "got": "not drafted",
+            "ok": true
+          },
+          {
+            "story": "West Ham held 2-2 by Bournemouth after late equaliser",
+            "expected": "published",
+            "got": "published",
+            "ok": true
+          },
+          {
+            "story": "Crystal Palace winger handed three-match ban for red card",
+            "expected": "published",
+            "got": "published",
+            "ok": true
+          },
+          {
+            "story": "Ipswich beat Leicester 2-0 for first win of the season",
             "expected": "published",
             "got": "published",
             "ok": true
@@ -229,33 +397,130 @@
           "reasons": [
             "too short: 82 words (minimum 90)"
           ]
+        },
+        {
+          "draft": "Paris Saint-Germain v Marseille: the Touchline Take",
+          "agent": "editor",
+          "revision": 0,
+          "reasons": [
+            "too short: 82 words (minimum 90)"
+          ]
+        },
+        {
+          "draft": "Paris Saint-Germain v Marseille: the Touchline Take",
+          "agent": "editor",
+          "revision": 1,
+          "reasons": [
+            "too short: 83 words (minimum 90)"
+          ]
+        },
+        {
+          "draft": "Paris Saint-Germain v Marseille: the Touchline Take",
+          "agent": "editor",
+          "revision": 2,
+          "reasons": [
+            "too short: 83 words (minimum 90)"
+          ]
+        },
+        {
+          "draft": "Juventus v Napoli: the Touchline Take",
+          "agent": "editor",
+          "revision": 0,
+          "reasons": [
+            "too short: 87 words (minimum 90)"
+          ]
+        },
+        {
+          "draft": "Juventus v Napoli: the Touchline Take",
+          "agent": "editor",
+          "revision": 1,
+          "reasons": [
+            "too short: 84 words (minimum 90)"
+          ]
+        },
+        {
+          "draft": "Juventus v Napoli: the Touchline Take",
+          "agent": "editor",
+          "revision": 2,
+          "reasons": [
+            "too short: 86 words (minimum 90)"
+          ]
+        },
+        {
+          "draft": "Bayern Munich v Bayer Leverkusen: the Touchline Take",
+          "agent": "editor",
+          "revision": 0,
+          "reasons": [
+            "too short: 81 words (minimum 90)"
+          ]
+        },
+        {
+          "draft": "Bayern Munich v Bayer Leverkusen: the Touchline Take",
+          "agent": "editor",
+          "revision": 1,
+          "reasons": [
+            "too short: 79 words (minimum 90)"
+          ]
+        },
+        {
+          "draft": "Bayern Munich v Bayer Leverkusen: the Touchline Take",
+          "agent": "editor",
+          "revision": 2,
+          "reasons": [
+            "too short: 82 words (minimum 90)"
+          ]
+        },
+        {
+          "draft": "Celtic: what the transfer story really means",
+          "agent": "editor",
+          "revision": 0,
+          "reasons": [
+            "too short: 82 words (minimum 90)"
+          ]
+        },
+        {
+          "draft": "Celtic: what the transfer story really means",
+          "agent": "editor",
+          "revision": 1,
+          "reasons": [
+            "too short: 77 words (minimum 90)"
+          ]
+        },
+        {
+          "draft": "Celtic: what the transfer story really means",
+          "agent": "editor",
+          "revision": 2,
+          "reasons": [
+            "too short: 79 words (minimum 90)"
+          ]
         }
       ]
     },
     "scripted_llm_writer": {
       "scores": {
-        "drafts": 12,
-        "published": 11,
-        "rejected": 1,
-        "claims_with_source_share_first_pass": 0.91,
+        "drafts": 26,
+        "published": 21,
+        "rejected": 5,
+        "claims_with_source_share_first_pass": 0.88,
         "claims_with_source_share_published": 1.0,
-        "unsupported_claims_caught": 9,
-        "factcheck_bounces": 3,
-        "editor_reviews": 14,
-        "editor_rejection_rate": 0.214,
-        "retries_total": 5,
-        "retries_mean": 0.417,
+        "unsupported_claims_caught": 32,
+        "contradictions_caught": 14,
+        "factcheck_bounces": 10,
+        "editor_reviews": 36,
+        "editor_rejection_rate": 0.417,
+        "retries_total": 20,
+        "retries_mean": 0.769,
         "retries_max": 2,
-        "llm_calls_per_article": 1.417,
+        "llm_calls_per_article": 1.769,
         "cost_usd_per_article": 0.0,
-        "projected_cost_usd_per_article_claude_opus_5_5": 0.009065,
-        "tokens_per_article": 1126.6,
-        "agent_latency_s_per_article": 0.013,
-        "pipeline_s_per_article": 0.0406
+        "projected_cost_usd_per_article_claude_opus_5_5": 0.011445,
+        "tokens_per_article": 1468.9,
+        "agent_latency_s_per_article": 0.0137,
+        "pipeline_s_per_article": 0.0379
       },
       "expectations": {
-        "passed": 10,
-        "total": 10,
+        "passed": 19,
+        "total": 19,
         "results": [
           {
             "story": "Arsenal beat Chelsea 2-1 in tense London derby",
@@ -313,6 +578,60 @@
           },
           {
             "story": "Inter Milan agree contract extension with Paolo Ricci",
+            "expected": "published",
+            "got": "published",
+            "ok": true
+          },
+          {
+            "story": "Manchester United lost 2-1 to Fulham at Old Trafford",
+            "expected": "published",
+            "got": "published",
+            "ok": true
+          },
+          {
+            "story": "Everton complete loan signing of Wolves forward Jay Rivers",
+            "expected": "published",
+            "got": "published",
+            "ok": true
+          },
+          {
+            "story": "Newcastle thrash Southampton 5-0 at St James' Park",
+            "expected": "published",
+            "got": "published",
+            "ok": true
+          },
+          {
+            "story": "Brentford fined after players surround referee",
+            "expected": "published",
+            "got": "published",
+            "ok": true
+          },
+          {
+            "story": "Aston Villa stun Manchester City with 1-0 win",
+            "expected": "published",
+            "got": "published",
+            "ok": true
+          },
+          {
+            "story": "England name squad for World Cup qualifiers",
+            "expected": "not drafted",
+            "got": "not drafted",
+            "ok": true
+          },
+          {
+            "story": "West Ham held 2-2 by Bournemouth after late equaliser",
+            "expected": "published",
+            "got": "published",
+            "ok": true
+          },
+          {
+            "story": "Crystal Palace winger handed three-match ban for red card",
+            "expected": "published",
+            "got": "published",
+            "ok": true
+          },
+          {
+            "story": "Ipswich beat Leicester 2-0 for first win of the season",
             "expected": "published",
             "got": "published",
             "ok": true
@@ -331,6 +650,16 @@
           ]
         },
         {
+          "draft": "Manchester City v Wolves: the Touchline Take",
+          "agent": "factcheck",
+          "revision": 0,
+          "reasons": [
+            "contradicted claim (contradicts source: claim says Wolves beat Manchester City 4-0, source says Manchester City beat Wolves 4-0): Wolves beat Manchester City 4-0, as reported by Eval Wire [S1].",
+            "contradicted claim (wrong team for 1 defeat: Wolves (the evidence gives it to Manchester City)): In our synthetic sample results, Wolves have 3 wins, 1 draw and 1 defeat from their last 5 league games: 10 points, 9 scored and 5 conceded [ST1][ST2].",
+            "contradicted claim (wrong team for 1 win: Manchester City (the evidence gives it to Wolves)): In our synthetic sample results, Manchester City have 1 win, 1 draw and 3 defeats from their last 5 league games: 4 points, 9 scored and 13 conceded [ST1][ST2]."
+          ]
+        },
+        {
           "draft": "Real Madrid v Sevilla: the Touchline Take",
           "agent": "editor",
           "revision": 0,
@@ -355,6 +684,111 @@
           ]
         },
         {
+          "draft": "Manchester United v Fulham: the Touchline Take",
+          "agent": "factcheck",
+          "revision": 0,
+          "reasons": [
+            "contradicted claim (contradicts source: claim says Manchester United beat Fulham 2-1, source says Fulham beat Manchester United 2-1): Manchester United beat Fulham 2-1, as reported by Eval Wire [S1].",
+            "contradicted claim (wrong team for 1 win: Fulham (the evidence gives it to Manchester United)): In our synthetic sample results, Fulham have 1 win, 2 draws and 2 defeats from their last 5 league games: 5 points, 6 scored and 8 conceded [ST1][ST2].",
+            "contradicted claim (wrong team for 1 draw: Manchester United (the evidence gives it to Fulham)): In our synthetic sample results, Manchester United have 2 wins, 1 draw and 2 defeats from their last 5 league games: 7 points, 8 scored and 12 conceded [ST1][ST2]."
+          ]
+        },
+        {
+          "draft": "Paris Saint-Germain v Marseille: the Touchline Take",
+          "agent": "editor",
+          "revision": 0,
+          "reasons": [
+            "too short: 82 words (minimum 90)"
+          ]
+        },
+        {
+          "draft": "Paris Saint-Germain v Marseille: the Touchline Take",
+          "agent": "editor",
+          "revision": 1,
+          "reasons": [
+            "too short: 83 words (minimum 90)"
+          ]
+        },
+        {
+          "draft": "Paris Saint-Germain v Marseille: the Touchline Take",
+          "agent": "editor",
+          "revision": 2,
+          "reasons": [
+            "too short: 83 words (minimum 90)"
+          ]
+        },
+        {
+          "draft": "Juventus v Napoli: the Touchline Take",
+          "agent": "editor",
+          "revision": 0,
+          "reasons": [
+            "too short: 87 words (minimum 90)"
+          ]
+        },
+        {
+          "draft": "Juventus v Napoli: the Touchline Take",
+          "agent": "editor",
+          "revision": 1,
+          "reasons": [
+            "too short: 84 words (minimum 90)"
+          ]
+        },
+        {
+          "draft": "Juventus v Napoli: the Touchline Take",
+          "agent": "editor",
+          "revision": 2,
+          "reasons": [
+            "too short: 86 words (minimum 90)"
+          ]
+        },
+        {
+          "draft": "Newcastle v Southampton: the Touchline Take",
+          "agent": "factcheck",
+          "revision": 0,
+          "reasons": [
+            "contradicted claim (contradicts source: claim says Southampton beat Newcastle 5-0, source says Newcastle beat Southampton 5-0): Southampton beat Newcastle 5-0, as reported by Eval Wire [S1].",
+            "unsupported claim (not in cited evidence: insiders, 200, january): Insiders claim the club will spend 200 million in January [S1].",
+            "unsupported claim (not in cited evidence: rival, juventus): Rival scouts from Juventus were reportedly in the stands [S1].",
+            "unsupported claim (not in cited evidence: sunday, wembley): The squad trained twice on Sunday at Wembley [S1].",
+            "contradicted claim (wrong team for 0 draw: Southampton (the evidence gives it to Newcastle)): In our synthetic sample results, Southampton have 4 wins, 0 draws and 1 defeat from their last 5 league games: 12 points, 15 scored and 4 conceded [ST1][ST2].",
+            "contradicted claim (wrong team for 0 win: Newcastle (the evidence gives it to Southampton)): In our synthetic sample results, Newcastle have 0 wins, 2 draws and 3 defeats from their last 5 league games: 2 points, 4 scored and 11 conceded [ST1][ST2]."
+          ]
+        },
+        {
+          "draft": "Bayern Munich v Bayer Leverkusen: the Touchline Take",
+          "agent": "editor",
+          "revision": 0,
+          "reasons": [
+            "too short: 81 words (minimum 90)"
+          ]
+        },
+        {
+          "draft": "Bayern Munich v Bayer Leverkusen: the Touchline Take",
+          "agent": "editor",
+          "revision": 1,
+          "reasons": [
+            "too short: 79 words (minimum 90)"
+          ]
+        },
+        {
+          "draft": "Bayern Munich v Bayer Leverkusen: the Touchline Take",
+          "agent": "editor",
+          "revision": 2,
+          "reasons": [
+            "too short: 82 words (minimum 90)"
+          ]
+        },
+        {
+          "draft": "Aston Villa v Manchester City: the Touchline Take",
+          "agent": "factcheck",
+          "revision": 0,
+          "reasons": [
+            "contradicted claim (contradicts source: claim says Manchester City beat Aston Villa 1-0, source says Aston Villa beat Manchester City 1-0): Manchester City beat Aston Villa 1-0, as reported by Eval Wire [S1].",
+            "contradicted claim (wrong team for 0 draw: Manchester City (the evidence gives it to Aston Villa)): In our synthetic sample results, Manchester City have 3 wins, 0 draws and 2 defeats from their last 5 league games: 9 points, 10 scored and 6 conceded [ST1][ST2].",
+            "contradicted claim (wrong team for 1 defeat: Aston Villa (the evidence gives it to Manchester City)): In our synthetic sample results, Aston Villa have 3 wins, 1 draw and 1 defeat from their last 5 league games: 10 points, 9 scored and 5 conceded [ST1][ST2]."
+          ]
+        },
+        {
           "draft": "Tottenham: what the dugout story really means",
           "agent": "factcheck",
           "revision": 0,
@@ -365,7 +799,60 @@
           ]
         },
         {
-          "draft": "Preview: Arsenal v Liverpool, who has the edge?",
+          "draft": "Chelsea: what the dugout story really means",
+          "agent": "factcheck",
+          "revision": 0,
+          "reasons": [
+            "unsupported claim (not in cited evidence: insiders, 200, january): Insiders claim the club will spend 200 million in January [S1].",
+            "unsupported claim (not in cited evidence: rival, juventus): Rival scouts from Juventus were reportedly in the stands [S1].",
+            "unsupported claim (not in cited evidence: sunday, wembley): The squad trained twice on Sunday at Wembley [S1]."
+          ]
+        },
+        {
+          "draft": "Newcastle: what the transfer story really means",
+          "agent": "factcheck",
+          "revision": 0,
+          "reasons": [
+            "unsupported claim (not in cited evidence: insiders, 200): Insiders claim the club will spend 200 million in January [S1].",
+            "unsupported claim (not in cited evidence: rival, juventus): Rival scouts from Juventus were reportedly in the stands [S1].",
+            "unsupported claim (not in cited evidence: sunday, wembley): The squad trained twice on Sunday at Wembley [S1]."
+          ]
+        },
+        {
+          "draft": "Celtic: what the transfer story really means",
+          "agent": "editor",
+          "revision": 0,
+          "reasons": [
+            "too short: 82 words (minimum 90)"
+          ]
+        },
+        {
+          "draft": "Celtic: what the transfer story really means",
+          "agent": "editor",
+          "revision": 1,
+          "reasons": [
+            "too short: 77 words (minimum 90)"
+          ]
+        },
+        {
+          "draft": "Celtic: what the transfer story really means",
+          "agent": "editor",
+          "revision": 2,
+          "reasons": [
+            "too short: 79 words (minimum 90)"
+          ]
+        },
+        {
+          "draft": "Aston Villa: what the injury story really means",
+          "agent": "factcheck",
+          "revision": 0,
+          "reasons": [
+            "contradicted claim (wrong team for 0 draw: Fulham (the evidence gives it to Aston Villa)): In our synthetic sample results, Fulham have 3 wins, 0 draws and 2 defeats from their last 5 league games: 9 points, 10 scored and 6 conceded [ST1][ST2].",
+            "contradicted claim (wrong team for 1 draw: Aston Villa (the evidence gives it to Fulham)): In our synthetic sample results, Aston Villa have 2 wins, 1 draw and 2 defeats from their last 5 league games: 7 points, 8 scored and 12 conceded [ST1][ST2]."
+          ]
+        },
+        {
+          "draft": "Brentford: what the refereeing story really means",
           "agent": "factcheck",
           "revision": 0,
           "reasons": [

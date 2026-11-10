@@ -162,16 +162,20 @@ pylint touchline_takes tests scripts
 python scripts/evaluate.py
 ```
 
-- **Tests** (65) cover every agent and tool. The suite blocks real HTTP in `tests/conftest.py`
+- **Tests** (86) cover every agent and tool. The suite blocks real HTTP in `tests/conftest.py`
   and uses fake sessions, `FakeLLM`, `RecordedLLM` (`tests/fixtures/recorded_llm.json`) and
   `ScriptedWriterLLM`, so it needs no network or API keys.
 - **Pylint** scores 10.00/10 with the config in `pyproject.toml`.
-- **Evaluation** runs the full pipeline on `data/eval/fixture_stories.json` (labelled
+- **Evaluation** runs the full pipeline on `data/eval/fixture_stories.json` (25 labelled
   stories with expected outcomes) in two configurations: the offline template writer, and a
-  scripted fake LLM writer that invents claims on purpose for flagged stories. The report
-  (`reports/evaluation.md` / `.json`) includes:
+  scripted fake LLM writer that, for flagged stories, invents claims and swaps facts around
+  (flipped winners, stats pinned on the wrong team). It also scores the fact-checker on
+  `data/eval/claim_cases.json`: 56 labelled claims, including correct paraphrases to measure
+  false alarms, split into a `dev` set used while building the checks and a `heldout` set
+  written afterwards. The report (`reports/evaluation.md` / `.json`) includes:
   - the share of claims with a source, on first drafts and in published articles
-  - the Editor rejection rate and fact-check bounces
+  - contradictions caught, the Editor rejection rate and fact-check bounces
+  - fact-checker precision, recall and false-positive rate, token-only vs relation-aware
   - retry counts
   - expectation pass rate
   - LLM calls, tokens, cost (actual and projected for Claude) and latency per article
@@ -185,11 +189,16 @@ Latest snapshot (`reports/evaluation.md`):
 
 | | template writer | scripted LLM writer |
 |---|---|---|
-| Claims with a source: first pass / published | 1.00 / **1.00** | 0.91 / **1.00** |
-| Unsupported claims caught | 0 | 9 |
-| Editor rejection rate | 0.21 | 0.21 |
-| Retries (total / max per draft) | 2 / 2 | 5 / 2 |
-| Expectations passed | 10/10 | 10/10 |
+| Claims with a source: first pass / published | 1.00 / **1.00** | 0.88 / **1.00** |
+| Unsupported claims caught (of which contradictions) | 0 (0) | 32 (14) |
+| Editor rejection rate | 0.42 | 0.42 |
+| Retries (total / max per draft) | 10 / 2 | 20 / 2 |
+| Expectations passed | 19/19 | 19/19 |
+
+| Fact-checker on labelled claims | Recall on bad claims | False-positive rate |
+|---|---|---|
+| Token-only (old), held-out 18 | 0.30 | 0.00 |
+| Relation-aware (new), held-out 18 | **1.00** | 0.00 |
 
 | Match-outcome model (test set, 278 matches) | Logistic regression | Majority-class baseline |
 |---|---|---|
@@ -236,12 +245,28 @@ Latest snapshot (`reports/evaluation.md`):
 - Revises drafts sent back by the Fact-checker or Editor, using their feedback.
 
 ### 4. Fact-check + Editor (`agents/factcheck.py`, `agents/editor.py`)
-- **Fact-check.** A sentence is a *claim* if it has numbers or proper nouns. It counts as
-  supported only when it cites known evidence **and** every number and proper noun in it
-  appears in the cited records.
+- **Fact-check.** A sentence is a *claim* if it has numbers or proper nouns. Each claim
+  goes through these checks in order:
+  1. **Citation:** it cites known evidence.
+  2. **Tokens:** every number and proper noun in it appears in the cited records.
+  3. **Relations** (`tools/relations.py`), which catch claims that use the source's words but
+     get the facts the wrong way round:
+     - **Result direction and score:** results are read from many phrasings ("beat",
+       "lost 2-1 to", "stunned 2-0 by", "3-0 defeat at", "X 0-2 Y", draws), so
+       "Chelsea beat Arsenal 2-1" fails against "Arsenal beat Chelsea 2-1", as does a win
+       claimed for a drawn game.
+     - **Team–number attribution:** for stats, model and fixture records, each number belongs
+       to the team named before it (with its unit), so swapping two teams' form or win
+       probabilities fails even when both records are cited.
+     - **Number–unit pairing:** "out for 6 months" fails against "6 weeks".
+  4. **Optional LLM verifier** (`FACTCHECK_VERIFIER=llm`): one batched call per draft asks
+     the LLM whether each claim that passed the rules is fully supported by its evidence.
+     It counts against the LLM budget, and if the call fails, the rule verdicts stand.
+
+  What happens next:
   - A few unsupported claims are removed.
-  - If more than 25% of claims are unsupported, or the lead claim is, the draft goes back to
-    the Writer.
+  - If more than 25% of claims are unsupported, the lead claim is, or **any claim contradicts
+    its source**, the draft goes back to the Writer.
 - **Editor.** Checks:
   - length (90–450 words)
   - title length
@@ -329,7 +354,7 @@ See `.env.example` for every variable. The main ones:
 
 - `LLM_PROVIDER`, `LLM_MODEL`, `LLM_MAX_CALLS_PER_RUN`
 - `EMBEDDINGS_PROVIDER`, `VECTOR_STORE`
-- `CLASSIFIER_PROVIDER`
+- `CLASSIFIER_PROVIDER`, `FACTCHECK_VERIFIER`
 - `AUTO_PUBLISH`, `MAX_REVISIONS`, `MAX_ARTICLES_PER_RUN`, `DEDUPE_THRESHOLD`
 - `ADMIN_PASSWORD`, `SECRET_KEY`, `DATABASE_PATH`
 
@@ -339,7 +364,7 @@ See `.env.example` for every variable. The main ones:
 touchline_takes/
   agents/      ingest, classifier, writer, factcheck, editor, analyst, publisher (+ base Agent)
   tools/       llm (providers, cache, budget, fakes), embeddings, feeds, football_api,
-               rag, stats, teams, text
+               rag, relations, stats, teams, text
   models/      match_predictor (logistic regression + baselines)
   db/          SQLite repository
   web/         Flask app factory, views, templates, static
@@ -356,10 +381,11 @@ reports/       latest evaluation report
 1. **Switch on real data and a real LLM.** Download the Football-Data.co.uk CSVs and retrain,
    point at live RSS, set `LLM_PROVIDER`, then re-run `scripts/evaluate.py` and record a
    `RecordedLLM` fixture from real outputs.
-2. **Stronger fact-checking.** Token matching checks *what* is mentioned, not *how* the facts
-   relate (for example, it would miss "Chelsea beat Arsenal" against a source saying the
-   opposite). Add relation-level checks (score direction, entity–number pairing) or an
-   NLI/LLM verifier, and grow the labelled evaluation set beyond 10 stories.
+2. **Harden the fact-checker further.** The relation checks cover results, team stats and
+   units. Relations involving people ("Hartmann scored" vs "Reyes scored"), number words
+   ("six") and tables/positions ("second in the league") are still checked only at the token
+   level. Measure the LLM verifier on the claim set with a real model, and grow the
+   held-out claim set from real articles written by someone who hasn't seen the rules.
 3. **Port the orchestration to LangGraph and add image tagging.** Add persistence and
    human-in-the-loop interrupts for the review step, then a VGG16 transfer-learning tagger
    for match photos.
