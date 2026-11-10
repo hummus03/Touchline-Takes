@@ -1,4 +1,5 @@
 """Tests for the RAG research tools."""
+# pylint: disable=redefined-outer-name
 
 import pytest
 

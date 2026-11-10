@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Ask the archive | {{ brand }}{% endblock %}
+{% block content %}
+<section class="ask">
+  <h1 class="section-title">Ask the archive</h1>
+  <p class="muted">Questions are answered only from stories the newsroom has stored, with links to every source.</p>
+  <form method="post" action="{{ url_for('site.ask') }}" class="askform">
+    <label for="q" class="sr-only">Your question</label>
+    <input id="q" name="q" type="text" maxlength="300" value="{{ question }}" placeholder="e.g. How long is the Aston Villa captain out for?" required>
+    <button type="submit">Ask</button>
+  </form>
+  {% if answer %}
+    <div class="card answer">
+      <p>{{ answer.answer }}</p>
+      {% if answer.sources %}
+        <h2 class="small">Sources</h2>
+        <ol class="small">
+          {% for s in answer.sources %}<li>{{ s.source }}: <a href="{{ s.url }}" rel="nofollow noopener" target="_blank">{{ s.title }}</a></li>{% endfor %}
+        </ol>
+      {% endif %}
+      <p class="muted small">Answer mode: {{ answer.mode }}</p>
+    </div>
+  {% endif %}
+</section>
+{% endblock %}

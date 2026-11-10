@@ -1,4 +1,5 @@
 """Tests for LLM clients, caching and the call budget (all offline)."""
+# pylint: disable=redefined-outer-name
 
 from types import SimpleNamespace
 

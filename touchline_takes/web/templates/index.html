@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="layout">
+  <section aria-labelledby="latest">
+    <h1 id="latest" class="section-title">Latest takes</h1>
+    {% if not articles %}
+      <div class="empty card">
+        <h2>The dressing room is quiet.</h2>
+        <p>No takes published yet. Run the newsroom with <code>python -m touchline_takes.run --offline --auto-publish</code>, or approve drafts on the <a href="{{ url_for('site.admin') }}">review desk</a>.</p>
+      </div>
+    {% endif %}
+    <div class="cards">
+    {% for a in articles %}
+      <article class="card story {% if loop.first %}lead{% endif %}">
+        <div class="tags">
+          <span class="tag type-{{ a.article_type }}">{{ a.article_type | replace('_', ' ') }}</span>
+          {% if a.league %}<span class="tag league">{{ a.league }}</span>{% endif %}
+        </div>
+        <h2><a href="{{ url_for('site.article', slug=a.slug) }}">{{ a.title }}</a></h2>
+        <p>{{ a.body | teaser }}</p>
+        <p class="meta">{{ a.published_at[:10] }} · {{ a.sources | length }} source{{ '' if a.sources|length == 1 else 's' }}</p>
+      </article>
+    {% endfor %}
+    </div>
+  </section>
+  <aside aria-labelledby="fixtures" class="sidebar">
+    <h2 id="fixtures" class="section-title">Upcoming fixtures</h2>
+    <p class="muted small">Win/draw/loss probabilities from the Touchline Takes Analyst model (logistic regression).</p>
+    {% for f in fixtures %}
+      <div class="fixture card">
+        <div class="fixture-head"><span>{{ f.date }}</span><span class="muted">{{ f.league }}</span></div>
+        <div class="teams"><strong>{{ f.home }}</strong> <span class="v">v</span> <strong>{{ f.away }}</strong></div>
+        {% if f.home_win is not none %}
+          <div class="probbar" role="img" aria-label="Home {{ f.home_win|pct }}, draw {{ f.draw|pct }}, away {{ f.away_win|pct }}">
+            <span class="h" style="width: {{ (f.home_win * 100)|round(1) }}%"></span><span class="d" style="width: {{ (f.draw * 100)|round(1) }}%"></span><span class="a" style="width: {{ (f.away_win * 100)|round(1) }}%"></span>
+          </div>
+          <div class="problabels"><span>H {{ f.home_win|pct }}</span><span>D {{ f.draw|pct }}</span><span>A {{ f.away_win|pct }}</span></div>
+        {% else %}
+          <p class="muted small">No prediction (team not in results data).</p>
+        {% endif %}
+        {% if 'sample' in (f.source or '') %}<p class="badge-sample">sample fixture</p>{% endif %}
+      </div>
+    {% else %}
+      <p class="muted">No fixtures loaded yet.</p>
+    {% endfor %}
+  </aside>
+</div>
+{% endblock %}

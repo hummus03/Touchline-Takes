@@ -1,4 +1,5 @@
 """Tests for the Classifier agent and its back-ends."""
+# pylint: disable=redefined-outer-name
 
 import pytest
 

@@ -22,3 +22,10 @@ max-line-length = 100
 [tool.pylint."messages control"]
 disable = ["too-few-public-methods", "too-many-instance-attributes", "too-many-arguments",
            "too-many-positional-arguments", "duplicate-code"]
+
+[tool.pylint.design]
+# The newsroom agents assemble evidence in a few long-but-linear methods and the
+# repository class is intentionally one flat API, so the defaults are relaxed slightly.
+max-locals = 22
+max-branches = 14
+max-public-methods = 30

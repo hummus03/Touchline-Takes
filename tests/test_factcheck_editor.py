@@ -1,4 +1,5 @@
 """Tests for the Fact-check and Editor agents and the bounded revision loop."""
+# pylint: disable=redefined-outer-name
 
 from touchline_takes.agents.editor import EditorAgent, StyleGuide
 from touchline_takes.agents.factcheck import FactCheckAgent, check_draft, unsupported_claims

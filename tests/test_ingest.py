@@ -1,4 +1,5 @@
 """Tests for feed parsing and the Ingest agent."""
+# pylint: disable=redefined-outer-name
 
 from touchline_takes.agents.ingest import IngestAgent
 from touchline_takes.state import NewsroomState

@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Review desk | {{ brand }}{% endblock %}
+{% block content %}
+<section class="admin">
+  <div class="admin-head">
+    <h1 class="section-title">Review desk</h1>
+    <form method="post" action="{{ url_for('site.run_pipeline') }}">
+      <input type="hidden" name="csrf" value="{{ csrf_token() }}">
+      <button type="submit" class="secondary">Run newsroom now</button>
+    </form>
+  </div>
+  <p class="muted">Mode: <strong>{{ 'auto-publish' if settings.auto_publish else 'human approval required' }}</strong> · LLM: {{ settings.llm_provider }} · Max revisions: {{ settings.max_revisions }}</p>
+
+  <h2>Awaiting approval ({{ pending | length }})</h2>
+  {% for d in pending %}
+    <article class="card draft">
+      <div class="tags"><span class="tag type-{{ d.article_type }}">{{ d.article_type | replace('_', ' ') }}</span><span class="tag">{{ d.mode }}</span><span class="tag">revision {{ d.revision }}</span></div>
+      <h3>{{ d.title }}</h3>
+      <div class="body">{{ d.body | render_body }}</div>
+      <details>
+        <summary>Fact-check: {{ checks[d.id] | selectattr('is_claim') | selectattr('supported') | list | length }}/{{ checks[d.id] | selectattr('is_claim') | list | length }} claims sourced</summary>
+        <table class="claims">
+          <thead><tr><th>Sentence</th><th>Status</th><th>Cites</th></tr></thead>
+          <tbody>
+          {% for c in checks[d.id] %}
+            <tr class="{{ 'ok' if c.supported else 'bad' }}"><td>{{ c.sentence }}</td><td>{{ c.reason }}</td><td>{{ c.cited | join(', ') }}</td></tr>
+          {% endfor %}
+          </tbody>
+        </table>
+        <ul class="small">{% for e in d.evidence %}<li><strong>{{ e.id }}</strong> ({{ e.kind }}) {{ e.text }}</li>{% endfor %}</ul>
+      </details>
+      {% if d.rejection_history %}
+        <details><summary>Earlier rejections ({{ d.rejection_history | length }})</summary>
+          <ul class="small">{% for r in d.rejection_history %}<li>{{ r.agent }} @ rev {{ r.revision }}: {{ r.reasons | join('; ') }}</li>{% endfor %}</ul>
+        </details>
+      {% endif %}
+      <div class="actions">
+        <form method="post" action="{{ url_for('site.review_draft', draft_id=d.id, action='approve') }}">
+          <input type="hidden" name="csrf" value="{{ csrf_token() }}">
+          <button type="submit">Approve &amp; publish</button>
+        </form>
+        <form method="post" action="{{ url_for('site.review_draft', draft_id=d.id, action='reject') }}" class="reject">
+          <input type="hidden" name="csrf" value="{{ csrf_token() }}">
+          <input type="text" name="reason" placeholder="Reason (optional)" maxlength="300">
+          <button type="submit" class="danger">Reject</button>
+        </form>
+      </div>
+    </article>
+  {% else %}
+    <p class="muted">Nothing waiting. Run the newsroom to generate drafts.</p>
+  {% endfor %}
+
+  <h2>Rejection log</h2>
+  <table class="log">
+    <thead><tr><th>When</th><th>Draft</th><th>Agent</th><th>Rev</th><th>Reasons</th></tr></thead>
+    <tbody>
+    {% for r in rejections %}<tr><td>{{ r.ts[:16] }}</td><td>{{ r.draft_id }}</td><td>{{ r.agent }}</td><td>{{ r.revision }}</td><td>{{ r.reasons | join('; ') }}</td></tr>{% else %}<tr><td colspan="5" class="muted">No rejections yet.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+
+  <h2>Recent runs</h2>
+  <table class="log">
+    <thead><tr><th>Run</th><th>Finished</th><th>Drafts</th><th>LLM</th><th>Seconds</th></tr></thead>
+    <tbody>
+    {% for run in runs %}<tr><td>{{ run.run_id }}</td><td>{{ run.finished_at[:16] }}</td><td>{{ run.summary.drafts }}</td><td>{{ run.summary.llm }}</td><td>{{ run.summary.duration_s }}</td></tr>{% else %}<tr><td colspan="5" class="muted">No runs yet.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+
+  <h2>Agent log</h2>
+  <table class="log">
+    <thead><tr><th>When</th><th>Agent</th><th>Action</th><th>Item</th><th>Detail</th></tr></thead>
+    <tbody>
+    {% for l in logs %}<tr><td>{{ l.ts[11:19] }}</td><td>{{ l.agent }}</td><td>{{ l.action }}</td><td>{{ l.story_id or '' }}</td><td>{{ l.detail }}</td></tr>{% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}

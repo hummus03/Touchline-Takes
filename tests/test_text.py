@@ -1,4 +1,5 @@
 """Tests for text helpers."""
+# pylint: disable=redefined-outer-name
 
 from touchline_takes.tools import text
 

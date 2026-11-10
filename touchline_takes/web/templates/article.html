@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title }} | {{ brand }}{% endblock %}
+{% block content %}
+<article class="article">
+  <div class="tags">
+    <span class="tag type-{{ article.article_type }}">{{ article.article_type | replace('_', ' ') }}</span>
+    {% if article.league %}<span class="tag league">{{ article.league }}</span>{% endif %}
+    {% for t in article.teams %}<span class="tag team">{{ t }}</span>{% endfor %}
+  </div>
+  <h1>{{ article.title }}</h1>
+  <p class="meta">Published {{ article.published_at[:10] }} by the {{ brand }} newsroom</p>
+  <div class="body">{{ article.body | render_body }}</div>
+  <section class="sources" aria-labelledby="sources">
+    <h2 id="sources">Sources &amp; data</h2>
+    <ol>
+    {% for e in article.evidence %}
+      <li id="src-{{ e.id }}"><span class="cite-id">{{ e.id }}</span>
+        {% if e.kind == 'story' %}
+          {{ e.source }}{% if e.url %}: <a href="{{ e.url }}" rel="nofollow noopener" target="_blank">read the original report</a>{% endif %}
+        {% else %}
+          <span class="muted">{{ e.source }}:</span> {{ e.text }}
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ol>
+  </section>
+</article>
+{% endblock %}

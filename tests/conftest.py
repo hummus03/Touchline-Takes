@@ -1,4 +1,5 @@
 """Shared fixtures. The whole suite runs offline: real HTTP is blocked."""
+# pylint: disable=redefined-outer-name
 
 from __future__ import annotations
 

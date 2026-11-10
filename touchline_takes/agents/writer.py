@@ -162,8 +162,9 @@ class WriterAgent(Agent):
             candidates.setdefault(story.id, story)
         priority = ["match_report", "manager", "transfer", "injury", "discipline", "preview"]
         stories = sorted((s for s in candidates.values() if s.teams),
-                         key=lambda s: (priority.index(s.topic) if s.topic in priority
-                                        else len(priority), s.published), reverse=False)
+                         key=lambda s: s.published, reverse=True)  # newest first...
+        stories.sort(key=lambda s: priority.index(s.topic) if s.topic in priority
+                     else len(priority))  # ...within topic priority (stable sort)
         assignments: list[Assignment] = []
         previews = [Assignment("preview", fixture=f) for f in state.fixtures
                     if f.get("probs")][: self.max_previews]
@@ -342,7 +343,7 @@ class WriterAgent(Agent):
         related = self._related(f"{home} {away}", (), [home, away], k=1 + detail)
         for i, rel in enumerate(related, start=1):
             evidence.append(self._story_evidence(f"S{i}", rel))
-            facts.append(f"Latest from {rel['source']}: “{rel['title']}” [S{i}].")
+            facts.append(f"The latest from {rel['source']}: “{rel['title']}” [S{i}].")
         fav = max(("H", "A"), key=lambda k: probs[k])
         fav_team = home if fav == "H" else away
         takes = _pick(TAKES["preview"], fixture["id"] + str(detail), 2)

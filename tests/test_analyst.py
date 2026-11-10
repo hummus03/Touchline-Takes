@@ -1,4 +1,5 @@
 """Tests for the match-outcome model and the Analyst agent."""
+# pylint: disable=redefined-outer-name
 
 import numpy as np
 import pandas as pd

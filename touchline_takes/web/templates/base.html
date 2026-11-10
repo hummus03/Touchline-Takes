@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ brand }} | {{ tagline }}{% endblock %}</title>
+  <meta name="description" content="{{ tagline }}">
+  <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="{{ brand }}" href="{{ url_for('site.feed') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="masthead">
+    <div class="wrap masthead-inner">
+      <a class="logo" href="{{ url_for('site.index') }}" aria-label="{{ brand }} home">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span class="logo-text">Touchline<strong>Takes</strong></span>
+      </a>
+      <nav class="nav">
+        <a href="{{ url_for('site.index') }}">Latest</a>
+        <a href="{{ url_for('site.ask') }}">Ask the archive</a>
+        <a href="{{ url_for('site.feed') }}">RSS</a>
+        <a href="{{ url_for('site.admin') }}">Desk</a>
+      </nav>
+    </div>
+    <p class="wrap tagline">{{ tagline }}</p>
+  </header>
+  <main class="wrap">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for category, message in messages %}<div class="flash flash-{{ category }}">{{ message }}</div>{% endfor %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="footer">
+    <div class="wrap">
+      <p><strong>{{ brand }}</strong> · {{ domain }} · Written by an automated newsroom of AI agents, fact-checked against cited sources, with a human on the review desk.</p>
+      <p class="muted">Every factual sentence links to its source. We summarise and comment; we never republish source articles.</p>
+    </div>
+  </footer>
+</body>
+</html>
