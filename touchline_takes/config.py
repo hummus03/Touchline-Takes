@@ -81,7 +81,7 @@ class Settings:
     admin_password: str = ""
     secret_key: str = ""
     site_url: str = "https://touchlinetakes.com"
-    contact_email: str = "hello@touchlinetakes.com"  # shown on the About/Privacy pages
+    contact_email: str = "touchlinetakes101@gmail.com"  # shown on the About/Privacy pages
     request_timeout: float = 10.0
 
     @classmethod

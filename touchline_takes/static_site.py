@@ -19,6 +19,8 @@ from touchline_takes.content import ContentError, load_articles
 from touchline_takes.db import Database
 
 WEB_STATIC = Path(__file__).parent / "web" / "static"
+# Files served from the site root as they are, e.g. search-engine verification files.
+SITE_ROOT = Path(__file__).parent.parent / "site_root"
 
 
 @dataclass
@@ -66,11 +68,19 @@ def build_site(content_dir: str | Path, out_dir: str | Path, settings: Settings,
         _write(out / "404.html", client.get("/__not_found__").get_data())
         db.close()
     shutil.copytree(WEB_STATIC, out / "static")
+    _copy_site_root(out)
     host = urlparse(settings.site_url).hostname
     if host and host not in ("localhost", "127.0.0.1"):
         (out / "CNAME").write_text(host + "\n", encoding="utf-8")  # GitHub Pages domain
     (out / ".nojekyll").write_text("", encoding="utf-8")
     return report
+
+
+def _copy_site_root(out: Path) -> None:
+    """Copy root-level files (verification files) without overwriting built pages."""
+    for extra in sorted(SITE_ROOT.glob("*")) if SITE_ROOT.is_dir() else []:
+        if extra.is_file() and not (out / extra.name).exists():
+            shutil.copy2(extra, out / extra.name)
 
 
 def _routes(app, views) -> dict[str, str]:

@@ -335,3 +335,13 @@ def test_club_league_and_info_pages(tmp_path, static):
                 "https://touchlinetakes.com/about/",
                 "https://touchlinetakes.com/article/arsenal-v-chelsea-2026-11-11/"):
         assert f"<loc>{url}</loc>" in sitemap
+
+
+def test_site_root_files_are_published(tmp_path, static):
+    """Search-engine verification files in site_root/ are served from the site root."""
+    content = tmp_path / "content"
+    write_article(content, record())
+    out = tmp_path / "_site"
+    build_site(content, out, static)
+    assert (out / "google96cacfec37ea204a.html").read_text().startswith(
+        "google-site-verification: google96cacfec37ea204a.html")
