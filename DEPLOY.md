@@ -150,8 +150,7 @@ line in `.github/workflows/newsroom.yml` to run more often).
 ### Sharing on social media (optional)
 
 - **X, by hand (free):** every review PR has a **Post to X** link. After merging, wait
-  about a minute for the site to update, click it, check the post and press Post. Article
-  pages also have Share links for X and Bluesky.
+  about a minute for the site to update, click it, check the post and press Post.
 - **Bluesky, automatic (free):** each newly published article is posted once: headline,
   first sentence and a link card with the share image.
   1. On Bluesky: Settings → Privacy and security → **App passwords** → add one.
