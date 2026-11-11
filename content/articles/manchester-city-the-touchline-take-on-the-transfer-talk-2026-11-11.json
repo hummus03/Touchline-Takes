@@ -1,0 +1,57 @@
+{
+  "slug": "manchester-city-the-touchline-take-on-the-transfer-talk-2026-11-11",
+  "title": "Manchester City: the Touchline Take on the transfer talk",
+  "body": "The Guardian has a transfer story involving Manchester City [S1]. The headline said it plainly: “Rui Pinto’s lawyers in talks with UK authorities over deal for Manchester City whistleblower” [S1]. The names in the frame: Serious Fraud Office and Rui Pinto [S1].\n\nFor context, The Guardian also ran: “Bunny Shaw shines again for five-star Manchester City – Women’s Football Weekly” [S2]. In our Football-Data.co.uk results, Manchester City have 2 wins, 0 draws and 3 defeats from their last 5 league games: 6 points, 8 scored and 8 conceded [ST1].\n\nTalk is cheap until the paperwork is signed, so treat every rumour with care. If this one goes through, it says plenty about where the club thinks it is heading. The Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester City"
+  ],
+  "sources": [
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/10/rui-pinto-lawyers-talks-uk-authorities-cooperation-deal-whistleblower",
+      "kind": "story"
+    },
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/audio/2026/nov/10/bunny-shaw-shines-again-for-five-star-manchester-city-womens-football-weekly",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "The Guardian: Rui Pinto’s lawyers in talks with UK authorities over deal for Manchester City whistleblower. Serious Fraud Office has contacted Pinto He is willing to assist in exchange for protection Rui Pinto’s lawyers are in talks with British authorities over a potential cooperation agreement under which the Manchester City whistleblower could help to expose serious financial and sporting crime in the UK. According to information obtained by the Guardian, the Serious Fraud Office has contacted Pinto after it emerged he was willing to assist British authorities with their investigations in exchange for protection.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/10/rui-pinto-lawyers-talks-uk-authorities-cooperation-deal-whistleblower"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "The Guardian: Bunny Shaw shines again for five-star Manchester City – Women’s Football Weekly. Faye Carruthers is joined by Suzanne Wrack , Sophie Downey and Marva Kreel to discuss the weekend’s WSL action On the podcast today: It is a five-star performance from Manchester City as Bunny Shaw shines again, but a frustrating afternoon for Chelsea as they are held to a draw by Everton. Plus Arsenal would be in big trouble without Alessia Russo as her two goals help Arsenal earn three much needed points against Liverpool.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/audio/2026/nov/10/bunny-shaw-shines-again-for-five-star-manchester-city-womens-football-weekly"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester City last 5 league matches in Football-Data.co.uk results: 2 wins, 0 draws, 3 defeats, 6 points, 8 goals scored, 8 conceded (sequence WWLLL).",
+      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-11T05:02:14+00:00",
+  "draft_id": "23fc25f3ac",
+  "story_ids": [
+    "9e8f398f8687"
+  ],
+  "mode": "template",
+  "revision": 0
+}
