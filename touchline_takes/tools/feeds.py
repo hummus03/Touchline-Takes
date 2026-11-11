@@ -44,15 +44,22 @@ FOOTBALL_PATH = {"skysports.com": "/football/"}
 
 def skip_reason(story: Story) -> str:
     """Why a feed item isn't a football news story we can write from ('' = keep it)."""
-    host = (urlparse(story.url).hostname or "").lower()
-    path = urlparse(story.url).path
+    return skip_reason_for(story.title, story.url, story.summary, story.categories)
+
+
+def skip_reason_for(title: str, url: str, summary: str = "",
+                    categories: list[str] | None = None) -> str:
+    """:func:`skip_reason` for a headline, link, summary and feed categories."""
+    host = (urlparse(url).hostname or "").lower()
+    path = urlparse(url).path
     for domain, section in FOOTBALL_PATH.items():
         if (host == domain or host.endswith("." + domain)) and section not in path:
             return "not football"
-    if FORMAT_TITLE_RE.search(story.title) or FORMAT_URL_RE.search(path):
+    if FORMAT_TITLE_RE.search(title) or FORMAT_URL_RE.search(path):
         return "not a news article"
-    if WOMENS_RE.search(story.title) or "women" in path.lower() \
-            or WOMENS_RE.search(story.summary[:300]):
+    if WOMENS_RE.search(title) or "women" in path.lower() \
+            or WOMENS_RE.search(summary[:300]) \
+            or any(WOMENS_RE.search(c) or "womens-football" in c for c in categories or ()):
         return "women's football"
     return ""
 
@@ -113,7 +120,9 @@ def parse_feed(xml_text: str, default_source: str = "") -> list[Story]:
             continue
         stories.append(Story(
             id=story_id_for(url, title), title=title, summary=summary or title, url=url,
-            source=source, published=_published_iso(entry), image_url=_image_url(entry)))
+            source=source, published=_published_iso(entry), image_url=_image_url(entry),
+            categories=[str(t.get(k) or "") for t in entry.get("tags", [])
+                        for k in ("term", "scheme") if t.get(k)]))
     return stories
 
 

@@ -44,6 +44,8 @@ class Story:
     emotion: str | None = None
     image_url: str = ""
     image_tags: list[dict[str, Any]] = field(default_factory=list)
+    # Feed categories ("Women's football"); used at ingest only, not stored.
+    categories: list[str] = field(default_factory=list)
 
     @property
     def text(self) -> str:

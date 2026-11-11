@@ -182,7 +182,7 @@ class AnthropicLLM(LLMClient):
         self.effort = effort
         import anthropic  # pylint: disable=import-outside-toplevel
         self._api_error = anthropic.APIError
-        self.client = client or anthropic.Anthropic(api_key=api_key or None)
+        self.client = client or anthropic.Anthropic(api_key=api_key.strip() or None)
 
     def complete(self, prompt: str, system: str = "", max_tokens: int = 1500) -> LLMResponse:
         start = time.perf_counter()

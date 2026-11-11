@@ -224,6 +224,11 @@ class LLMClassifier(BaseClassifier):
         return Classification(league, teams, topic, sentiment, base.sentiment_score, emotion)
 
 
+# Bump when the rules change: stories waiting to be written are then tagged again, so
+# ones stored under old rules don't come back with stale topics.
+RULES_VERSION = "2026-11-11"
+
+
 class ClassifierAgent(Agent):
     """Tags every unclassified story and persists the tags."""
 
@@ -235,6 +240,12 @@ class ClassifierAgent(Agent):
         self.classifier = classifier
 
     def run(self, state: NewsroomState) -> NewsroomState:
+        if self.db.get_meta("classifier_rules") != RULES_VERSION:
+            requeued = self.db.reset_unused_classification()
+            self.db.set_meta("classifier_rules", RULES_VERSION)
+            if requeued:
+                self.log(state, "rules_changed",
+                         f"classifier rules {RULES_VERSION}: re-tagging {requeued} waiting stories")
         pending = {s.id: s for s in self.db.unclassified_stories()}
         for story in state.new_stories:
             pending.setdefault(story.id, story)

@@ -20,6 +20,7 @@ from typing import Any, Protocol
 from touchline_takes.agents.base import Agent
 from touchline_takes.db import Database
 from touchline_takes.state import Draft, Evidence, NewsroomState, Story
+from touchline_takes.tools.feeds import skip_reason, skip_reason_for
 from touchline_takes.tools.llm import LLMClient, LLMError
 from touchline_takes.tools.relations import SCORE_RE, extract_results, headline_winner
 from touchline_takes.tools.stats import ResultsStore
@@ -195,8 +196,9 @@ class WriterAgent(Agent):
         priority = ["match_report", "manager", "transfer", "injury", "discipline", "preview"]
         # Only write about a club the headline names: a club listed in passing in the
         # summary (one of many in a cup draw, say) isn't what the story is about.
-        stories = sorted((s for s in candidates.values()
-                          if s.teams and self._about(s.title, s.teams[:1])),
+        # Stories stored before a skip rule existed are filtered here too.
+        stories = sorted((s for s in candidates.values() if s.teams and not skip_reason(s)
+                          and self._about(s.title, s.teams[:1])),
                          key=lambda s: s.published, reverse=True)  # newest first...
         stories.sort(key=lambda s: priority.index(s.topic) if s.topic in priority
                      else len(priority))  # ...within topic priority (stable sort)
@@ -250,10 +252,12 @@ class WriterAgent(Agent):
         """
         if self.research is not None:
             hits = self.research.related(query, k=k * 4, exclude_ids=exclude)
-            return [h for h in hits if self._about(h["title"], teams)][:k]
+            return [h for h in hits if self._about(h["title"], teams)
+                    and not skip_reason_for(h["title"], h.get("url", ""), h.get("text", ""))][:k]
         out = []
         for story in self.db.recent_stories(100):
-            if story.id in exclude or not self._about(story.title, teams) or not teams:
+            if story.id in exclude or not self._about(story.title, teams) or not teams \
+                    or skip_reason(story):
                 continue
             out.append({"story_id": story.id, "title": story.title, "source": story.source,
                         "url": story.url, "text": f"{story.title}. {story.summary}"})

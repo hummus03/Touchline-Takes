@@ -277,3 +277,15 @@ def test_seasons_and_years_are_not_scores_or_details(db, teams):
     assert "1904" not in " ".join(comp.facts)
     assert "One detail from the report stands out: “After three straight defeats” [S1]." \
         in comp.facts
+
+
+def test_stored_non_news_items_are_not_written(db, teams):
+    """A women's match or live page stored before the skip rules existed isn't written up."""
+    live = make_story(60, title="Arsenal 2-0 Chelsea commentary", teams=["Arsenal", "Chelsea"],
+                      topic="match_report")
+    womens = make_story(61, title="Chelsea beat Arsenal 2-1 in the WSL",
+                        teams=["Chelsea", "Arsenal"], topic="match_report")
+    for story in (live, womens):
+        db.insert_story(story)
+        db.update_classification(story)
+    assert make_writer(db, teams).plan(NewsroomState(stories=[live, womens])) == []
