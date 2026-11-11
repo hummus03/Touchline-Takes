@@ -1,0 +1,82 @@
+{
+  "slug": "preview-chelsea-v-leeds-united-who-has-the-edge-2026-11-11",
+  "title": "Preview: Chelsea v Leeds United, who has the edge?",
+  "body": "Chelsea host Leeds United in the Premier League on 2026-11-21 [F1]. The Touchline Takes Analyst model gives Chelsea a 33% chance of winning, the draw 40% and Leeds United 28% [M1]. In our Football-Data.co.uk results, Chelsea have 3 wins, 0 draws and 2 defeats from their last 5 league games: 9 points, 9 scored and 4 conceded [ST1].\n\nIn our Football-Data.co.uk results, Leeds United have 1 win, 2 draws and 2 defeats from their last 5 league games: 5 points, 3 scored and 5 conceded [ST2]. The last meeting in our Football-Data.co.uk results, on 2026-02-10, finished Chelsea 2-2 Leeds United [ST3]. The latest from BBC Sport: “Which game will Chelsea's Palmer miss after red card?” [S1].\n\nThis is the kind of fixture where one moment of quality settles everything. Expect nerves early and a lot more freedom once the first goal goes in. The Touchline Take: too close to call, and the draw is very much in play.",
+  "article_type": "preview",
+  "league": "Premier League",
+  "teams": [
+    "Chelsea",
+    "Leeds United"
+  ],
+  "sources": [
+    {
+      "name": "football-data.org",
+      "url": "",
+      "kind": "fixture"
+    },
+    {
+      "name": "Touchline Takes Analyst model",
+      "url": "",
+      "kind": "model"
+    },
+    {
+      "name": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cm4g1q54pj20o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "F1",
+      "kind": "fixture",
+      "text": "Fixture: Chelsea v Leeds United, Premier League, 2026-11-21.",
+      "source": "football-data.org",
+      "url": ""
+    },
+    {
+      "id": "M1",
+      "kind": "model",
+      "text": "Touchline Takes Analyst model (logistic regression on Football-Data.co.uk results): Chelsea win 33%, draw 40%, Leeds United win 28%.",
+      "source": "Touchline Takes Analyst model",
+      "url": ""
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Chelsea last 5 league matches in Football-Data.co.uk results: 3 wins, 0 draws, 2 defeats, 9 points, 9 goals scored, 4 conceded (sequence WWLWL).",
+      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Leeds United last 5 league matches in Football-Data.co.uk results: 1 win, 2 draws, 2 defeats, 5 points, 3 goals scored, 5 conceded (sequence LDDLW).",
+      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST3",
+      "kind": "stats",
+      "text": "Last meeting in Football-Data.co.uk results: 2026-02-10, Chelsea 2-2 Leeds United.",
+      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Which game will Chelsea's Palmer miss after red card?. BBC Sport's Ask Me Anything team explains why Cole Palmer's red card suspension will not rule him out of Chelsea's Premier League match against Manchester United.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cm4g1q54pj20o?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "published_at": "2026-11-11T04:24:26+00:00",
+  "draft_id": "14316c9999",
+  "story_ids": [],
+  "mode": "template",
+  "revision": 0
+}
