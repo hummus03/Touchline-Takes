@@ -1,0 +1,57 @@
+{
+  "slug": "out-of-the-frame-the-dugout-decision-facing-a-club-in-trouble-2026-11-11",
+  "title": "Out of the Frame? The Dugout Decision Facing a Club in Trouble",
+  "body": "Manchester United are closing in on a deal that would remove Michael Carrick and bring Mauricio Pochettino in as head coach [S2]. The expected sacking follows a disastrous start that leaves the club at risk of relegation from the Premier League [S1].\n\nMultiple sources told the Guardian that Pochettino, the US men's national team head coach, is interested in the move, and that the interest is mutual [S1]. The coach's contract reportedly carries a release clause of about $10m [S1]. A board meeting is scheduled for Wednesday [S2], and the plan is to agree a Pochettino deal only if Carrick goes, following a recommendation from Jason Wilcox and Omar Berrada to Sir Jim Ratcliffe [S2]. Their worst opening to a campaign in four decades is the detail that stands out [S1].\n\nThe results add a sharper edge. A side that cannot win and leaks goals at this rate cannot afford to wait for the season to turn by itself, and that is the pressure building behind the boardroom talk.\n\nThe harder question is whether the squad can rediscover its scoring touch and stop the goals going in at the other end. A coach who already wants the job makes the paperwork simpler, but it does not make the football any better.\n\nThe Touchline Take: the appointment is the easy headline; the real test is what the side produces once the announcement is made.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester United"
+  ],
+  "sources": [
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/10/mauricio-pochettino-interested-manchester-united-usmnt-release-clause",
+      "kind": "story"
+    },
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/11/manchester-united-close-mauricio-pochettino-deal-michael-carrick",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "The Guardian: Mauricio Pochettino interested in leaving USMNT job for Manchester United. Coach’s contract has release clause of about $10m United expected to sack Michael Carrick after awful start US men’s national team head coach Mauricio Pochettino is interested in a move to Manchester United, multiple sources told the Guardian, with those same sources characterizing the interest as mutual. United are expected to sack their head coach, Michael Carrick, after a disastrous start to their season which leaves them at risk of relegation from the Premier League, their worst opening to a campaign in four decades.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/10/mauricio-pochettino-interested-manchester-united-usmnt-release-clause"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "The Guardian: Manchester United close on Mauricio Pochettino deal before settling Carrick’s fate. Pochettino wants to leave USA role for United. United board meeting scheduled for Wednesday. Manchester United are closing in on agreeing a deal for Mauricio Pochettino to become their head coach if Michael Carrick is sacked in line with the recommendation from Jason Wilcox, the director of football, and Omar Berrada, the chief executive, to Sir Jim Ratcliffe. Pochettino is the US men’s national team head coach but wants the United job if, as expected, Carrick is removed.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/11/manchester-united-close-mauricio-pochettino-deal-michael-carrick"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 3 draws, 2 defeats, 3 points, 6 goals scored, 11 conceded (sequence DDLLD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-11T18:56:01+00:00",
+  "draft_id": "5516abc543",
+  "story_ids": [
+    "aba2377660c2"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
