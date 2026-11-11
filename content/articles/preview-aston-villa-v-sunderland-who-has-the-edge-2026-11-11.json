@@ -20,7 +20,7 @@
       "kind": "model"
     },
     {
-      "name": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "name": "Football-Data.co.uk results",
       "url": "",
       "kind": "stats"
     },
@@ -49,21 +49,21 @@
       "id": "ST1",
       "kind": "stats",
       "text": "Aston Villa last 5 league matches in Football-Data.co.uk results: 2 wins, 3 draws, 0 defeats, 9 points, 10 goals scored, 8 conceded (sequence DWWDD).",
-      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "source": "Football-Data.co.uk results",
       "url": ""
     },
     {
       "id": "ST2",
       "kind": "stats",
       "text": "Sunderland last 5 league matches in Football-Data.co.uk results: 1 win, 1 draw, 3 defeats, 4 points, 2 goals scored, 7 conceded (sequence LLDLW).",
-      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "source": "Football-Data.co.uk results",
       "url": ""
     },
     {
       "id": "ST3",
       "kind": "stats",
       "text": "Last meeting in Football-Data.co.uk results: 2026-04-19, Aston Villa 4-3 Sunderland.",
-      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "source": "Football-Data.co.uk results",
       "url": ""
     },
     {

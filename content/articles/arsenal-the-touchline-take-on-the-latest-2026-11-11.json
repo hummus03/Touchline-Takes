@@ -6,9 +6,7 @@
   "league": "Premier League",
   "teams": [
     "Arsenal",
-    "Real Madrid",
-    "Liverpool",
-    "Newcastle"
+    "Real Madrid"
   ],
   "sources": [
     {
@@ -17,7 +15,7 @@
       "kind": "story"
     },
     {
-      "name": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "name": "Football-Data.co.uk results",
       "url": "",
       "kind": "stats"
     }
@@ -34,7 +32,7 @@
       "id": "ST1",
       "kind": "stats",
       "text": "Arsenal last 5 league matches in Football-Data.co.uk results: 5 wins, 0 draws, 0 defeats, 15 points, 7 goals scored, 1 conceded (sequence WWWWW).",
-      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "source": "Football-Data.co.uk results",
       "url": ""
     }
   ],
