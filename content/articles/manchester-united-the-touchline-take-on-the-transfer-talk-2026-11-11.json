@@ -1,0 +1,57 @@
+{
+  "slug": "manchester-united-the-touchline-take-on-the-transfer-talk-2026-11-11",
+  "title": "Manchester United: the Touchline Take on the transfer talk",
+  "body": "Sky Sports has a transfer story involving Manchester United [S1]. The headline said it plainly: “Merson: Man Utd transfer policy is to blame - not Carrick” [S1]. The names in the frame: Paul Merson and Michael Carrick [S1].\n\nFor context, BBC Sport also ran: “The Monaco summit that will decide the future of Carrick and Man Utd” [S2]. In our Football-Data.co.uk results, Manchester United have 0 wins, 3 draws and 2 defeats from their last 5 league games: 3 points, 6 scored and 11 conceded [ST1].\n\nIf this one goes through, it says plenty about where the club thinks it is heading. The smart money is on patience: rushed deals rarely age well. The Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester United"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13610645/man-utds-transfer-policy-to-blame-for-clubs-worst-premier-league-start-and-not-michael-carrick-says-paul-merson",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c8wy9yzyzxnko?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Merson: Man Utd transfer policy is to blame - not Carrick. Sky Sports' Paul Merson believes Manchester United’s transfer strategy is to blame for their worst start to a top-flight season instead of head coach Michael Carrick.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13610645/man-utds-transfer-policy-to-blame-for-clubs-worst-premier-league-start-and-not-michael-carrick-says-paul-merson"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: The Monaco summit that will decide the future of Carrick and Man Utd. Manchester United's power brokers meet in Monaco on Wednesday to decide whether Michael Carrick will remain as head coach",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c8wy9yzyzxnko?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 3 draws, 2 defeats, 3 points, 6 goals scored, 11 conceded (sequence DDLLD).",
+      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-11T05:02:08+00:00",
+  "draft_id": "808b8e0d8b",
+  "story_ids": [
+    "810314dfc273"
+  ],
+  "mode": "template",
+  "revision": 0
+}
