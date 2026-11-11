@@ -1,0 +1,48 @@
+{
+  "slug": "arsenal-the-touchline-take-on-the-latest-2026-11-11",
+  "title": "Arsenal: the Touchline Take on the latest",
+  "body": "BBC Sport has a story involving Arsenal and Real Madrid [S1]. The headline said it plainly: “Arsenal eye Real's Endrick - Wednesday's gossip” [S1]. The names in the frame: Jeremie Frimpong and Dion Beljo [S1].\n\nIn our Football-Data.co.uk results, Arsenal have 5 wins, 0 draws and 0 defeats from their last 5 league games: 15 points, 7 scored and 1 conceded [ST1].\n\nThere is more to this than the headline suggests. It is a story worth keeping an eye on as the season unfolds. The Touchline Take: one to keep an eye on.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Arsenal",
+    "Real Madrid",
+    "Liverpool",
+    "Newcastle"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cq8jzjz9x23jo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Arsenal eye Real's Endrick - Wednesday's gossip. Real Madrid forward Endrick is on Arsenal's radar, Liverpool right-back Jeremie Frimpong is not headed for the Anfield exit door, Newcastle and Sunderland among the clubs interested in Croatian striker Dion Beljo, plus more.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cq8jzjz9x23jo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Arsenal last 5 league matches in Football-Data.co.uk results: 5 wins, 0 draws, 0 defeats, 15 points, 7 goals scored, 1 conceded (sequence WWWWW).",
+      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-11T05:02:18+00:00",
+  "draft_id": "28ef04a2a0",
+  "story_ids": [
+    "03784847e13b"
+  ],
+  "mode": "template",
+  "revision": 0
+}
