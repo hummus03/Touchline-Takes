@@ -1,0 +1,45 @@
+{
+  "slug": "liverpool-the-touchline-take-on-the-injury-news-2026-11-11",
+  "title": "Liverpool: the Touchline Take on the injury news",
+  "body": "BBC Sport has an injury update involving Liverpool [S1]. The headline said it plainly: “Szoboszlai fitness call to come at 'last minute'” [S1]. The names in the frame: Dominik Szoboszlai and Northern Ireland [S1].\n\nIn our Football-Data.co.uk results, Liverpool have 3 wins, 0 draws and 2 defeats from their last 5 league games: 9 points, 7 scored and 6 conceded [ST1].\n\nThis is where squad depth gets tested, and that is where seasons are quietly decided. This is exactly the kind of blow that exposes a thin bench. The Touchline Take: how the squad copes will define the next month.",
+  "article_type": "explainer",
+  "league": "International",
+  "teams": [
+    "Liverpool"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cmp3g31gvxkgo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Szoboszlai fitness call to come at 'last minute'. Hungary say they will do \"everything possible\" for Liverpool midfielder Dominik Szoboszlai to feature in Nations League fixtures against Georgia and Northern Ireland across the next week.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cmp3g31gvxkgo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Liverpool last 5 league matches in Football-Data.co.uk results: 3 wins, 0 draws, 2 defeats, 9 points, 7 goals scored, 6 conceded (sequence LWWLW).",
+      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-11T04:08:01+00:00",
+  "draft_id": "6e726aaf70",
+  "story_ids": [
+    "5b177928c786"
+  ],
+  "mode": "template",
+  "revision": 0
+}
