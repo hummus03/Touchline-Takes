@@ -272,5 +272,43 @@
    "Hearts",
    "Heart of Midlothian"
   ]
+ },
+ "Leeds United": {
+  "league": "Premier League",
+  "data_name": "Leeds",
+  "aliases": [
+   "Leeds United",
+   "Leeds"
+  ]
+ },
+ "Burnley": {
+  "league": "Premier League",
+  "data_name": "Burnley",
+  "aliases": [
+   "Burnley"
+  ]
+ },
+ "Sunderland": {
+  "league": "Premier League",
+  "data_name": "Sunderland",
+  "aliases": [
+   "Sunderland"
+  ]
+ },
+ "Coventry City": {
+  "league": "Premier League",
+  "data_name": "Coventry",
+  "aliases": [
+   "Coventry City",
+   "Coventry"
+  ]
+ },
+ "Hull City": {
+  "league": "Premier League",
+  "data_name": "Hull",
+  "aliases": [
+   "Hull City",
+   "Hull"
+  ]
  }
 }

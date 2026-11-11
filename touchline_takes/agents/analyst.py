@@ -14,6 +14,8 @@ from touchline_takes.tools.stats import load_results
 from touchline_takes.tools.teams import TeamDirectory
 
 LOGGER = logging.getLogger(__name__)
+SUFFIXES = {"United", "City", "Town", "FC", "AFC", "Albion", "Hotspur", "Wanderers", "Rovers",
+            "County", "Athletic"}
 
 
 class AnalystAgent(Agent):
@@ -51,13 +53,27 @@ class AnalystAgent(Agent):
         self.model = model
         return model
 
+    def resolve(self, name: str) -> str | None:
+        """The results-data name for a club, or ``None`` if the model doesn't know it.
+
+        Tries the team directory first, then the name without a common suffix
+        ("Leeds United" -> "Leeds", "Hull City" -> "Hull"), but only accepts a
+        name the model was trained on, so it never guesses a different club.
+        """
+        model = self.ensure_model()
+        candidates = [self.teams.data_name(name), name]
+        words = name.split()
+        if len(words) > 1 and words[-1] in SUFFIXES:
+            stripped = " ".join(words[:-1])
+            candidates += [self.teams.data_name(stripped), stripped]
+        return next((c for c in candidates if model.knows(c)), None)
+
     def predict_fixture(self, home: str, away: str) -> dict[str, float] | None:
         """Probabilities for a fixture, or ``None`` if a team is unknown to the model."""
-        model = self.ensure_model()
-        home_data, away_data = self.teams.data_name(home), self.teams.data_name(away)
-        if not (model.knows(home_data) and model.knows(away_data)):
+        home_data, away_data = self.resolve(home), self.resolve(away)
+        if not (home_data and away_data):
             return None
-        return model.predict(home_data, away_data)
+        return self.ensure_model().predict(home_data, away_data)
 
     def run(self, state: NewsroomState) -> NewsroomState:
         model = self.ensure_model()

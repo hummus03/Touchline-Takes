@@ -12,6 +12,15 @@ import requests
 LOGGER = logging.getLogger(__name__)
 API_URL = "https://api.football-data.org/v4/competitions/{code}/matches"
 COMPETITIONS = {"PL": "Premier League"}
+# football-data.org short names that don't match ours. Kept here, not in the team
+# directory, because e.g. "Nottingham" in story text could just as well be Notts County.
+API_TEAM_NAMES = {"Nottingham": "Nottingham Forest", "Brighton Hove": "Brighton",
+                  "Wolverhampton": "Wolves"}
+
+
+def _team_name(team: dict) -> str:
+    short = team.get("shortName") or team["name"]
+    return API_TEAM_NAMES.get(short, short)
 
 
 class FixturesClient:
@@ -35,8 +44,8 @@ class FixturesClient:
             for match in resp.json().get("matches", [])[:10]:
                 fixtures.append({
                     "id": f"fd-{match['id']}", "date": match["utcDate"][:10], "league": league,
-                    "home": match["homeTeam"].get("shortName") or match["homeTeam"]["name"],
-                    "away": match["awayTeam"].get("shortName") or match["awayTeam"]["name"],
+                    "home": _team_name(match["homeTeam"]),
+                    "away": _team_name(match["awayTeam"]),
                     "source": "football-data.org"})
         return fixtures
 
