@@ -60,6 +60,8 @@ class Settings:
     chroma_dir: str = str(DATA_DIR / "chroma")
     classifier_provider: str = "local"
     factcheck_verifier: str = "rules"
+    orchestrator: str = "langgraph"
+    checkpoint_path: str = str(DATA_DIR / "checkpoints.db")
     dedupe_threshold: float = 0.8
     auto_publish: bool = False
     max_revisions: int = 2
@@ -109,6 +111,9 @@ class Settings:
             chroma_dir=_resolve(get("CHROMA_DIR", defaults.chroma_dir)),
             classifier_provider=get("CLASSIFIER_PROVIDER", "local").strip().lower() or "local",
             factcheck_verifier=get("FACTCHECK_VERIFIER", "rules").strip().lower() or "rules",
+            orchestrator=get("ORCHESTRATOR", "langgraph").strip().lower() or "langgraph",
+            checkpoint_path=_resolve(get("CHECKPOINT_PATH", defaults.checkpoint_path))
+            if get("CHECKPOINT_PATH", "x") else "",
             dedupe_threshold=float(get("DEDUPE_THRESHOLD", "0.8") or 0.8),
             auto_publish=_as_bool(get("AUTO_PUBLISH")),
             max_revisions=int(get("MAX_REVISIONS", "2") or 2),

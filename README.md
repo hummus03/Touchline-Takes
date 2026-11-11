@@ -52,13 +52,46 @@ flowchart LR
     IDX --> ASK["/ask QA chain"]
 ```
 
-The same flow in plain text:
+### Orchestration: LangGraph
 
+The pipeline runs as a **LangGraph `StateGraph`** (`touchline_takes/graph.py`). This is the
+actual compiled graph, printed by `python -m touchline_takes.graph` (dotted lines are
+conditional edges):
+
+```mermaid
+graph TD;
+	__start__([start]) --> ingest;
+	ingest --> classifier;
+	classifier --> research;
+	research --> analyst;
+	analyst --> writer;
+	writer --> factcheck;
+	factcheck --> editor;
+	editor -.->|drafts need revision, max 2| writer;
+	editor -.-> publisher;
+	publisher --> finalize;
+	finalize -.->|drafts await approval| human_review;
+	finalize -.-> __end__([end]);
+	human_review -.->|still pending| human_review;
+	human_review -.-> __end__;
 ```
-ingest → classifier → research index → analyst
-       → [ writer → factcheck → editor ]  ← repeat while drafts need revision (max 2 revisions)
-       → publisher → (admin review | auto-publish) → site + RSS
-```
+
+- **Nodes:** each agent is a node. The graph state (`GraphState`) carries the
+  `NewsroomState` object and a revision-round counter. Nodes are timed and isolated from
+  failures, so one agent erroring doesn't sink the run.
+- **Revision loop:** this is the conditional edge `editor → writer`. Drafts the Fact-checker
+  or Editor sends back are rewritten, at most `MAX_REVISIONS` times.
+- **Human in the loop:** with `AUTO_PUBLISH=false`, the `human_review` node calls LangGraph's
+  `interrupt()`. The run **pauses**, and its full state is saved to a SQLite checkpoint
+  (`CHECKPOINT_PATH`, one thread per run). Approving or rejecting a draft in `/admin`, or
+  with `python -m touchline_takes.review`, resumes that run's thread with the decision. The
+  node loops until nothing is pending, then the run ends. The web app and the CLI can resume
+  runs started by another process.
+- **Persistence:** checkpoints only reload the newsroom's own state classes; they are
+  registered explicitly with LangGraph's serializer.
+- **Sequential fallback:** `ORCHESTRATOR=sequential` (or `--orchestrator sequential`) runs
+  the same agents in a plain Python loop, with no checkpoints. A test checks that both
+  orchestrators make identical editorial decisions.
 
 ### Agent interface
 
@@ -76,16 +109,10 @@ history), fixtures, metrics and a per-story log. Tools such as the database, LLM
 retriever and predictor are passed in through the constructor, so you can test each agent on
 its own with fakes.
 
-**Moving to LangGraph later** is mechanical:
-
-1. Make `NewsroomState` a `TypedDict` (or a Pydantic model) and use it as the graph state.
-2. `graph.add_node(agent.name, agent.run)` for each agent in `pipeline.py`.
-3. Replace the `for rounds in ...` loop in `Newsroom.run_once` with a conditional edge from
-   `editor` back to `writer` (`"needs_revision" in statuses and revision < MAX_REVISIONS`),
-   and from `factcheck` back to `writer`.
-4. The RAG pieces mirror LangChain's interfaces (`Document`, `embed_documents`/`embed_query`,
-   vector store, retriever, QA chain), so `langchain_chroma.Chroma` and a LangChain retrieval
-   chain can drop in.
+Agents don't know about LangGraph: each node wraps an agent's `run` method, so every agent
+is still testable on its own. The RAG pieces mirror LangChain's interfaces (`Document`,
+`embed_documents`/`embed_query`, vector store, retriever, QA chain), so
+`langchain_chroma.Chroma` and a LangChain retrieval chain can drop in.
 
 ---
 
@@ -110,8 +137,9 @@ cp .env.example .env   # optional; every key is optional
 ```
 
 All dependencies are pinned and were verified together with `pip check` in a clean venv.
-Provider SDKs are plain HTTP calls or the official `anthropic` SDK. No LangChain or Gradio
-is used, so the FastAPI/Starlette version conflicts don't come up.
+Provider SDKs are plain HTTP calls or the official `anthropic` SDK. LangGraph is the only
+LangChain-family dependency (it pulls in `langchain-core`). Gradio isn't used, so the
+FastAPI/Starlette version conflicts don't come up.
 
 ## Run
 
@@ -122,8 +150,25 @@ python -m touchline_takes.run --offline --auto-publish
 ```
 
 Drop `--offline` to try the real RSS feeds first; it falls back to samples if they're
-unreachable. Drop `--auto-publish` to send approved drafts to the review desk instead
-(the default, `AUTO_PUBLISH=false`).
+unreachable.
+
+Drop `--auto-publish` to require human approval (the default, `AUTO_PUBLISH=false`). The run
+then **pauses at `human_review`** and tells you how many drafts are waiting. Review them on
+the `/admin` page, or from the terminal:
+
+```bash
+python -m touchline_takes.review list
+```
+
+```bash
+python -m touchline_takes.review approve <draft id>
+```
+
+```bash
+python -m touchline_takes.review reject <draft id> --reason "not sharp enough"
+```
+
+Each decision resumes the paused run where it stopped.
 
 **Scheduled mode** (every 30 minutes; `--max-runs N` to stop after N):
 
@@ -162,7 +207,8 @@ pylint touchline_takes tests scripts
 python scripts/evaluate.py
 ```
 
-- **Tests** (86) cover every agent and tool. The suite blocks real HTTP in `tests/conftest.py`
+- **Tests** (93) cover every agent, tool and the LangGraph orchestration (pause, resume
+  from a separate process, parity with the sequential loop). The suite blocks real HTTP in `tests/conftest.py`
   and uses fake sessions, `FakeLLM`, `RecordedLLM` (`tests/fixtures/recorded_llm.json`) and
   `ScriptedWriterLLM`, so it needs no network or API keys.
 - **Pylint** scores 10.00/10 with the config in `pyproject.toml`.
@@ -355,6 +401,7 @@ See `.env.example` for every variable. The main ones:
 - `LLM_PROVIDER`, `LLM_MODEL`, `LLM_MAX_CALLS_PER_RUN`
 - `EMBEDDINGS_PROVIDER`, `VECTOR_STORE`
 - `CLASSIFIER_PROVIDER`, `FACTCHECK_VERIFIER`
+- `ORCHESTRATOR` (`langgraph` or `sequential`), `CHECKPOINT_PATH`
 - `AUTO_PUBLISH`, `MAX_REVISIONS`, `MAX_ARTICLES_PER_RUN`, `DEDUPE_THRESHOLD`
 - `ADMIN_PASSWORD`, `SECRET_KEY`, `DATABASE_PATH`
 
@@ -368,7 +415,8 @@ touchline_takes/
   models/      match_predictor (logistic regression + baselines)
   db/          SQLite repository
   web/         Flask app factory, views, templates, static
-  pipeline.py  orchestrator      run.py  CLI      evaluation.py  evaluation harness
+  graph.py     LangGraph graph   pipeline.py  wiring + runs    review.py  review CLI
+  run.py       pipeline CLI      evaluation.py  evaluation harness
   config.py    settings from env state.py shared state objects
 tests/         unit + end-to-end tests (offline)
 data/          sample feeds, synthetic results, fixtures, teams, eval fixtures
@@ -386,6 +434,6 @@ reports/       latest evaluation report
    ("six") and tables/positions ("second in the league") are still checked only at the token
    level. Measure the LLM verifier on the claim set with a real model, and grow the
    held-out claim set from real articles written by someone who hasn't seen the rules.
-3. **Port the orchestration to LangGraph and add image tagging.** Add persistence and
-   human-in-the-loop interrupts for the review step, then a VGG16 transfer-learning tagger
-   for match photos.
+3. **Add image tagging.** The LangGraph port is done. A VGG16 transfer-learning tagger for
+   match photos (Keras ImageNet weights) would slot in as another graph node. It hasn't been
+   built yet.

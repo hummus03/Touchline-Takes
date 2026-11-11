@@ -10,6 +10,11 @@ scipy==1.18.1
 scikit-learn==1.9.1
 joblib==1.6.0
 python-dotenv==1.2.4
+# Orchestration (LangGraph + SQLite checkpoints for pause/resume at human review)
+langgraph==1.2.20
+langgraph-checkpoint==4.3.1
+langgraph-checkpoint-sqlite==3.1.3
+langchain-core==1.7.7
 chromadb==1.5.9
 # Optional provider SDK (only used when LLM_PROVIDER=anthropic)
 anthropic==2.8.0

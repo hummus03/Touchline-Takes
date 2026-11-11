@@ -115,22 +115,19 @@ def admin():
 def review_draft(draft_id: str, action: str):
     """Approve (publish) or reject a pending draft."""
     check_csrf()
-    svc = services()
-    draft = svc.db.get_draft(draft_id)
-    if draft is None or draft.status != "pending_review":
+    if action not in ("approve", "reject"):
         abort(404)
-    publisher = svc.newsroom.publisher
-    if action == "approve":
-        slug = publisher.publish(draft)
-        if slug:
-            flash(f"Published: {draft.title}", "ok")
-        else:
-            flash("Blocked by the guardrail: the draft contains unsourced claims.", "error")
-    elif action == "reject":
-        publisher.reject(draft, request.form.get("reason", "").strip()[:300])
-        flash(f"Rejected: {draft.title}", "ok")
+    # Resumes the run's paused LangGraph thread (or publishes directly for older drafts).
+    draft = services().newsroom.review(draft_id, action,
+                                       request.form.get("reason", "").strip()[:300])
+    if draft is None:
+        abort(404)
+    if draft.status == "published":
+        flash(f"Published: {draft.title}", "ok")
+    elif draft.status == "rejected":
+        flash("Blocked by the guardrail: the draft contains unsourced claims.", "error")
     else:
-        abort(404)
+        flash(f"Rejected: {draft.title}", "ok")
     return redirect(url_for("site.admin"))
 
 

@@ -29,6 +29,8 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--max-runs", type=int, default=0,
                         help="stop after N scheduled runs (0 = forever)")
     parser.add_argument("--retrain", action="store_true", help="retrain the Analyst model")
+    parser.add_argument("--orchestrator", choices=["langgraph", "sequential"],
+                        help="override ORCHESTRATOR (default: langgraph)")
     parser.add_argument("--quiet", action="store_true", help="only print the run summary")
     return parser.parse_args(argv)
 
@@ -41,6 +43,10 @@ def print_summary(state: NewsroomState, quiet: bool = False) -> None:
             target = f" [{entry.story_id}]" if entry.story_id else ""
             print(f"{entry.agent:>10} | {entry.action:<13}{target} {entry.detail}")
     print(f"\n=== Summary ===\n{json.dumps(state.metrics, indent=2, default=str)}")
+    pending = state.metrics.get("drafts", {}).get("pending_review", 0)
+    if pending and state.metrics.get("orchestrator") == "langgraph":
+        print(f"\nRun {state.run_id} is paused at human_review with {pending} draft(s) awaiting "
+              "approval.\nResume it from /admin or with: python -m touchline_takes.review list")
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -53,6 +59,8 @@ def main(argv: list[str] | None = None) -> int:
         overrides["offline"] = True
     if args.auto_publish:
         overrides["auto_publish"] = True
+    if args.orchestrator:
+        overrides["orchestrator"] = args.orchestrator
     settings = settings.with_overrides(**overrides)
     newsroom = Newsroom.build(settings, retrain=args.retrain)
     runs = 0

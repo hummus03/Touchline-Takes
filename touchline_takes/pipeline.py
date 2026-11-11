@@ -1,20 +1,26 @@
-"""Orchestrator: wires tools into agents and runs the newsroom once.
+"""Newsroom wiring: builds every agent and tool, then runs them.
 
-Flow::
+Orchestration is a LangGraph ``StateGraph`` (see :mod:`touchline_takes.graph`)::
 
-    ingest -> classifier -> research index -> analyst
-           -> [writer -> factcheck -> editor] (repeat while drafts need revision,
-                                               max ``MAX_REVISIONS`` extra rounds)
-           -> publisher
+    ingest -> classifier -> research -> analyst -> writer -> factcheck -> editor
+                                                    ^                       |
+                                                    +-- needs revision -----+
+    editor -> publisher -> finalize -> human_review (interrupt; resumed by a human) -> END
+
+``ORCHESTRATOR=sequential`` runs the same agents in a plain Python loop instead
+(no checkpoints or interrupts; drafts awaiting review are approved directly).
 """
 
 from __future__ import annotations
 
 import logging
 import time
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Callable
+
+from langgraph.checkpoint.base import BaseCheckpointSaver
+from langgraph.graph.state import CompiledStateGraph
 
 from touchline_takes.agents.analyst import AnalystAgent
 from touchline_takes.agents.classifier import ClassifierAgent, LexiconClassifier, LLMClassifier
@@ -25,7 +31,8 @@ from touchline_takes.agents.publisher import PublisherAgent
 from touchline_takes.agents.writer import WriterAgent
 from touchline_takes.config import Settings
 from touchline_takes.db import Database
-from touchline_takes.state import NewsroomState, utcnow_iso
+from touchline_takes import graph as newsroom_graph
+from touchline_takes.state import Draft, NewsroomState, utcnow_iso
 from touchline_takes.tools.embeddings import build_embeddings
 from touchline_takes.tools.feeds import FeedClient
 from touchline_takes.tools.football_api import FixturesClient
@@ -60,6 +67,15 @@ class Newsroom:
     factcheck: FactCheckAgent
     editor: EditorAgent
     publisher: PublisherAgent
+    checkpointer: BaseCheckpointSaver | None = None
+    _app: CompiledStateGraph | None = field(default=None, init=False, repr=False)
+
+    @property
+    def app(self) -> CompiledStateGraph:
+        """The compiled LangGraph app (built on first use)."""
+        if self._app is None:
+            self._app = newsroom_graph.compile_graph(self, self.checkpointer)
+        return self._app
 
     @classmethod
     def build(cls, settings: Settings, llm: LLMClient | None = None,
@@ -97,10 +113,11 @@ class Newsroom:
             factcheck=FactCheckAgent(db, settings.max_revisions, teams=teams, verifier=verifier),
             editor=EditorAgent(db, max_revisions=settings.max_revisions),
             publisher=PublisherAgent(db, settings.auto_publish),
+            checkpointer=newsroom_graph.make_checkpointer(settings.checkpoint_path),
         )
 
-    def _step(self, name: str, func: Callable[[NewsroomState], NewsroomState],
-              state: NewsroomState) -> NewsroomState:
+    def step(self, name: str, func: Callable[[NewsroomState], NewsroomState],
+             state: NewsroomState) -> NewsroomState:
         """Run one step, timing it and isolating failures so one agent can't sink the run."""
         start = time.perf_counter()
         try:
@@ -119,24 +136,10 @@ class Newsroom:
         state.log("research", "indexed", f"{added} new chunks")
         return state
 
-    def run_once(self) -> NewsroomState:
-        """One full pass of the newsroom."""
-        state = NewsroomState()
-        started = utcnow_iso()
-        if isinstance(self.llm, GuardedLLM):
-            self.llm.reset_budget()
-        for name, func in (("ingest", self.ingest.run), ("classifier", self.classifier.run),
-                           ("research", self.index_research), ("analyst", self.analyst.run)):
-            state = self._step(name, func, state)
-        rounds = 0
-        for rounds in range(1, self.settings.max_revisions + 2):
-            for name, func in (("writer", self.writer.run), ("factcheck", self.factcheck.run),
-                               ("editor", self.editor.run)):
-                state = self._step(name, func, state)
-            if not state.drafts_with_status("needs_revision"):
-                break
-        state = self._step("publisher", self.publisher.run, state)
+    def finalize(self, state: NewsroomState, rounds: int) -> NewsroomState:
+        """Summarise the run and persist its log (before any human review)."""
         state.metrics["rounds"] = rounds
+        state.metrics["orchestrator"] = self.settings.orchestrator
         state.metrics["drafts"] = {
             status: len(state.drafts_with_status(status)) for status in
             ("published", "pending_review", "rejected", "needs_revision")}
@@ -149,5 +152,84 @@ class Newsroom:
             state.metrics["llm"] = {"provider": "offline", "calls": 0}
         state.metrics["duration_s"] = round(time.perf_counter() - state.started, 3)
         self.db.write_logs(state.run_id, state.logs)
-        self.db.record_run(state.run_id, started, state.metrics)
+        self.db.record_run(state.run_id, state.metrics.pop("started_at", utcnow_iso()),
+                           state.metrics)
         return state
+
+    # ------------------------------------------------------------------ human review
+    def pending_in_run(self, state: NewsroomState) -> list[Draft]:
+        """Drafts from this run still awaiting a human (the DB is the source of truth)."""
+        pending = []
+        for draft in state.drafts:
+            stored = self.db.get_draft(draft.id)
+            if stored is not None:
+                draft.status = stored.status
+            if draft.status == "pending_review":
+                pending.append(draft)
+        return pending
+
+    def apply_decisions(self, state: NewsroomState, decisions: dict[str, dict]) -> None:
+        """Publish or reject drafts as a human decided; persists the new log lines."""
+        already = len(state.logs)
+        for draft in self.pending_in_run(state):
+            decision = decisions.get(draft.id)
+            if not decision:
+                continue
+            if decision.get("action") == "approve":
+                self.publisher.publish(draft, state)
+            elif decision.get("action") == "reject":
+                self.publisher.reject(draft, decision.get("reason", ""), state)
+                state.log("human", "rejected", decision.get("reason", ""), draft.id)
+        self.db.write_logs(state.run_id, state.logs[already:])
+
+    def review(self, draft_id: str, action: str, reason: str = "") -> Draft | None:
+        """Approve or reject one pending draft, resuming its paused graph run if there is one.
+
+        Drafts from sequential runs (or whose checkpoint is gone) are handled directly.
+        """
+        draft = self.db.get_draft(draft_id)
+        if draft is None or draft.status != "pending_review" or action not in (
+                "approve", "reject"):
+            return None
+        decisions = {draft_id: {"action": action, "reason": reason}}
+        run_id = self.db.draft_run_id(draft_id)
+        if run_id and self.settings.orchestrator == "langgraph" and \
+                newsroom_graph.paused_for_review(self.app, run_id):
+            newsroom_graph.resume(self.app, run_id, decisions)
+        else:
+            state = NewsroomState(run_id=run_id or "manual", drafts=[draft])
+            self.apply_decisions(state, decisions)
+        return self.db.get_draft(draft_id)
+
+    # ------------------------------------------------------------------ runs
+    def _start(self) -> NewsroomState:
+        state = NewsroomState()
+        state.metrics["started_at"] = utcnow_iso()
+        if isinstance(self.llm, GuardedLLM):
+            self.llm.reset_budget()
+        return state
+
+    def run_once(self) -> NewsroomState:
+        """One full pass of the newsroom (pauses at human review when approval is required)."""
+        if self.settings.orchestrator == "sequential":
+            return self.run_once_sequential()
+        state = self._start()
+        result = self.app.invoke({"newsroom": state, "rounds": 0},
+                                 newsroom_graph.thread_config(state.run_id))
+        return result["newsroom"]
+
+    def run_once_sequential(self) -> NewsroomState:
+        """The same agents in a plain loop (no checkpoints, no interrupts)."""
+        state = self._start()
+        for name, func in (("ingest", self.ingest.run), ("classifier", self.classifier.run),
+                           ("research", self.index_research), ("analyst", self.analyst.run)):
+            state = self.step(name, func, state)
+        rounds = 0
+        for rounds in range(1, self.settings.max_revisions + 2):
+            for name, func in (("writer", self.writer.run), ("factcheck", self.factcheck.run),
+                               ("editor", self.editor.run)):
+                state = self.step(name, func, state)
+            if not state.drafts_with_status("needs_revision"):
+                break
+        state = self.step("publisher", self.publisher.run, state)
+        return self.finalize(state, rounds)

@@ -215,6 +215,11 @@ class Database:
         rows = self._query("SELECT data FROM drafts WHERE id = ?", (draft_id,))
         return Draft.from_dict(json.loads(rows[0]["data"])) if rows else None
 
+    def draft_run_id(self, draft_id: str) -> str | None:
+        """The run that last saved a draft (its LangGraph thread id)."""
+        rows = self._query("SELECT run_id FROM drafts WHERE id = ?", (draft_id,))
+        return rows[0]["run_id"] if rows else None
+
     def drafts_by_status(self, *statuses: str) -> list[Draft]:
         """Drafts in any of ``statuses`` (newest first)."""
         marks = ",".join("?" for _ in statuses)

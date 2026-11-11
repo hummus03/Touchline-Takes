@@ -23,8 +23,8 @@ Fixture stories: 25 · guardrail (every published claim sourced): **PASS**
 | cost_usd_per_article | 0.0 | 0.0 |
 | projected_cost_usd_per_article_claude_opus_5_5 | 0.0 | 0.011445 |
 | tokens_per_article | 0.0 | 1468.9 |
-| agent_latency_s_per_article | 0.0089 | 0.0137 |
-| pipeline_s_per_article | 0.0303 | 0.0379 |
+| agent_latency_s_per_article | 0.0093 | 0.0135 |
+| pipeline_s_per_article | 0.0294 | 0.0384 |
 | expectations passed | 19/19 | 19/19 |
 
 ### Rejections logged: template_writer

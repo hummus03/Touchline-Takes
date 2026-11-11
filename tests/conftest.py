@@ -29,6 +29,7 @@ def settings(tmp_path) -> Settings:
     return Settings(
         database_path=str(tmp_path / "test.db"), offline=True, vector_store="memory",
         chroma_dir=str(tmp_path / "chroma"), model_path=str(tmp_path / "model.joblib"),
+        checkpoint_path=str(tmp_path / "checkpoints.db"),
         llm_provider="offline", secret_key="test", admin_password="secret",
         sample_feed_dir=str(DATA_DIR / "sample_feeds"))
 

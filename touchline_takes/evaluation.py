@@ -177,7 +177,7 @@ def run_config(name: str, llm: LLMClient | None, stories: list[dict[str, Any]],
     settings = Settings(
         database_path=str(base / "eval.db"), sample_feed_dir=str(base / "feeds"), offline=True,
         vector_store="memory", model_path=str(base / "model.joblib"), auto_publish=True,
-        max_articles_per_run=len(stories) + 2, llm_max_calls_per_run=100)
+        max_articles_per_run=len(stories) + 2, llm_max_calls_per_run=100, checkpoint_path="")
     newsroom = Newsroom.build(settings, llm=llm)
     start = time.perf_counter()
     state = newsroom.run_once()
