@@ -212,6 +212,15 @@ flask --app "touchline_takes.web:create_app()" run
 
 See **[DEPLOY.md](DEPLOY.md)**. In short:
 
+- **Free option, static mode** (`SITE_MODE=static`):
+  - GitHub Actions runs the newsroom every 3 hours and opens a pull request for each
+    approved draft. Merge to publish, close to reject.
+  - GitHub Pages serves the site, built from `content/articles/*.json`. Every article is
+    re-validated at build time, so a hand edit can't sneak in an unsourced claim.
+  - There's no `/ask` page and no web admin page in this mode.
+  - Commands: `python -m touchline_takes.static run|export|build|validate`.
+  - Workflows: `.github/workflows/newsroom.yml` and `deploy-site.yml`. Both stay off until
+    the repository variable `TOUCHLINE_LIVE=true` is set.
 - **One Docker image** runs the website (gunicorn), the scheduler, or both.
 - **On a VPS,** `docker-compose.yml` runs them with Caddy for automatic HTTPS on
   touchlinetakes.com.
@@ -236,7 +245,8 @@ pylint touchline_takes tests scripts
 python scripts/evaluate.py
 ```
 
-- **Tests** (115) cover every agent, tool, the production hardening (preflight, rate
+- **Tests** (128) cover every agent, tool, the static-site mode (content validation, review
+  PRs, state branch round trip, site build), the production hardening (preflight, rate
   limits, security headers, no sample fallbacks, scheduler resilience) and the LangGraph
   orchestration (pause, resume
   from a separate process, parity with the sequential loop). The suite blocks real HTTP in
@@ -466,7 +476,7 @@ See `.env.example` for every variable. The main ones:
 - `EMBEDDINGS_PROVIDER`, `VECTOR_STORE`
 - `CLASSIFIER_PROVIDER`, `FACTCHECK_VERIFIER`
 - `ORCHESTRATOR` (`langgraph` or `sequential`), `CHECKPOINT_PATH`
-- `TOUCHLINE_ENV` (`development` or `production`), `ALLOW_SAMPLE_DATA`, `ASK_RATE_LIMIT`,
+- `SITE_MODE` (`server` or `static`), `TOUCHLINE_ENV` (`development` or `production`), `ALLOW_SAMPLE_DATA`, `ASK_RATE_LIMIT`,
   `ADMIN_AUTH_RATE_LIMIT`, `PROXY_HOPS`; production-only `RESULTS_SEASONS` and
   `SCHEDULE_MINUTES` (see `deploy/production.env.example`)
 - `PHOTO_TAGGER`, `PHOTO_MODEL_DIR`, `PHOTO_MAX_PER_RUN`
@@ -486,13 +496,17 @@ touchline_takes/
   graph.py     LangGraph graph   pipeline.py  wiring + runs    review.py  review CLI
   run.py       pipeline CLI      evaluation.py  evaluation harness
   preflight.py production checks wsgi.py  gunicorn entry point
+  static.py    static-mode CLI   static_site.py  site builder
+  content.py   article files     github_review.py  review PRs
   config.py    settings from env state.py shared state objects
 tests/         unit + end-to-end tests (offline)
 data/          sample feeds, synthetic results, fixtures, teams, eval fixtures
 scripts/       evaluate.py, train_photo_tagger.py, make_sample_data.py,
                make_sample_photos.py, download_football_data.py
 reports/       latest evaluation report
-Dockerfile, docker/, docker-compose.yml, deploy/   production packaging (see DEPLOY.md)
+content/articles/   published articles (static mode; added by merging review PRs)
+.github/workflows/  newsroom, deploy-site, validate-content, CI
+Dockerfile, docker/, docker-compose.yml, deploy/   server packaging (see DEPLOY.md)
 ```
 
 ## Next steps

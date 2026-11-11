@@ -98,6 +98,8 @@ button.secondary { background: var(--ink); }
 button.danger { background: var(--card-red); }
 .answer p:first-child { font-size: 1.05rem; }
 
+.archive { list-style: none; padding: 0; }
+.archive li { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; padding: 8px 0; border-bottom: 1px solid var(--line); }
 .flash { padding: 10px 14px; border-radius: 8px; margin-bottom: 16px; background: var(--card); border-left: 5px solid var(--pitch); }
 .flash-error { border-left-color: var(--card-red); }
 .admin-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }

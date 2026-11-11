@@ -1,0 +1,87 @@
+# Runs the newsroom on a schedule and sends approved drafts for review as pull requests.
+# Off until the repository variable TOUCHLINE_LIVE is set to "true" (see DEPLOY.md).
+name: Newsroom
+
+on:
+  schedule:
+    - cron: "23 */3 * * *"   # every 3 hours
+  workflow_dispatch:
+
+permissions:
+  contents: write        # review branches + the newsroom-state branch (+ main when AUTO_PUBLISH)
+  pull-requests: write   # open review PRs
+  actions: write         # trigger the site rebuild
+
+concurrency:
+  group: newsroom
+  cancel-in-progress: false
+
+env:
+  TOUCHLINE_ENV: production
+  SITE_MODE: static
+  SITE_URL: ${{ vars.SITE_URL || 'https://touchlinetakes.com' }}
+  STATE_DIR: .newsroom
+  DATABASE_PATH: ${{ github.workspace }}/.newsroom/touchline_takes.db
+  RESULTS_DIR: ${{ github.workspace }}/.newsroom/results
+  MODEL_PATH: ${{ github.workspace }}/.newsroom/match_predictor.joblib
+  CHECKPOINT_PATH: ""
+  VECTOR_STORE: memory
+  PHOTO_TAGGER: "false"
+  RSS_FEEDS: ${{ vars.RSS_FEEDS || 'https://feeds.bbci.co.uk/sport/football/rss.xml' }}
+  LLM_PROVIDER: ${{ vars.LLM_PROVIDER || 'offline' }}
+  LLM_MODEL: ${{ vars.LLM_MODEL }}
+  LLM_MAX_CALLS_PER_RUN: ${{ vars.LLM_MAX_CALLS_PER_RUN || '40' }}
+  AUTO_PUBLISH: ${{ vars.AUTO_PUBLISH || 'false' }}
+  MAX_ARTICLES_PER_RUN: ${{ vars.MAX_ARTICLES_PER_RUN || '6' }}
+  FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
+  ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+  OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
+jobs:
+  newsroom:
+    if: vars.TOUCHLINE_LIVE == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: requirements-actions.txt
+
+      - name: Install
+        run: pip install -r requirements-actions.txt
+
+      - name: Restore newsroom state
+        run: scripts/newsroom_state.sh restore
+
+      - name: Download results data
+        # Keeps the previous copy (restored above) if the download fails.
+        run: >-
+          python scripts/download_football_data.py
+          --league "${{ vars.RESULTS_LEAGUE || 'E0' }}"
+          --seasons ${{ vars.RESULTS_SEASONS || '2425 2526 2627' }}
+          || echo "::warning::results download failed; using the stored copy"
+
+      - name: Run the newsroom
+        run: python -m touchline_takes.static run
+
+      - name: Send drafts for review
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python -m touchline_takes.static export
+
+      - name: Save newsroom state
+        if: always()
+        run: scripts/newsroom_state.sh save
+
+      - name: Rebuild the site
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy-site.yml --ref main

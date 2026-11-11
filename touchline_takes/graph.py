@@ -5,7 +5,9 @@ the control flow that used to be a Python loop:
 
 * ``editor -> writer`` while drafts need revision (bounded by ``MAX_REVISIONS``),
   otherwise ``editor -> publisher``;
-* ``finalize -> human_review`` when drafts await approval (``AUTO_PUBLISH=false``).
+* ``finalize -> human_review`` when drafts await approval (``AUTO_PUBLISH=false``);
+  in static mode (``SITE_MODE=static``) the run ends instead and drafts are sent for
+  review as GitHub pull requests (see :mod:`touchline_takes.github_review`).
 
 ``human_review`` calls :func:`langgraph.types.interrupt`, so a run *pauses* there with
 its state checkpointed to SQLite (one thread per run, ``thread_id = run_id``). The
@@ -107,6 +109,8 @@ def build_graph(room: "Newsroom") -> StateGraph:
         return "publisher"
 
     def needs_review(state: GraphState) -> str:
+        if room.settings.is_static:
+            return END  # static mode: drafts are reviewed as GitHub pull requests instead
         return "human_review" if room.pending_in_run(state["newsroom"]) else END
 
     graph.add_node("finalize", finalize)

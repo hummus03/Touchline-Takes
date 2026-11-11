@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Archive | {{ brand }}{% endblock %}
+{% block content %}
+<section aria-labelledby="archive">
+  <h1 id="archive" class="section-title">Archive</h1>
+  {% if not articles %}<p class="muted">Nothing published yet.</p>{% endif %}
+  <ul class="archive">
+  {% for a in articles %}
+    <li><span class="muted small">{{ a.published_at[:10] }}</span>
+      <span class="tag type-{{ a.article_type }}">{{ a.article_type | replace('_', ' ') }}</span>
+      <a href="{{ url_for('site.article', slug=a.slug) }}">{{ a.title }}</a></li>
+  {% endfor %}
+  </ul>
+</section>
+{% endblock %}

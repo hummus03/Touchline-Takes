@@ -38,6 +38,7 @@ class Settings:
     """All tunable knobs for the newsroom, the web app and the tools."""
 
     environment: str = "development"  # development | production
+    site_mode: str = "server"         # server (Flask app) | static (GitHub Actions + Pages)
     allow_sample_data: bool = True    # False in production unless ALLOW_SAMPLE_DATA=true
     ask_rate_limit: str = "10/minute"
     admin_auth_rate_limit: str = "20/hour"
@@ -97,6 +98,7 @@ class Settings:
         environment = (get("TOUCHLINE_ENV", "development") or "development").strip().lower()
         return cls(
             environment=environment,
+            site_mode=(get("SITE_MODE", "server") or "server").strip().lower(),
             allow_sample_data=_as_bool(get("ALLOW_SAMPLE_DATA"), environment != "production"),
             ask_rate_limit=get("ASK_RATE_LIMIT", "10/minute") or "10/minute",
             admin_auth_rate_limit=get("ADMIN_AUTH_RATE_LIMIT", "20/hour") or "20/hour",
@@ -141,6 +143,11 @@ class Settings:
             site_url=(get("SITE_URL", defaults.site_url) or defaults.site_url).rstrip("/"),
             request_timeout=float(get("REQUEST_TIMEOUT", "10") or 10),
         )
+
+    @property
+    def is_static(self) -> bool:
+        """True when the site is published as static pages (review happens in GitHub PRs)."""
+        return self.site_mode == "static"
 
     @property
     def is_production(self) -> bool:

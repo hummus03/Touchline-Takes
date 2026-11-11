@@ -1,0 +1,70 @@
+# Builds the static site from content/articles and deploys it to GitHub Pages.
+# Runs when articles are merged into main, after each newsroom run, or by hand.
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/**"
+      - "touchline_takes/**"
+      - "requirements-actions.txt"
+      - ".github/workflows/deploy-site.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  TOUCHLINE_ENV: production
+  SITE_MODE: static
+  SITE_URL: ${{ vars.SITE_URL || 'https://touchlinetakes.com' }}
+  STATE_DIR: .newsroom
+
+jobs:
+  build:
+    if: vars.TOUCHLINE_LIVE == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: requirements-actions.txt
+
+      - name: Install
+        run: pip install -r requirements-actions.txt
+
+      - name: Fetch fixtures from the newsroom state
+        run: scripts/newsroom_state.sh restore
+
+      - name: Validate articles (no claim without a source)
+        run: python -m touchline_takes.static validate
+
+      - name: Build
+        run: python -m touchline_takes.static build --out _site --state-db .newsroom/touchline_takes.db
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

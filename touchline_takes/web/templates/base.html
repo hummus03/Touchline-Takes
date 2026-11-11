@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}{{ brand }} | {{ tagline }}{% endblock %}</title>
   <meta name="description" content="{{ tagline }}">
+  {% if static_site %}<meta http-equiv="Content-Security-Policy" content="{{ csp }}">{% endif %}
   <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
   <link rel="alternate" type="application/rss+xml" title="{{ brand }}" href="{{ url_for('site.feed') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
@@ -18,9 +19,10 @@
       </a>
       <nav class="nav">
         <a href="{{ url_for('site.index') }}">Latest</a>
-        <a href="{{ url_for('site.ask') }}">Ask the archive</a>
+        <a href="{{ url_for('site.archive') }}">Archive</a>
+        {% if not static_site %}<a href="{{ url_for('site.ask') }}">Ask the archive</a>{% endif %}
         <a href="{{ url_for('site.feed') }}">RSS</a>
-        <a href="{{ url_for('site.admin') }}">Desk</a>
+        {% if not static_site %}<a href="{{ url_for('site.admin') }}">Desk</a>{% endif %}
       </nav>
     </div>
     <p class="wrap tagline">{{ tagline }}</p>
@@ -36,7 +38,7 @@
   </main>
   <footer class="footer">
     <div class="wrap">
-      <p><strong>{{ brand }}</strong> · {{ domain }} · Written by an automated newsroom of AI agents, fact-checked against cited sources, with a human on the review desk.</p>
+      <p><strong>{{ brand }}</strong> · {{ domain }} · Written by an automated newsroom of AI agents, fact-checked against cited sources, and approved by a human editor before publication.</p>
       <p class="muted">Every factual sentence links to its source. We summarise and comment; we never republish source articles.</p>
     </div>
   </footer>

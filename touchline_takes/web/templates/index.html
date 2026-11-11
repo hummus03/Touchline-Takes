@@ -6,7 +6,11 @@
     {% if not articles %}
       <div class="empty card">
         <h2>The dressing room is quiet.</h2>
+        {% if static_site %}
+        <p>No takes published yet. The first ones are on their way.</p>
+        {% else %}
         <p>No takes published yet. Run the newsroom with <code>python -m touchline_takes.run --offline --auto-publish</code>, or approve drafts on the <a href="{{ url_for('site.admin') }}">review desk</a>.</p>
+        {% endif %}
       </div>
     {% endif %}
     <div class="cards">

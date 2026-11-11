@@ -1,10 +1,151 @@
 # Deploying Touchline Takes to touchlinetakes.com
 
-This guide takes the newsroom from your laptop to the public site. The app is built so
-that it **refuses to start in production** until the settings are safe and the data is
-real. `python -m touchline_takes.preflight` tells you what's missing.
+There are two ways to run the site:
 
-## 1. Before you deploy
+- **[Part 1: free](#part-1-free-github-actions--github-pages).** GitHub Actions runs the
+  newsroom on a schedule, drafts arrive as pull requests for you to review, and GitHub
+  Pages serves the site. No server, no cost beyond the domain. The trade-off: no live
+  `/ask` page and no web admin page (you review on GitHub instead).
+- **[Part 2: your own server](#part-2-your-own-server-docker).** The full Flask app with
+  `/ask` and the admin page, in Docker. Needs a paid VPS or platform.
+
+# Part 1: free (GitHub Actions + GitHub Pages)
+
+## How it works
+
+```
+every 3 hours  ┌──────────────────── Newsroom workflow ────────────────────┐
+               │ restore state → download results → run the newsroom → open │
+               │ one pull request per approved draft → save state           │
+               └───────────────────────────────────────────────────────────┘
+you            merge a pull request to publish it, close it to reject it
+on merge       ┌──────────────────── Deploy site workflow ─────────────────┐
+               │ validate every article (no claim without a source) →       │
+               │ build static pages → publish to GitHub Pages               │
+               └───────────────────────────────────────────────────────────┘
+```
+
+- **Published articles** are files in `content/articles/*.json` on `main`. A review PR adds
+  one file, so you can edit the wording in the PR before merging.
+- **The deploy re-validates everything.** If a file has an unsourced claim, a non-http(s)
+  link or a bad name, the build stops and the live site stays as it was. A separate check
+  also runs on any pull request that edits an article.
+- **The newsroom's memory** (its database and results data) is stored on the
+  `newsroom-state` branch as a single commit that's replaced on every run, so it doesn't
+  grow. Your repository is public, so that branch is public too: it holds drafts, rejected
+  drafts and run logs, all built from public news.
+- **There's an off switch.** Nothing runs until you set the repository variable
+  `TOUCHLINE_LIVE` to `true`.
+
+What I verified in the build sandbox: the full flow with a local stand-in for GitHub.
+- Runs restored and saved the state branch.
+- One review branch and PR was opened per draft, and nothing was sent twice, even after
+  the state was wiped.
+- Merging and then building produced a site with no broken links.
+- Tampered article files were refused.
+- `AUTO_PUBLISH` committed straight to `main`.
+- `actionlint` reports no problems in the workflows.
+
+What I could not do from the sandbox: run it on GitHub itself. Your first run (step 6
+below) is the real test.
+
+## Step by step
+
+### 1. Make `main` the default branch
+
+My work is on the branch `claude/touchline-takes-newsroom-bqvz5d`, which GitHub made the
+default. The workflows expect `main`.
+
+On GitHub, open your repository, go to **Settings → General → Default branch**, click the
+✏️ next to the branch name, rename it to **`main`** and confirm.
+
+### 2. Let Actions write to the repository and open pull requests
+
+In **Settings → Actions → General → Workflow permissions**:
+1. Select **Read and write permissions**.
+2. Tick **Allow GitHub Actions to create and approve pull requests**.
+3. Click **Save**.
+
+### 3. Turn on GitHub Pages
+
+In **Settings → Pages → Build and deployment → Source**, choose **GitHub Actions**.
+
+### 4. Add your settings
+
+In **Settings → Secrets and variables → Actions**:
+
+**Variables tab:**
+
+| Name | Value | |
+|---|---|---|
+| `TOUCHLINE_LIVE` | `true` | the on switch |
+| `LLM_PROVIDER` | `offline` | free template writer (default). `anthropic` needs the secret below and costs money per article. |
+| `AUTO_PUBLISH` | `false` | `true` skips your review and commits articles straight to `main` |
+| `RESULTS_SEASONS` | `2425 2526 2627` | optional, this is the default |
+| `RSS_FEEDS` | comma-separated feed URLs | optional, default is BBC Sport football. Check each feed's terms. |
+
+**Secrets tab:**
+
+| Name | |
+|---|---|
+| `FOOTBALL_DATA_API_KEY` | free key from football-data.org, for fixtures, predictions and previews. Optional but recommended. |
+| `ANTHROPIC_API_KEY` | only if `LLM_PROVIDER=anthropic` |
+
+### 5. Point the domain at GitHub Pages (GoDaddy → DNS → DNS Records)
+
+**Edit** the `A` record with name `@` (currently "Parked") so its value is
+`185.199.108.153`. Then **add** three more `A` records, all with name `@`:
+
+| Type | Name | Value |
+|---|---|---|
+| A | @ | 185.199.109.153 |
+| A | @ | 185.199.110.153 |
+| A | @ | 185.199.111.153 |
+
+**Edit** the `CNAME` record named `www` so its value is **`hummus03.github.io`** (it currently
+says `touchlinetakes.com`).
+
+Optional, for IPv6: add `AAAA` records with name `@` and values `2606:50c0:8000::153`,
+`2606:50c0:8001::153`, `2606:50c0:8002::153` and `2606:50c0:8003::153`.
+
+Leave `NS`, `SOA`, `_domainconnect` and `_dmarc` alone, and don't use GoDaddy's "Connect
+Domain" button.
+
+Then, on GitHub, go to **Settings → Pages → Custom domain**, enter `touchlinetakes.com`
+and click **Save**. Once the DNS check passes (minutes to a few hours), tick **Enforce
+HTTPS**.
+
+It's also worth verifying the domain, which stops anyone else from claiming it on GitHub
+Pages. Go to your GitHub profile's **Settings → Pages → Add a domain** and add the `TXT`
+record it shows you at GoDaddy.
+
+### 6. First run
+
+1. Go to the **Actions** tab, choose **Newsroom** and click **Run workflow** (on `main`).
+   It takes about 3 minutes.
+2. In the run log, check the "Run the newsroom" step: it should show stories stored from
+   your feeds.
+3. Open the **Pull requests** tab. Each draft is a PR labelled `newsroom-review`, with the
+   article, its sources, what the Fact-checker and Editor sent back, and how to review.
+4. **Merge** the ones you want published and **close** the rest.
+
+Each merge triggers **Deploy site**, and the article is live a minute or two later. After
+that, the newsroom runs by itself every 3 hours.
+
+### Day to day
+
+- **Review:** you'll get GitHub notifications for new review PRs. Merge to publish, close
+  to reject. To change wording, edit the article file in the PR ("Files changed" → ⋯ →
+  Edit file), then merge.
+- **Pause it:** set `TOUCHLINE_LIVE` to `false`.
+- **Problems:** a red ❌ in the Actions tab tells you which step failed. The most common
+  causes are a missing permission (step 2) or Pages not set to GitHub Actions (step 3).
+- **If `main` is protected** by a branch rule that requires pull requests,
+  `AUTO_PUBLISH=true` can't push to it. Keep review mode in that case.
+
+# Part 2: your own server (Docker)
+
+## 1. Before you deploy (server)
 
 These need you, a machine with normal internet access, or both:
 
@@ -23,7 +164,7 @@ These need you, a machine with normal internet access, or both:
       was trained on synthetic scenes).
 - [ ] **DNS.** Control of the `touchlinetakes.com` DNS records.
 
-## 2. What's in the box
+## 2. What's in the box (server)
 
 | File | Purpose |
 |---|---|

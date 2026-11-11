@@ -42,14 +42,16 @@ def _results_are_real(results_dir: str) -> bool:
 
 
 def _check_security(settings: Settings, err) -> None:
+    if not settings.site_url.startswith("https://"):
+        err(f"SITE_URL must use https:// (got {settings.site_url})")
+    if settings.is_static:
+        return  # no server: no sessions, no admin login
     if settings.secret_key.strip().lower() in WEAK_SECRETS or len(settings.secret_key) < 32:
         err("SECRET_KEY must be a random value of at least 32 characters "
             "(python -c \"import secrets; print(secrets.token_hex(32))\")")
     if settings.admin_password.strip().lower() in WEAK_SECRETS or \
             len(settings.admin_password) < 12:
         err("ADMIN_PASSWORD must be set and at least 12 characters")
-    if not settings.site_url.startswith("https://"):
-        err(f"SITE_URL must use https:// (got {settings.site_url})")
 
 
 def _check_data(settings: Settings, db: Database | None, err, warn) -> None:
@@ -86,7 +88,7 @@ def _check_quality(settings: Settings, warn) -> None:
         if "photos_synthetic" in data:
             warn("the photo tagger was trained on synthetic photos: retrain on real ones or "
                  "set PHOTO_TAGGER=false")
-    if settings.proxy_hops == 0:
+    if settings.proxy_hops == 0 and not settings.is_static:
         warn("PROXY_HOPS=0: if a reverse proxy or load balancer sits in front of the app, set "
              "it to 1 so client IPs (rate limits) and https detection are correct")
 

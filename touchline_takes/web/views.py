@@ -8,6 +8,7 @@ from functools import wraps
 
 from flask import (Blueprint, Response, abort, current_app, flash, redirect, render_template,
                    request, session, url_for)
+from markupsafe import escape
 
 from touchline_takes.agents.factcheck import check_draft
 from touchline_takes.agents.publisher import build_rss
@@ -86,6 +87,24 @@ def photo_tags_for(story_ids: list[str]) -> list[dict]:
     return out
 
 
+@bp.get("/archive")
+def archive():
+    """Every published article, newest first."""
+    return render_template("archive.html", articles=services().db.list_articles(100_000))
+
+
+@bp.get("/sitemap.xml")
+def sitemap():
+    """XML sitemap of the home page, archive and every article."""
+    base = current_app.config["SETTINGS"].site_url
+    urls = [f"{base}/", f"{base}/archive/"] + [
+        f"{base}/article/{a['slug']}/" for a in services().db.list_articles(100_000)]
+    body = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+            + "".join(f"  <url><loc>{escape(u)}</loc></url>\n" for u in urls) + "</urlset>\n")
+    return Response(body, mimetype="application/xml")
+
+
 @bp.get("/article/<slug>")
 def article(slug: str):
     """One article with its sources."""
@@ -124,7 +143,7 @@ def feed():
 def robots():
     """Let search engines in, keep them out of the admin desk."""
     settings = current_app.config["SETTINGS"]
-    body = f"User-agent: *\nDisallow: /admin\nSitemap: {settings.site_url}/feed.xml\n"
+    body = f"User-agent: *\nDisallow: /admin\nSitemap: {settings.site_url}/sitemap.xml\n"
     return Response(body, mimetype="text/plain")
 
 

@@ -86,6 +86,7 @@ class Draft:
     status: str = "drafted"
     revision: int = 0
     mode: str = "template"  # template | llm
+    slug: str = ""  # reserved when sent for review (static mode)
     claims: list[dict[str, Any]] = field(default_factory=list)
     feedback: list[str] = field(default_factory=list)
     rejection_history: list[dict[str, Any]] = field(default_factory=list)

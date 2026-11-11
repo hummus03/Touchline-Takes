@@ -270,6 +270,36 @@ class Database:
              json.dumps([e.to_dict() for e in draft.evidence]), utcnow_iso()),
         )
 
+    def insert_article_record(self, record: dict[str, Any]) -> None:
+        """Insert a published article from its content-file representation."""
+        self._execute(
+            "INSERT OR REPLACE INTO articles (slug, draft_id, title, body, article_type, league,"
+            " teams, sources, evidence, published_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            (record["slug"], record.get("draft_id", ""), record["title"], record["body"],
+             record.get("article_type", ""), record.get("league"),
+             json.dumps(record.get("teams", [])), json.dumps(record.get("sources", [])),
+             json.dumps(record.get("evidence", [])), record.get("published_at", "")))
+
+    def copy_fixtures_from(self, other: "Database") -> int:
+        """Copy fixtures and predictions from another database (for static builds)."""
+        rows = other.fixtures_with_predictions(100)
+        for row in rows:
+            self.upsert_fixture(row)
+            if row.get("home_win") is not None:
+                self.upsert_prediction(row["id"], {"H": row["home_win"], "D": row["draw"],
+                                                   "A": row["away_win"]},
+                                       row["predicted"], row["model_version"] or "")
+        return len(rows)
+
+    def prune(self, days: int = 30) -> None:
+        """Drop old log lines and cached LLM replies so the state file stays small."""
+        cutoff = f"-{int(days)} days"
+        self._execute("DELETE FROM agent_log WHERE ts < datetime('now', ?)", (cutoff,))
+        self._execute("DELETE FROM llm_cache WHERE created_at < datetime('now', ?)", (cutoff,))
+        self._execute("DELETE FROM rejections WHERE ts < datetime('now', ?)", (cutoff,))
+        with self._lock:
+            self._conn.execute("VACUUM")
+
     def slug_exists(self, slug: str) -> bool:
         """True if an article already uses ``slug``."""
         return bool(self._query("SELECT 1 FROM articles WHERE slug = ?", (slug,)))

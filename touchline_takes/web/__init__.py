@@ -58,12 +58,13 @@ class Services:
     to it at the same time. ``/ask`` searches an in-memory index synced from the DB.
     """
 
-    def __init__(self, settings: Settings, newsroom=None) -> None:
+    def __init__(self, settings: Settings, newsroom=None, db: Database | None = None) -> None:
         self.settings = settings
         self._newsroom = newsroom
         self._lock = threading.Lock()
         self._indexed_count = -1
-        self.db = newsroom.db if newsroom is not None else Database(settings.database_path)
+        self.db = db or (newsroom.db if newsroom is not None else
+                         Database(settings.database_path))
         self.ask_limiter = RateLimiter(settings.ask_rate_limit)
         self.admin_limiter = RateLimiter(settings.admin_auth_rate_limit)
 
@@ -88,11 +89,12 @@ class Services:
         return newsroom.research
 
 
-def create_app(settings: Settings | None = None, newsroom=None, testing: bool = False) -> Flask:
-    """Build the Flask application."""
+def create_app(settings: Settings | None = None, newsroom=None, testing: bool = False,
+               db: Database | None = None, run_preflight: bool = True) -> Flask:
+    """Build the Flask application (``db``/``run_preflight`` are for static builds)."""
     settings = settings or Settings.from_env()
-    services = Services(settings, newsroom)
-    if settings.is_production:
+    services = Services(settings, newsroom, db)
+    if settings.is_production and run_preflight:
         require_ready(settings, services.db)  # refuses to boot with unsafe settings
     app = Flask(__name__)
     app.config.update(
@@ -129,7 +131,10 @@ def create_app(settings: Settings | None = None, newsroom=None, testing: bool = 
     @app.context_processor
     def _brand():
         return {"brand": BRAND_NAME, "tagline": TAGLINE, "domain": DOMAIN,
-                "sample_mode": settings.allow_sample_data, "production": settings.is_production}
+                "sample_mode": settings.allow_sample_data, "production": settings.is_production,
+                "static_site": settings.is_static,
+                "csp": SECURITY_HEADERS["Content-Security-Policy"].replace(
+                    "frame-ancestors 'none'; ", "")}
 
     from touchline_takes.web.views import bp  # pylint: disable=import-outside-toplevel
     app.register_blueprint(bp)

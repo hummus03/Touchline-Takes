@@ -111,3 +111,15 @@ def test_article_shows_photo_tags_not_photos(settings):
     page = client.get(f"/article/{slug}").get_data(as_text=True)
     assert "Source photo, as our tagger sees it" in page and "crowd 90%" in page
     assert "sample_photos/" not in page and "<img" not in page
+
+
+def test_archive_and_sitemap(client, newsroom):
+    """The archive lists every article; the sitemap lists their URLs."""
+    room = newsroom
+    draft = room.db.drafts_by_status("pending_review")[0]
+    room.publisher.publish(draft)
+    slug = room.db.list_articles()[0]["slug"]
+    assert slug in client.get("/archive").get_data(as_text=True)
+    sitemap = client.get("/sitemap.xml")
+    assert sitemap.mimetype == "application/xml"
+    assert f"https://touchlinetakes.com/article/{slug}/" in sitemap.get_data(as_text=True)
