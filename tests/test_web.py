@@ -123,3 +123,12 @@ def test_archive_and_sitemap(client, newsroom):
     sitemap = client.get("/sitemap.xml")
     assert sitemap.mimetype == "application/xml"
     assert f"https://touchlinetakes.com/article/{slug}/" in sitemap.get_data(as_text=True)
+
+
+def test_club_and_info_pages_on_the_server(client):
+    """Info pages render; an unknown club or league is a 404, not an empty page."""
+    for path in ("/about", "/privacy", "/terms", "/clubs"):
+        assert client.get(path).status_code == 200, path
+    assert client.get("/club/not-a-club").status_code == 404
+    assert client.get("/league/not-a-league").status_code == 404
+    assert b"<loc>" in client.get("/sitemap.xml").data

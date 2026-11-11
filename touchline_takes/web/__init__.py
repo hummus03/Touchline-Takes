@@ -13,8 +13,10 @@ from touchline_takes import BRAND_NAME, DOMAIN, TAGLINE
 from touchline_takes.config import Settings
 from touchline_takes.db import Database
 from touchline_takes.preflight import require_ready
-from touchline_takes.web.ratelimit import RateLimiter
+from touchline_takes.tools.teams import TeamDirectory
 from touchline_takes.tools.text import CITATION_RE, split_paragraphs, strip_citations
+from touchline_takes.web.ratelimit import RateLimiter
+from touchline_takes.web.urls import canonical_url, slugify
 
 
 def render_body(body: str) -> Markup:
@@ -29,13 +31,6 @@ def render_body(body: str) -> Markup:
             "The Touchline Take:" in para) else ""
         html.append(f"<p{cls}>{text}</p>")
     return Markup("\n".join(html))
-
-
-def canonical_url(site_url: str, path: str) -> str:
-    """Absolute URL of a page as the static site serves it (directories end in '/')."""
-    if path.startswith("/article/") or path == "/archive":
-        path = path.rstrip("/") + "/"
-    return f"{site_url}{path}"
 
 
 def teaser(body: str, length: int = 220) -> str:
@@ -74,6 +69,14 @@ class Services:
                          Database(settings.database_path))
         self.ask_limiter = RateLimiter(settings.ask_rate_limit)
         self.admin_limiter = RateLimiter(settings.admin_auth_rate_limit)
+        self._teams: TeamDirectory | None = None
+
+    @property
+    def teams(self) -> TeamDirectory:
+        """Club names and aliases (fixtures say "Man City", articles "Manchester City")."""
+        if self._teams is None:
+            self._teams = TeamDirectory.from_file(self.settings.teams_path)
+        return self._teams
 
     @property
     def newsroom(self):
@@ -133,6 +136,7 @@ def create_app(settings: Settings | None = None, newsroom=None, testing: bool = 
                                message="Something went wrong on our side of the pitch."), 500
     app.jinja_env.filters["render_body"] = render_body
     app.jinja_env.filters["teaser"] = teaser
+    app.jinja_env.filters["slug"] = slugify
     app.jinja_env.filters["pct"] = lambda v: f"{round(100 * v)}%" if v is not None else "–"
 
     @app.context_processor
@@ -140,6 +144,7 @@ def create_app(settings: Settings | None = None, newsroom=None, testing: bool = 
         return {"brand": BRAND_NAME, "tagline": TAGLINE, "domain": DOMAIN,
                 "sample_mode": settings.allow_sample_data, "production": settings.is_production,
                 "static_site": settings.is_static, "site_url": settings.site_url,
+                "contact_email": settings.contact_email,
                 "canonical_url": canonical_url(settings.site_url, request.path),
                 "csp": SECURITY_HEADERS["Content-Security-Policy"].replace(
                     "frame-ancestors 'none'; ", "")}

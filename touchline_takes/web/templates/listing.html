@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% import "macros.html" as m %}
+{% block title %}{{ heading }} | {{ brand }}{% endblock %}
+{% block share_title %}{{ heading }} | {{ brand }}{% endblock %}
+{% block description %}{{ heading }}: the latest Touchline Takes, upcoming fixtures and match predictions.{% endblock %}
+{% block content %}
+<div class="layout">
+  <section aria-labelledby="listing">
+    <p class="muted small"><a href="{{ url_for('site.clubs') }}">Clubs</a>{% if league %} · <a href="{{ url_for('site.league', slug=league | slug) }}">{{ league }}</a>{% endif %}</p>
+    <h1 id="listing" class="section-title">{{ heading }}</h1>
+    {% if not articles %}
+      <p class="muted">No takes on {{ heading }} yet. They'll appear here as the newsroom writes them.</p>
+    {% endif %}
+    <div class="cards">
+    {% for a in articles %}{{ m.article_card(a, lead=loop.first) }}
+    {% endfor %}
+    </div>
+  </section>
+  <aside aria-labelledby="fixtures" class="sidebar">
+    <h2 id="fixtures" class="section-title">Upcoming fixtures</h2>
+    {% for f in fixtures %}
+      {{ m.fixture_card(f) }}
+    {% else %}
+      <p class="muted">No upcoming fixtures loaded{% if kind == 'club' %} for {{ heading }}{% endif %}.</p>
+    {% endfor %}
+  </aside>
+</div>
+{% endblock %}

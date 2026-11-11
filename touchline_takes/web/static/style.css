@@ -117,3 +117,14 @@ tr.ok td:nth-child(2) { color: var(--pitch); }
 
 .footer { border-top: 4px solid var(--pitch); background: var(--card); padding: 18px 0; font-size: .85rem; }
 .footer p { margin: 4px 0; }
+
+/* Club and league links, the clubs index and plain pages (About, Privacy, Terms). */
+a.tag { text-decoration: none; }
+a.tag:hover, a.tag:focus { outline: 2px solid var(--pitch); outline-offset: 1px; }
+.small-heading { font-size: .95rem; text-transform: uppercase; letter-spacing: .08em; margin: 22px 0 6px; }
+.club-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 6px 18px; }
+.club-list li { padding: 6px 0; border-bottom: 1px solid var(--line); }
+.page h2 { font-size: 1.15rem; margin-top: 26px; }
+.page .lede { font-size: 1.12rem; }
+.page li { margin: 6px 0; }
+.footer-links a { color: inherit; }

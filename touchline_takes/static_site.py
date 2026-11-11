@@ -33,7 +33,8 @@ class BuildReport:
 def build_site(content_dir: str | Path, out_dir: str | Path, settings: Settings,
                state_db: str | Path | None = None) -> BuildReport:
     """Render the site into ``out_dir``; raises :class:`ContentError` on invalid content."""
-    from touchline_takes.web import create_app  # pylint: disable=import-outside-toplevel
+    # pylint: disable=import-outside-toplevel
+    from touchline_takes.web import create_app, views
 
     articles, errors = load_articles(content_dir)
     if errors:
@@ -53,12 +54,9 @@ def build_site(content_dir: str | Path, out_dir: str | Path, settings: Settings,
             report.fixtures = db.copy_fixtures_from(Database(str(state_db)))
         site_settings = settings.with_overrides(site_mode="static",
                                                 database_path=str(Path(tmp) / "site.db"))
-        client = create_app(site_settings, db=db, run_preflight=False).test_client()
-        routes = {"index.html": "/", "archive/index.html": "/archive",
-                  "feed.xml": "/feed.xml", "sitemap.xml": "/sitemap.xml",
-                  "robots.txt": "/robots.txt"}
-        routes.update({f"article/{a['slug']}/index.html": f"/article/{a['slug']}"
-                       for a in articles})
+        app = create_app(site_settings, db=db, run_preflight=False)
+        client = app.test_client()
+        routes = _routes(app, views)
         for target, route in routes.items():
             response = client.get(route)
             if response.status_code != 200:
@@ -73,6 +71,16 @@ def build_site(content_dir: str | Path, out_dir: str | Path, settings: Settings,
         (out / "CNAME").write_text(host + "\n", encoding="utf-8")  # GitHub Pages domain
     (out / ".nojekyll").write_text("", encoding="utf-8")
     return report
+
+
+def _routes(app, views) -> dict[str, str]:
+    """Output file -> route for every public page, plus the feed, sitemap and robots."""
+    with app.test_request_context():
+        paths = views.site_paths()  # home, archive, clubs, leagues, articles, info pages
+    routes = {"index.html" if p == "/" else f"{p.strip('/')}/index.html": p for p in paths}
+    routes.update({"feed.xml": "/feed.xml", "sitemap.xml": "/sitemap.xml",
+                   "robots.txt": "/robots.txt"})
+    return routes
 
 
 def _write(path: Path, data: bytes) -> None:

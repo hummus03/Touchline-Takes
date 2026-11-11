@@ -12,6 +12,7 @@ from markupsafe import escape
 
 from touchline_takes.agents.factcheck import check_draft
 from touchline_takes.agents.publisher import build_rss
+from touchline_takes.web.urls import canonical_url, slugify
 
 bp = Blueprint("site", __name__)
 LOCAL_ADDRS = {"127.0.0.1", "::1"}
@@ -93,12 +94,108 @@ def archive():
     return render_template("archive.html", articles=services().db.list_articles(100_000))
 
 
+def _fixtures_for(match) -> list[dict]:
+    """Upcoming fixtures (with predictions) for which ``match(fixture)`` is true."""
+    return [f for f in services().db.fixtures_with_predictions(100) if match(f)]
+
+
+def club_directory() -> dict[str, dict]:
+    """Every club with an article or an upcoming fixture: slug -> name, league, count."""
+    teams = services().teams
+    found: dict[str, dict] = {}
+
+    def add(name: str, is_article: bool) -> None:
+        # A club's home league from the directory: Chelsea are a Premier League club
+        # even when their latest take was about the Champions League.
+        entry = found.setdefault(slugify(name), {"name": name, "articles": 0,
+                                                 "league": teams.league_of(name) or "",
+                                                 "slug": slugify(name)})
+        entry["articles"] += int(is_article)
+
+    for item in services().db.list_articles(100_000):
+        for name in item["teams"]:
+            add(name, True)
+    for fixture in services().db.fixtures_with_predictions(100):
+        for side in ("home", "away"):
+            add(teams.canonical(fixture[side]), False)
+    return dict(sorted(found.items(), key=lambda kv: kv[1]["name"]))
+
+
+def league_directory() -> dict[str, str]:
+    """Every league with an article or a fixture: slug -> name."""
+    names = {a["league"] for a in services().db.list_articles(100_000) if a.get("league")}
+    names |= {f["league"] for f in services().db.fixtures_with_predictions(100)
+              if f.get("league")}
+    return {slugify(n): n for n in sorted(names)}
+
+
+@bp.get("/clubs")
+def clubs():
+    """Every club we cover, by league."""
+    return render_template("clubs.html", clubs=list(club_directory().values()))
+
+
+@bp.get("/club/<slug>")
+def club(slug: str):
+    """One club: its articles and upcoming fixtures."""
+    entry = club_directory().get(slug)
+    if entry is None:
+        abort(404)
+    teams = services().teams
+    articles = [a for a in services().db.list_articles(100_000) if entry["name"] in a["teams"]]
+    fixtures = _fixtures_for(lambda f: entry["name"] in (teams.canonical(f["home"]),
+                                                         teams.canonical(f["away"])))
+    return render_template("listing.html", heading=entry["name"], kind="club",
+                           league=entry["league"], articles=articles, fixtures=fixtures)
+
+
+@bp.get("/league/<slug>")
+def league(slug: str):
+    """One league: its articles and upcoming fixtures."""
+    name = league_directory().get(slug)
+    if name is None:
+        abort(404)
+    articles = [a for a in services().db.list_articles(100_000) if a.get("league") == name]
+    return render_template("listing.html", heading=name, kind="league", league=None,
+                           articles=articles,
+                           fixtures=_fixtures_for(lambda f: f.get("league") == name))
+
+
+@bp.get("/about")
+def about():
+    """How Touchline Takes works, editorial standards and corrections."""
+    return render_template("about.html")
+
+
+@bp.get("/privacy")
+def privacy():
+    """Privacy notice."""
+    return render_template("privacy.html")
+
+
+@bp.get("/terms")
+def terms():
+    """Terms of use."""
+    return render_template("terms.html")
+
+
+PAGES = ("/archive", "/clubs", "/about", "/privacy", "/terms")
+
+
+def site_paths() -> list[str]:
+    """Every public page path (for the sitemap and the static build)."""
+    paths = ["/", *PAGES]
+    paths += [f"/club/{slug}" for slug in club_directory()]
+    paths += [f"/league/{slug}" for slug in league_directory()]
+    paths += [f"/article/{a['slug']}" for a in services().db.list_articles(100_000)]
+    return paths
+
+
 @bp.get("/sitemap.xml")
 def sitemap():
-    """XML sitemap of the home page, archive and every article."""
+    """XML sitemap of every public page."""
     base = current_app.config["SETTINGS"].site_url
-    urls = [f"{base}/", f"{base}/archive/"] + [
-        f"{base}/article/{a['slug']}/" for a in services().db.list_articles(100_000)]
+    urls = [canonical_url(base, path) for path in site_paths()]
     body = ('<?xml version="1.0" encoding="UTF-8"?>\n'
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
             + "".join(f"  <url><loc>{escape(u)}</loc></url>\n" for u in urls) + "</urlset>\n")

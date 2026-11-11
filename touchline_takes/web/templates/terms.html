@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Terms of use | {{ brand }}{% endblock %}
+{% block share_title %}Terms of use | {{ brand }}{% endblock %}
+{% block description %}The terms for using {{ brand }}.{% endblock %}
+{% block content %}
+<article class="article page">
+  <h1>Terms of use</h1>
+  <p class="muted small">Last updated 11 November 2026</p>
+
+  <p>By using {{ domain }} you agree to these terms. If you don't agree, please don't use the site.</p>
+
+  <h2>What the site is</h2>
+  <p>{{ brand }} publishes football news summaries and opinion written with the help of AI and approved by a human editor (see <a href="{{ url_for('site.about') }}">About</a>). It is for general information and entertainment.</p>
+
+  <h2>Accuracy</h2>
+  <p>Every factual sentence is checked against the source it cites, but sources can be wrong and mistakes can slip through. Check anything important with the original report, which every article links to. We correct errors when we're told about them.</p>
+
+  <h2>Predictions are not betting advice</h2>
+  <p>Match probabilities come from a statistical model and are often wrong. They are not advice to bet, and we accept no responsibility for any decision you make based on them. If you gamble, do so responsibly; in the UK, free help is available from <a href="https://www.begambleaware.org" rel="noopener">BeGambleAware</a>.</p>
+
+  <h2>Opinion</h2>
+  <p>Unsourced lines and "The Touchline Take" are opinion and commentary, not statements of fact.</p>
+
+  <h2>Content and copyright</h2>
+  <p>Our articles are original writing. Facts, short quotes and headlines from other publishers are attributed and linked to the original. Club names are used only to identify the clubs; we are not affiliated with or endorsed by any club, league or publisher. You may link to and share our articles; please don't republish them in full without permission.</p>
+
+  <h2>Liability</h2>
+  <p>The site is provided "as is". To the extent the law allows, we are not liable for any loss arising from using it or relying on it. Nothing in these terms limits liability that can't be limited by law.</p>
+
+  <h2>Changes and contact</h2>
+  <p>We may update these terms; the date above shows the latest version. Questions: <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>.</p>
+
+  <p class="muted small"><a href="{{ url_for('site.about') }}">About</a> · <a href="{{ url_for('site.privacy') }}">Privacy</a></p>
+</article>
+{% endblock %}

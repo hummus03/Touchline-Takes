@@ -36,6 +36,7 @@
       </a>
       <nav class="nav">
         <a href="{{ url_for('site.index') }}">Latest</a>
+        <a href="{{ url_for('site.clubs') }}">Clubs</a>
         <a href="{{ url_for('site.archive') }}">Archive</a>
         {% if not static_site %}<a href="{{ url_for('site.ask') }}">Ask the archive</a>{% endif %}
         <a href="{{ url_for('site.feed') }}">RSS</a>
@@ -57,6 +58,7 @@
     <div class="wrap">
       <p><strong>{{ brand }}</strong> · {{ domain }} · Written by an automated newsroom of AI agents, fact-checked against cited sources, and approved by a human editor before publication.</p>
       <p class="muted">Every factual sentence links to its source. We summarise and comment; we never republish source articles.</p>
+      <p class="muted small footer-links"><a href="{{ url_for('site.about') }}">About</a> · <a href="{{ url_for('site.about') }}#corrections">Corrections</a> · <a href="{{ url_for('site.privacy') }}">Privacy</a> · <a href="{{ url_for('site.terms') }}">Terms</a> · <a href="mailto:{{ contact_email }}">Contact</a></p>
     </div>
   </footer>
 </body>

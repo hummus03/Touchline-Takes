@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}About | {{ brand }}{% endblock %}
+{% block share_title %}About {{ brand }}{% endblock %}
+{% block description %}How {{ brand }} works: AI-written football takes, fact-checked against cited sources and approved by a human editor.{% endblock %}
+{% block content %}
+<article class="article page">
+  <h1>About {{ brand }}</h1>
+  <p class="lede">{{ tagline }} {{ brand }} is football news and opinion written by an automated newsroom and approved by a human editor.</p>
+
+  <h2>How an article is made</h2>
+  <ol>
+    <li><strong>Reading the news.</strong> Twice a day the newsroom reads public football news feeds (BBC Sport, The Guardian and Sky Sports), results data from Football-Data.co.uk and fixtures from football-data.org.</li>
+    <li><strong>Writing.</strong> An AI model (Claude, made by Anthropic) writes an original take from those sources. Every factual sentence carries a marker like <sup class="cite">S1</sup> that links to the source it came from.</li>
+    <li><strong>Fact-checking.</strong> A separate checker tests every factual sentence against the source it cites: names, numbers, results and who scored. Anything it can't find in the source is cut or sent back for a rewrite.</li>
+    <li><strong>Editing.</strong> An editing step checks length, tone, headline and originality. We summarise and comment; we never copy or republish source articles.</li>
+    <li><strong>Human approval.</strong> A person reads every article before it is published.</li>
+  </ol>
+
+  <h2>Predictions</h2>
+  <p>Win, draw and loss percentages come from our own statistical model, trained on past results. They are estimates for interest only, not betting advice, and they are often wrong.</p>
+
+  <h2>Opinions</h2>
+  <p>Lines without a source marker, and the closing "The Touchline Take", are opinion: ours, written to provoke a conversation, not to state facts.</p>
+
+  <h2 id="corrections">Corrections</h2>
+  <p>Despite the checks, mistakes can get through. If you spot one, email <a href="mailto:{{ contact_email }}?subject=Correction">{{ contact_email }}</a> with the article's link. We fix errors promptly: an article that can't be fixed is taken down.</p>
+
+  <h2 id="contact">Contact</h2>
+  <p>Email <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>. Rights holders: if you believe something here uses your work unfairly, tell us and we will act quickly.</p>
+
+  <p class="muted small"><a href="{{ url_for('site.privacy') }}">Privacy</a> · <a href="{{ url_for('site.terms') }}">Terms of use</a></p>
+</article>
+{% endblock %}
