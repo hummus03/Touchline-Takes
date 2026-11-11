@@ -1,77 +1,71 @@
 # Touchline Takes evaluation report
 
-Fixture stories: 25 · guardrail (every published claim sourced): **PASS**
+Fixture stories: 31 · guardrail (every published claim sourced): **PASS**
 
 ## Newsroom quality per writer configuration
 
 | Metric | template_writer | scripted_llm_writer |
 |---|---|---|
-| drafts | 26 | 26 |
-| published | 21 | 21 |
-| rejected | 5 | 5 |
-| claims_with_source_share_first_pass | 1.0 | 0.88 |
+| drafts | 29 | 29 |
+| published | 25 | 25 |
+| rejected | 4 | 4 |
+| claims_with_source_share_first_pass | 1.0 | 0.886 |
 | claims_with_source_share_published | 1.0 | 1.0 |
 | unsupported_claims_caught | 0 | 32 |
-| contradictions_caught | 0 | 14 |
+| contradictions_caught | 0 | 11 |
 | factcheck_bounces | 0 | 10 |
-| editor_reviews | 36 | 36 |
-| editor_rejection_rate | 0.417 | 0.417 |
-| retries_total | 10 | 20 |
-| retries_mean | 0.385 | 0.769 |
+| editor_reviews | 37 | 37 |
+| editor_rejection_rate | 0.324 | 0.324 |
+| retries_total | 8 | 18 |
+| retries_mean | 0.276 | 0.621 |
 | retries_max | 2 | 2 |
-| llm_calls_per_article | 0.0 | 1.769 |
+| llm_calls_per_article | 0.0 | 1.621 |
 | cost_usd_per_article | 0.0 | 0.0 |
-| projected_cost_usd_per_article_claude_opus_5_5 | 0.0 | 0.011445 |
-| tokens_per_article | 0.0 | 1468.9 |
-| agent_latency_s_per_article | 0.0142 | 0.0174 |
-| pipeline_s_per_article | 0.0476 | 0.0505 |
-| expectations passed | 19/19 | 19/19 |
+| projected_cost_usd_per_article_claude_opus_5_5 | 0.0 | 0.010391 |
+| tokens_per_article | 0.0 | 1325.8 |
+| agent_latency_s_per_article | 0.0102 | 0.0136 |
+| pipeline_s_per_article | 0.0309 | 0.0328 |
+| expectations passed | 21/21 | 21/21 |
 
 ### Rejections logged: template_writer
 
-- **editor** (rev 0) on *Real Madrid v Sevilla: the Touchline Take*: too short: 85 words (minimum 90)
-- **editor** (rev 1) on *Real Madrid v Sevilla: the Touchline Take*: too short: 83 words (minimum 90)
-- **editor** (rev 2) on *Real Madrid v Sevilla: the Touchline Take*: too short: 82 words (minimum 90)
-- **editor** (rev 0) on *Paris Saint-Germain v Marseille: the Touchline Take*: too short: 82 words (minimum 90)
-- **editor** (rev 1) on *Paris Saint-Germain v Marseille: the Touchline Take*: too short: 83 words (minimum 90)
-- **editor** (rev 2) on *Paris Saint-Germain v Marseille: the Touchline Take*: too short: 83 words (minimum 90)
-- **editor** (rev 0) on *Juventus v Napoli: the Touchline Take*: too short: 87 words (minimum 90)
-- **editor** (rev 1) on *Juventus v Napoli: the Touchline Take*: too short: 84 words (minimum 90)
-- **editor** (rev 2) on *Juventus v Napoli: the Touchline Take*: too short: 86 words (minimum 90)
-- **editor** (rev 0) on *Bayern Munich v Bayer Leverkusen: the Touchline Take*: too short: 81 words (minimum 90)
-- **editor** (rev 1) on *Bayern Munich v Bayer Leverkusen: the Touchline Take*: too short: 79 words (minimum 90)
-- **editor** (rev 2) on *Bayern Munich v Bayer Leverkusen: the Touchline Take*: too short: 82 words (minimum 90)
-- **editor** (rev 0) on *Celtic: what the transfer story really means*: too short: 82 words (minimum 90)
-- **editor** (rev 1) on *Celtic: what the transfer story really means*: too short: 77 words (minimum 90)
-- **editor** (rev 2) on *Celtic: what the transfer story really means*: too short: 79 words (minimum 90)
+- **editor** (rev 0) on *Paris Saint-Germain v Marseille: the Touchline Take*: too short: 88 words (minimum 90)
+- **editor** (rev 1) on *Paris Saint-Germain v Marseille: the Touchline Take*: too short: 89 words (minimum 90)
+- **editor** (rev 2) on *Paris Saint-Germain v Marseille: the Touchline Take*: too short: 89 words (minimum 90)
+- **editor** (rev 0) on *Bayern Munich v Bayer Leverkusen: the Touchline Take*: too short: 82 words (minimum 90)
+- **editor** (rev 1) on *Bayern Munich v Bayer Leverkusen: the Touchline Take*: too short: 80 words (minimum 90)
+- **editor** (rev 2) on *Bayern Munich v Bayer Leverkusen: the Touchline Take*: too short: 83 words (minimum 90)
+- **editor** (rev 0) on *Celtic: the Touchline Take on the dugout*: too short: 57 words (minimum 90); too thin: 2 sourced claims (minimum 3)
+- **editor** (rev 1) on *Celtic: the Touchline Take on the dugout*: too short: 57 words (minimum 90); too thin: 2 sourced claims (minimum 3)
+- **editor** (rev 2) on *Celtic: the Touchline Take on the dugout*: too short: 58 words (minimum 90); too thin: 2 sourced claims (minimum 3)
+- **editor** (rev 0) on *Celtic: the Touchline Take on the transfer talk*: too short: 69 words (minimum 90)
+- **editor** (rev 1) on *Celtic: the Touchline Take on the transfer talk*: too short: 64 words (minimum 90)
+- **editor** (rev 2) on *Celtic: the Touchline Take on the transfer talk*: too short: 66 words (minimum 90)
 
 ### Rejections logged: scripted_llm_writer
 
 - **factcheck** (rev 0) on *Arsenal v Chelsea: the Touchline Take*: unsupported claim (not in cited evidence: insiders, 200, january): Insiders claim the club will spend 200 million in January [S1].; unsupported claim (not in cited evidence: rival, juventus): Rival scouts from Juventus w
-- **factcheck** (rev 0) on *Manchester City v Wolves: the Touchline Take*: contradicted claim (contradicts source: claim says Wolves beat Manchester City 4-0, source says Manchester City beat Wolves 4-0): Wolves beat Manchester City 4-0, as reported by Eval Wire [S1].; contradicted claim (wrong
-- **editor** (rev 0) on *Real Madrid v Sevilla: the Touchline Take*: too short: 85 words (minimum 90)
-- **editor** (rev 1) on *Real Madrid v Sevilla: the Touchline Take*: too short: 83 words (minimum 90)
-- **editor** (rev 2) on *Real Madrid v Sevilla: the Touchline Take*: too short: 82 words (minimum 90)
 - **factcheck** (rev 0) on *Manchester United v Fulham: the Touchline Take*: contradicted claim (contradicts source: claim says Manchester United beat Fulham 2-1, source says Fulham beat Manchester United 2-1): Manchester United beat Fulham 2-1, as reported by Eval Wire [S1].; contradicted claim 
-- **editor** (rev 0) on *Paris Saint-Germain v Marseille: the Touchline Take*: too short: 82 words (minimum 90)
-- **editor** (rev 1) on *Paris Saint-Germain v Marseille: the Touchline Take*: too short: 83 words (minimum 90)
-- **editor** (rev 2) on *Paris Saint-Germain v Marseille: the Touchline Take*: too short: 83 words (minimum 90)
-- **editor** (rev 0) on *Juventus v Napoli: the Touchline Take*: too short: 87 words (minimum 90)
-- **editor** (rev 1) on *Juventus v Napoli: the Touchline Take*: too short: 84 words (minimum 90)
-- **editor** (rev 2) on *Juventus v Napoli: the Touchline Take*: too short: 86 words (minimum 90)
+- **editor** (rev 0) on *Paris Saint-Germain v Marseille: the Touchline Take*: too short: 88 words (minimum 90)
+- **editor** (rev 1) on *Paris Saint-Germain v Marseille: the Touchline Take*: too short: 89 words (minimum 90)
+- **editor** (rev 2) on *Paris Saint-Germain v Marseille: the Touchline Take*: too short: 89 words (minimum 90)
 - **factcheck** (rev 0) on *Newcastle v Southampton: the Touchline Take*: contradicted claim (contradicts source: claim says Southampton beat Newcastle 5-0, source says Newcastle beat Southampton 5-0): Southampton beat Newcastle 5-0, as reported by Eval Wire [S1].; unsupported claim (not in ci
-- **editor** (rev 0) on *Bayern Munich v Bayer Leverkusen: the Touchline Take*: too short: 81 words (minimum 90)
-- **editor** (rev 1) on *Bayern Munich v Bayer Leverkusen: the Touchline Take*: too short: 79 words (minimum 90)
-- **editor** (rev 2) on *Bayern Munich v Bayer Leverkusen: the Touchline Take*: too short: 82 words (minimum 90)
+- **editor** (rev 0) on *Bayern Munich v Bayer Leverkusen: the Touchline Take*: too short: 82 words (minimum 90)
+- **editor** (rev 1) on *Bayern Munich v Bayer Leverkusen: the Touchline Take*: too short: 80 words (minimum 90)
+- **editor** (rev 2) on *Bayern Munich v Bayer Leverkusen: the Touchline Take*: too short: 83 words (minimum 90)
 - **factcheck** (rev 0) on *Aston Villa v Manchester City: the Touchline Take*: contradicted claim (contradicts source: claim says Manchester City beat Aston Villa 1-0, source says Aston Villa beat Manchester City 1-0): Manchester City beat Aston Villa 1-0, as reported by Eval Wire [S1].; contradict
-- **factcheck** (rev 0) on *Tottenham: what the dugout story really means*: unsupported claim (not in cited evidence: insiders, 200, january): Insiders claim the club will spend 200 million in January [S1].; unsupported claim (not in cited evidence: rival, juventus): Rival scouts from Juventus w
-- **factcheck** (rev 0) on *Chelsea: what the dugout story really means*: unsupported claim (not in cited evidence: insiders, 200, january): Insiders claim the club will spend 200 million in January [S1].; unsupported claim (not in cited evidence: rival, juventus): Rival scouts from Juventus w
-- **factcheck** (rev 0) on *Newcastle: what the transfer story really means*: unsupported claim (not in cited evidence: insiders, 200): Insiders claim the club will spend 200 million in January [S1].; unsupported claim (not in cited evidence: rival, juventus): Rival scouts from Juventus were repor
-- **editor** (rev 0) on *Celtic: what the transfer story really means*: too short: 82 words (minimum 90)
-- **editor** (rev 1) on *Celtic: what the transfer story really means*: too short: 77 words (minimum 90)
-- **editor** (rev 2) on *Celtic: what the transfer story really means*: too short: 79 words (minimum 90)
-- **factcheck** (rev 0) on *Aston Villa: what the injury story really means*: contradicted claim (wrong team for 0 draw: Fulham (the evidence gives it to Aston Villa)): In our synthetic sample results, Fulham have 3 wins, 0 draws and 2 defeats from their last 5 league games: 9 points, 10 scored an
-- **factcheck** (rev 0) on *Brentford: what the refereeing story really means*: unsupported claim (not in cited evidence: insiders, 200, january): Insiders claim the club will spend 200 million in January [S1].; unsupported claim (not in cited evidence: rival, juventus): Rival scouts from Juventus w
+- **factcheck** (rev 0) on *Tottenham: the Touchline Take on the dugout*: unsupported claim (not in cited evidence: insiders, 200, january): Insiders claim the club will spend 200 million in January [S1].; unsupported claim (not in cited evidence: rival, juventus): Rival scouts from Juventus w
+- **factcheck** (rev 0) on *Chelsea: the Touchline Take on the dugout*: unsupported claim (not in cited evidence: insiders, 200, january): Insiders claim the club will spend 200 million in January [S1].; unsupported claim (not in cited evidence: rival, juventus): Rival scouts from Juventus w
+- **editor** (rev 0) on *Celtic: the Touchline Take on the dugout*: too short: 57 words (minimum 90); too thin: 2 sourced claims (minimum 3)
+- **editor** (rev 1) on *Celtic: the Touchline Take on the dugout*: too short: 57 words (minimum 90); too thin: 2 sourced claims (minimum 3)
+- **editor** (rev 2) on *Celtic: the Touchline Take on the dugout*: too short: 58 words (minimum 90); too thin: 2 sourced claims (minimum 3)
+- **factcheck** (rev 0) on *Newcastle: the Touchline Take on the transfer talk*: unsupported claim (not in cited evidence: insiders, 200): Insiders claim the club will spend 200 million in January [S1].; unsupported claim (not in cited evidence: rival, juventus): Rival scouts from Juventus were repor
+- **editor** (rev 0) on *Celtic: the Touchline Take on the transfer talk*: too short: 69 words (minimum 90)
+- **editor** (rev 1) on *Celtic: the Touchline Take on the transfer talk*: too short: 64 words (minimum 90)
+- **editor** (rev 2) on *Celtic: the Touchline Take on the transfer talk*: too short: 66 words (minimum 90)
+- **factcheck** (rev 0) on *Arsenal: the Touchline Take on the transfer talk*: unsupported claim (not in cited evidence: insiders, 200, january): Insiders claim the club will spend 200 million in January [S1].; unsupported claim (not in cited evidence: rival, juventus): Rival scouts from Juventus w
+- **factcheck** (rev 0) on *Aston Villa: the Touchline Take on the injury news*: contradicted claim (wrong team for 0 draw: Fulham (the evidence gives it to Aston Villa)): In our synthetic sample results, Fulham have 3 wins, 0 draws and 2 defeats from their last 5 league games: 9 points, 10 scored an
+- **factcheck** (rev 0) on *Brentford: the Touchline Take on the refereeing row*: unsupported claim (not in cited evidence: insiders, 200, january): Insiders claim the club will spend 200 million in January [S1].; unsupported claim (not in cited evidence: rival, juventus): Rival scouts from Juventus w
 
 ## Fact-checker on labelled claims (positive class = unsupported)
 
@@ -79,9 +73,9 @@ Fixture stories: 25 · guardrail (every published claim sourced): **PASS**
 
 | Checker / split | Cases | Accuracy | Precision | Recall | F1 | False-positive rate |
 |---|---|---|---|---|---|---|
-| token_only/dev | 38 | 0.632 | 1.0 | 0.263 | 0.417 | 0.0 |
+| token_only/dev | 42 | 0.643 | 1.0 | 0.286 | 0.444 | 0.0 |
 | token_only/heldout | 18 | 0.611 | 1.0 | 0.3 | 0.462 | 0.0 |
-| relation_aware/dev | 38 | 1.0 | 1.0 | 1.0 | 1.0 | 0.0 |
+| relation_aware/dev | 42 | 1.0 | 1.0 | 1.0 | 1.0 | 0.0 |
 | relation_aware/heldout | 18 | 1.0 | 1.0 | 1.0 | 1.0 | 0.0 |
 
 Correct verdicts per category:
@@ -90,9 +84,11 @@ Correct verdicts per category:
 |---|---|---|---|---|
 | correct | 19/19 | 8/8 | 19/19 | 8/8 |
 | draw_vs_win | 0/2 | 0/1 | 2/2 | 1/1 |
-| flipped_winner | 0/5 | 0/2 | 5/5 | 2/2 |
+| flipped_winner | 0/6 | 0/2 | 6/6 | 2/2 |
+| formal_alias | 2/2 | - | 2/2 | - |
 | invented_entity | 1/1 | 1/1 | 1/1 | 1/1 |
 | invented_number | 2/2 | 1/1 | 2/2 | 1/1 |
+| nickname | 1/1 | - | 1/1 | - |
 | no_citation | 1/1 | - | 1/1 | - |
 | swapped_probability | 0/1 | 0/1 | 1/1 | 1/1 |
 | swapped_stats | 0/2 | 0/1 | 2/2 | 1/1 |
@@ -105,14 +101,17 @@ Correct verdicts per category:
 | Field | Accuracy |
 |---|---|
 | league | 1.0 |
-| topic | 0.96 |
-| sentiment | 0.92 |
+| topic | 0.968 |
+| sentiment | 0.839 |
 | teams | 1.0 |
 
 Misses:
 - Celtic boss Rory Quinn signs new contrac: topic expected 'manager', got 'transfer'
 - Aston Villa stun Manchester City with 1-: sentiment expected 'positive', got 'neutral'
 - Crystal Palace winger handed three-match: sentiment expected 'negative', got 'neutral'
+- Arsenal had a long transfer shortlist to: sentiment expected 'neutral', got 'positive'
+- The part-timers who won three Wembley fi: sentiment expected 'positive', got 'neutral'
+- Midfielder reveals heart treatment at Wo: sentiment expected 'neutral', got 'positive'
 
 ## Analyst match-outcome model vs baselines
 

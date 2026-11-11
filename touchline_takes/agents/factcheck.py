@@ -19,6 +19,7 @@ the Writer if too many claims fail, if the lead claim fails, or if any claim
 
 from __future__ import annotations
 
+import re
 import time
 from dataclasses import dataclass, field
 from functools import lru_cache
@@ -29,7 +30,7 @@ from touchline_takes.db import Database
 from touchline_takes.state import Draft, Evidence, NewsroomState
 from touchline_takes.tools.llm import LLMClient, LLMError, parse_json_object
 from touchline_takes.tools.relations import (attribution_matches, extract_results,
-                                             number_units, result_conflict,
+                                             headline_winner, number_units, result_conflict,
                                              team_number_pairs)
 from touchline_takes.tools.teams import TeamDirectory
 from touchline_takes.tools.text import (citations, factual_tokens, split_paragraphs,
@@ -89,26 +90,18 @@ class ClaimChecker:
         records = [self._by_id[c] for c in cited]
         claim_text = strip_citations(sentence)
         evidence_results = [r for e in records for r in extract_results(e.text, self.teams)]
-        for claimed in extract_results(claim_text, self.teams):
+        claimed_results = extract_results(claim_text, self.teams)
+        for claimed in claimed_results:
             conflict = result_conflict(claimed, evidence_results)
             if conflict:
                 return "result_conflict", conflict
-        structured = [e for e in records if e.kind in STRUCTURED_KINDS]
-        if structured:
-            ev_triples = set().union(*(team_number_pairs(e.text, self.teams)
-                                       for e in structured))
-            covered = {team for _, _, team in ev_triples}
-            story_tokens = set().union(set(), *(self._tokens[e.id] for e in records
-                                                if e.kind not in STRUCTURED_KINDS))
-            for triple in sorted(team_number_pairs(claim_text, self.teams)):
-                number, unit, team = triple
-                if team in covered and number not in story_tokens \
-                        and not attribution_matches(triple, ev_triples):
-                    owners = sorted({t for n, u, t in ev_triples
-                                     if n == number and (not unit or u == unit)})
-                    where = f" (the evidence gives it to {', '.join(owners)})" if owners else ""
-                    label = f"{number} {unit}".strip()
-                    return "attribution", f"wrong team for {label}: {team}{where}"
+        if not claimed_results:  # "X beat Y" with no scoreline
+            conflict = self._winner_conflict(claim_text, records, evidence_results)
+            if conflict:
+                return "result_conflict", conflict
+        attribution = self._attribution_problem(claim_text, records)
+        if attribution:
+            return "attribution", attribution
         ev_units = set().union(*(number_units(e.text) for e in records))
         ev_numbers = {n for n, _ in ev_units}
         for number, unit in sorted(number_units(claim_text)):
@@ -116,6 +109,64 @@ class ClaimChecker:
                 units = sorted(u for n, u in ev_units if n == number)
                 return "unit", f"unit mismatch: '{number} {unit}' but evidence has " \
                                f"{', '.join(f'{number} {u}' for u in units)}"
+        return None
+
+    def _accept_team_aliases(self, sentence: str, cited: list[str],
+                             missing: list[str]) -> list[str]:
+        """Allow a team's formal names to stand in for each other.
+
+        "Manchester City" in a claim is supported by "Man City" in the source. Only the
+        directory's formal aliases count (ambiguous nicknames like "the Magpies" were
+        removed from it), so this can't attach a claim to the wrong club.
+        """
+        if not missing:
+            return missing
+        claim = strip_citations(sentence)
+        evidence = " ".join(self._by_id[c].text for c in cited).lower()
+        accepted: set[str] = set()
+        for team, start, end in self.teams.find_team_spans(claim):
+            if any(re.search(rf"(?<![\w'])({re.escape(alias.lower())})(?!\w)", evidence)
+                   for alias in self.teams.aliases(team)):
+                accepted |= word_tokens(claim[start:end])
+        return [t for t in missing if t not in accepted]
+
+    def _attribution_problem(self, claim_text: str, records: list[Evidence]) -> str | None:
+        """A number pinned on the wrong team, judged against cited stats/model records."""
+        structured = [e for e in records if e.kind in STRUCTURED_KINDS]
+        if not structured:
+            return None
+        ev_triples = set().union(*(team_number_pairs(e.text, self.teams) for e in structured))
+        covered = {team for _, _, team in ev_triples}
+        story_tokens = set().union(set(), *(self._tokens[e.id] for e in records
+                                            if e.kind not in STRUCTURED_KINDS))
+        for triple in sorted(team_number_pairs(claim_text, self.teams)):
+            number, unit, team = triple
+            if team in covered and number not in story_tokens \
+                    and not attribution_matches(triple, ev_triples):
+                owners = sorted({t for n, u, t in ev_triples
+                                 if n == number and (not unit or u == unit)})
+                where = f" (the evidence gives it to {', '.join(owners)})" if owners else ""
+                return f"wrong team for {f'{number} {unit}'.strip()}: {team}{where}"
+        return None
+
+    def _winner_conflict(self, claim_text: str, records: list[Evidence],
+                         evidence_results: list) -> str | None:
+        """Who-beat-whom stated without a score, checked against the sources."""
+        claimed = headline_winner(claim_text, self.teams)
+        if not claimed:
+            return None
+        pair = frozenset(claimed)
+        stated = [(r.winner, next(iter(r.teams - {r.winner}))) for r in evidence_results
+                  if r.teams == pair and r.winner]
+        for record in records:
+            record_teams = self.teams.find_teams(record.text)
+            for sentence in re.split(r"(?<=[.!?:])\s+", record.text):
+                found = headline_winner(sentence, self.teams, record_teams)
+                if found and frozenset(found) == pair:
+                    stated.append(found)
+        if stated and claimed not in stated:
+            return (f"contradicts source: claim says {claimed[0]} beat {claimed[1]}, source says "
+                    f"{stated[0][0]} beat {stated[0][1]}")
         return None
 
     def check(self, sentence: str) -> ClaimCheck:
@@ -133,7 +184,8 @@ class ClaimChecker:
                               f"cites unknown evidence {', '.join(unknown)}",
                               "unknown_citation")
         pool: set[str] = set().union(*(self._tokens[c] for c in cited))
-        missing = [t for t in tokens if t not in pool]
+        missing = self._accept_team_aliases(sentence, cited,
+                                            [t for t in tokens if t not in pool])
         if missing:
             return ClaimCheck(sentence, True, False, cited, missing,
                               f"not in cited evidence: {', '.join(missing)}", "missing_token")

@@ -4,7 +4,8 @@
 import pandas as pd
 import pytest
 
-from touchline_takes.agents.writer import TAKES, VERDICTS, Assignment, WriterAgent
+from touchline_takes.agents.writer import (DRAW_VERDICT, TAKES, TOPIC_VERDICTS, VERDICTS,
+                                           Assignment, WriterAgent)
 from touchline_takes.config import Settings
 from touchline_takes.state import NewsroomState
 from touchline_takes.tools.llm import FakeLLM, GuardedLLM, ScriptedWriterLLM
@@ -46,7 +47,7 @@ def test_takes_are_opinion_not_claims():
     for lines in TAKES.values():
         for line in lines:
             assert not is_claim(line), line
-    for line in VERDICTS.values():
+    for line in [*VERDICTS.values(), *TOPIC_VERDICTS.values(), DRAW_VERDICT]:
         assert not is_claim(line), line
 
 
@@ -109,3 +110,72 @@ def test_result_fact_uses_relations_and_hyphenated_names(db, teams):
     comp = make_writer(db, teams).compose(Assignment("match_report", story=story))
     assert comp.facts[0].startswith("Marseille beat Paris Saint-Germain 1-0")
     assert "The names in the frame: Yanis Belkacem [S1]." in comp.facts
+
+
+# --- Patterns from the first live run on BBC Sport (paraphrased, not BBC's text) -------------
+
+def story_with(summary, title="Headline", teams=(), topic="general", idx=9):
+    """A classified story for writer tests."""
+    return make_story(idx, title=title, summary=summary, teams=list(teams), topic=topic)
+
+
+def test_names_cases(db, teams):
+    """Run the byline/possessive cases (kept separate to keep parametrize readable)."""
+    writer = make_writer(db, teams)
+    cases = [
+        ("Senior football correspondent Jo Bloggs looks inside Arsenal's summer plans.",
+         ["Arsenal"], []),
+        ("By Jo Bloggs. Arsenal want Leo Hartmann.", ["Arsenal"], ["Leo Hartmann"]),
+        ("Chief football writer Sam Penn says Arsenal are favourites.", ["Arsenal"], []),
+        ("The winner was scored by Leo Hartmann late on.", [], ["Leo Hartmann"]),
+        ("Everyone remembers Pep Guardiola's Manchester City winning the cup four times.",
+         ["Manchester City"], ["Pep Guardiola"]),
+        ("Scott McTominay opens up about his recovery.", [], ["Scott McTominay"]),
+    ]
+    for summary, story_teams, expected in cases:
+        assert writer._names(story_with(summary, teams=story_teams)) == expected, summary  # pylint: disable=protected-access
+
+
+def test_detail_quotes_whole_phrases_only(db, teams):
+    """A quote never stops mid-phrase ('...won four cups on the')."""
+    writer = make_writer(db, teams)
+    cut = story_with("You may know the club won four League Cups on the bounce between two "
+                     "dates in a row back then, a run nobody has matched")
+    frag = writer._detail(cut)  # pylint: disable=protected-access
+    assert frag is None or frag.split()[-1].lower() not in {"the", "on", "of", "a"}
+    whole = story_with("Arsenal were beaten at home. The keeper made seven saves in the game.")
+    assert writer._detail(whole) == "The keeper made seven saves in the game"  # pylint: disable=protected-access
+
+
+def test_headline_result_without_score(db, teams):
+    """'Man City thrash Inter' names the winner in the lede and the verdict, with a citation."""
+    story = story_with("Manchester City came from behind to beat Inter Milan in Europe.",
+                       title="Man City thrash Inter in the Champions League",
+                       teams=["Manchester City", "Inter Milan"], topic="match_report")
+    comp = make_writer(db, teams).compose(Assignment("match_report", story=story))
+    assert comp.facts[0] == "Manchester City beat Inter Milan, as reported by Test Wire [S1]."
+    assert comp.takes[-1].startswith("The Touchline Take: Manchester City earned this one [S1]")
+
+
+def test_topic_headlines_and_verdicts(db, teams):
+    """No 'what the result story really means'; verdicts fit the topic."""
+    story = story_with("Arsenal have a long shortlist of targets this summer.",
+                       title="Arsenal draw up a shortlist", teams=["Arsenal"], topic="transfer")
+    comp = make_writer(db, teams).compose(Assignment("explainer", story=story))
+    assert comp.title == "Arsenal: the Touchline Take on the transfer talk"
+    assert comp.facts[0] == "Test Wire has a transfer story involving Arsenal [S1]."
+    assert comp.takes[-1] == TOPIC_VERDICTS["transfer"]
+
+
+def test_one_article_per_team_and_topic(db, teams):
+    """Several stories on the same club saga become one article; the rest are related."""
+    stories = [make_story(i, title=f"Manager news {i}", summary="Manchester United boss talk.",
+                          teams=["Manchester United"], topic="manager") for i in (20, 21, 22)]
+    for story in stories:
+        db.insert_story(story)
+        db.update_classification(story)
+    state = NewsroomState(stories=stories)
+    plan = make_writer(db, teams).plan(state)
+    assert len(plan) == 1
+    assert sum(log.action == "merged" for log in state.logs) == 2
+    assert db.unused_stories() == [s for s in db.unused_stories() if s.id == plan[0].story.id]

@@ -75,3 +75,34 @@ def test_classifier_agent_persists(db, lexicon):
     stored = db.get_story(story.id)
     assert stored.teams == ["Arsenal", "Chelsea"] and stored.topic == "match_report"
     assert db.unclassified_stories() == []
+
+
+@pytest.mark.parametrize("title,summary,topic", [
+    ("Star reveals heart treatment at World Cup",
+     "He had treatment two days before the World Cup win over Haiti.", "injury"),
+    ("Arsenal had a long shortlist to build on title win",
+     "Our correspondent looks at Arsenal's plan to strengthen the squad.", "transfer"),
+    ("The part-timers who won three Wembley finals in a row",
+     "Manchester City won four League Cups in a row, but another side did it first.",
+     "general"),
+    ("Players air views in World Cup review",
+     "Players discussed their semi-final defeat in a team meeting.", "general"),
+    ("Vote for the Footballer of the Year", "Five players are on the shortlist.", "general"),
+    ("Coaches linked with Aberdeen job", "Early names in the frame for the job.", "manager"),
+    ("Man City thrash Inter in Europe", "City came from behind to beat Inter Milan.",
+     "match_report"),
+    ("Chelsea play out goalless draw", "Chelsea stay unbeaten.", "match_report"),
+])
+def test_match_reports_need_a_score_or_result_headline(lexicon, title, summary, topic):
+    """'title win', 'World Cup winner' or 'semi-final defeat' alone are not match reports."""
+    assert lexicon.classify(make_story(title=title, summary=summary)).topic == topic
+
+
+def test_ambiguous_nicknames_are_not_teams(lexicon):
+    """'The Magpies' can be Notts County: nicknames don't identify a club."""
+    story = make_story(title="Fog at the FA Cup tie",
+                       summary="Fans could not see the Magpies' FA Cup win over Altrincham.")
+    assert lexicon.classify(story).teams == []
+    assert lexicon.classify(make_story(title="Man City thrash Wolves",
+                                       summary="A big win.")).teams == ["Manchester City",
+                                                                       "Wolves"]

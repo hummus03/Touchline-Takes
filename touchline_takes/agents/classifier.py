@@ -32,16 +32,31 @@ TOPIC_KEYWORDS = {
                      r"\bdefeat\b", r"\bthrash", r"\bscored\b", r"\bwinner\b", r"\bvictory\b",
                      r"\bgoalless\b", r"\bcome from behind\b"],
     "transfer": [r"\bsign(?:s|ed|ing)?\b", r"\btransfer\b", r"\bfee\b", r"\bbid\b", r"\bloan\b",
-                 r"\bcontract\b", r"\bin talks\b", r"\bextension\b", r"\bdeal\b"],
+                 r"\bcontract\b", r"\bin talks\b", r"\bextension\b", r"\bdeal\b",
+                 r"\bshortlist\b", r"\btargets?\b", r"\bstrengthen\b", r"\bgossip\b",
+                 r"\bon (?:their|the) radar\b"],
     "injury": [r"\binjur", r"\bruled out\b", r"\bhamstring\b", r"\bknee\b", r"\bsidelined\b",
-               r"\bfitness\b", r"\bankle\b"],
+               r"\bfitness\b", r"\bankle\b", r"\bsurgery\b", r"\btreatment\b"],
     "manager": [r"\bsacked\b", r"\bappointed\b", r"\bhead coach\b", r"\bdismissed\b",
-                r"\bresign", r"\bboss\b"],
+                r"\bresign", r"\bboss\b", r"\b(?:manager(?:ial)?|coaching) (?:job|post|role)\b",
+                r"\blinked with [\w\s]{0,30}\bjob\b", r"\bmanager ins and outs\b"],
     "discipline": [r"\bvar\b", r"\bred card\b", r"\bpenalty\b", r"\breferee", r"\bban\b",
                    r"\bappeal\b", r"\bcontroversy\b"],
     "preview": [r"\bpreview\b", r"\bahead of\b", r"\bthis weekend\b", r"\bwill host\b",
                 r"\bhost\b", r"\btravel to\b", r"\bupcoming\b"],
 }
+# A story only counts as a match report if it has a scoreline, or its headline uses a
+# result verb. Words like "win" or "defeat" on their own ("title win", "World Cup
+# winner", "semi-final defeat") turned features and transfer stories into match reports.
+SCORE_RE = re.compile(r"(?<![\d-])\d{1,2}\s?[-–]\s?\d{1,2}(?![\d-])")
+TITLE_RESULT_RE = re.compile(
+    r"\b(beat|beats|thrash(?:es|ed)?|stun(?:s|ned)?|held|hold|draw (?:with|at|against)|"
+    r"drew|draws|goalless|come from behind|came from behind|fight back|fought back|"
+    r"lose (?:to|at)|lost (?:to|at)|edge (?:past|out)|rout|hammer(?:s|ed)?|"
+    r"see off|sees off|saw off|win (?:at|against|over|away)|wins (?:at|against|over|away))\b",
+    re.I)
+AWARD_RE = re.compile(r"\b(vote|voting|award|awards|of the year|nominee|nominated|ballon d'or)\b",
+                      re.I)
 TOPIC_WEIGHTS = {"manager": 1.6, "transfer": 1.3, "injury": 1.5, "discipline": 1.4,
                  "preview": 1.6, "match_report": 1.0}
 POSITIVE = set("""win wins won beat victory thrash thrashed brilliant superb stunning delight
@@ -122,6 +137,10 @@ class LexiconClassifier(BaseClassifier):
                 score += 2 * len(re.findall(pattern, title, re.I))
                 score += len(re.findall(pattern, summary, re.I))
             scores[topic] = score * TOPIC_WEIGHTS.get(topic, 1.0)
+        if not (SCORE_RE.search(f"{title} {summary}") or TITLE_RESULT_RE.search(title)):
+            scores["match_report"] = 0.0
+        if AWARD_RE.search(title):
+            return "general"  # awards shortlists aren't transfer shortlists
         best = max(scores, key=scores.get)
         return best if scores[best] > 0 else "general"
 

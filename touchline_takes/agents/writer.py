@@ -21,18 +21,28 @@ from touchline_takes.agents.base import Agent
 from touchline_takes.db import Database
 from touchline_takes.state import Draft, Evidence, NewsroomState, Story
 from touchline_takes.tools.llm import LLMClient, LLMError
-from touchline_takes.tools.relations import extract_results
+from touchline_takes.tools.relations import extract_results, headline_winner
 from touchline_takes.tools.stats import ResultsStore
 from touchline_takes.tools.teams import TeamDirectory
 from touchline_takes.tools.text import split_paragraphs
 
-TOPIC_LABELS = {"transfer": "transfer", "injury": "injury", "manager": "dugout",
-                "discipline": "refereeing", "preview": "build-up", "general": "talking-point",
-                "match_report": "result"}
 ROLE_WORDS = {"midfielder", "striker", "forward", "winger", "manager", "defender", "goalkeeper",
               "substitute", "captain", "head", "coach", "boss", "centre-back", "full-back",
               "the", "a", "an", "local"}
 PLACE_WORDS = {"Park", "Stadium", "Arena", "Road", "Lane", "Ground"}
+# People introduced like this are the article's author or broadcaster, not part of the story.
+JOURNALIST_WORDS = {"correspondent", "reporter", "editor", "writer", "journalist", "columnist",
+                    "presenter", "commentator"}
+BYLINE_RE = re.compile(r"(?:(?:^|[.!?]\s+)By|\bwrites|\baccording to)\s*$")
+DANGLING = {"the", "a", "an", "of", "on", "to", "in", "and", "with", "for", "at", "by", "from",
+            "their", "his", "her", "its", "into", "over", "after", "before", "than"}
+LEDE_PHRASES = {"transfer": "a transfer story", "injury": "an injury update",
+                "manager": "a dugout story", "discipline": "a refereeing story",
+                "match_report": "a match story", "preview": "a build-up story",
+                "general": "a story"}
+TITLE_LABELS = {"transfer": "the transfer talk", "injury": "the injury news",
+                "manager": "the dugout", "discipline": "the refereeing row",
+                "match_report": "the result", "preview": "the build-up", "general": "the latest"}
 NUMBER_WORDS = r"(?:\d+\w*|one|two|three|four|five|six|seven|eight|nine|ten|twice)"
 
 # Opinion lines: no proper nouns, no numbers (the fact-checker treats them as commentary).
@@ -73,6 +83,15 @@ TAKES = {
         "There is more to this than the headline suggests.",
     ],
 }
+TOPIC_VERDICTS = {
+    "transfer": "The Touchline Take: judge the business when the window shuts, not before.",
+    "injury": "The Touchline Take: how the squad copes will define the next month.",
+    "manager": "The Touchline Take: get the next appointment right and this is forgotten.",
+    "discipline": "The Touchline Take: consistency, please. That is all anyone asks.",
+    "preview": "The Touchline Take: one to circle in the diary.",
+    "general": "The Touchline Take: one to keep an eye on.",
+}
+DRAW_VERDICT = "The Touchline Take: a point apiece, and nobody fully satisfied."
 VERDICTS = {
     "positive": "The Touchline Take: enjoy it, but the real test is backing it up next week.",
     "negative": "The Touchline Take: this needs a response, and quickly.",
@@ -170,9 +189,18 @@ class WriterAgent(Agent):
         previews = [Assignment("preview", fixture=f) for f in state.fixtures
                     if f.get("probs")][: self.max_previews]
         story_slots = max(0, self.max_articles - len(previews))
+        covered: dict[tuple[str, str], str] = {}  # (lead team, topic) -> story id
         for story in stories:
             if len(assignments) >= story_slots:
                 break
+            key = (story.teams[0], story.topic or "general")
+            if key in covered:
+                # Same club, same kind of story: one article, the rest as related coverage.
+                self.db.mark_used([story.id])
+                self.log(state, "merged", f"covered by the {key[0]} {key[1]} article "
+                         f"({covered[key]}): {story.title}", story.id)
+                continue
+            covered[key] = story.id
             kind = "match_report" if story.topic == "match_report" else "explainer"
             assignments.append(Assignment(kind, story=story))
         assignments += previews
@@ -215,20 +243,31 @@ class WriterAgent(Agent):
 
     # ------------------------------------------------------------------ facts
     def _names(self, story: Story) -> list[str]:
-        """People/places named in the summary (not teams, leagues or the source)."""
+        """People/places named in the summary (not teams, leagues, the source or its writer)."""
         skip = {t.lower() for t in story.teams} | {
             a.lower() for t in story.teams for a in self.teams.aliases(t)}
         names = []
-        word = r"[A-Z][a-zà-ÿ'’]+(?:-[A-Z]?[a-zà-ÿ'’]+)*"  # allows "Saint-Germain"
+        # Allows "Saint-Germain", "McTominay", "O'Neill".
+        word = r"[A-Z][a-zà-ÿ'’]+(?:[A-Z][a-zà-ÿ'’]+)?(?:-[A-Z]?[a-zà-ÿ'’]+)*"
         for match in re.finditer(rf"(?:{word}\s){{1,3}}{word}", story.summary):
+            preceding = story.summary[:match.start()]
+            if BYLINE_RE.search(preceding) or any(
+                    w.strip(",.:'’") in JOURNALIST_WORDS for w in preceding.lower().split()[-4:]):
+                continue  # the article's author, not someone in the story
             words = match.group(0).split()
-            while words and words[0].lower() in ROLE_WORDS:
+            if words[0] == "By":
+                continue  # "By Sami Mokbel": a byline
+            while words and words[0].lower() in ROLE_WORDS | JOURNALIST_WORDS | {"senior"}:
                 words = words[1:]
+            for i, w in enumerate(words):  # "Pep Guardiola's Manchester City" -> "Pep Guardiola"
+                if w.endswith(("'s", "’s")):
+                    words = words[:i] + [w[:-2]]
+                    break
             name = " ".join(words)
             if len(words) >= 2 and name.lower() not in skip and words[-1] not in PLACE_WORDS \
                     and not any(
                     lg in name for lg in ("League", "Liga", "Serie", "Premiership",
-                                          "Bundesliga")) and name not in names:
+                                          "Bundesliga", "Cup")) and name not in names:
                 names.append(name)
         return names[:2]
 
@@ -244,17 +283,17 @@ class WriterAgent(Agent):
 
     @staticmethod
     def _detail(story: Story) -> str | None:
-        """A short numeric fragment from the summary, to be quoted with attribution."""
-        fragments = re.split(r"[.,;]|\band\b|\bas\b", story.summary)
-        for frag in fragments:
+        """A complete short phrase with a number in it, quoted with attribution.
+
+        Only whole phrases (4-14 words, not ending on a dangling word) are quoted, so
+        a quote never stops mid-sentence.
+        """
+        for frag in re.split(r"[.,;:–—]|\band\b|\bas\b|\bbut\b", story.summary):
             words = frag.split()
-            if re.search(rf"\b{NUMBER_WORDS}\b", frag) and not re.fullmatch(
-                    r".*\b\d+-\d+\b.*", frag) and 3 <= len(words):
-                if len(words) <= 10:
-                    return " ".join(words)
-                idx = next(i for i, w in enumerate(words) if re.match(NUMBER_WORDS, w))
-                start = max(0, min(idx - 4, len(words) - 9))
-                return " ".join(words[start:start + 9]).strip(" ,")
+            if not 4 <= len(words) <= 14 or words[-1].lower() in DANGLING:
+                continue
+            if re.search(rf"\b{NUMBER_WORDS}\b", frag) and not re.search(r"\b\d+-\d+\b", frag):
+                return " ".join(words)
         return None
 
     def _story_facts(self, story: Story, detail: int) -> Composition:
@@ -262,13 +301,16 @@ class WriterAgent(Agent):
         facts = []
         teams = story.teams[:2]
         score = re.search(r"\b(\d+)-(\d+)\b", story.text)
+        winner = headline_winner(story.title, self.teams, story.teams) \
+            if len(teams) >= 2 else None
         if story.topic == "match_report" and len(teams) >= 2 and score:
             facts.append(self._result_fact(story, teams, score) +
                          f", as reported by {story.source} [S1].")
+        elif story.topic == "match_report" and winner:
+            facts.append(f"{winner[0]} beat {winner[1]}, as reported by {story.source} [S1].")
         else:
-            label = TOPIC_LABELS.get(story.topic or "general", "talking-point")
-            facts.append(f"{story.source} has a {label} story involving "
-                         f"{' and '.join(teams)} [S1].")
+            phrase = LEDE_PHRASES.get(story.topic or "general", "a story")
+            facts.append(f"{story.source} has {phrase} involving {' and '.join(teams)} [S1].")
         facts.append(f"The headline said it plainly: “{story.title}” [S1].")
         names = self._names(story)
         if names:
@@ -285,13 +327,30 @@ class WriterAgent(Agent):
         facts += [self._form_fact(e) for e in stats]
         kind = story.topic if story.topic in TAKES else "general"
         takes = _pick(TAKES[kind], story.id + str(detail), 2)
-        takes.append(VERDICTS.get(story.sentiment or "neutral", VERDICTS["neutral"]))
+        takes.append(self._verdict(story, teams))
         if story.topic == "match_report" and len(teams) >= 2:
             title = f"{teams[0]} v {teams[1]}: the Touchline Take"
         else:
-            title = (f"{teams[0]}: what the {TOPIC_LABELS.get(story.topic or 'general')} "
-                     "story really means")
+            label = TITLE_LABELS.get(story.topic or "general", "the latest")
+            title = f"{teams[0]}: the Touchline Take on {label}"
         return Composition(title, facts, takes, evidence)
+
+    def _verdict(self, story: Story, teams: list[str]) -> str:
+        """Closing line that fits what actually happened (cited when it names a winner)."""
+        if story.topic != "match_report":
+            return TOPIC_VERDICTS.get(story.topic or "general", TOPIC_VERDICTS["general"])
+        pair = frozenset(teams[:2])
+        for result in extract_results(story.text, self.teams):
+            if result.teams == pair and result.draw:
+                return DRAW_VERDICT
+            if result.teams == pair and result.winner:
+                return (f"The Touchline Take: {result.winner} earned this one [S1], and now "
+                        "they have to back it up.")
+        winner = headline_winner(story.title, self.teams, story.teams)
+        if winner and frozenset(winner) == pair:
+            return (f"The Touchline Take: {winner[0]} earned this one [S1], and now they have "
+                    "to back it up.")
+        return VERDICTS["neutral"]
 
     def _form_fact(self, ev: Evidence) -> str:
         match = re.match(r"(.+?) last (\d+) league matches in .+?: (\d+) wins?, (\d+) draws?, "

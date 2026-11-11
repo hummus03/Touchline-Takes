@@ -753,6 +753,58 @@
     }
    ],
    "expected": "unsupported"
+  },
+  {
+   "split": "dev",
+   "category": "formal_alias",
+   "claim": "Manchester City beat Wolves 4-0 [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Man City beat Wolves 4-0 at home."
+    }
+   ],
+   "expected": "supported"
+  },
+  {
+   "split": "dev",
+   "category": "formal_alias",
+   "claim": "Manchester City beat Inter Milan, as reported by Eval Wire [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Man City thrash Inter to claim first European win. Manchester City came from behind to beat Inter Milan in the Champions League."
+    }
+   ],
+   "expected": "supported"
+  },
+  {
+   "split": "dev",
+   "category": "flipped_winner",
+   "claim": "Inter Milan beat Manchester City [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Man City thrash Inter to claim first European win. Manchester City came from behind to beat Inter Milan in the Champions League."
+    }
+   ],
+   "expected": "unsupported"
+  },
+  {
+   "split": "dev",
+   "category": "nickname",
+   "claim": "Eval Wire has a match story involving Newcastle [S1].",
+   "evidence": [
+    {
+     "id": "S1",
+     "kind": "story",
+     "text": "Eval Wire: Fans could not see the FA Cup tie in thick fog. Thick fog meant Notts County fans missed parts of the Magpies' FA Cup win over Altrincham."
+    }
+   ],
+   "expected": "unsupported"
   }
  ]
 }

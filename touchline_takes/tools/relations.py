@@ -106,6 +106,40 @@ def extract_results(text: str, teams: TeamDirectory) -> list[MatchResult]:
     return results
 
 
+def headline_winner(title: str, teams: TeamDirectory, story_teams: list[str] | None = None
+                    ) -> tuple[str, str] | None:
+    """``(winner, loser)`` when a headline states a result without a scoreline.
+
+    "Man City thrash Wolves" -> (Manchester City, Wolves); "Real Madrid stunned by
+    Sevilla" -> (Sevilla, Real Madrid). If the headline names only one known club
+    ("Man City thrash Inter") and the story involves exactly two, the other one is
+    taken from ``story_teams``. ``None`` whenever it isn't clear.
+    """
+    spans, seen = [], set()
+    for team, start, end in teams.find_team_spans(title):
+        if team not in seen:
+            seen.add(team)
+            spans.append((team, start, end))
+    if not spans or DRAW_RE.search(title):
+        return None
+    first, _, first_end = spans[0]
+    # The second club in the headline is only the opponent if nothing else is named in
+    # between ("Man City thrash Inter as Liverpool watch" is not City v Liverpool).
+    if len(spans) >= 2 and not re.search(r"\b[A-Z]", title[first_end:spans[1][1]]):
+        second, second_start = spans[1][0], spans[1][1]
+        between = title[first_end:second_start]
+    elif story_teams and len(story_teams) == 2 and first in story_teams:
+        second = next(t for t in story_teams if t != first)
+        between = title[first_end:first_end + 40]
+    else:
+        return None
+    if PASSIVE_RE.search(between) or LOSS_RE.search(between):
+        return second, first
+    if WIN_RE.search(between):
+        return first, second
+    return None
+
+
 def result_conflict(claim: MatchResult, evidence: list[MatchResult]) -> str | None:
     """Explain how ``claim`` contradicts the evidence, or ``None`` if it doesn't.
 

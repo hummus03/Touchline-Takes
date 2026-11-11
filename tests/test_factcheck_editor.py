@@ -149,3 +149,15 @@ def test_llm_verifier_downgrades_claims(db):
     FactCheckAgent(db, verifier=LLMVerifier(FakeLLM(["no json"]))).run(state)
     assert broken.status == "checked"
     assert any(log.action == "verifier_fallback" for log in state.logs)
+
+
+
+def test_formal_team_names_count_but_nicknames_do_not():
+    """'Man City' in the source supports 'Manchester City'; 'the Magpies' isn't Newcastle."""
+    city = [Evidence("S1", "story", "Wire: Man City beat Wolves 4-0 at home.", "Wire",
+                     "https://example.com/c")]
+    assert ClaimChecker(city).check("Manchester City beat Wolves 4-0 [S1].").supported
+    magpies = [Evidence("S1", "story", "Wire: Fog hid the Magpies' FA Cup win.", "Wire",
+                        "https://example.com/m")]
+    assert not ClaimChecker(magpies).check("Wire has a match story involving Newcastle [S1]."
+                                           ).supported
