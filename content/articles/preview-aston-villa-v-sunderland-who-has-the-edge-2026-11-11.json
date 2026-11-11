@@ -1,0 +1,82 @@
+{
+  "slug": "preview-aston-villa-v-sunderland-who-has-the-edge-2026-11-11",
+  "title": "Preview: Aston Villa v Sunderland, who has the edge?",
+  "body": "Aston Villa host Sunderland in the Premier League on 2026-11-21 [F1]. The Touchline Takes Analyst model gives Aston Villa a 52% chance of winning, the draw 29% and Sunderland 19% [M1]. In our Football-Data.co.uk results, Aston Villa have 2 wins, 3 draws and 0 defeats from their last 5 league games: 9 points, 10 scored and 8 conceded [ST1].\n\nIn our Football-Data.co.uk results, Sunderland have 1 win, 1 draw and 3 defeats from their last 5 league games: 4 points, 2 scored and 7 conceded [ST2]. The last meeting in our Football-Data.co.uk results, on 2026-04-19, finished Aston Villa 4-3 Sunderland [ST3]. The latest from BBC Sport: “Four 'huge mistakes' that show Man Utd's defensive problems” [S1].\n\nForm matters, but big games have a habit of ignoring the spreadsheet. This is the kind of fixture where one moment of quality settles everything. The Touchline Take: back Aston Villa [M1], but do not be shocked if this gets messy.",
+  "article_type": "preview",
+  "league": "Premier League",
+  "teams": [
+    "Aston Villa",
+    "Sunderland"
+  ],
+  "sources": [
+    {
+      "name": "football-data.org",
+      "url": "",
+      "kind": "fixture"
+    },
+    {
+      "name": "Touchline Takes Analyst model",
+      "url": "",
+      "kind": "model"
+    },
+    {
+      "name": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/videos/c64g1n1wezvyo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "F1",
+      "kind": "fixture",
+      "text": "Fixture: Aston Villa v Sunderland, Premier League, 2026-11-21.",
+      "source": "football-data.org",
+      "url": ""
+    },
+    {
+      "id": "M1",
+      "kind": "model",
+      "text": "Touchline Takes Analyst model (logistic regression on Football-Data.co.uk results): Aston Villa win 52%, draw 29%, Sunderland win 19%.",
+      "source": "Touchline Takes Analyst model",
+      "url": ""
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Aston Villa last 5 league matches in Football-Data.co.uk results: 2 wins, 3 draws, 0 defeats, 9 points, 10 goals scored, 8 conceded (sequence DWWDD).",
+      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Sunderland last 5 league matches in Football-Data.co.uk results: 1 win, 1 draw, 3 defeats, 4 points, 2 goals scored, 7 conceded (sequence LLDLW).",
+      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST3",
+      "kind": "stats",
+      "text": "Last meeting in Football-Data.co.uk results: 2026-04-19, Aston Villa 4-3 Sunderland.",
+      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Four 'huge mistakes' that show Man Utd's defensive problems. After Manchester United consed four preventable goal against Aston Villa in the Premier League Dion Dublin and Leon Osman brake down what is going wrong on Match of the Day.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/videos/c64g1n1wezvyo?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "published_at": "2026-11-11T04:08:10+00:00",
+  "draft_id": "ca1e7dd5aa",
+  "story_ids": [],
+  "mode": "template",
+  "revision": 0
+}
