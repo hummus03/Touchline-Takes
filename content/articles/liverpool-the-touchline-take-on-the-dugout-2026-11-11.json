@@ -14,7 +14,7 @@
       "kind": "story"
     },
     {
-      "name": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "name": "Football-Data.co.uk results",
       "url": "",
       "kind": "stats"
     }
@@ -31,7 +31,7 @@
       "id": "ST1",
       "kind": "stats",
       "text": "Liverpool last 5 league matches in Football-Data.co.uk results: 3 wins, 0 draws, 2 defeats, 9 points, 7 goals scored, 6 conceded (sequence LWWLW).",
-      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "source": "Football-Data.co.uk results",
       "url": ""
     }
   ],

@@ -247,6 +247,15 @@ class WriterAgent(Agent):
         return Evidence(eid, "story", f"{story['source']}: {story['text']}", story["source"],
                         story["url"])
 
+    def _tags(self, story: Story) -> list[str]:
+        """Clubs the article is about: the two sides of a match, or the clubs its headline
+        names. A club mentioned in passing ("...the only side to challenge Arsenal") isn't
+        a tag."""
+        if story.topic == "match_report":
+            return story.teams[:2]
+        named = set(self.teams.find_teams(story.title))
+        return [t for t in story.teams if t in named] or story.teams[:1]
+
     def _about(self, title: str, teams: list[str]) -> bool:
         """True if a headline names one of ``teams`` (so related coverage stays on topic)."""
         return not teams or bool(set(self.teams.find_teams(title)) & set(teams))
@@ -279,7 +288,7 @@ class WriterAgent(Agent):
             text = self.results.form_text(team, self.teams.data_name(team))
             if text:
                 out.append(Evidence(f"ST{start + len(out)}", "stats", text,
-                                    f"Football-Data.co.uk-format {self.results_label}"))
+                                    self.results_label))
         return out
 
     # ------------------------------------------------------------------ facts
@@ -452,7 +461,7 @@ class WriterAgent(Agent):
                 evidence.append(Evidence(
                     eid, "stats", f"Last meeting in {self.results_label}: {meeting['date']}, "
                     f"{mh} {meeting['home_goals']}-{meeting['away_goals']} {ma}.",
-                    f"Football-Data.co.uk-format {self.results_label}"))
+                    self.results_label))
                 facts.append(f"The last meeting in our {self.results_label}, on "
                              f"{meeting['date']}, finished {mh} {meeting['home_goals']}-"
                              f"{meeting['away_goals']} {ma} [{eid}].")
@@ -536,8 +545,9 @@ class WriterAgent(Agent):
         start = time.perf_counter()
         comp = self.compose(assignment)
         story = assignment.story
-        teams = story.teams if story else [self.teams.canonical(assignment.fixture["home"]),
-                                           self.teams.canonical(assignment.fixture["away"])]
+        teams = self._tags(story) if story else [
+            self.teams.canonical(assignment.fixture["home"]),
+            self.teams.canonical(assignment.fixture["away"])]
         draft = Draft(
             id=assignment.key, article_type=assignment.article_type, title=comp.title, body="",
             evidence=comp.evidence, story_ids=[story.id] if story else [],

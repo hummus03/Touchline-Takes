@@ -6,8 +6,7 @@
   "league": "Premier League",
   "teams": [
     "Brighton",
-    "Brentford",
-    "Arsenal"
+    "Brentford"
   ],
   "sources": [
     {
@@ -16,7 +15,7 @@
       "kind": "story"
     },
     {
-      "name": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "name": "Football-Data.co.uk results",
       "url": "",
       "kind": "stats"
     }
@@ -33,14 +32,14 @@
       "id": "ST1",
       "kind": "stats",
       "text": "Brighton last 5 league matches in Football-Data.co.uk results: 4 wins, 0 draws, 1 defeat, 12 points, 10 goals scored, 2 conceded (sequence WWLWW).",
-      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "source": "Football-Data.co.uk results",
       "url": ""
     },
     {
       "id": "ST2",
       "kind": "stats",
       "text": "Brentford last 5 league matches in Football-Data.co.uk results: 1 win, 2 draws, 2 defeats, 5 points, 6 goals scored, 7 conceded (sequence DLDWL).",
-      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "source": "Football-Data.co.uk results",
       "url": ""
     }
   ],

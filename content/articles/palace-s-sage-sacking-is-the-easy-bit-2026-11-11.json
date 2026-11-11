@@ -6,9 +6,7 @@
   "league": "Premier League",
   "teams": [
     "Crystal Palace",
-    "Liverpool",
-    "Tottenham",
-    "Brighton"
+    "Liverpool"
   ],
   "sources": [
     {
@@ -22,7 +20,7 @@
       "kind": "story"
     },
     {
-      "name": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "name": "Football-Data.co.uk results",
       "url": "",
       "kind": "stats"
     }
@@ -46,14 +44,14 @@
       "id": "ST1",
       "kind": "stats",
       "text": "Crystal Palace last 5 league matches in Football-Data.co.uk results: 1 win, 0 draws, 4 defeats, 3 points, 4 goals scored, 13 conceded (sequence WLLLL).",
-      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "source": "Football-Data.co.uk results",
       "url": ""
     },
     {
       "id": "ST2",
       "kind": "stats",
       "text": "Liverpool last 5 league matches in Football-Data.co.uk results: 3 wins, 0 draws, 2 defeats, 9 points, 7 goals scored, 6 conceded (sequence LWWLW).",
-      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "source": "Football-Data.co.uk results",
       "url": ""
     }
   ],

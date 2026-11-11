@@ -20,7 +20,7 @@
       "kind": "model"
     },
     {
-      "name": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "name": "Football-Data.co.uk results",
       "url": "",
       "kind": "stats"
     },
@@ -49,21 +49,21 @@
       "id": "ST1",
       "kind": "stats",
       "text": "Chelsea last 5 league matches in Football-Data.co.uk results: 3 wins, 0 draws, 2 defeats, 9 points, 9 goals scored, 4 conceded (sequence WWLWL).",
-      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "source": "Football-Data.co.uk results",
       "url": ""
     },
     {
       "id": "ST2",
       "kind": "stats",
       "text": "Leeds United last 5 league matches in Football-Data.co.uk results: 1 win, 2 draws, 2 defeats, 5 points, 3 goals scored, 5 conceded (sequence LDDLW).",
-      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "source": "Football-Data.co.uk results",
       "url": ""
     },
     {
       "id": "ST3",
       "kind": "stats",
       "text": "Last meeting in Football-Data.co.uk results: 2026-02-10, Chelsea 2-2 Leeds United.",
-      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "source": "Football-Data.co.uk results",
       "url": ""
     },
     {

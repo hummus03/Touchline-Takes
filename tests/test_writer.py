@@ -328,3 +328,16 @@ def test_llm_may_use_any_cited_evidence(db, teams):
     # the invented Mbappe signing alone sends the draft back.
     assert draft.mode == "llm" and draft.status == "needs_revision"
     assert len(draft.feedback) == 1 and "kylian, mbappe" in draft.feedback[0]
+
+
+def test_tags_are_the_clubs_the_article_is_about(db, teams):
+    """A match is tagged with its two sides; a club mentioned in passing isn't a tag."""
+    match = make_story(80, title="Brighton beat 10-man Brentford to go second",
+                       summary="Brighton look the only side able to challenge Arsenal.",
+                       teams=["Brighton", "Brentford", "Arsenal"], topic="match_report")
+    news = make_story(81, title="Crystal Palace poised to sack manager after Liverpool defeat",
+                      summary="A former Tottenham manager is the favourite.",
+                      teams=["Crystal Palace", "Liverpool", "Tottenham"], topic="manager")
+    writer = make_writer(db, teams)
+    assert writer._tags(match) == ["Brighton", "Brentford"]  # pylint: disable=protected-access
+    assert writer._tags(news) == ["Crystal Palace", "Liverpool"]  # pylint: disable=protected-access
