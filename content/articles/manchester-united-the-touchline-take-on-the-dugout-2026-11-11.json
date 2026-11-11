@@ -1,0 +1,57 @@
+{
+  "slug": "manchester-united-the-touchline-take-on-the-dugout-2026-11-11",
+  "title": "Manchester United: the Touchline Take on the dugout",
+  "body": "BBC Sport has a dugout story involving Manchester United [S1]. The headline said it plainly: “The Monaco summit that will decide the future of Carrick and Man Utd” [S1]. The names in the frame: Michael Carrick [S1].\n\nFor context, BBC Sport also ran: “Carrick's Man Utd future to be decided as Berrada and Wilcox retain support” [S2]. In our Football-Data.co.uk results, Manchester United have 0 wins, 3 draws and 2 defeats from their last 5 league games: 3 points, 6 scored and 11 conceded [ST1].\n\nThe next appointment matters far more than the timing of this one. Every board loves a fresh start; fans just want a plan that survives a bad month. The Touchline Take: get the next appointment right and this is forgotten.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester United"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c8wy9yzyzxnko?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cmy0r041ed0po?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: The Monaco summit that will decide the future of Carrick and Man Utd. Manchester United's power brokers meet in Monaco on Wednesday to decide whether Michael Carrick will remain as head coach",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c8wy9yzyzxnko?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Carrick's Man Utd future to be decided as Berrada and Wilcox retain support. Manchester United head coach Michael Carrick's future will be discussed at a meeting on Wednesday, but executives Omar Berrada and Jason Wilcox retain the support of minority owner Sir Jim Ratcliffe.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cmy0r041ed0po?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 3 draws, 2 defeats, 3 points, 6 goals scored, 11 conceded (sequence DDLLD).",
+      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-11T04:07:56+00:00",
+  "draft_id": "a250f92db7",
+  "story_ids": [
+    "69cca56250da"
+  ],
+  "mode": "template",
+  "revision": 0
+}
