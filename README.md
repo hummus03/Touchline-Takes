@@ -342,9 +342,14 @@ Latest snapshot (`reports/evaluation.md`):
   citation.
 - Adds opinion lines ("takes") that contain no names or numbers, and finishes with
   *"The Touchline Take: …"*.
-- With an LLM configured, the model restyles the facts in the house voice under strict
-  instructions. Offline, a deterministic template composer writes the piece.
+- With an LLM configured, the model writes an original article from the evidence itself
+  (the starter facts are a guide, not a limit): what happened, the context, what the
+  numbers say, and an opinion. Every factual sentence must be stated in the evidence it
+  cites, and the Fact-checker removes or bounces any that aren't. Offline, a deterministic
+  template composer writes the piece.
 - If the LLM fails or the call budget runs out, it falls back to templates and logs it.
+  Templates only cover results, sackings, transfers, injuries, discipline and previews: a
+  general story (a gossip column, a feature) is held back for a run where the LLM works.
 - Revises drafts sent back by the Fact-checker or Editor, using their feedback.
 - Writes one article per club and topic per run. Other stories on the same saga become
   related coverage instead of near-duplicate articles.
