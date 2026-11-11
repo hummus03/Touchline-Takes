@@ -1,0 +1,57 @@
+{
+  "slug": "manchester-city-the-touchline-take-on-the-latest-2026-11-11",
+  "title": "Manchester City: the Touchline Take on the latest",
+  "body": "The Guardian has a story involving Manchester City [S1]. The headline said it plainly: “Fujino’s double sparks WCL comeback win for Manchester City against Inter” [S1]. The names in the frame: Bunny’ Shaw [S1].\n\nFor context, BBC Sport also ran: “Man City thrash Inter to claim first CL win of season” [S2]. In our Football-Data.co.uk results, Manchester City have 2 wins, 0 draws and 3 defeats from their last 5 league games: 6 points, 8 scored and 8 conceded [ST1].\n\nIt is a story worth keeping an eye on as the season unfolds. There is more to this than the headline suggests. The Touchline Take: one to keep an eye on.",
+  "article_type": "explainer",
+  "league": "Champions League",
+  "teams": [
+    "Manchester City"
+  ],
+  "sources": [
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/10/inter-manchester-city-womens-champions-league-match-report",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/videos/cwzd6d9zrlz7o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "The Guardian: Fujino’s double sparks WCL comeback win for Manchester City against Inter. On a very satisfying night for Manchester City, perhaps the most pleasing element was that they did not even need to call on Khadija ‘Bunny’ Shaw. While giving their talismanic striker some precious rest, Manchester City’s European campaign finally came roaring into life as they put four goals past Inter to record their first Women’s Champions League victory of the season and greatly improve their prospects of reaching the knockout stages.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/10/inter-manchester-city-womens-champions-league-match-report"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Man City thrash Inter to claim first CL win of season. Manchester City come from behind to beat Inter Milan in style for their first Champions League win of the season.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/videos/cwzd6d9zrlz7o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester City last 5 league matches in Football-Data.co.uk results: 2 wins, 0 draws, 3 defeats, 6 points, 8 goals scored, 8 conceded (sequence WWLLL).",
+      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-11T11:07:15+00:00",
+  "draft_id": "6f681f6def",
+  "story_ids": [
+    "598aabc0430d"
+  ],
+  "mode": "template",
+  "revision": 0
+}
