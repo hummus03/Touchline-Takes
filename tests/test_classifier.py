@@ -92,6 +92,13 @@ def test_classifier_agent_persists(db, lexicon):
     ("Man City thrash Inter in Europe", "City came from behind to beat Inter Milan.",
      "match_report"),
     ("Chelsea play out goalless draw", "Chelsea stay unbeaten.", "match_report"),
+    # Guardian summaries run to a paragraph: a score in passing isn't a match report.
+    ("Palace could avoid paying compensation if Sage rejoins Lens",
+     "The decision was made after Palace slumped to a 3-1 defeat against Liverpool.", "general"),
+    ("Crystal Palace poised to sack their manager after Liverpool defeat",
+     "Four successive defeats; a former Spurs manager is a target.", "manager"),
+    ("Lawyers in talks over deal for Manchester City whistleblower",
+     "The deal would be agreed with the fraud office.", "general"),
 ])
 def test_match_reports_need_a_score_or_result_headline(lexicon, title, summary, topic):
     """'title win', 'World Cup winner' or 'semi-final defeat' alone are not match reports."""

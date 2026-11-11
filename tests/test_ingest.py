@@ -1,12 +1,15 @@
 """Tests for feed parsing and the Ingest agent."""
 # pylint: disable=redefined-outer-name
 
+import pytest
+
 from touchline_takes.agents.ingest import IngestAgent
 from touchline_takes.state import NewsroomState
 from touchline_takes.tools.embeddings import HashingTfidfEmbeddings
-from touchline_takes.tools.feeds import FeedClient, parse_feed, source_name
+from touchline_takes.tools.feeds import FeedClient, parse_feed, skip_reason, source_name
+from touchline_takes.tools.text import strip_html
 
-from tests.conftest import FakeResponse, FakeSession
+from tests.conftest import FakeResponse, FakeSession, make_story
 
 RSS = """<?xml version="1.0"?><rss version="2.0"><channel><title>Live Wire</title>
 <item><title>Liverpool sign <b>new</b> striker</title><link>https://x.test/1</link>
@@ -68,3 +71,37 @@ def test_source_names_and_trailers():
         {"theguardian.com": FakeResponse(rss)}))
     story = client.fetch("https://www.theguardian.com/football/rss")[0]
     assert story.source == "The Guardian" and story.summary == "Arsenal won the derby."
+
+
+def test_guardian_standfirst_lines_and_promos():
+    """List items end as sentences; newsletter plugs are removed (paraphrased HTML)."""
+    assert strip_html("<p>Exit not confirmed</p><ul><li>Return could benefit Palace</li></ul>"
+                      "<p>Palace could avoid paying.</p>") == \
+        "Exit not confirmed. Return could benefit Palace. Palace could avoid paying."
+    rss = ("<?xml version=\"1.0\"?><rss version=\"2.0\"><channel><title>x</title><item>"
+           "<title>City under pressure</title><link>https://g.test/2</link><description>"
+           "&lt;p&gt;Sign up now! Sign up now? Sign up now! City lost again.&lt;/p&gt;&lt;p&gt;"
+           "Sign up for our free newsletter here The manager spoke. This is an extract from "
+           "Soccer Desk, a newsletter. Subscribe for free here .&lt;/p&gt;</description></item>"
+           "</channel></rss>")
+    assert parse_feed(rss, "The Guardian")[0].summary == "City lost again. The manager spoke."
+
+
+@pytest.mark.parametrize("title,url,summary,reason", [
+    ("Hill backs Hamilton over Leclerc", "https://www.skysports.com/f1/news/1", "", "not football"),
+    ("Hacken 0-0 Chelsea commentary", "https://www.skysports.com/football/x/live/1", "",
+     "not a news article"),
+    ("Football Daily | Talking points", "https://www.theguardian.com/football/2026/a", "",
+     "not a news article"),
+    ("Chelsea held in Europe", "https://www.bbc.co.uk/sport/football/articles/1",
+     "Chelsea stay unbeaten in the Women's Champions League.", "women's football"),
+    ("WSL talking points", "https://www.theguardian.com/football/2026/b", "", "women's football"),
+    ("Arsenal beat Chelsea 2-1", "https://www.skysports.com/football/news/1",
+     "Arsenal won the derby.", ""),
+    ("Arsenal live up to their billing", "https://www.bbc.co.uk/sport/football/articles/2", "", ""),
+])
+def test_skip_reason(title, url, summary, reason):
+    """Only football news articles about the men's game are written up."""
+    story = make_story(1, title=title, summary=summary or title)
+    story.url = url
+    assert skip_reason(story) == reason
