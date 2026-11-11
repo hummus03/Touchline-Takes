@@ -179,3 +179,24 @@ def test_curly_possessives_match():
     draft.evidence = [Evidence("S1", "story", "After three defeats, City’s manager will "
                                "reassess.", "Test Wire", "https://x")]
     assert check_draft(draft)[0].supported
+
+
+def test_sentence_initial_common_words_are_not_names():
+    """'Over their last five...' and 'His side...' were cut as unknown names."""
+    draft = make_draft("Over their last five league games, Arsenal have 10 points [ST1]. "
+                       "His winner came in the 78th minute [S1].")
+    assert all(c.supported for c in check_draft(draft) if c.is_claim)
+
+
+def test_headline_must_name_the_club_and_form_strings_are_not_shouting(db):
+    """'The Dugout Decision Facing a Club in Trouble' is sent back; 'WWLDL' is data."""
+    vague = make_draft(GOOD + " Their run reads WWLDL [ST1].",
+                       title="Out of the Frame? The Dugout Decision Facing a Club in Trouble")
+    vague.teams = ["Arsenal"]
+    problems = EditorAgent(db, StyleGuide(min_words=60)).review(vague)
+    assert any(p.startswith("headline: name the club (Arsenal)") for p in problems)
+    assert not any("shouting" in p for p in problems)
+    named = make_draft(GOOD, title="Arsenal edge the derby and keep the pressure on")
+    named.teams = ["Arsenal", "Chelsea"]
+    assert not any(p.startswith("headline") for p in
+                   EditorAgent(db, StyleGuide(min_words=60)).review(named))
