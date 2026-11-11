@@ -68,3 +68,41 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # Posts each newly published article to X once the site is live. Off until the
+  # four X_* secrets exist. Which articles were posted is kept on the social-state
+  # branch; a failed post is retried on the next deploy and never fails this one.
+  post-to-x:
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write   # the social-state branch
+    env:
+      STATE_BRANCH: social-state
+      STATE_DIR: .social
+      X_API_KEY: ${{ secrets.X_API_KEY }}
+      X_API_SECRET: ${{ secrets.X_API_SECRET }}
+      X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+      X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: requirements-actions.txt
+
+      - name: Install
+        run: pip install -r requirements-actions.txt
+
+      - name: Restore what has been posted
+        run: scripts/newsroom_state.sh restore
+
+      - name: Post new articles to X
+        continue-on-error: true
+        run: python scripts/post_to_x.py --state .social/x_posted.json
+
+      - name: Save what has been posted
+        run: scripts/newsroom_state.sh save

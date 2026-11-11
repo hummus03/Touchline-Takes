@@ -91,6 +91,7 @@ In **Settings → Secrets and variables → Actions**:
 |---|---|
 | `FOOTBALL_DATA_API_KEY` | free key from football-data.org, for fixtures, predictions and previews. Optional but recommended. |
 | `ANTHROPIC_API_KEY` | only if `LLM_PROVIDER=anthropic` |
+| `X_API_KEY`, `X_API_SECRET`, `X_ACCESS_TOKEN`, `X_ACCESS_SECRET` | optional: post each new article to X (see "Posting to X" below) |
 
 ### 5. Point the domain at GitHub Pages (GoDaddy → DNS → DNS Records)
 
@@ -144,6 +145,28 @@ line in `.github/workflows/newsroom.yml` to run more often).
   causes are a missing permission (step 2) or Pages not set to GitHub Actions (step 3).
 - **If `main` is protected** by a branch rule that requires pull requests,
   `AUTO_PUBLISH=true` can't push to it. Keep review mode in that case.
+
+### Posting to X (optional)
+
+After each deploy, every newly published article is posted to X once: headline, its
+first sentence and the link (the link preview shows the share image). It runs only when
+all four `X_*` secrets exist.
+
+1. Create the X account and turn on the **Automated** label (account settings →
+   "Your account" → "Account information" → "Automation"), managed by your own account.
+2. In the X Developer Console, open your app → **User authentication settings** → set
+   App permissions to **Read and write**. Do this first: tokens made before it can't post.
+3. Under **Keys and tokens**, generate the API Key and Secret and the Access Token and
+   Secret, and add them as repository secrets named `X_API_KEY`, `X_API_SECRET`,
+   `X_ACCESS_TOKEN` and `X_ACCESS_SECRET`.
+4. X bills posts from prepaid credits. Check the price per post in the Developer Console
+   before buying credits; at most 12 articles a day are published.
+
+The first run after the secrets are added only records the articles already on the
+site, so the back catalogue isn't posted. Articles more than 48 hours old when merged
+aren't posted. What has been posted is kept on the `social-state` branch; a failed post
+is retried on the next deploy and never stops the site deploying. To stop posting,
+delete `X_ACCESS_TOKEN`.
 
 # Part 2: your own server (Docker)
 
