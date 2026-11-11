@@ -1,0 +1,54 @@
+{
+  "slug": "brighton-turn-brentford-over-and-climb-to-second-2026-11-11",
+  "title": "Brighton Turn Brentford Over and Climb to Second",
+  "body": "Brighton are now second in the Premier League after beating Brentford, who finished the game with ten men [S1]. Diego Gómez scored another spectacular goal, the sort that keeps a season's highlights reel busy [S1]. The result has also made Brighton look like the only side capable of seriously challenging Arsenal [S1].\n\nThe conditions were low winter sun at the Amex Stadium, and the home side squeezed their visitors and toyed with them [S1]. Brentford, a side Brighton are often and lazily compared with, had little answer [S1]. Whatever grievances the visitors could raise about a couple of refereeing decisions, they were not going to change the outcome [S1].\n\nThe form numbers back up what the eye saw. Brighton have four wins, no draws and one defeat in their last five league matches, collecting 12 points while scoring 10 and conceding 2 [ST1]. Brentford have one win, two draws and two defeats over the same run, with 5 points, 6 goals scored and 7 conceded [ST2]. That gap is too wide to be written off as a blip.\n\nThey need to keep their heads when the other team starts to fray, and that is what separated these two. In my view, temperament tells you more about a season than any tactical blueprint on the whiteboard, and this kind of result is the proof.\n\nThis scoreline will be picked apart all week, and it should be.\n\nThe Touchline Take: Brighton earned this one [S1], and now they have to back it up.",
+  "article_type": "match_report",
+  "league": "Premier League",
+  "teams": [
+    "Brighton",
+    "Brentford",
+    "Arsenal"
+  ],
+  "sources": [
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/08/brighton-brentford-premier-league-match-report",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "The Guardian: Diego Gómez hits another stunner as Brighton beat 10-man Brentford to go second. Who can stop Brighton’s ­ascension in English and European football? They are setting standards, ­practices ­leaving almost everybody else ­trailing in their wake. A ­second‑place position in the ­Premier League would once have read like a glitch in a ­Football ­Manager ­session. Not in November 2026, where they appear the only team capable of throwing down any sort of challenge to Arsenal. Under low winter sun, Brentford, an opposition to which Brighton are often, if lazily, compared, were ­swatted aside. If Keith Andrews’s team, and their fans at the Amex ­Stadium, could level blame at a couple of ­refereeing decisions, they received little chance of rescuing anything. Brighton squeezed them, toyed with them.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/08/brighton-brentford-premier-league-match-report"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Brighton last 5 league matches in Football-Data.co.uk results: 4 wins, 0 draws, 1 defeat, 12 points, 10 goals scored, 2 conceded (sequence WWLWW).",
+      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Brentford last 5 league matches in Football-Data.co.uk results: 1 win, 2 draws, 2 defeats, 5 points, 6 goals scored, 7 conceded (sequence DLDWL).",
+      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-11T17:14:42+00:00",
+  "draft_id": "e4403d4e23",
+  "story_ids": [
+    "ae309641de21"
+  ],
+  "mode": "llm",
+  "revision": 2
+}
