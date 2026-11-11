@@ -1,0 +1,67 @@
+{
+  "slug": "manchester-city-v-nottingham-forest-the-touchline-take-2026-11-11",
+  "title": "Manchester City v Nottingham Forest: the Touchline Take",
+  "body": "The game between Manchester City and Nottingham Forest ended 1904-05, as reported by The Guardian [S1]. The headline said it plainly: “Manchester City’s weaknesses under Enzo Maresca are being exposed” [S1]. The names in the frame: Enzo Maresca and Sheffield Wednesday [S1].\n\nOne detail from the report stands out: “After three straight defeats” [S1]. For context, The Guardian also ran: “Fujino’s double sparks WCL comeback win for Manchester City against Inter” [S2]. In our Football-Data.co.uk results, Manchester City have 2 wins, 0 draws and 3 defeats from their last 5 league games: 6 points, 8 scored and 8 conceded [ST1].\n\nIn our Football-Data.co.uk results, Nottingham Forest have 1 win, 1 draw and 3 defeats from their last 5 league games: 4 points, 5 scored and 8 conceded [ST2].\n\nThere is no hiding from a scoreline, and this one will be picked apart all week. It was the kind of game that tells you more about character than about tactics. The Touchline Take: file this one under unfinished business.",
+  "article_type": "match_report",
+  "league": "International",
+  "teams": [
+    "Manchester City",
+    "Nottingham Forest",
+    "Aston Villa",
+    "Brighton"
+  ],
+  "sources": [
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/09/manchester-city-enzo-maresca-premier-league",
+      "kind": "story"
+    },
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/10/inter-manchester-city-womens-champions-league-match-report",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "The Guardian: Manchester City’s weaknesses under Enzo Maresca are being exposed. After three straight defeats, City’s manager says he will use the international break to reassess. Their problems may go beyond tactics Sign up for our free newsletter here Enzo Maresca seemed, if not quite baffled by his side’s Saturday defeat to Nottingham Forest, then at least a little put out. After seven straight wins from the start of the season, that’s now three straight defeats, a pattern so unusual that it’s been recorded only once before in top-flight English history, by Sheffield Wednesday in 1904-05. The three defeats were all different, Maresca said, although in all of them City had had more possession and more chances. In the 2-1 defeat at Aston Villa two weeks ago, City had 63% of the ball and had 15 chances to Villa’s eight. In the 1-0 home defeat to Brighton last weekend, they had 62% possession and 21 chances to seven. At the City Ground, it was 79% possession and 12 chances to 11. So Maresca is right in one way: City could look at basic statistics and say they had been unfortunate – although Forest could equally point to the fact that they went into that game third top of the expected goals table but second-bottom of the actual table. This is an extract from Soccer Desk, a newsletter from the Guardian US. Subscribe for free here .",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/09/manchester-city-enzo-maresca-premier-league"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "The Guardian: Fujino’s double sparks WCL comeback win for Manchester City against Inter. On a very satisfying night for Manchester City, perhaps the most pleasing element was that they did not even need to call on Khadija ‘Bunny’ Shaw. While giving their talismanic striker some precious rest, Manchester City’s European campaign finally came roaring into life as they put four goals past Inter to record their first Women’s Champions League victory of the season and greatly improve their prospects of reaching the knockout stages.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/10/inter-manchester-city-womens-champions-league-match-report"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester City last 5 league matches in Football-Data.co.uk results: 2 wins, 0 draws, 3 defeats, 6 points, 8 goals scored, 8 conceded (sequence WWLLL).",
+      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Nottingham Forest last 5 league matches in Football-Data.co.uk results: 1 win, 1 draw, 3 defeats, 4 points, 5 goals scored, 8 conceded (sequence LLDLW).",
+      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-11T04:50:09+00:00",
+  "draft_id": "3e4c38ba5c",
+  "story_ids": [
+    "d26433535b65"
+  ],
+  "mode": "template",
+  "revision": 0
+}
