@@ -30,6 +30,13 @@ ROLE_WORDS = {"midfielder", "striker", "forward", "winger", "manager", "defender
               "substitute", "captain", "head", "coach", "boss", "centre-back", "full-back",
               "the", "a", "an", "local"}
 PLACE_WORDS = {"Park", "Stadium", "Arena", "Road", "Lane", "Ground"}
+# Countries and national teams with multi-word names: not people "in the frame".
+NATIONS = {"Northern Ireland", "Republic Of Ireland", "United States", "South Korea",
+           "North Korea", "Saudi Arabia", "New Zealand", "Costa Rica", "Ivory Coast",
+           "South Africa", "Czech Republic", "Faroe Islands", "Cape Verde", "Burkina Faso",
+           "Sierra Leone", "El Salvador", "Trinidad", "Dominican Republic", "San Marino",
+           "United Arab Emirates", "Hong Kong", "Puerto Rico", "Equatorial Guinea",
+           "Papua New Guinea", "Bosnia", "North Macedonia", "Great Britain", "Team GB"}
 # People introduced like this are the article's author or broadcaster, not part of the story.
 JOURNALIST_WORDS = {"correspondent", "reporter", "editor", "writer", "journalist", "columnist",
                     "presenter", "commentator"}
@@ -214,17 +221,23 @@ class WriterAgent(Agent):
         return Evidence(eid, "story", f"{story['source']}: {story['text']}", story["source"],
                         story["url"])
 
+    def _about(self, title: str, teams: list[str]) -> bool:
+        """True if a headline names one of ``teams`` (so related coverage stays on topic)."""
+        return not teams or bool(set(self.teams.find_teams(title)) & set(teams))
+
     def _related(self, query: str, exclude: tuple[str, ...], teams: list[str], k: int
                  ) -> list[dict[str, Any]]:
-        """Related coverage via RAG, falling back to a team match over stored stories."""
+        """Related coverage via RAG, falling back to a team match over stored stories.
+
+        Only stories whose headline names one of the clubs count: a passing mention in
+        the summary ("...before facing Sunderland") isn't enough to make them relevant.
+        """
         if self.research is not None:
-            hits = self.research.related(query, k=k * 3, exclude_ids=exclude)
-            hits = [h for h in hits if not teams or any(
-                t.lower() in h["text"].lower() for t in teams)]
-            return hits[:k]
+            hits = self.research.related(query, k=k * 4, exclude_ids=exclude)
+            return [h for h in hits if self._about(h["title"], teams)][:k]
         out = []
         for story in self.db.recent_stories(100):
-            if story.id in exclude or not set(teams) & set(story.teams):
+            if story.id in exclude or not self._about(story.title, teams) or not teams:
                 continue
             out.append({"story_id": story.id, "title": story.title, "source": story.source,
                         "url": story.url, "text": f"{story.title}. {story.summary}"})
@@ -264,6 +277,10 @@ class WriterAgent(Agent):
                     words = words[:i] + [w[:-2]]
                     break
             name = " ".join(words)
+            for nation in NATIONS:  # "Northern Ireland" is a country, not a person
+                if f" {nation.lower()} " in f" {name.lower()} ":
+                    words = [w for w in name.split() if w not in nation.split()]
+                    name = " ".join(words)
             if len(words) >= 2 and name.lower() not in skip and words[-1] not in PLACE_WORDS \
                     and not any(
                     lg in name for lg in ("League", "Liga", "Serie", "Premiership",

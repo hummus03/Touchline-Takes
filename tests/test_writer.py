@@ -179,3 +179,27 @@ def test_one_article_per_team_and_topic(db, teams):
     assert len(plan) == 1
     assert sum(log.action == "merged" for log in state.logs) == 2
     assert db.unused_stories() == [s for s in db.unused_stories() if s.id == plan[0].story.id]
+
+
+def test_nations_are_not_people(db, teams):
+    """'Northern Ireland' is a national team, not a name in the frame."""
+    writer = make_writer(db, teams)
+    story = story_with("Dominik Szoboszlai faces a late fitness test before Hungary play "
+                       "Northern Ireland.", teams=["Liverpool"])
+    assert writer._names(story) == ["Dominik Szoboszlai"]  # pylint: disable=protected-access
+
+
+def test_related_coverage_must_name_a_club_in_its_headline(db, teams):
+    """A story that only mentions a club in passing isn't related coverage for it."""
+    passing = make_story(30, title="Four mistakes that show Man Utd's defensive problems",
+                         summary="United's defending was poor before they face Sunderland.",
+                         teams=["Manchester United", "Sunderland"], topic="general")
+    about = make_story(31, title="Sunderland sweat on striker's fitness",
+                       summary="Sunderland's top scorer is a doubt.", teams=["Sunderland"],
+                       topic="injury")
+    for story in (passing, about):
+        db.insert_story(story)
+        db.update_classification(story)
+    writer = make_writer(db, teams)
+    related = writer._related("Aston Villa Sunderland", (), ["Aston Villa", "Sunderland"], 3)  # pylint: disable=protected-access
+    assert [r["title"] for r in related] == ["Sunderland sweat on striker's fitness"]

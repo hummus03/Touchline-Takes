@@ -259,7 +259,7 @@
         "projected_cost_usd_per_article_claude_opus_5_5": 0.0,
         "tokens_per_article": 0.0,
         "agent_latency_s_per_article": 0.0102,
-        "pipeline_s_per_article": 0.0309
+        "pipeline_s_per_article": 0.0335
       },
       "expectations": {
         "passed": 21,
@@ -500,7 +500,7 @@
         "drafts": 29,
         "published": 25,
         "rejected": 4,
-        "claims_with_source_share_first_pass": 0.886,
+        "claims_with_source_share_first_pass": 0.885,
         "claims_with_source_share_published": 1.0,
         "unsupported_claims_caught": 32,
         "contradictions_caught": 11,
@@ -512,10 +512,10 @@
         "retries_max": 2,
         "llm_calls_per_article": 1.621,
         "cost_usd_per_article": 0.0,
-        "projected_cost_usd_per_article_claude_opus_5_5": 0.010391,
-        "tokens_per_article": 1325.8,
-        "agent_latency_s_per_article": 0.0136,
-        "pipeline_s_per_article": 0.0328
+        "projected_cost_usd_per_article_claude_opus_5_5": 0.010339,
+        "tokens_per_article": 1319.2,
+        "agent_latency_s_per_article": 0.0132,
+        "pipeline_s_per_article": 0.031
       },
       "expectations": {
         "passed": 21,
