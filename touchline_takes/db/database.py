@@ -27,7 +27,9 @@ CREATE TABLE IF NOT EXISTS stories (
     emotion TEXT,
     classified INTEGER DEFAULT 0,
     used INTEGER DEFAULT 0,
-    ingested_at TEXT
+    ingested_at TEXT,
+    image_url TEXT DEFAULT '',
+    image_tags TEXT DEFAULT '[]'
 );
 CREATE TABLE IF NOT EXISTS drafts (
     id TEXT PRIMARY KEY,
@@ -109,7 +111,8 @@ def _story_from_row(row: sqlite3.Row) -> Story:
         source=row["source"], published=row["published"], body=row["body"] or "",
         league=row["league"], teams=json.loads(row["teams"] or "[]"), topic=row["topic"],
         sentiment=row["sentiment"], sentiment_score=row["sentiment_score"] or 0.0,
-        emotion=row["emotion"],
+        emotion=row["emotion"], image_url=row["image_url"] or "",
+        image_tags=json.loads(row["image_tags"] or "[]"),
     )
 
 
@@ -125,7 +128,15 @@ class Database:
         self._conn.row_factory = sqlite3.Row
         with self._lock:
             self._conn.executescript(SCHEMA)
+            self._migrate()
             self._conn.commit()
+
+    def _migrate(self) -> None:
+        """Add columns introduced after a database was first created."""
+        columns = {row[1] for row in self._conn.execute("PRAGMA table_info(stories)")}
+        for name, ddl in (("image_url", "TEXT DEFAULT ''"), ("image_tags", "TEXT DEFAULT '[]'")):
+            if name not in columns:
+                self._conn.execute(f"ALTER TABLE stories ADD COLUMN {name} {ddl}")
 
     # -- helpers ----------------------------------------------------------
     def _execute(self, sql: str, params: Iterable[Any] = ()) -> sqlite3.Cursor:
@@ -152,9 +163,9 @@ class Database:
         """Insert a story; returns False if it already existed."""
         cur = self._execute(
             "INSERT OR IGNORE INTO stories (id, title, summary, url, source, published, body,"
-            " ingested_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+            " ingested_at, image_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
             (story.id, story.title, story.summary, story.url, story.source, story.published,
-             story.body, utcnow_iso()),
+             story.body, utcnow_iso(), story.image_url),
         )
         return cur.rowcount > 0
 
@@ -166,6 +177,18 @@ class Database:
             (story.league, json.dumps(story.teams), story.topic, story.sentiment,
              story.sentiment_score, story.emotion, story.id),
         )
+
+    def update_image_tags(self, story_id: str, tags: list[dict[str, Any]]) -> None:
+        """Persist the photo tagger's tags for a story."""
+        self._execute("UPDATE stories SET image_tags = ? WHERE id = ?",
+                      (json.dumps(tags), story_id))
+
+    def untagged_photo_stories(self, limit: int = 50) -> list[Story]:
+        """Stories with a photo that has not been tagged yet."""
+        rows = self._query(
+            "SELECT * FROM stories WHERE image_url != '' AND (image_tags IS NULL OR"
+            " image_tags = '[]') ORDER BY ingested_at DESC LIMIT ?", (limit,))
+        return [_story_from_row(r) for r in rows]
 
     def get_story(self, story_id: str) -> Story | None:
         """Fetch one story by id."""

@@ -17,3 +17,7 @@ data/*.db-journal
 data/chroma/
 data/models/
 instance/
+
+# Photo tagger data (synthetic set is regenerated; real photos stay local)
+data/photos/
+data/photos_synthetic/

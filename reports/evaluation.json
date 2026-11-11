@@ -250,8 +250,8 @@
         "cost_usd_per_article": 0.0,
         "projected_cost_usd_per_article_claude_opus_5_5": 0.0,
         "tokens_per_article": 0.0,
-        "agent_latency_s_per_article": 0.0093,
-        "pipeline_s_per_article": 0.0294
+        "agent_latency_s_per_article": 0.0142,
+        "pipeline_s_per_article": 0.0476
       },
       "expectations": {
         "passed": 19,
@@ -515,8 +515,8 @@
         "cost_usd_per_article": 0.0,
         "projected_cost_usd_per_article_claude_opus_5_5": 0.011445,
         "tokens_per_article": 1468.9,
-        "agent_latency_s_per_article": 0.0135,
-        "pipeline_s_per_article": 0.0384
+        "agent_latency_s_per_article": 0.0174,
+        "pipeline_s_per_article": 0.0505
       },
       "expectations": {
         "passed": 19,
@@ -862,6 +862,16 @@
           ]
         }
       ]
+    }
+  },
+  "photo_tagger": {
+    "data_note": "**Data: synthetic.** Procedurally generated scenes (`touchline_takes/tools/synthetic_photos.py`). These scores show the pipeline works; they say little about real match photos. Add real photos under `data/photos/<tag>/` and retrain.",
+    "n_test": 60,
+    "rows": {
+      "VGG16 transfer": 1.0,
+      "VGG16 fine-tuned": 1.0,
+      "colour histogram": 0.8,
+      "majority class": 0.25
     }
   },
   "guardrail_ok": true

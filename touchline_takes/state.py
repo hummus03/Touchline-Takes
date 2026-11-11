@@ -42,6 +42,8 @@ class Story:
     sentiment: str | None = None
     sentiment_score: float = 0.0
     emotion: str | None = None
+    image_url: str = ""
+    image_tags: list[dict[str, Any]] = field(default_factory=list)
 
     @property
     def text(self) -> str:

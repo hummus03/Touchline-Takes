@@ -30,6 +30,7 @@ def settings(tmp_path) -> Settings:
         database_path=str(tmp_path / "test.db"), offline=True, vector_store="memory",
         chroma_dir=str(tmp_path / "chroma"), model_path=str(tmp_path / "model.joblib"),
         checkpoint_path=str(tmp_path / "checkpoints.db"),
+        photo_model_dir=str(tmp_path / "photo_model"),
         llm_provider="offline", secret_key="test", admin_password="secret",
         sample_feed_dir=str(DATA_DIR / "sample_feeds"))
 
@@ -45,10 +46,13 @@ def db(settings) -> Database:
 class FakeResponse:
     """Minimal stand-in for ``requests.Response``."""
 
-    def __init__(self, text: str = "", status: int = 200, json_data=None):
+    def __init__(self, text: str = "", status: int = 200, json_data=None,
+                 content: bytes = b"", headers: dict | None = None):
         self.text = text
         self.status_code = status
         self._json = json_data
+        self.content = content or text.encode()
+        self.headers = headers or {}
 
     def raise_for_status(self):
         """Raise like requests does for HTTP errors."""

@@ -28,4 +28,4 @@ disable = ["too-few-public-methods", "too-many-instance-attributes", "too-many-a
 # repository class is intentionally one flat API, so the defaults are relaxed slightly.
 max-locals = 22
 max-branches = 14
-max-public-methods = 30
+max-public-methods = 35

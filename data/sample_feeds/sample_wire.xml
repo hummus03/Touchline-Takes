@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
 <channel>
 <title>Sample Sports Wire</title>
 <link>https://example.com/wire</link>
@@ -9,35 +9,35 @@
 <link>https://example.com/wire/arsenal-beat-chelsea</link>
 <description>Arsenal came from behind to beat Chelsea 2-1 at the Emirates on Saturday. Midfielder Tomas Reyes equalised before half-time and striker Leo Hartmann headed the winner in the 78th minute, lifting Arsenal to second in the Premier League.</description>
 <pubDate>Sat, 08 Nov 2026 17:30:00 GMT</pubDate>
-<guid>https://example.com/wire/arsenal-beat-chelsea</guid>
+<guid>https://example.com/wire/arsenal-beat-chelsea</guid><media:thumbnail url="sample_photos/arsenal-beat-chelsea.jpg" width="224" height="224"/>
 </item>
 <item>
 <title>Liverpool held to goalless draw by Everton in Merseyside derby</title>
 <link>https://example.com/wire/liverpool-everton-draw</link>
 <description>Liverpool were held to a 0-0 draw by Everton at Anfield. Everton goalkeeper Sam Okafor made seven saves as the visitors frustrated the Premier League leaders, who had 24 shots.</description>
 <pubDate>Sat, 08 Nov 2026 19:45:00 GMT</pubDate>
-<guid>https://example.com/wire/liverpool-everton-draw</guid>
+<guid>https://example.com/wire/liverpool-everton-draw</guid><media:thumbnail url="sample_photos/liverpool-everton-draw.jpg" width="224" height="224"/>
 </item>
 <item>
 <title>Manchester City thrash Wolves 4-0 to keep pressure on leaders</title>
 <link>https://example.com/wire/city-thrash-wolves</link>
 <description>Manchester City thrashed Wolves 4-0 at the Etihad. Forward Kai Brandt scored twice and City have now won four Premier League games in a row, keeping the pressure on Liverpool.</description>
 <pubDate>Sun, 09 Nov 2026 16:30:00 GMT</pubDate>
-<guid>https://example.com/wire/city-thrash-wolves</guid>
+<guid>https://example.com/wire/city-thrash-wolves</guid><media:thumbnail url="sample_photos/city-thrash-wolves.jpg" width="224" height="224"/>
 </item>
 <item>
 <title>Tottenham boss sacked after 3-0 defeat at Brentford</title>
 <link>https://example.com/wire/spurs-boss-sacked</link>
 <description>Tottenham have sacked head coach Marco Lindqvist after a 3-0 defeat at Brentford left the club 14th in the Premier League. Fans were furious after a sixth defeat in nine games, and the board said a change was needed.</description>
 <pubDate>Sun, 09 Nov 2026 20:10:00 GMT</pubDate>
-<guid>https://example.com/wire/spurs-boss-sacked</guid>
+<guid>https://example.com/wire/spurs-boss-sacked</guid><media:thumbnail url="sample_photos/spurs-boss-sacked.jpg" width="224" height="224"/>
 </item>
 <item>
 <title>Newcastle in talks to sign Dortmund winger Felix Amari</title>
 <link>https://example.com/wire/newcastle-amari-talks</link>
 <description>Newcastle are in talks with Borussia Dortmund over a January transfer for winger Felix Amari. The 23-year-old has scored six goals this season and Newcastle are weighing a fee of around 40 million euros.</description>
 <pubDate>Mon, 10 Nov 2026 09:00:00 GMT</pubDate>
-<guid>https://example.com/wire/newcastle-amari-talks</guid>
+<guid>https://example.com/wire/newcastle-amari-talks</guid><media:thumbnail url="sample_photos/newcastle-amari-talks.jpg" width="224" height="224"/>
 </item>
 <item>
 <title>Aston Villa captain ruled out for six weeks with hamstring injury</title>
@@ -51,7 +51,7 @@
 <link>https://example.com/wire/brighton-var-row</link>
 <description>Brighton were furious after VAR declined to award a late penalty in their 1-1 draw with West Ham. Manager Oscar Feld said the decision was a disgrace and the club has asked referees body PGMOL for an explanation.</description>
 <pubDate>Sun, 09 Nov 2026 18:00:00 GMT</pubDate>
-<guid>https://example.com/wire/brighton-var-row</guid>
+<guid>https://example.com/wire/brighton-var-row</guid><media:thumbnail url="sample_photos/brighton-var-row.jpg" width="224" height="224"/>
 </item>
 <item>
 <title>Real Madrid stunned 2-0 by Sevilla in La Liga upset</title>

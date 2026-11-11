@@ -60,6 +60,9 @@ class Settings:
     chroma_dir: str = str(DATA_DIR / "chroma")
     classifier_provider: str = "local"
     factcheck_verifier: str = "rules"
+    photo_tagger: bool = True
+    photo_model_dir: str = str(DATA_DIR / "models" / "photo_tagger")
+    photo_max_per_run: int = 20
     orchestrator: str = "langgraph"
     checkpoint_path: str = str(DATA_DIR / "checkpoints.db")
     dedupe_threshold: float = 0.8
@@ -111,6 +114,9 @@ class Settings:
             chroma_dir=_resolve(get("CHROMA_DIR", defaults.chroma_dir)),
             classifier_provider=get("CLASSIFIER_PROVIDER", "local").strip().lower() or "local",
             factcheck_verifier=get("FACTCHECK_VERIFIER", "rules").strip().lower() or "rules",
+            photo_tagger=_as_bool(get("PHOTO_TAGGER"), True),
+            photo_model_dir=_resolve(get("PHOTO_MODEL_DIR", defaults.photo_model_dir)),
+            photo_max_per_run=int(get("PHOTO_MAX_PER_RUN", "20") or 20),
             orchestrator=get("ORCHESTRATOR", "langgraph").strip().lower() or "langgraph",
             checkpoint_path=_resolve(get("CHECKPOINT_PATH", defaults.checkpoint_path))
             if get("CHECKPOINT_PATH", "x") else "",

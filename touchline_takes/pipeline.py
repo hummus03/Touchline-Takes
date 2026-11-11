@@ -2,7 +2,7 @@
 
 Orchestration is a LangGraph ``StateGraph`` (see :mod:`touchline_takes.graph`)::
 
-    ingest -> classifier -> research -> analyst -> writer -> factcheck -> editor
+    ingest -> classifier -> photo_tagger -> research -> analyst -> writer -> factcheck -> editor
                                                     ^                       |
                                                     +-- needs revision -----+
     editor -> publisher -> finalize -> human_review (interrupt; resumed by a human) -> END
@@ -27,9 +27,10 @@ from touchline_takes.agents.classifier import ClassifierAgent, LexiconClassifier
 from touchline_takes.agents.editor import EditorAgent
 from touchline_takes.agents.factcheck import FactCheckAgent, LLMVerifier
 from touchline_takes.agents.ingest import IngestAgent
+from touchline_takes.agents.photo_tagger import ImageFetcher, PhotoTaggerAgent
 from touchline_takes.agents.publisher import PublisherAgent
 from touchline_takes.agents.writer import WriterAgent
-from touchline_takes.config import Settings
+from touchline_takes.config import DATA_DIR, Settings
 from touchline_takes.db import Database
 from touchline_takes import graph as newsroom_graph
 from touchline_takes.state import Draft, NewsroomState, utcnow_iso
@@ -52,6 +53,23 @@ def results_label(results_dir: str) -> str:
     return "Football-Data.co.uk results"
 
 
+def photo_tagger_loader(settings: Settings) -> Callable[[], object | None]:
+    """Lazy loader for the trained VGG16 tagger (``None`` if disabled or not trained)."""
+    def load():
+        if not settings.photo_tagger:
+            return None
+        try:
+            from touchline_takes.models.photo_tagger import (  # pylint: disable=import-outside-toplevel
+                PhotoTagger, model_available)
+        except ImportError as exc:  # Keras/JAX not installed
+            LOGGER.warning("photo tagger unavailable: %s", exc)
+            return None
+        if not model_available(settings.photo_model_dir):
+            return None
+        return PhotoTagger.load(settings.photo_model_dir)
+    return load
+
+
 @dataclass
 class Newsroom:
     """All agents plus the shared tools for one deployment."""
@@ -62,6 +80,7 @@ class Newsroom:
     research: ResearchIndex
     ingest: IngestAgent
     classifier: ClassifierAgent
+    photo_tagger: PhotoTaggerAgent
     analyst: AnalystAgent
     writer: WriterAgent
     factcheck: FactCheckAgent
@@ -103,6 +122,9 @@ class Newsroom:
                                embeddings, settings.rss_feeds, settings.dedupe_threshold,
                                settings.offline),
             classifier=ClassifierAgent(db, backend),
+            photo_tagger=PhotoTaggerAgent(
+                db, ImageFetcher(str(DATA_DIR), settings.request_timeout),
+                photo_tagger_loader(settings), settings.photo_max_per_run),
             analyst=AnalystAgent(db, FixturesClient(settings.fixtures_path,
                                                     settings.football_data_api_key,
                                                     settings.request_timeout),
@@ -222,6 +244,7 @@ class Newsroom:
         """The same agents in a plain loop (no checkpoints, no interrupts)."""
         state = self._start()
         for name, func in (("ingest", self.ingest.run), ("classifier", self.classifier.run),
+                           ("photo_tagger", self.photo_tagger.run),
                            ("research", self.index_research), ("analyst", self.analyst.run)):
             state = self.step(name, func, state)
         rounds = 0

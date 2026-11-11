@@ -35,7 +35,8 @@ flowchart LR
     RSS --> ING[Ingest agent<br/>normalise + embedding dedupe]
     ING --> DB[(SQLite)]
     DB --> CLS[Classifier agent<br/>league / team / topic / sentiment / emotion]
-    CLS --> IDX[Research index<br/>RAG: loader → splitter → embeddings → Chroma]
+    CLS --> PHO[Photo tagger<br/>VGG16 transfer learning]
+    PHO --> IDX[Research index<br/>RAG: loader → splitter → embeddings → Chroma]
     API --> ANA[Analyst agent<br/>logistic regression W/D/L]
     CSV --> ANA
     IDX --> WR[Writer agent<br/>facts-first drafting]
@@ -62,7 +63,8 @@ conditional edges):
 graph TD;
 	__start__([start]) --> ingest;
 	ingest --> classifier;
-	classifier --> research;
+	classifier --> photo_tagger;
+	photo_tagger --> research;
 	research --> analyst;
 	analyst --> writer;
 	writer --> factcheck;
@@ -138,8 +140,9 @@ cp .env.example .env   # optional; every key is optional
 
 All dependencies are pinned and were verified together with `pip check` in a clean venv.
 Provider SDKs are plain HTTP calls or the official `anthropic` SDK. LangGraph is the only
-LangChain-family dependency (it pulls in `langchain-core`). Gradio isn't used, so the
-FastAPI/Starlette version conflicts don't come up.
+LangChain-family dependency (it pulls in `langchain-core`). The photo tagger uses Keras 3 on
+the **JAX** CPU backend, which is much lighter than TensorFlow; `jaxlib` is about 90 MB.
+Gradio isn't used, so the FastAPI/Starlette version conflicts don't come up.
 
 ## Run
 
@@ -169,6 +172,16 @@ python -m touchline_takes.review reject <draft id> --reason "not sharp enough"
 ```
 
 Each decision resumes the paused run where it stopped.
+
+**Photo tagger** (optional): train it once, and later runs tag the photo attached to each
+story. Until a model exists, the `photo_tagger` step logs that it skipped.
+
+```bash
+python scripts/train_photo_tagger.py
+```
+
+It downloads the ImageNet VGG16 weights (58 MB) on first use and takes about a minute on a
+laptop CPU. Add `--fine-tune 3` to also fine-tune VGG16's last block (a few more minutes).
 
 **Scheduled mode** (every 30 minutes; `--max-runs N` to stop after N):
 
@@ -207,10 +220,15 @@ pylint touchline_takes tests scripts
 python scripts/evaluate.py
 ```
 
-- **Tests** (93) cover every agent, tool and the LangGraph orchestration (pause, resume
-  from a separate process, parity with the sequential loop). The suite blocks real HTTP in `tests/conftest.py`
-  and uses fake sessions, `FakeLLM`, `RecordedLLM` (`tests/fixtures/recorded_llm.json`) and
-  `ScriptedWriterLLM`, so it needs no network or API keys.
+- **Tests** (102) cover every agent, tool and the LangGraph orchestration (pause, resume
+  from a separate process, parity with the sequential loop). The suite blocks real HTTP in
+  `tests/conftest.py` and uses fake sessions, `FakeLLM`, `RecordedLLM`
+  (`tests/fixtures/recorded_llm.json`) and `ScriptedWriterLLM`, so it needs no network or API
+  keys.
+  - The photo-tagger tests build the real VGG16 architecture with random weights at 32 px,
+    which needs no download.
+  - One extra test uses the ImageNet weights and runs only when they're already cached in
+    `~/.keras/models`; otherwise it's skipped.
 - **Pylint** scores 10.00/10 with the config in `pyproject.toml`.
 - **Evaluation** runs the full pipeline on `data/eval/fixture_stories.json` (25 labelled
   stories with expected outcomes) in two configurations: the offline template writer, and a
@@ -357,8 +375,35 @@ Latest snapshot (`reports/evaluation.md`):
 - Gives each article a unique slug and stores it with its sources and evidence.
 - `build_rss()` serves `/feed.xml`.
 
-### 8. Stretch: image tagging (not built)
-VGG16 transfer learning for match photos is left for later. See [Next steps](#next-steps).
+### 8. Photo tagger (`agents/photo_tagger.py`, `models/photo_tagger.py`)
+- **What it does:** tags the photo attached to each story (RSS `media:thumbnail`,
+  `media:content` or an image enclosure) as `match_action`, `crowd`, `stadium` or
+  `press_conference`, with probabilities.
+- **Tags only:** the tags are stored on the story and shown on the article and the review
+  page. Source photos are **never stored or shown**.
+- **Transfer learning:**
+  1. VGG16 pre-trained on ImageNet is frozen and turns each photo into a 512-d vector
+     (global average pooling).
+  2. A small head (Dense 256 → Dropout → softmax) is trained on those vectors.
+  3. Optionally (`--fine-tune N`), a fresh VGG16 base has its last convolutional block
+     (`block5`) unfrozen and is trained end to end with the head, at a low learning rate
+     with flip and zoom augmentation.
+- **Evaluation:** a stratified train/test split, scored on accuracy, macro
+  precision/recall/F1 and the confusion matrix. It's compared against a **majority-class**
+  baseline and a **colour-histogram logistic regression**, which shows what you get without
+  a pre-trained network. The report goes to `reports/photo_tagger.md` / `.json` and is
+  summarised in `reports/evaluation.md`.
+- **Fetching photos:** photos are fetched with a size cap (5 MB) and a content-type check.
+  Bundled sample feeds point at local files, which can't resolve outside `data/`.
+- **Optional:** without Keras or a trained model, the graph node skips cleanly.
+
+**Training data is synthetic for now.** No labelled football photo set was reachable from
+the build sandbox, so `tools/synthetic_photos.py` draws simple scenes for the four tags.
+On that data the VGG16 model scores 100% on 60 held-out photos, against 80% for the
+colour-histogram baseline and 25% for the majority class. That proves the pipeline works; it
+says little about real match photos. To train on real ones, put them in
+`data/photos/<tag>/*.jpg` (any tag names; folders are git-ignored) and re-run the training
+script.
 
 ---
 
@@ -388,6 +433,7 @@ and LLM APIs were refused by the network proxy, so the repo ships fallbacks:
 | Upcoming fixtures | `data/fixtures/sample_fixtures.json` | Set `FOOTBALL_DATA_API_KEY` (free at football-data.org). |
 | LLM writer / classifier / QA | templates, lexicon, extractive QA | `LLM_PROVIDER=anthropic` + `ANTHROPIC_API_KEY` (defaults to `claude-opus-5-5`, with server-side refusal fallback), or `LLM_PROVIDER=openai` + `OPENAI_API_KEY` / `OPENAI_BASE_URL` (works with OpenAI, Ollama, vLLM). Optionally `CLASSIFIER_PROVIDER=llm`. |
 | Embeddings | hashed TF-IDF | `EMBEDDINGS_PROVIDER=openai` (uses a separate Chroma collection) |
+| Photo-tagger training data (**synthetic** scenes) and the sample feeds' photos | generated into `data/photos_synthetic/`; `data/sample_photos/` | Put labelled photos in `data/photos/<tag>/` and run `python scripts/train_photo_tagger.py`. Live RSS photos are tagged automatically once a model exists. |
 
 Articles always say where their numbers come from. While the synthetic data is in place,
 stats sentences read "In our synthetic sample results, …".
@@ -402,6 +448,7 @@ See `.env.example` for every variable. The main ones:
 - `EMBEDDINGS_PROVIDER`, `VECTOR_STORE`
 - `CLASSIFIER_PROVIDER`, `FACTCHECK_VERIFIER`
 - `ORCHESTRATOR` (`langgraph` or `sequential`), `CHECKPOINT_PATH`
+- `PHOTO_TAGGER`, `PHOTO_MODEL_DIR`, `PHOTO_MAX_PER_RUN`
 - `AUTO_PUBLISH`, `MAX_REVISIONS`, `MAX_ARTICLES_PER_RUN`, `DEDUPE_THRESHOLD`
 - `ADMIN_PASSWORD`, `SECRET_KEY`, `DATABASE_PATH`
 
@@ -411,8 +458,8 @@ See `.env.example` for every variable. The main ones:
 touchline_takes/
   agents/      ingest, classifier, writer, factcheck, editor, analyst, publisher (+ base Agent)
   tools/       llm (providers, cache, budget, fakes), embeddings, feeds, football_api,
-               rag, relations, stats, teams, text
-  models/      match_predictor (logistic regression + baselines)
+               rag, relations, stats, synthetic_photos, teams, text
+  models/      match_predictor (logistic regression + baselines), photo_tagger (VGG16)
   db/          SQLite repository
   web/         Flask app factory, views, templates, static
   graph.py     LangGraph graph   pipeline.py  wiring + runs    review.py  review CLI
@@ -420,7 +467,8 @@ touchline_takes/
   config.py    settings from env state.py shared state objects
 tests/         unit + end-to-end tests (offline)
 data/          sample feeds, synthetic results, fixtures, teams, eval fixtures
-scripts/       evaluate.py, make_sample_data.py, download_football_data.py
+scripts/       evaluate.py, train_photo_tagger.py, make_sample_data.py,
+               make_sample_photos.py, download_football_data.py
 reports/       latest evaluation report
 ```
 
@@ -434,6 +482,7 @@ reports/       latest evaluation report
    ("six") and tables/positions ("second in the league") are still checked only at the token
    level. Measure the LLM verifier on the claim set with a real model, and grow the
    held-out claim set from real articles written by someone who hasn't seen the rules.
-3. **Add image tagging.** The LangGraph port is done. A VGG16 transfer-learning tagger for
-   match photos (Keras ImageNet weights) would slot in as another graph node. It hasn't been
-   built yet.
+3. **Train the photo tagger on real photos.** Collect a few hundred labelled match photos you
+   have the rights to use (club media, agency licence), drop them into `data/photos/<tag>/`
+   and retrain. Then decide whether the tags should feed the Writer (for example "photo:
+   celebration" to pick the angle) or only enrich search and the archive.

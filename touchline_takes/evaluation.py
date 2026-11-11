@@ -217,6 +217,16 @@ def evaluate() -> dict[str, Any]:
         "configs": {r["config"]: {"scores": r["scores"], "expectations": r["expectations"],
                                   "rejection_reasons": r["rejection_reasons"]} for r in runs},
     }
+    photo_report = REPORT_DIR / "photo_tagger.json"
+    if photo_report.exists():
+        photo = json.loads(photo_report.read_text(encoding="utf-8"))
+        report["photo_tagger"] = {
+            "data_note": photo.get("data_note", ""), "n_test": photo.get("n_test"),
+            "rows": {name: photo[key]["accuracy"] for name, key in (
+                ("VGG16 transfer", "transfer_vgg16"), ("VGG16 fine-tuned", "fine_tuned_block5"))
+                if key in photo} | {
+                "colour histogram": photo["baselines"]["colour_histogram_logreg"]["accuracy"],
+                "majority class": photo["baselines"]["majority_class"]["accuracy"]}}
     report["guardrail_ok"] = all(
         r["scores"]["claims_with_source_share_published"] in (None, 1.0) for r in runs)
     return report
@@ -287,6 +297,13 @@ def to_markdown(report: dict[str, Any]) -> str:
     lines += ["", "Confusion matrix (rows = actual, cols = predicted, order H/D/A):", ""]
     lines += ["    " + "  ".join(f"{v:>4}" for v in row) for row in matrix["matrix"]]
     lines += ["", f"Beats baseline: **{'yes' if pred['beats_baseline'] else 'no'}**", ""]
+    if "photo_tagger" in report:
+        photo = report["photo_tagger"]
+        lines += ["## Photo tagger (from `reports/photo_tagger.json`)", "", photo["data_note"], "",
+                  f"Test accuracy on {photo['n_test']} held-out photos:", "",
+                  "| Model | Accuracy |", "|---|---|"]
+        lines += [f"| {name} | {acc} |" for name, acc in photo["rows"].items()]
+        lines.append("")
     return "\n".join(lines)
 
 

@@ -65,13 +65,27 @@ def index():
                            fixtures=db.fixtures_with_predictions(8))
 
 
+def photo_tags_for(story_ids: list[str]) -> list[dict]:
+    """Photo-tagger output for a draft's source stories (tags only, never the photo)."""
+    db = services().db
+    out = []
+    for story_id in story_ids:
+        story = db.get_story(story_id)
+        if story is not None and story.image_tags:
+            out.append({"source": story.source, "tags": story.image_tags})
+    return out
+
+
 @bp.get("/article/<slug>")
 def article(slug: str):
     """One article with its sources."""
-    item = services().db.get_article(slug)
+    db = services().db
+    item = db.get_article(slug)
     if item is None:
         abort(404)
-    return render_template("article.html", article=item)
+    draft = db.get_draft(item["draft_id"]) if item.get("draft_id") else None
+    return render_template("article.html", article=item,
+                           photo_tags=photo_tags_for(draft.story_ids) if draft else [])
 
 
 @bp.route("/ask", methods=["GET", "POST"])
@@ -103,8 +117,9 @@ def admin():
     db = services().db
     pending = db.drafts_by_status("pending_review")
     checks = {d.id: check_draft(d) for d in pending}
+    photos = {d.id: photo_tags_for(d.story_ids) for d in pending}
     return render_template(
-        "admin/review.html", pending=pending, checks=checks,
+        "admin/review.html", pending=pending, checks=checks, photos=photos,
         rejected=db.drafts_by_status("rejected", "rejected_by_editor")[:15],
         rejections=db.recent_rejections(25), logs=db.recent_logs(60),
         runs=db.recent_runs(5), settings=current_app.config["SETTINGS"])

@@ -39,6 +39,18 @@ def _published_iso(entry) -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
 
 
+def _image_url(entry) -> str:
+    """Photo attached to a feed item (media:thumbnail, media:content or an image enclosure)."""
+    for key in ("media_thumbnail", "media_content"):
+        for item in entry.get(key) or []:
+            if item.get("url") and item.get("medium", "image") == "image":
+                return item["url"]
+    for link in entry.get("links") or []:
+        if link.get("rel") == "enclosure" and str(link.get("type", "")).startswith("image/"):
+            return link.get("href", "")
+    return ""
+
+
 def parse_feed(xml_text: str, default_source: str = "") -> list[Story]:
     """Parse RSS/Atom XML into normalised :class:`Story` objects."""
     parsed = feedparser.parse(xml_text)
@@ -54,7 +66,7 @@ def parse_feed(xml_text: str, default_source: str = "") -> list[Story]:
             continue
         stories.append(Story(
             id=story_id_for(url, title), title=title, summary=summary or title, url=url,
-            source=source, published=_published_iso(entry)))
+            source=source, published=_published_iso(entry), image_url=_image_url(entry)))
     return stories
 
 

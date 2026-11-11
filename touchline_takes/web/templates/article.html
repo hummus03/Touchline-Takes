@@ -10,6 +10,17 @@
   <h1>{{ article.title }}</h1>
   <p class="meta">Published {{ article.published_at[:10] }} by the {{ brand }} newsroom</p>
   <div class="body">{{ article.body | render_body }}</div>
+  {% if photo_tags %}
+  <section class="photo-tags" aria-labelledby="photo-tags">
+    <h2 id="photo-tags">Source photo, as our tagger sees it</h2>
+    {% for p in photo_tags %}
+      <p class="small"><span class="muted">{{ p.source }} photo:</span>
+        {% for t in p.tags %}<span class="tag photo">{{ t.tag | replace('_', ' ') }} {{ t.prob | pct }}</span> {% endfor %}
+      </p>
+    {% endfor %}
+    <p class="muted small">Tagged by our VGG16 transfer-learning model. We don't copy or show source photos.</p>
+  </section>
+  {% endif %}
   <section class="sources" aria-labelledby="sources">
     <h2 id="sources">Sources &amp; data</h2>
     <ol>

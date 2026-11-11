@@ -23,8 +23,8 @@ Fixture stories: 25 · guardrail (every published claim sourced): **PASS**
 | cost_usd_per_article | 0.0 | 0.0 |
 | projected_cost_usd_per_article_claude_opus_5_5 | 0.0 | 0.011445 |
 | tokens_per_article | 0.0 | 1468.9 |
-| agent_latency_s_per_article | 0.0093 | 0.0135 |
-| pipeline_s_per_article | 0.0294 | 0.0384 |
+| agent_latency_s_per_article | 0.0142 | 0.0174 |
+| pipeline_s_per_article | 0.0476 | 0.0505 |
 | expectations passed | 19/19 | 19/19 |
 
 ### Rejections logged: template_writer
@@ -134,3 +134,16 @@ Confusion matrix (rows = actual, cols = predicted, order H/D/A):
       33     0    52
 
 Beats baseline: **yes**
+
+## Photo tagger (from `reports/photo_tagger.json`)
+
+**Data: synthetic.** Procedurally generated scenes (`touchline_takes/tools/synthetic_photos.py`). These scores show the pipeline works; they say little about real match photos. Add real photos under `data/photos/<tag>/` and retrain.
+
+Test accuracy on 60 held-out photos:
+
+| Model | Accuracy |
+|---|---|
+| VGG16 transfer | 1.0 |
+| VGG16 fine-tuned | 1.0 |
+| colour histogram | 0.8 |
+| majority class | 0.25 |

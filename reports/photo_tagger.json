@@ -1,0 +1,178 @@
+{
+  "backbone": "vgg16",
+  "labels": [
+    "crowd",
+    "match_action",
+    "press_conference",
+    "stadium"
+  ],
+  "n_images": 240,
+  "n_train": 180,
+  "n_test": 60,
+  "transfer_vgg16": {
+    "accuracy": 1.0,
+    "precision_macro": 1.0,
+    "recall_macro": 1.0,
+    "f1_macro": 1.0,
+    "confusion_matrix": {
+      "labels": [
+        "crowd",
+        "match_action",
+        "press_conference",
+        "stadium"
+      ],
+      "matrix": [
+        [
+          15,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          15,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          15,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          15
+        ]
+      ]
+    }
+  },
+  "baselines": {
+    "majority_class": {
+      "accuracy": 0.25,
+      "precision_macro": 0.0625,
+      "recall_macro": 0.25,
+      "f1_macro": 0.1,
+      "confusion_matrix": {
+        "labels": [
+          "crowd",
+          "match_action",
+          "press_conference",
+          "stadium"
+        ],
+        "matrix": [
+          [
+            15,
+            0,
+            0,
+            0
+          ],
+          [
+            15,
+            0,
+            0,
+            0
+          ],
+          [
+            15,
+            0,
+            0,
+            0
+          ],
+          [
+            15,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "colour_histogram_logreg": {
+      "accuracy": 0.8,
+      "precision_macro": 0.7975,
+      "recall_macro": 0.8,
+      "f1_macro": 0.7934,
+      "confusion_matrix": {
+        "labels": [
+          "crowd",
+          "match_action",
+          "press_conference",
+          "stadium"
+        ],
+        "matrix": [
+          [
+            14,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            12,
+            0,
+            3
+          ],
+          [
+            1,
+            0,
+            14,
+            0
+          ],
+          [
+            2,
+            5,
+            0,
+            8
+          ]
+        ]
+      }
+    }
+  },
+  "fine_tuned_block5": {
+    "accuracy": 1.0,
+    "precision_macro": 1.0,
+    "recall_macro": 1.0,
+    "f1_macro": 1.0,
+    "confusion_matrix": {
+      "labels": [
+        "crowd",
+        "match_action",
+        "press_conference",
+        "stadium"
+      ],
+      "matrix": [
+        [
+          15,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          15,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          15,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          15
+        ]
+      ]
+    }
+  },
+  "fine_tune_epochs": 3,
+  "train_seconds": 175.4,
+  "data": "/home/user/Touchline-Takes/data/photos_synthetic",
+  "data_note": "**Data: synthetic.** Procedurally generated scenes (`touchline_takes/tools/synthetic_photos.py`). These scores show the pipeline works; they say little about real match photos. Add real photos under `data/photos/<tag>/` and retrain."
+}

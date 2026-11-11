@@ -15,6 +15,12 @@ langgraph==1.2.20
 langgraph-checkpoint==4.3.1
 langgraph-checkpoint-sqlite==3.1.3
 langchain-core==1.7.7
+# Photo tagger (VGG16 transfer learning; Keras 3 on the JAX CPU backend)
+keras==3.15.1
+jax==0.12.0.1
+jaxlib==0.12.0.1
+h5py==3.16.0
+pillow==13.0.0
 chromadb==1.5.9
 # Optional provider SDK (only used when LLM_PROVIDER=anthropic)
 anthropic==2.8.0

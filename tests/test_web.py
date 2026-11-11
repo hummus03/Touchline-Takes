@@ -94,3 +94,20 @@ def test_404_and_render_body():
     html = str(render_body("Arsenal <b>won</b> [S1].\n\nThe Touchline Take: yes."))
     assert '<a href="#src-S1">S1</a>' in html and "&lt;b&gt;" in html
     assert 'class="verdict"' in html
+
+
+def test_article_shows_photo_tags_not_photos(settings):
+    """With a tagger available, article pages list photo tags but never embed the photo."""
+    from tests.test_photo_tagger import StubTagger  # pylint: disable=import-outside-toplevel
+    room = Newsroom.build(settings.with_overrides(auto_publish=True))
+    room.photo_tagger.load_tagger = StubTagger
+    state = room.run_once()
+    assert state.metrics["photo_tagger"]["tagged"] > 0
+    client = create_app(settings, newsroom=room, testing=True).test_client()
+    def has_photo_tags(article):
+        story_ids = room.db.get_draft(article["draft_id"]).story_ids
+        return bool(story_ids) and bool(room.db.get_story(story_ids[0]).image_tags)
+    slug = next(a["slug"] for a in room.db.list_articles() if has_photo_tags(a))
+    page = client.get(f"/article/{slug}").get_data(as_text=True)
+    assert "Source photo, as our tagger sees it" in page and "crowd 90%" in page
+    assert "sample_photos/" not in page and "<img" not in page

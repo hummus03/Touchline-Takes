@@ -63,6 +63,7 @@ def test_cli_runs_once(settings, monkeypatch, capsys):
     for key, value in {"DATABASE_PATH": settings.database_path,
                        "CHROMA_DIR": settings.chroma_dir, "MODEL_PATH": settings.model_path,
                        "CHECKPOINT_PATH": settings.checkpoint_path,
+                       "PHOTO_MODEL_DIR": settings.photo_model_dir,
                        "VECTOR_STORE": "memory", "LLM_PROVIDER": "offline"}.items():
         monkeypatch.setenv(key, value)
     monkeypatch.setattr("touchline_takes.config.PROJECT_ROOT", Path(settings.database_path).parent)

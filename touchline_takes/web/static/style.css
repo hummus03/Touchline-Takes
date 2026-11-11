@@ -61,6 +61,9 @@ main.wrap { padding-top: 28px; padding-bottom: 48px; }
 .tag { font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: var(--line); color: var(--ink); }
 .tag.type-match_report { background: var(--pitch); color: #fff; }
 .tag.type-preview { background: var(--card-yellow); color: #2b2100; }
+.tag.photo { background: transparent; border: 1px solid var(--line); text-transform: none; letter-spacing: 0; }
+.photo-tags { border-top: 2px solid var(--line); margin-top: 28px; }
+.photo-tags h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: .1em; }
 .tag.type-explainer { background: var(--away); color: #fff; }
 .empty h2 { margin-top: 0; }
 

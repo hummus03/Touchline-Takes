@@ -36,8 +36,8 @@ if TYPE_CHECKING:  # pragma: no cover
 # Our own state classes are the only custom types allowed in checkpoints.
 STATE_TYPES = [("touchline_takes.state", name)
                for name in ("NewsroomState", "Story", "Draft", "Evidence", "LogEntry")]
-AGENT_NODES = ("ingest", "classifier", "research", "analyst", "writer", "factcheck", "editor",
-               "publisher")
+AGENT_NODES = ("ingest", "classifier", "photo_tagger", "research", "analyst", "writer",
+               "factcheck", "editor", "publisher")
 
 
 class GraphState(TypedDict):
@@ -75,6 +75,7 @@ def _agent_node(room: "Newsroom", name: str,
 def build_graph(room: "Newsroom") -> StateGraph:
     """The newsroom as an (uncompiled) LangGraph ``StateGraph``."""
     funcs = {"ingest": room.ingest.run, "classifier": room.classifier.run,
+             "photo_tagger": room.photo_tagger.run,
              "research": room.index_research, "analyst": room.analyst.run,
              "writer": room.writer.run, "factcheck": room.factcheck.run,
              "editor": room.editor.run, "publisher": room.publisher.run}

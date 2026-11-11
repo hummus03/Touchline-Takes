@@ -16,6 +16,7 @@
     <article class="card draft">
       <div class="tags"><span class="tag type-{{ d.article_type }}">{{ d.article_type | replace('_', ' ') }}</span><span class="tag">{{ d.mode }}</span><span class="tag">revision {{ d.revision }}</span></div>
       <h3>{{ d.title }}</h3>
+      {% for p in photos[d.id] %}<p class="small">Source photo: {% for t in p.tags %}<span class="tag photo">{{ t.tag | replace('_', ' ') }} {{ t.prob | pct }}</span> {% endfor %}</p>{% endfor %}
       <div class="body">{{ d.body | render_body }}</div>
       <details>
         <summary>Fact-check: {{ checks[d.id] | selectattr('is_claim') | selectattr('supported') | list | length }}/{{ checks[d.id] | selectattr('is_claim') | list | length }} claims sourced</summary>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
 <channel>
 <title>Sample Football Desk</title>
 <link>https://example.org/desk</link>
@@ -9,14 +9,14 @@
 <link>https://example.org/desk/arsenal-chelsea-report</link>
 <description>Arsenal came from behind to beat Chelsea 2-1 at the Emirates on Saturday. Tomas Reyes equalised before half-time and Leo Hartmann headed the winner in the 78th minute, lifting Arsenal to second in the Premier League table.</description>
 <pubDate>Sat, 08 Nov 2026 18:05:00 GMT</pubDate>
-<guid>https://example.org/desk/arsenal-chelsea-report</guid>
+<guid>https://example.org/desk/arsenal-chelsea-report</guid><media:thumbnail url="sample_photos/arsenal-chelsea-report.jpg" width="224" height="224"/>
 </item>
 <item>
 <title>Celtic extend Scottish Premiership lead with 3-1 win over Rangers</title>
 <link>https://example.org/desk/celtic-rangers-derby</link>
 <description>Celtic beat Rangers 3-1 at Celtic Park to move five points clear at the top of the Scottish Premiership. Winger Ross Callan scored twice in a dominant second-half display.</description>
 <pubDate>Sat, 08 Nov 2026 15:00:00 GMT</pubDate>
-<guid>https://example.org/desk/celtic-rangers-derby</guid>
+<guid>https://example.org/desk/celtic-rangers-derby</guid><media:thumbnail url="sample_photos/celtic-rangers-derby.jpg" width="224" height="224"/>
 </item>
 <item>
 <title>Bayern Munich come from behind to win 3-2 at Bayer Leverkusen</title>
@@ -30,7 +30,7 @@
 <link>https://example.org/desk/united-fulham-preview</link>
 <description>Manchester United manager Ruben Castell wants a response when his side host Fulham this weekend. United have lost two of their last three Premier League games and are 11th in the table.</description>
 <pubDate>Mon, 10 Nov 2026 12:00:00 GMT</pubDate>
-<guid>https://example.org/desk/united-fulham-preview</guid>
+<guid>https://example.org/desk/united-fulham-preview</guid><media:thumbnail url="sample_photos/united-fulham-preview.jpg" width="224" height="224"/>
 </item>
 <item>
 <title>Inter Milan agree contract extension with defender Paolo Ricci</title>
