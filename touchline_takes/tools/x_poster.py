@@ -80,22 +80,38 @@ def _weighted_length(text: str) -> int:
     return len(text)
 
 
+def article_url(article: dict[str, Any], site_url: str) -> str:
+    """The article's public address."""
+    return f"{site_url.rstrip('/')}/article/{article['slug']}/"
+
+
+def lede(article: dict[str, Any]) -> str:
+    """The article's first sentence without citation markers ('' for template articles,
+    which open with "BBC Sport has a story involving...")."""
+    if article.get("mode") != "llm":
+        return ""
+    paras = split_paragraphs(strip_citations(article.get("body", "")))
+    sentences = split_sentences(paras[0]) if paras else []
+    return " ".join(s.strip() for s in sentences[:1]).replace(" .", ".")
+
+
 def compose_post(article: dict[str, Any], site_url: str) -> str:
     """Headline, the article's first sentence (if it fits) and the link, within 280."""
-    url = f"{site_url.rstrip('/')}/article/{article['slug']}/"
+    url = article_url(article, site_url)
     title = article["title"].strip()
     budget = MAX_CHARS - URL_WEIGHT - 2  # two newlines before the link
     if _weighted_length(title) > budget:
         title = title[:budget - 1].rsplit(" ", 1)[0] + "…"
-    # A template article opens with "BBC Sport has a story involving...": headline only.
-    body = article.get("body", "") if article.get("mode") == "llm" else ""
-    paras = split_paragraphs(strip_citations(body))
-    sentences = split_sentences(paras[0]) if paras else []
-    lede = " ".join(s.strip() for s in sentences[:1]).replace(" .", ".")
+    first = lede(article)
     room = budget - _weighted_length(title) - 2
-    if lede and _weighted_length(lede) <= room:
-        return f"{title}\n\n{lede}\n\n{url}"
+    if first and _weighted_length(first) <= room:
+        return f"{title}\n\n{first}\n\n{url}"
     return f"{title}\n\n{url}"
+
+
+def intent_url(article: dict[str, Any], site_url: str) -> str:
+    """A link that opens X with the post already written (free: the user presses Post)."""
+    return "https://x.com/intent/post?text=" + quote(compose_post(article, site_url), safe="")
 
 
 class XClient:  # pylint: disable=too-few-public-methods
@@ -121,3 +137,21 @@ class XClient:  # pylint: disable=too-few-public-methods
             return str(resp.json()["data"]["id"])
         except (ValueError, KeyError, TypeError) as exc:
             raise XError(f"unexpected X response: {resp.text[:300]}") from exc
+
+
+class XPoster:
+    """Turns an article into an X post (paid API: credits are spent per post)."""
+
+    name = "x"
+
+    def __init__(self, client: XClient, site_url: str) -> None:
+        self.client = client
+        self.site_url = site_url
+
+    def preview(self, article: dict[str, Any]) -> str:
+        """What will be posted."""
+        return compose_post(article, self.site_url)
+
+    def post(self, article: dict[str, Any]) -> str:
+        """Post the article; returns the post id."""
+        return self.client.post(compose_post(article, self.site_url))

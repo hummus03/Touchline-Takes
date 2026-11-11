@@ -60,7 +60,9 @@ def test_review_body_has_article_sources_and_instructions():
     """The PR description shows the article, its sources and how to review."""
     body = review_body(make_draft(), "slug-x", "content/articles/slug-x.json")
     for needle in ("## Arsenal v Chelsea", "Claims sourced:** 3/3", "**S1** Test Wire",
-                   "**Merge** this pull request", "content/articles/slug-x.json"):
+                   "**Merge** this pull request", "content/articles/slug-x.json",
+                   "[**Post to X**](https://x.com/intent/post?text=",
+                   "touchlinetakes.com%2Farticle%2Fslug-x%2F"):
         assert needle in body
 
 
@@ -303,3 +305,5 @@ def test_link_preview_tags(tmp_path, static):
     assert 'property="article:published_time"' in page
     assert '<meta property="og:description" content="Arsenal beat Chelsea 2-1' in page
     assert (out / "static" / "og-image.png").stat().st_size > 10_000
+    assert 'href="https://x.com/intent/post?text=Arsenal' in page
+    assert 'href="https://bsky.app/intent/compose?text=' in page

@@ -91,7 +91,8 @@ In **Settings → Secrets and variables → Actions**:
 |---|---|
 | `FOOTBALL_DATA_API_KEY` | free key from football-data.org, for fixtures, predictions and previews. Optional but recommended. |
 | `ANTHROPIC_API_KEY` | only if `LLM_PROVIDER=anthropic` |
-| `X_API_KEY`, `X_API_SECRET`, `X_ACCESS_TOKEN`, `X_ACCESS_SECRET` | optional: post each new article to X (see "Posting to X" below) |
+| `BLUESKY_APP_PASSWORD` (+ variable `BLUESKY_HANDLE`) | optional: post each new article to Bluesky (free) |
+| `X_API_KEY`, `X_API_SECRET`, `X_ACCESS_TOKEN`, `X_ACCESS_SECRET` | optional: auto-post to X (paid; also needs variable `X_AUTO_POST=true`) |
 
 ### 5. Point the domain at GitHub Pages (GoDaddy → DNS → DNS Records)
 
@@ -146,27 +147,25 @@ line in `.github/workflows/newsroom.yml` to run more often).
 - **If `main` is protected** by a branch rule that requires pull requests,
   `AUTO_PUBLISH=true` can't push to it. Keep review mode in that case.
 
-### Posting to X (optional)
+### Sharing on social media (optional)
 
-After each deploy, every newly published article is posted to X once: headline, its
-first sentence and the link (the link preview shows the share image). It runs only when
-all four `X_*` secrets exist.
+- **X, by hand (free):** every review PR has a **Post to X** link. After merging, wait
+  about a minute for the site to update, click it, check the post and press Post. Article
+  pages also have Share links for X and Bluesky.
+- **Bluesky, automatic (free):** each newly published article is posted once: headline,
+  first sentence and a link card with the share image.
+  1. On Bluesky: Settings → Privacy and security → **App passwords** → add one.
+  2. Add the repository **variable** `BLUESKY_HANDLE` (e.g. `touchlinetakes.bsky.social`)
+     and the **secret** `BLUESKY_APP_PASSWORD`.
+- **X, automatic (paid):** X charges credits per post. With the four secrets `X_API_KEY`,
+  `X_API_SECRET`, `X_ACCESS_TOKEN` and `X_ACCESS_SECRET` set (app permissions **Read and
+  write** before generating the access token), add the repository variable
+  `X_AUTO_POST=true` and buy credits in the X Developer Console.
 
-1. Create the X account and turn on the **Automated** label (account settings →
-   "Your account" → "Account information" → "Automation"), managed by your own account.
-2. In the X Developer Console, open your app → **User authentication settings** → set
-   App permissions to **Read and write**. Do this first: tokens made before it can't post.
-3. Under **Keys and tokens**, generate the API Key and Secret and the Access Token and
-   Secret, and add them as repository secrets named `X_API_KEY`, `X_API_SECRET`,
-   `X_ACCESS_TOKEN` and `X_ACCESS_SECRET`.
-4. X bills posts from prepaid credits. Check the price per post in the Developer Console
-   before buying credits; at most 12 articles a day are published.
-
-The first run after the secrets are added only records the articles already on the
-site, so the back catalogue isn't posted. Articles more than 48 hours old when merged
-aren't posted. What has been posted is kept on the `social-state` branch; a failed post
-is retried on the next deploy and never stops the site deploying. To stop posting,
-delete `X_ACCESS_TOKEN`.
+Each network's first run only records the articles already on the site, so the back
+catalogue isn't posted. Articles more than 48 hours old when merged aren't posted, and at
+most 5 go out per deploy. What has been posted is kept on the `social-state` branch; a
+failed post is retried on the next deploy and never stops the site deploying.
 
 # Part 2: your own server (Docker)
 

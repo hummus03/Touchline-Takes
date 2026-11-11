@@ -1,14 +1,15 @@
-"""Post newly published articles to X, once each.
+"""Post newly published articles to social networks, once each.
 
 Run after the site deploys (see .github/workflows/deploy-site.yml):
 
-    python scripts/post_to_x.py --state .social/x_posted.json
+    python scripts/post_social.py --network bluesky --state .social/bluesky_posted.json
+    python scripts/post_social.py --network x --state .social/x_posted.json
 
-Reads the account's keys from X_API_KEY, X_API_SECRET, X_ACCESS_TOKEN and
-X_ACCESS_SECRET; without all four it does nothing. The state file records every
-article already posted (or present when posting was switched on, so the back
-catalogue isn't posted all at once). A failed post is logged and retried next time;
-it never fails the deploy.
+Bluesky (free): BLUESKY_HANDLE and BLUESKY_APP_PASSWORD. X (paid per post):
+X_API_KEY, X_API_SECRET, X_ACCESS_TOKEN and X_ACCESS_SECRET. Without its credentials
+a network is skipped. The state file records every article already posted (or present
+when posting was switched on, so the back catalogue isn't posted all at once). A failed
+post is logged and retried next time; it never fails the deploy.
 """
 
 from __future__ import annotations
@@ -24,9 +25,12 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 # pylint: disable=wrong-import-position
-from touchline_takes.tools.x_poster import XClient, XCredentials, XError, compose_post
+from touchline_takes.tools.bluesky import BlueskyClient, BlueskyError, BlueskyPoster
+from touchline_takes.tools.x_poster import XClient, XCredentials, XError, XPoster
 
-LOGGER = logging.getLogger("post_to_x")
+LOGGER = logging.getLogger("post_social")
+POST_ERRORS = (XError, BlueskyError)
+SHARE_IMAGE = Path(__file__).resolve().parent.parent / "touchline_takes/web/static/og-image.png"
 
 
 def load_articles(content_dir: Path) -> list[dict]:
@@ -47,8 +51,8 @@ def recent(article: dict, now: datetime, max_age: timedelta) -> bool:
     return now - published <= max_age
 
 
-def run(content_dir: Path, state_path: Path, site_url: str, client: XClient | None,  # pylint: disable=too-many-arguments
-        max_posts: int = 5, max_age_hours: int = 48, dry_run: bool = False,
+def run(content_dir: Path, state_path: Path, poster, max_posts: int = 5,  # pylint: disable=too-many-arguments
+        max_age_hours: int = 48, dry_run: bool = False,
         now: datetime | None = None) -> dict[str, str]:
     """Post what's new; returns {slug: post id} for this run. Updates the state file."""
     now = now or datetime.now(timezone.utc)
@@ -72,13 +76,12 @@ def run(content_dir: Path, state_path: Path, site_url: str, client: XClient | No
         if not recent(article, now, timedelta(hours=max_age_hours)):
             posted[slug] = "skipped: older than the posting window"
             continue
-        text = compose_post(article, site_url)
-        if dry_run or client is None:
-            LOGGER.info("would post:\n%s", text)
+        if dry_run:
+            LOGGER.info("would post to %s:\n%s", poster.name, poster.preview(article))
             continue
         try:
-            post_id = client.post(text)
-        except XError as exc:
+            post_id = poster.post(article)
+        except POST_ERRORS as exc:
             LOGGER.warning("not posted (will retry next deploy): %s: %s", slug, exc)
             continue
         posted[slug] = done[slug] = post_id
@@ -87,25 +90,39 @@ def run(content_dir: Path, state_path: Path, site_url: str, client: XClient | No
     return done
 
 
+def build_poster(network: str, site_url: str):
+    """The poster for ``network`` from the environment, or None without credentials."""
+    env = {k: os.environ.get(k, "").strip() for k in (
+        "BLUESKY_HANDLE", "BLUESKY_APP_PASSWORD", "X_API_KEY", "X_API_SECRET",
+        "X_ACCESS_TOKEN", "X_ACCESS_SECRET")}
+    if network == "bluesky":
+        if not (env["BLUESKY_HANDLE"] and env["BLUESKY_APP_PASSWORD"]):
+            return None
+        return BlueskyPoster(BlueskyClient(env["BLUESKY_HANDLE"], env["BLUESKY_APP_PASSWORD"]),
+                             site_url, SHARE_IMAGE)
+    creds = XCredentials(env["X_API_KEY"], env["X_API_SECRET"], env["X_ACCESS_TOKEN"],
+                         env["X_ACCESS_SECRET"])
+    return XPoster(XClient(creds), site_url) if creds.complete else None
+
+
 def main(argv: list[str] | None = None) -> int:
     """Command-line entry point."""
     parser = argparse.ArgumentParser(description=__doc__.split("\n", 1)[0])
+    parser.add_argument("--network", choices=("bluesky", "x"), required=True)
     parser.add_argument("--content", default="content/articles")
-    parser.add_argument("--state", default=".social/x_posted.json")
+    parser.add_argument("--state", default="")
     parser.add_argument("--site-url", default=os.environ.get("SITE_URL",
                                                              "https://touchlinetakes.com"))
     parser.add_argument("--max-posts", type=int, default=5)
     parser.add_argument("--dry-run", action="store_true", help="print posts, send nothing")
     args = parser.parse_args(argv)
     logging.basicConfig(level=logging.INFO, format="%(message)s")
-    creds = XCredentials(*(os.environ.get(k, "").strip() for k in (
-        "X_API_KEY", "X_API_SECRET", "X_ACCESS_TOKEN", "X_ACCESS_SECRET")))
-    if not creds.complete and not args.dry_run:
-        LOGGER.info("X keys not set: posting to X is off")
+    poster = build_poster(args.network, args.site_url)
+    if poster is None:
+        LOGGER.info("%s credentials not set: posting to %s is off", args.network, args.network)
         return 0
-    client = XClient(creds) if creds.complete else None
-    run(Path(args.content), Path(args.state), args.site_url, client, args.max_posts,
-        dry_run=args.dry_run)
+    state = Path(args.state or f".social/{args.network}_posted.json")
+    run(Path(args.content), state, poster, args.max_posts, dry_run=args.dry_run)
     return 0
 
 

@@ -6,9 +6,10 @@ from datetime import datetime, timezone
 
 import pytest
 
-from scripts import post_to_x
+from scripts import post_social
+from touchline_takes.tools.bluesky import BlueskyClient, BlueskyPoster, compose_text
 from touchline_takes.tools.x_poster import (MAX_CHARS, URL_WEIGHT, XClient, XCredentials, XError,
-                                            compose_post, oauth_signature)
+                                            compose_post, intent_url, oauth_signature)
 
 NOW = datetime(2026, 11, 11, 18, 0, tzinfo=timezone.utc)
 
@@ -52,17 +53,23 @@ def test_compose_post_fits_and_drops_citations():
     assert compose_post(template, "https://t.com").count("\n\n") == 1  # headline + link
 
 
-class FakeX:  # pylint: disable=too-few-public-methods
+class FakeX:
     """Records posts; fails on request."""
+
+    name = "x"
 
     def __init__(self, fail=False):
         self.posts, self.fail = [], fail
 
-    def post(self, text):
+    def preview(self, item):
+        """What would be posted."""
+        return compose_post(item, "https://t.com")
+
+    def post(self, item):
         """Pretend to post."""
         if self.fail:
-            raise XError("X returned 503")
-        self.posts.append(text)
+            raise XError("X returned 402: credits depleted")
+        self.posts.append(self.preview(item))
         return str(1000 + len(self.posts))
 
 
@@ -78,34 +85,38 @@ def content(tmp_path):
 def test_first_run_marks_existing_articles_then_posts_new_ones_once(content, tmp_path):
     """Switching posting on doesn't flood the timeline; each new article goes out once."""
     state, x = tmp_path / ".social" / "x_posted.json", FakeX()
-    assert not post_to_x.run(content, state, "https://t.com", x, now=NOW)
+    assert not post_social.run(content, state, x, now=NOW)
     assert not x.posts and "old-one" in json.loads(state.read_text())
     (content / "new.json").write_text(json.dumps(article("new-one", "New")))
-    assert post_to_x.run(content, state, "https://t.com", x, now=NOW) == {"new-one": "1001"}
-    assert not post_to_x.run(content, state, "https://t.com", x, now=NOW)  # not twice
+    assert post_social.run(content, state, x, now=NOW) == {"new-one": "1001"}
+    assert not post_social.run(content, state, x, now=NOW)  # not twice
     assert len(x.posts) == 1
 
 
 def test_failed_posts_are_retried_and_stale_articles_skipped(content, tmp_path):
     """An X outage is retried next deploy; an article merged days late isn't posted."""
     state = tmp_path / "x_posted.json"
-    post_to_x.run(content, state, "https://t.com", FakeX(), now=NOW)
+    post_social.run(content, state, FakeX(), now=NOW)
     (content / "new.json").write_text(json.dumps(article("new-one", "New")))
     (content / "stale.json").write_text(json.dumps(
         article("stale-one", "Stale", published="2026-11-01T10:00:00+00:00")))
-    assert not post_to_x.run(content, state, "https://t.com", FakeX(fail=True), now=NOW)
+    assert not post_social.run(content, state, FakeX(fail=True), now=NOW)
     assert "new-one" not in json.loads(state.read_text())
     x = FakeX()
-    assert post_to_x.run(content, state, "https://t.com", x, now=NOW) == {"new-one": "1001"}
+    assert post_social.run(content, state, x, now=NOW) == {"new-one": "1001"}
     assert json.loads(state.read_text())["stale-one"].startswith("skipped")
 
 
 def test_no_keys_means_posting_is_off(content, tmp_path, monkeypatch):
     """Without the four secrets the script does nothing and creates no state."""
-    for key in ("X_API_KEY", "X_API_SECRET", "X_ACCESS_TOKEN", "X_ACCESS_SECRET"):
+    for key in ("X_API_KEY", "X_API_SECRET", "X_ACCESS_TOKEN", "X_ACCESS_SECRET",
+                "BLUESKY_HANDLE", "BLUESKY_APP_PASSWORD"):
         monkeypatch.delenv(key, raising=False)
     state = tmp_path / "x_posted.json"
-    assert post_to_x.main(["--content", str(content), "--state", str(state)]) == 0
+    assert post_social.main(["--network", "x", "--content", str(content),
+                             "--state", str(state)]) == 0
+    assert post_social.main(["--network", "bluesky", "--content", str(content),
+                             "--state", str(state)]) == 0
     assert not state.exists()
 
 
@@ -126,3 +137,48 @@ def test_client_sends_signed_json_and_reads_the_id():
     assert client.post("hello") == "42"
     assert sent["url"] == "https://api.x.com/2/tweets" and sent["json"] == {"text": "hello"}
     assert sent["headers"]["Authorization"].startswith('OAuth oauth_consumer_key="k"')
+
+
+def test_intent_link_opens_x_with_the_post_written():
+    """The free 'Post to X' link carries the same text the API would post."""
+    url = intent_url(article(), "https://touchlinetakes.com")
+    assert url.startswith("https://x.com/intent/post?text=Palace%27s%20Sage")
+    assert "touchlinetakes.com%2Farticle%2Fpalace-sacking%2F" in url
+
+
+class FakeBsky:  # pylint: disable=too-few-public-methods
+    """Records the AT Protocol calls."""
+
+    def __init__(self):
+        self.calls = []
+
+    def post(self, url, json=None, data=None, headers=None, **_kwargs):  # pylint: disable=redefined-outer-name
+        """Fake XRPC endpoint."""
+        method = url.rsplit("/", 1)[1]
+        self.calls.append((method, json, headers))
+        body = {"com.atproto.server.createSession": {"did": "did:plc:abc", "accessJwt": "jwt"},
+                "com.atproto.repo.uploadBlob": {"blob": {"$type": "blob",
+                                                         "size": len(data or b"")}},
+                "com.atproto.repo.createRecord": {"uri": "at://did:plc:abc/post/1"}}[method]
+        return type("R", (), {"status_code": 200, "text": "", "json": lambda self: body})()
+
+
+def test_bluesky_posts_text_with_a_link_card(tmp_path):
+    """Logs in once, uploads the share image, posts headline + lede with a card."""
+    image = tmp_path / "og.png"
+    image.write_bytes(b"png")
+    fake = FakeBsky()
+    poster = BlueskyPoster(BlueskyClient("@touchlinetakes.bsky.social", "app-pw", session=fake),
+                           "https://touchlinetakes.com", image)
+    assert poster.post(article()) == "at://did:plc:abc/post/1"
+    poster.post(article("second", "Second"))
+    methods = [c[0] for c in fake.calls]
+    assert methods.count("com.atproto.server.createSession") == 1
+    assert methods.count("com.atproto.repo.uploadBlob") == 1
+    record = fake.calls[2][1]["record"]
+    assert record["text"] == compose_text(article())
+    assert record["embed"]["external"]["uri"] == \
+        "https://touchlinetakes.com/article/palace-sacking/"
+    assert record["embed"]["external"]["thumb"]["$type"] == "blob"
+    assert fake.calls[0][1] == {"identifier": "touchlinetakes.bsky.social", "password": "app-pw"}
+    assert len(compose_text(article(title="T" * 290))) <= 300

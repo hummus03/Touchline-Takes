@@ -62,7 +62,7 @@ def cmd_export(args) -> int:
     settings = _settings()
     db = Database(settings.database_path)
     result = export_pending(db, GitOps(repo_dir=args.repo, base=args.base), args.content_dir,
-                            auto_publish=settings.auto_publish)
+                            auto_publish=settings.auto_publish, site_url=settings.site_url)
     db.close()
     for url in result.opened:
         print(f"review PR: {url}")
