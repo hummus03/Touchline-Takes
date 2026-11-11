@@ -57,6 +57,7 @@ def build_site(content_dir: str | Path, out_dir: str | Path, settings: Settings,
         site_settings = settings.with_overrides(site_mode="static",
                                                 database_path=str(Path(tmp) / "site.db"))
         app = create_app(site_settings, db=db, run_preflight=False)
+        app.config["TRANSPARENCY"] = _transparency(state_db, articles, settings)
         client = app.test_client()
         routes = _routes(app, views)
         for target, route in routes.items():
@@ -74,6 +75,23 @@ def build_site(content_dir: str | Path, out_dir: str | Path, settings: Settings,
         (out / "CNAME").write_text(host + "\n", encoding="utf-8")  # GitHub Pages domain
     (out / ".nojekyll").write_text("", encoding="utf-8")
     return report
+
+
+def _transparency(state_db: str | Path | None, articles: list[dict],
+                  settings: Settings) -> dict:
+    """The "How we check" numbers from the newsroom's state (empty before its first run)."""
+    from touchline_takes.tools.stats import load_results  # pylint: disable=import-outside-toplevel
+    from touchline_takes.tools.teams import TeamDirectory  # pylint: disable=import-outside-toplevel
+    from touchline_takes.transparency import (  # pylint: disable=import-outside-toplevel
+        newsroom_stats, prediction_scorecard)
+    path = Path(state_db) if state_db else None
+    db = Database(str(path) if path and path.exists() else ":memory:")
+    results_dir = path.parent / "results" if path else Path(settings.results_dir)
+    numbers = {"newsroom": newsroom_stats(db, articles),
+               "scorecard": prediction_scorecard(db, load_results(results_dir, odds=True),
+                                                 TeamDirectory.from_file(settings.teams_path))}
+    db.close()
+    return numbers
 
 
 def _copy_site_root(out: Path) -> None:

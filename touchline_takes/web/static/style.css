@@ -128,3 +128,14 @@ a.tag:hover, a.tag:focus { outline: 2px solid var(--pitch); outline-offset: 1px;
 .page .lede { font-size: 1.12rem; }
 .page li { margin: 6px 0; }
 .footer-links a { color: inherit; }
+
+/* How we check: stat tiles and the predictions scorecard. */
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin: 12px 0; }
+.stat { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 12px; display: flex; flex-direction: column; }
+.stat-n { font-size: 1.7rem; font-weight: 800; line-height: 1.1; }
+.stat-l { font-size: .82rem; color: var(--muted); margin-top: 4px; }
+.scorecard { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: .95rem; }
+.scorecard th, .scorecard td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); }
+.scorecard td { font-variant-numeric: tabular-nums; }
+.hit { color: var(--pitch); }
+.miss { color: #b3261e; }

@@ -272,6 +272,11 @@ class Database:  # pylint: disable=too-many-public-methods  # one repository for
         rows = self._query("SELECT run_id FROM drafts WHERE id = ?", (draft_id,))
         return rows[0]["run_id"] if rows else None
 
+    def all_drafts(self) -> list[Draft]:
+        """Every draft the newsroom has written, whatever happened to it."""
+        rows = self._query("SELECT data FROM drafts ORDER BY created_at")
+        return [Draft.from_dict(json.loads(r["data"])) for r in rows]
+
     def drafts_by_status(self, *statuses: str) -> list[Draft]:
         """Drafts in any of ``statuses`` (newest first)."""
         marks = ",".join("?" for _ in statuses)
@@ -303,7 +308,7 @@ class Database:  # pylint: disable=too-many-public-methods  # one repository for
 
     def copy_fixtures_from(self, other: "Database") -> int:
         """Copy fixtures and predictions from another database (for static builds)."""
-        rows = other.fixtures_with_predictions(100)
+        rows = other.fixtures_with_predictions(1000)
         for row in rows:
             self.upsert_fixture(row)
             if row.get("home_win") is not None:
@@ -363,12 +368,26 @@ class Database:  # pylint: disable=too-many-public-methods  # one repository for
              utcnow_iso()),
         )
 
-    def fixtures_with_predictions(self, limit: int = 20) -> list[dict[str, Any]]:
-        """Upcoming fixtures joined with predictions."""
+    def fixtures_with_predictions(self, limit: int = 20, upcoming: bool = False,
+                                  today: str | None = None) -> list[dict[str, Any]]:
+        """Fixtures joined with predictions, soonest first (``upcoming``: from ``today``,
+        default the current UTC date, so played matches drop off the home page)."""
+        where = " WHERE f.date >= ?" if upcoming else ""
+        params: tuple = ((today or utcnow_iso()[:10]),) if upcoming else ()
         rows = self._query(
             "SELECT f.*, p.home_win, p.draw, p.away_win, p.predicted, p.model_version"
             " FROM fixtures f LEFT JOIN predictions p ON p.fixture_id = f.id"
-            " ORDER BY f.date ASC LIMIT ?", (limit,))
+            f"{where} ORDER BY f.date ASC LIMIT ?", (*params, limit))
+        return [dict(r) for r in rows]
+
+    def past_predictions(self, today: str | None = None) -> list[dict[str, Any]]:
+        """Predicted fixtures dated before ``today``: their result should now be known.
+        A prediction is frozen once the match kicks off (fixtures are only fetched while
+        scheduled), so these are genuine pre-match calls."""
+        rows = self._query(
+            "SELECT f.*, p.home_win, p.draw, p.away_win, p.predicted, p.model_version"
+            " FROM fixtures f JOIN predictions p ON p.fixture_id = f.id"
+            " WHERE f.date < ? ORDER BY f.date DESC", (today or utcnow_iso()[:10],))
         return [dict(r) for r in rows]
 
     # -- logs ---------------------------------------------------------------
