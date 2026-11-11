@@ -6,25 +6,25 @@ Fixture stories: 31 · guardrail (every published claim sourced): **PASS**
 
 | Metric | template_writer | scripted_llm_writer |
 |---|---|---|
-| drafts | 29 | 29 |
-| published | 25 | 25 |
-| rejected | 4 | 4 |
-| claims_with_source_share_first_pass | 1.0 | 0.885 |
+| drafts | 27 | 27 |
+| published | 24 | 24 |
+| rejected | 3 | 3 |
+| claims_with_source_share_first_pass | 1.0 | 0.881 |
 | claims_with_source_share_published | 1.0 | 1.0 |
 | unsupported_claims_caught | 0 | 32 |
 | contradictions_caught | 0 | 11 |
 | factcheck_bounces | 0 | 10 |
-| editor_reviews | 37 | 37 |
-| editor_rejection_rate | 0.324 | 0.324 |
-| retries_total | 8 | 18 |
-| retries_mean | 0.276 | 0.621 |
+| editor_reviews | 33 | 33 |
+| editor_rejection_rate | 0.273 | 0.273 |
+| retries_total | 6 | 16 |
+| retries_mean | 0.222 | 0.593 |
 | retries_max | 2 | 2 |
-| llm_calls_per_article | 0.0 | 1.621 |
+| llm_calls_per_article | 0.0 | 1.593 |
 | cost_usd_per_article | 0.0 | 0.0 |
-| projected_cost_usd_per_article_claude_opus_5_5 | 0.0 | 0.010339 |
-| tokens_per_article | 0.0 | 1319.2 |
-| agent_latency_s_per_article | 0.0102 | 0.0132 |
-| pipeline_s_per_article | 0.0335 | 0.031 |
+| projected_cost_usd_per_article_claude_opus_5_5 | 0.0 | 0.010513 |
+| tokens_per_article | 0.0 | 1337.0 |
+| agent_latency_s_per_article | 0.0104 | 0.0148 |
+| pipeline_s_per_article | 0.0296 | 0.0356 |
 | expectations passed | 21/21 | 21/21 |
 
 ### Rejections logged: template_writer
@@ -35,9 +35,6 @@ Fixture stories: 31 · guardrail (every published claim sourced): **PASS**
 - **editor** (rev 0) on *Bayern Munich v Bayer Leverkusen: the Touchline Take*: too short: 82 words (minimum 90)
 - **editor** (rev 1) on *Bayern Munich v Bayer Leverkusen: the Touchline Take*: too short: 80 words (minimum 90)
 - **editor** (rev 2) on *Bayern Munich v Bayer Leverkusen: the Touchline Take*: too short: 83 words (minimum 90)
-- **editor** (rev 0) on *Celtic: the Touchline Take on the dugout*: too short: 57 words (minimum 90); too thin: 2 sourced claims (minimum 3)
-- **editor** (rev 1) on *Celtic: the Touchline Take on the dugout*: too short: 57 words (minimum 90); too thin: 2 sourced claims (minimum 3)
-- **editor** (rev 2) on *Celtic: the Touchline Take on the dugout*: too short: 58 words (minimum 90); too thin: 2 sourced claims (minimum 3)
 - **editor** (rev 0) on *Celtic: the Touchline Take on the transfer talk*: too short: 69 words (minimum 90)
 - **editor** (rev 1) on *Celtic: the Touchline Take on the transfer talk*: too short: 64 words (minimum 90)
 - **editor** (rev 2) on *Celtic: the Touchline Take on the transfer talk*: too short: 66 words (minimum 90)
@@ -56,9 +53,6 @@ Fixture stories: 31 · guardrail (every published claim sourced): **PASS**
 - **factcheck** (rev 0) on *Aston Villa v Manchester City: the Touchline Take*: contradicted claim (contradicts source: claim says Manchester City beat Aston Villa 1-0, source says Aston Villa beat Manchester City 1-0): Manchester City beat Aston Villa 1-0, as reported by Eval Wire [S1].; contradict
 - **factcheck** (rev 0) on *Tottenham: the Touchline Take on the dugout*: unsupported claim (not in cited evidence: insiders, 200, january): Insiders claim the club will spend 200 million in January [S1].; unsupported claim (not in cited evidence: rival, juventus): Rival scouts from Juventus w
 - **factcheck** (rev 0) on *Chelsea: the Touchline Take on the dugout*: unsupported claim (not in cited evidence: insiders, 200, january): Insiders claim the club will spend 200 million in January [S1].; unsupported claim (not in cited evidence: rival, juventus): Rival scouts from Juventus w
-- **editor** (rev 0) on *Celtic: the Touchline Take on the dugout*: too short: 57 words (minimum 90); too thin: 2 sourced claims (minimum 3)
-- **editor** (rev 1) on *Celtic: the Touchline Take on the dugout*: too short: 57 words (minimum 90); too thin: 2 sourced claims (minimum 3)
-- **editor** (rev 2) on *Celtic: the Touchline Take on the dugout*: too short: 58 words (minimum 90); too thin: 2 sourced claims (minimum 3)
 - **factcheck** (rev 0) on *Newcastle: the Touchline Take on the transfer talk*: unsupported claim (not in cited evidence: insiders, 200): Insiders claim the club will spend 200 million in January [S1].; unsupported claim (not in cited evidence: rival, juventus): Rival scouts from Juventus were repor
 - **editor** (rev 0) on *Celtic: the Touchline Take on the transfer talk*: too short: 69 words (minimum 90)
 - **editor** (rev 1) on *Celtic: the Touchline Take on the transfer talk*: too short: 64 words (minimum 90)

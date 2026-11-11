@@ -19,7 +19,9 @@ class TeamDirectory:
                 self._alias_to_team[alias.lower()] = display
         aliases = sorted(self._alias_to_team, key=len, reverse=True)
         self._pattern = re.compile(
-            r"(?<![\w'])(" + "|".join(re.escape(a) for a in aliases) + r")(?![\w])",
+            r"(?<![\w'])(" + "|".join(re.escape(a) for a in aliases) + r")(?![\w])"
+            # "Brentford U21" or "Chelsea Women" aren't the first team.
+            r"(?!\s+(?:U-?\d{2}s?|Under-?\d{2}s?|Women|Ladies|Academy|Reserves|B)\b)",
             re.IGNORECASE)
 
     @classmethod

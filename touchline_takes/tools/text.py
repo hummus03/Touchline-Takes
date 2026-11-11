@@ -33,12 +33,27 @@ def strip_html(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
+def _open_quote(text: str) -> bool:
+    """True if ``text`` ends inside a quotation (curly or straight double quotes)."""
+    return text.count("“") > text.count("”") or text.count('"') % 2 == 1
+
+
 def split_sentences(text: str) -> list[str]:
-    """Split prose into sentences (keeps citation markers attached)."""
+    """Split prose into sentences (keeps citation markers attached).
+
+    Never splits inside a quotation, so a quoted headline such as
+    "“Emery... or Carrick? Man Utd's options”" stays one sentence.
+    """
     text = re.sub(r"\s+", " ", (text or "").strip())
     if not text:
         return []
-    return [s.strip() for s in SENTENCE_SPLIT_RE.split(text) if s.strip()]
+    out: list[str] = []
+    for piece in (s.strip() for s in SENTENCE_SPLIT_RE.split(text) if s.strip()):
+        if out and _open_quote(out[-1]):
+            out[-1] = f"{out[-1]} {piece}"
+        else:
+            out.append(piece)
+    return out
 
 
 def split_paragraphs(text: str) -> list[str]:

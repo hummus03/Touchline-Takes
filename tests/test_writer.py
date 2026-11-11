@@ -167,18 +167,24 @@ def test_topic_headlines_and_verdicts(db, teams):
     assert comp.takes[-1] == TOPIC_VERDICTS["transfer"]
 
 
-def test_one_article_per_team_and_topic(db, teams):
-    """Several stories on the same club saga become one article; the rest are related."""
-    stories = [make_story(i, title=f"Manager news {i}", summary="Manchester United boss talk.",
-                          teams=["Manchester United"], topic="manager") for i in (20, 21, 22)]
+def test_one_news_article_per_club(db, teams):
+    """A club saga becomes one article; a result for the same club is still its own piece."""
+    topics = ("manager", "general", "transfer")
+    stories = [make_story(i, title=f"Manchester United {topic} news {i}",
+                          summary="Manchester United boss talk.", teams=["Manchester United"],
+                          topic=topic) for i, topic in zip((20, 21, 22), topics)]
     for story in stories:
         db.insert_story(story)
         db.update_classification(story)
-    state = NewsroomState(stories=stories)
+    result = make_story(23, title="Manchester United beat Fulham 2-1",
+                        summary="Manchester United beat Fulham 2-1.",
+                        teams=["Manchester United", "Fulham"], topic="match_report")
+    db.insert_story(result)
+    db.update_classification(result)
+    state = NewsroomState(stories=[*stories, result])
     plan = make_writer(db, teams).plan(state)
-    assert len(plan) == 1
+    assert sorted(a.article_type for a in plan) == ["explainer", "match_report"]
     assert sum(log.action == "merged" for log in state.logs) == 2
-    assert db.unused_stories() == [s for s in db.unused_stories() if s.id == plan[0].story.id]
 
 
 def test_nations_are_not_people(db, teams):
@@ -203,3 +209,38 @@ def test_related_coverage_must_name_a_club_in_its_headline(db, teams):
     writer = make_writer(db, teams)
     related = writer._related("Aston Villa Sunderland", (), ["Aston Villa", "Sunderland"], 3)  # pylint: disable=protected-access
     assert [r["title"] for r in related] == ["Sunderland sweat on striker's fitness"]
+
+
+def test_sponsors_and_clubs_are_not_people(db, teams):
+    """'Jersey Mike's Trophy' and 'Dover Athletic' aren't names in the frame."""
+    writer = make_writer(db, teams)
+    story = story_with("Leicester City visit Dover Athletic in the Jersey Mike's Trophy, and "
+                       "Wimborne Town host Bradford City. Dan Mercer scored twice.")
+    assert writer._names(story) == ["Dan Mercer"]  # pylint: disable=protected-access
+
+
+def test_only_write_about_clubs_named_in_the_headline(db, teams):
+    """A club listed in passing in the summary (a cup draw) doesn't get an article."""
+    draw = make_story(40, title="Wimborne to host Bradford in FA Cup second round",
+                      summary="Former winners Leicester City visit Dover Athletic.",
+                      teams=["Leicester"], topic="general")
+    named = make_story(41, title="Leicester sack their manager",
+                       summary="Leicester have sacked their manager.", teams=["Leicester"],
+                       topic="manager")
+    for story in (draw, named):
+        db.insert_story(story)
+        db.update_classification(story)
+    plan = make_writer(db, teams).plan(NewsroomState(stories=[draw, named]))
+    assert [a.story.id for a in plan] == [named.id]
+
+
+def test_stale_form_is_not_quoted():
+    """A club whose last match is long before the newest data gets no 'form' line."""
+    results = pd.DataFrame({
+        "Date": pd.to_datetime(["2025-05-01", "2026-11-01", "2026-11-08"]),
+        "HomeTeam": ["Leicester", "Arsenal", "Chelsea"], "AwayTeam": ["Wolves", "Chelsea",
+                                                                    "Arsenal"],
+        "FTHG": [1, 2, 0], "FTAG": [0, 1, 0], "FTR": ["H", "H", "D"]})
+    store = ResultsStore(results, "test results")
+    assert store.form_text("Arsenal", "Arsenal") and not store.form_text("Leicester",
+                                                                          "Leicester")

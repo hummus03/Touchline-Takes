@@ -39,8 +39,10 @@ TOPIC_KEYWORDS = {
                r"\bfitness\b", r"\bankle\b", r"\bsurgery\b", r"\btreatment\b"],
     "manager": [r"\bsacked\b", r"\bappointed\b", r"\bhead coach\b", r"\bdismissed\b",
                 r"\bresign", r"\bboss\b", r"\b(?:manager(?:ial)?|coaching) (?:job|post|role)\b",
-                r"\blinked with [\w\s]{0,30}\bjob\b", r"\bmanager ins and outs\b"],
+                r"\blinked with [\w\s]{0,30}\bjob\b", r"\bmanager ins and outs\b",
+                r"\bmanag(?:er|ers|erial)\b"],
     "discipline": [r"\bvar\b", r"\bred card\b", r"\bpenalty\b", r"\breferee", r"\bban\b",
+                   r"\bsuspen(?:sion|sions|ded)\b", r"\byellow cards?\b",
                    r"\bappeal\b", r"\bcontroversy\b"],
     "preview": [r"\bpreview\b", r"\bahead of\b", r"\bthis weekend\b", r"\bwill host\b",
                 r"\bhost\b", r"\btravel to\b", r"\bupcoming\b"],
@@ -141,6 +143,11 @@ class LexiconClassifier(BaseClassifier):
             scores["match_report"] = 0.0
         if AWARD_RE.search(title):
             return "general"  # awards shortlists aren't transfer shortlists
+        for topic in ("transfer", "injury", "manager", "discipline", "preview"):
+            # A passing mention in the summary ("...after Joao Pedro's injury...") doesn't
+            # make a story about that topic: the headline has to say so too.
+            if not any(re.search(p, title, re.I) for p in TOPIC_KEYWORDS[topic]):
+                scores[topic] = 0.0
         best = max(scores, key=scores.get)
         return best if scores[best] > 0 else "general"
 
