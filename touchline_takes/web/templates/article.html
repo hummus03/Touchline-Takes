@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% import "macros.html" as m %}
 {% block title %}{{ article.title }} | {{ brand }}{% endblock %}
 {% block description %}{{ article.body | teaser(200) }}{% endblock %}
 {% block share_title %}{{ article.title }}{% endblock %}
@@ -11,11 +12,7 @@
 {% endblock %}
 {% block content %}
 <article class="article">
-  <div class="tags">
-    <span class="tag type-{{ article.article_type }}">{{ article.article_type | replace('_', ' ') }}</span>
-    {% if article.league %}<span class="tag league">{{ article.league }}</span>{% endif %}
-    {% for t in article.teams %}<span class="tag team">{{ t }}</span>{% endfor %}
-  </div>
+  {{ m.tags(article) }}
   <h1>{{ article.title }}</h1>
   <p class="meta">Published {{ article.published_at[:10] }} by the {{ brand }} newsroom</p>
   <div class="body">{{ article.body | render_body }}</div>

@@ -81,6 +81,7 @@ class Settings:
     admin_password: str = ""
     secret_key: str = ""
     site_url: str = "https://touchlinetakes.com"
+    contact_email: str = "hello@touchlinetakes.com"  # shown on the About/Privacy pages
     request_timeout: float = 10.0
 
     @classmethod
@@ -143,6 +144,8 @@ class Settings:
             admin_password=get("ADMIN_PASSWORD", ""),
             secret_key=get("SECRET_KEY", ""),
             site_url=(get("SITE_URL", defaults.site_url) or defaults.site_url).rstrip("/"),
+            contact_email=(get("CONTACT_EMAIL", defaults.contact_email)
+                           or defaults.contact_email).strip(),
             request_timeout=float(get("REQUEST_TIMEOUT", "10") or 10),
         )
 

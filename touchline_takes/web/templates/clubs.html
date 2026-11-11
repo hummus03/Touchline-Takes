@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Clubs | {{ brand }}{% endblock %}
+{% block share_title %}Clubs | {{ brand }}{% endblock %}
+{% block description %}Every club Touchline Takes covers: the latest takes, fixtures and predictions.{% endblock %}
+{% block content %}
+<section aria-labelledby="clubs">
+  <h1 id="clubs" class="section-title">Clubs</h1>
+  {% if not clubs %}<p class="muted">No clubs covered yet.</p>{% endif %}
+  {% for league, group in clubs | groupby('league', default='') %}
+    <h2 class="small-heading">
+      {% if league %}<a href="{{ url_for('site.league', slug=league | slug) }}">{{ league }}</a>{% else %}Other{% endif %}
+    </h2>
+    <ul class="club-list">
+    {% for c in group %}
+      <li><a href="{{ url_for('site.club', slug=c.slug) }}">{{ c.name }}</a>
+        <span class="muted small">{{ c.articles }} take{{ '' if c.articles == 1 else 's' }}</span></li>
+    {% endfor %}
+    </ul>
+  {% endfor %}
+</section>
+{% endblock %}

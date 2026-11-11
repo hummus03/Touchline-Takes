@@ -1,0 +1,34 @@
+{# Shared pieces: tags that link to club/league pages, article cards and fixture cards. #}
+
+{% macro tags(a, teams=true) -%}
+<div class="tags">
+  <span class="tag type-{{ a.article_type }}">{{ a.article_type | replace('_', ' ') }}</span>
+  {% if a.league %}<a class="tag league" href="{{ url_for('site.league', slug=a.league | slug) }}">{{ a.league }}</a>{% endif %}
+  {% if teams %}{% for t in a.teams %}<a class="tag team" href="{{ url_for('site.club', slug=t | slug) }}">{{ t }}</a>{% endfor %}{% endif %}
+</div>
+{%- endmacro %}
+
+{% macro article_card(a, lead=false) -%}
+<article class="card story {% if lead %}lead{% endif %}">
+  {{ tags(a, teams=false) }}
+  <h2><a href="{{ url_for('site.article', slug=a.slug) }}">{{ a.title }}</a></h2>
+  <p>{{ a.body | teaser }}</p>
+  <p class="meta">{{ a.published_at[:10] }} · {{ a.sources | length }} source{{ '' if a.sources|length == 1 else 's' }}</p>
+</article>
+{%- endmacro %}
+
+{% macro fixture_card(f) -%}
+<div class="fixture card">
+  <div class="fixture-head"><span>{{ f.date }}</span><span class="muted">{{ f.league }}</span></div>
+  <div class="teams"><strong>{{ f.home }}</strong> <span class="v">v</span> <strong>{{ f.away }}</strong></div>
+  {% if f.home_win is not none %}
+    <div class="probbar" role="img" aria-label="Home {{ f.home_win|pct }}, draw {{ f.draw|pct }}, away {{ f.away_win|pct }}">
+      <span class="h" style="width: {{ (f.home_win * 100)|round(1) }}%"></span><span class="d" style="width: {{ (f.draw * 100)|round(1) }}%"></span><span class="a" style="width: {{ (f.away_win * 100)|round(1) }}%"></span>
+    </div>
+    <div class="problabels"><span>H {{ f.home_win|pct }}</span><span>D {{ f.draw|pct }}</span><span>A {{ f.away_win|pct }}</span></div>
+  {% else %}
+    <p class="muted small">No prediction (team not in results data).</p>
+  {% endif %}
+  {% if 'sample' in (f.source or '') %}<p class="badge-sample">sample fixture</p>{% endif %}
+</div>
+{%- endmacro %}

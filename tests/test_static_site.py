@@ -306,3 +306,32 @@ def test_link_preview_tags(tmp_path, static):
     assert '<meta property="og:description" content="Arsenal beat Chelsea 2-1' in page
     assert (out / "static" / "og-image.png").stat().st_size > 10_000
     assert "intent/post" not in page  # sharing is for the editor (review PRs), not readers
+
+
+def test_club_league_and_info_pages(tmp_path, static):
+    """Tags link to club and league pages; About/Privacy/Terms exist; all are in the sitemap."""
+    content = tmp_path / "content"
+    write_article(content, record(teams=["Arsenal", "Chelsea"], league="Premier League"))
+    out = tmp_path / "_site"
+    build_site(content, out, static.with_overrides(environment="production",
+                                                   allow_sample_data=False,
+                                                   contact_email="news@example.org"))
+    page = (out / "article" / "arsenal-v-chelsea-2026-11-11" / "index.html").read_text()
+    assert 'href="/club/arsenal"' in page and 'href="/league/premier-league"' in page
+    club_page = (out / "club" / "arsenal" / "index.html").read_text()
+    assert "Arsenal v Chelsea: the Touchline Take" in club_page
+    assert '<link rel="canonical" href="https://touchlinetakes.com/club/arsenal/">' in club_page
+    assert "Premier League" in (out / "league" / "premier-league" / "index.html").read_text()
+    clubs_page = (out / "clubs" / "index.html").read_text()
+    assert 'href="/club/chelsea"' in clubs_page
+    about = (out / "about" / "index.html").read_text()
+    assert "news@example.org" in about and "Corrections" in about
+    assert "not betting advice" in (out / "terms" / "index.html").read_text()
+    assert "no cookies" in (out / "privacy" / "index.html").read_text()
+    assert 'href="/privacy"' in page  # footer
+    sitemap = (out / "sitemap.xml").read_text()
+    for url in ("https://touchlinetakes.com/club/arsenal/", "https://touchlinetakes.com/clubs/",
+                "https://touchlinetakes.com/league/premier-league/",
+                "https://touchlinetakes.com/about/",
+                "https://touchlinetakes.com/article/arsenal-v-chelsea-2026-11-11/"):
+        assert f"<loc>{url}</loc>" in sitemap
