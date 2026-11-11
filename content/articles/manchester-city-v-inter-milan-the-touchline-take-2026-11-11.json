@@ -1,0 +1,58 @@
+{
+  "slug": "manchester-city-v-inter-milan-the-touchline-take-2026-11-11",
+  "title": "Manchester City v Inter Milan: the Touchline Take",
+  "body": "BBC Sport has a result story involving Manchester City and Inter Milan [S1]. The headline said it plainly: “Man City thrash Inter to claim first CL win of season” [S1]. For context, BBC Sport also ran: “Were any current Man City players signed during charges period?” [S2].\n\nIn our Football-Data.co.uk results, Manchester City have 2 wins, 0 draws and 3 defeats from their last 5 league games: 6 points, 8 scored and 8 conceded [ST1].\n\nThere is no hiding from a scoreline, and this one will be picked apart all week. It was the kind of game that tells you more about character than about tactics. The Touchline Take: enjoy it, but the real test is backing it up next week.",
+  "article_type": "match_report",
+  "league": "Champions League",
+  "teams": [
+    "Manchester City",
+    "Inter Milan"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/videos/cwzd6d9zrlz7o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/articles/cmje5wl5ek32o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Man City thrash Inter to claim first CL win of season. Manchester City come from behind to beat Inter Milan in style for their first Champions League win of the season.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/videos/cwzd6d9zrlz7o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Were any current Man City players signed during charges period?. BBC Sport's Ask Me Anything team looks at whether any Manchester City players were signed during the time the club have been found guilty of breaching the Premier League's financial rules.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/articles/cmje5wl5ek32o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester City last 5 league matches in Football-Data.co.uk results: 2 wins, 0 draws, 3 defeats, 6 points, 8 goals scored, 8 conceded (sequence WWLLL).",
+      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-11T02:21:05+00:00",
+  "draft_id": "e7bf5a5adb",
+  "story_ids": [
+    "adab1f5b87da"
+  ],
+  "mode": "template",
+  "revision": 0
+}
