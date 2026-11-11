@@ -71,6 +71,33 @@ def test_anthropic_client_with_stubbed_sdk():
         llm.complete("write")
 
 
+def test_anthropic_haiku_skips_fallbacks_and_flags_cut_off_replies():
+    """Haiku is called without the fallback beta it doesn't accept; a reply cut off at
+    max_tokens is an error, not a half-written article."""
+    sent = {}
+
+    def create(**kwargs):
+        sent.update(kwargs)
+        return SimpleNamespace(
+            stop_reason="end_turn", content=[SimpleNamespace(type="text", text="Take!")],
+            usage=SimpleNamespace(input_tokens=2000, output_tokens=800))
+
+    stub = SimpleNamespace(messages=SimpleNamespace(create=create))
+    llm = AnthropicLLM("claude-haiku-5-5", client=stub)
+    resp = llm.complete("write", max_tokens=4000)
+    assert resp.text == "Take!" and "fallbacks" not in sent and "betas" not in sent
+    assert resp.cost_usd == pytest.approx(estimate_cost("claude-haiku-5-5", 2000, 800))
+
+    def cut_off(**_kwargs):
+        return SimpleNamespace(stop_reason="max_tokens",
+                               content=[SimpleNamespace(type="text", text="Half")],
+                               usage=SimpleNamespace(input_tokens=1, output_tokens=1))
+
+    llm.client = SimpleNamespace(messages=SimpleNamespace(create=cut_off))
+    with pytest.raises(LLMError, match="cut off"):
+        llm.complete("write")
+
+
 def test_scripted_writer_hallucinates_only_first_time():
     """The scripted writer injects invented claims on first drafts of flagged stories."""
     llm = ScriptedWriterLLM(hallucinate_on=("Arsenal",))

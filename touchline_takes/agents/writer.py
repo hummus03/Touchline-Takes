@@ -516,7 +516,9 @@ class WriterAgent(Agent):
         """Fill ``draft`` title/body via the LLM (if any) or the template composer."""
         if self.llm is not None:
             try:
-                resp = self.llm.complete(self._prompt(comp, previous), SYSTEM_PROMPT)
+                # Room for thinking plus a ~400-word article.
+                resp = self.llm.complete(self._prompt(comp, previous), SYSTEM_PROMPT,
+                                         max_tokens=4000)
                 draft.title, draft.body = self._parse(resp.text, comp.title)
                 draft.mode = "llm"
                 draft.add_metrics(llm_calls=0 if resp.cached else 1, cost_usd=resp.cost_usd,

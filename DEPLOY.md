@@ -80,6 +80,7 @@ In **Settings → Secrets and variables → Actions**:
 |---|---|---|
 | `TOUCHLINE_LIVE` | `true` | the on switch |
 | `LLM_PROVIDER` | `offline` | free template writer (default). `anthropic` needs the secret below and costs money per article. |
+| `LLM_MODEL` | `claude-haiku-5-5` | default in the workflow: roughly $2 a month at one run every 3 hours. `claude-sonnet-5-5` or `claude-opus-5-5` write better and cost about 15-40x more. Set a monthly spend limit in the Claude Console either way. |
 | `AUTO_PUBLISH` | `false` | `true` skips your review and commits articles straight to `main` |
 | `RESULTS_SEASONS` | `2425 2526 2627` | optional, this is the default |
 | `RSS_FEEDS` | comma-separated feed URLs | optional, default is BBC Sport, The Guardian and Sky Sports football. Check each feed's terms. |
