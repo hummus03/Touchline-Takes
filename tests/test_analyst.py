@@ -92,3 +92,20 @@ def test_fixtures_api_with_key_and_fallback(settings):
                             session=FakeSession({"x": FakeResponse()}))
     fixtures, fallback = broken.upcoming()
     assert fallback and len(fixtures) == 6
+
+
+def test_fixture_team_names_are_resolved(settings, db):
+    """API names like 'Leeds United' or 'Nottingham' reach the model's 'Leeds'/'Nott'm Forest'."""
+    from touchline_takes.tools.football_api import _team_name  # pylint: disable=import-outside-toplevel
+    assert _team_name({"shortName": "Nottingham", "name": "Nottingham Forest FC"}) == (
+        "Nottingham Forest")
+    assert _team_name({"shortName": "Brighton Hove", "name": "x"}) == "Brighton"
+    agent = AnalystAgent(db, FixturesClient(settings.fixtures_path),
+                         TeamDirectory.from_file(settings.teams_path), settings.results_dir,
+                         settings.model_path, offline=True)
+    assert agent.resolve("Nottingham Forest") == "Nott'm Forest"
+    assert agent.resolve("Leicester City") == "Leicester"   # suffix fallback
+    assert agent.resolve("Ipswich Town") == "Ipswich"
+    assert agent.resolve("Manchester City") == "Man City"   # directory, not 'Manchester'
+    assert agent.resolve("Notts County") is None            # unknown club: no guess
+    assert agent.predict_fixture("Leicester City", "Nottingham Forest") is not None

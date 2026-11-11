@@ -9,7 +9,7 @@ Fixture stories: 31 · guardrail (every published claim sourced): **PASS**
 | drafts | 29 | 29 |
 | published | 25 | 25 |
 | rejected | 4 | 4 |
-| claims_with_source_share_first_pass | 1.0 | 0.886 |
+| claims_with_source_share_first_pass | 1.0 | 0.885 |
 | claims_with_source_share_published | 1.0 | 1.0 |
 | unsupported_claims_caught | 0 | 32 |
 | contradictions_caught | 0 | 11 |
@@ -21,10 +21,10 @@ Fixture stories: 31 · guardrail (every published claim sourced): **PASS**
 | retries_max | 2 | 2 |
 | llm_calls_per_article | 0.0 | 1.621 |
 | cost_usd_per_article | 0.0 | 0.0 |
-| projected_cost_usd_per_article_claude_opus_5_5 | 0.0 | 0.010391 |
-| tokens_per_article | 0.0 | 1325.8 |
-| agent_latency_s_per_article | 0.0102 | 0.0136 |
-| pipeline_s_per_article | 0.0309 | 0.0328 |
+| projected_cost_usd_per_article_claude_opus_5_5 | 0.0 | 0.010339 |
+| tokens_per_article | 0.0 | 1319.2 |
+| agent_latency_s_per_article | 0.0102 | 0.0132 |
+| pipeline_s_per_article | 0.0335 | 0.031 |
 | expectations passed | 21/21 | 21/21 |
 
 ### Rejections logged: template_writer
