@@ -112,10 +112,16 @@ VERDICTS = {
 }
 SYSTEM_PROMPT = (
     "You are the lead writer at Touchline Takes, a football site with a sharp, opinionated, "
-    "fan-friendly voice, like a pundit on the touchline. You write original copy and never "
-    "copy source articles. Hard rule: every factual sentence must come from the grounded "
-    "facts you are given and must keep its citation marker, e.g. [S1]. You may rephrase "
-    "facts and add opinion, but never add a new name, number, date or event.")
+    "fan-friendly voice, like a pundit on the touchline. You write original analysis in your "
+    "own words and never copy source articles: no more than a few words in a row from a "
+    "source, except a short quote in quotation marks. Hard rules: every factual sentence "
+    "(any name, number, date, result or event) must be stated in the evidence it cites, and "
+    "must end with that citation marker, e.g. [S1] or [ST1]. Use only the evidence you are "
+    "given: nothing from memory, no invented quotes, no guesses presented as fact. Opinion "
+    "sentences carry no citation and no names or numbers.")
+# Template copy is a fallback: it can report a result, a sacking or a transfer, but on a
+# general story (a gossip column, a feature) it has nothing to add beyond the headline.
+TEMPLATE_TOPICS = {"match_report", "manager", "transfer", "injury", "discipline"}
 
 
 class Research(Protocol):
@@ -472,15 +478,24 @@ class WriterAgent(Agent):
 
     # ------------------------------------------------------------------ LLM path
     def _prompt(self, comp: Composition, draft: Draft | None = None) -> str:
-        lines = [f"WORKING TITLE: {comp.title}", "", "EVIDENCE (cite by id):"]
+        lines = [f"WORKING TITLE: {comp.title}", "",
+                 "EVIDENCE (the only facts you may use; cite by id):"]
         lines += [f"[{e.id}] {e.text}" for e in comp.evidence]
-        lines += ["", "GROUNDED FACTS (keep each citation marker; rephrase freely, add no new "
-                  "facts):"]
+        lines += ["", "STARTER FACTS (already checked; use, rephrase or drop them):"]
         lines += [f"- FACT: {f}" for f in comp.facts]
-        lines += ["", "SUGGESTED TAKES (opinion only, no names or numbers):"]
+        lines += ["", "TONE IDEAS (opinion only):"]
         lines += [f"- TAKE: {t}" for t in comp.takes]
-        lines += ["", "Write 150-350 words in 3-5 short paragraphs. End with a one-line "
-                  "verdict starting 'The Touchline Take:'.",
+        lines += ["",
+                  "Write an original 220-400 word article in 4-6 short paragraphs:",
+                  "1. Open with what actually happened or what is at stake, in your own words "
+                  "(not 'The headline said...').",
+                  "2. Explain the detail and context the evidence gives: who, what, why it "
+                  "matters, and any related coverage.",
+                  "3. Bring in the form numbers ([ST..]) or prediction ([M..]) where relevant, "
+                  "and say what they suggest.",
+                  "4. Give a clear, arguable opinion as a pundit would, without new facts.",
+                  "End with a one-line verdict starting 'The Touchline Take:'.",
+                  "Write a punchy, specific headline (not 'the Touchline Take on...').",
                   "Reply as:\nTITLE: <headline>\n\n<body>"]
         if draft is not None:
             lines += ["", "REVISION REQUEST: fix these problems:"]
@@ -554,6 +569,13 @@ class WriterAgent(Agent):
             assignments = self.plan(state)
             for assignment in assignments:
                 draft = self.write(assignment, state)
+                if draft.mode == "template" and assignment.story \
+                        and assignment.story.topic not in TEMPLATE_TOPICS:
+                    # Left unwritten (and unused) for a run where the LLM writer works.
+                    self.log(state, "held_back", "a template can't add anything to a "
+                             f"{assignment.story.topic or 'general'} story: {draft.title}",
+                             draft.id)
+                    continue
                 state.drafts.append(draft)
                 self.db.save_draft(draft, state.run_id)
                 if assignment.story:

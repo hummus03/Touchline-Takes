@@ -4,6 +4,7 @@
 import pandas as pd
 import pytest
 
+from touchline_takes.agents.factcheck import FactCheckAgent
 from touchline_takes.agents.writer import (DRAW_VERDICT, TAKES, TOPIC_VERDICTS, VERDICTS,
                                            Assignment, WriterAgent)
 from touchline_takes.config import Settings
@@ -289,3 +290,41 @@ def test_stored_non_news_items_are_not_written(db, teams):
         db.insert_story(story)
         db.update_classification(story)
     assert make_writer(db, teams).plan(NewsroomState(stories=[live, womens])) == []
+
+
+def test_template_holds_back_general_stories(db, teams):
+    """Without a working LLM, a gossip column isn't written up; the story waits."""
+    gossip = make_story(70, title="Arsenal eye Real's Endrick - Wednesday's gossip",
+                        summary="Arsenal are monitoring Endrick, 20.", teams=["Arsenal"],
+                        topic="general")
+    db.insert_story(gossip)
+    db.update_classification(gossip)
+    state = make_writer(db, teams).run(NewsroomState(stories=[gossip]))
+    assert not state.drafts
+    assert any(log.action == "held_back" for log in state.logs)
+    assert gossip.id in [s.id for s in db.unused_stories()]
+
+
+def test_llm_may_use_any_cited_evidence(db, teams):
+    """Claude writes from the evidence itself, not only the starter facts; the fact-checker
+    still holds every sentence to what its citation says."""
+    gossip = make_story(71, title="Arsenal eye Real's Endrick - Wednesday's gossip",
+                        summary="Arsenal are monitoring Real Madrid striker Endrick, 20, "
+                        "who has started twice this season.", teams=["Arsenal"],
+                        topic="general")
+    db.insert_story(gossip)
+    db.update_classification(gossip)
+    article = ("TITLE: Arsenal's Endrick watch\n\n"
+               "Arsenal are keeping tabs on Real Madrid's Endrick [S1]. The 20-year-old has "
+               "started only twice this season [S1]. Arsenal have also signed Kylian Mbappe "
+               "[S1].\n\nA restless young striker is exactly the kind of gamble worth "
+               "watching.\n\nThe Touchline Take: one to keep an eye on.")
+    llm = FakeLLM([article])
+    state = make_writer(db, teams, llm=llm).run(NewsroomState(stories=[gossip]))
+    assert "not 'The headline said...'" in llm.calls[0]["prompt"]
+    assert "stated in the evidence it cites" in llm.calls[0]["system"]
+    draft = FactCheckAgent(db, 2, teams=teams).run(state).drafts[0]
+    # Endrick and "started twice" come from the summary, not the starter facts, and pass;
+    # the invented Mbappe signing alone sends the draft back.
+    assert draft.mode == "llm" and draft.status == "needs_revision"
+    assert len(draft.feedback) == 1 and "kylian, mbappe" in draft.feedback[0]
