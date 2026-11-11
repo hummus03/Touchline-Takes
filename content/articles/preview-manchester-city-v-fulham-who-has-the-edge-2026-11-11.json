@@ -1,0 +1,82 @@
+{
+  "slug": "preview-manchester-city-v-fulham-who-has-the-edge-2026-11-11",
+  "title": "Preview: Manchester City v Fulham, who has the edge?",
+  "body": "Manchester City host Fulham in the Premier League on 2026-11-21 [F1]. The Touchline Takes Analyst model gives Manchester City a 69% chance of winning, the draw 20% and Fulham 12% [M1]. In our Football-Data.co.uk results, Manchester City have 2 wins, 0 draws and 3 defeats from their last 5 league games: 6 points, 8 scored and 8 conceded [ST1].\n\nIn our Football-Data.co.uk results, Fulham have 2 wins, 2 draws and 1 defeat from their last 5 league games: 8 points, 5 scored and 4 conceded [ST2]. The last meeting in our Football-Data.co.uk results, on 2026-02-11, finished Manchester City 3-0 Fulham [ST3]. The latest from BBC Sport: “Man City thrash Inter to claim first CL win of season” [S1].\n\nThis is the kind of fixture where one moment of quality settles everything. Expect nerves early and a lot more freedom once the first goal goes in. The Touchline Take: back Manchester City [M1], but do not be shocked if this gets messy.",
+  "article_type": "preview",
+  "league": "Premier League",
+  "teams": [
+    "Manchester City",
+    "Fulham"
+  ],
+  "sources": [
+    {
+      "name": "football-data.org",
+      "url": "",
+      "kind": "fixture"
+    },
+    {
+      "name": "Touchline Takes Analyst model",
+      "url": "",
+      "kind": "model"
+    },
+    {
+      "name": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/videos/cwzd6d9zrlz7o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "F1",
+      "kind": "fixture",
+      "text": "Fixture: Manchester City v Fulham, Premier League, 2026-11-21.",
+      "source": "football-data.org",
+      "url": ""
+    },
+    {
+      "id": "M1",
+      "kind": "model",
+      "text": "Touchline Takes Analyst model (logistic regression on Football-Data.co.uk results): Manchester City win 69%, draw 20%, Fulham win 12%.",
+      "source": "Touchline Takes Analyst model",
+      "url": ""
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester City last 5 league matches in Football-Data.co.uk results: 2 wins, 0 draws, 3 defeats, 6 points, 8 goals scored, 8 conceded (sequence WWLLL).",
+      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Fulham last 5 league matches in Football-Data.co.uk results: 2 wins, 2 draws, 1 defeat, 8 points, 5 goals scored, 4 conceded (sequence LWWDD).",
+      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST3",
+      "kind": "stats",
+      "text": "Last meeting in Football-Data.co.uk results: 2026-02-11, Manchester City 3-0 Fulham.",
+      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Man City thrash Inter to claim first CL win of season. Manchester City come from behind to beat Inter Milan in style for their first Champions League win of the season.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/videos/cwzd6d9zrlz7o?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "published_at": "2026-11-11T04:08:06+00:00",
+  "draft_id": "a73babc63a",
+  "story_ids": [],
+  "mode": "template",
+  "revision": 0
+}
