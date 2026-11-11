@@ -1,0 +1,45 @@
+{
+  "slug": "liverpool-the-touchline-take-on-the-dugout-2026-11-11",
+  "title": "Liverpool: the Touchline Take on the dugout",
+  "body": "Sky Sports has a dugout story involving Liverpool [S1]. The headline said it plainly: “From the sack in Cyprus to Liverpool: Iraola's first job explained” [S1]. The names in the frame: Andoni Iraola [S1].\n\nIn our Football-Data.co.uk results, Liverpool have 3 wins, 0 draws and 2 defeats from their last 5 league games: 9 points, 7 scored and 6 conceded [ST1].\n\nEvery board loves a fresh start; fans just want a plan that survives a bad month. The sack is the easiest lever to pull and the hardest one to get right. The Touchline Take: get the next appointment right and this is forgotten.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Liverpool"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13576948/andoni-iraola-was-sacked-from-his-first-job-at-aek-larnaca-in-cyprus-liverpool-managers-difficult-career-start-explained",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: From the sack in Cyprus to Liverpool: Iraola's first job explained. Not every successful career starts spectacularly well but Andoni Iraola's journey to Liverpool will take some beating. Seven years ago, he was sacked from his first job in management after a winless streak in the Cypriot top division with AEK Larnaca.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13576948/andoni-iraola-was-sacked-from-his-first-job-at-aek-larnaca-in-cyprus-liverpool-managers-difficult-career-start-explained"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Liverpool last 5 league matches in Football-Data.co.uk results: 3 wins, 0 draws, 2 defeats, 9 points, 7 goals scored, 6 conceded (sequence LWWLW).",
+      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-11T11:07:05+00:00",
+  "draft_id": "fdf0528227",
+  "story_ids": [
+    "4b213e31e6c7"
+  ],
+  "mode": "template",
+  "revision": 0
+}
