@@ -24,6 +24,12 @@ football fans form momentum pressure confidence numbers data history patience no
 results matches games seasons things truth question questions answer reality mood time
 every expect credit make give call look think forget remember imagine honestly frankly
 sometimes maybe perhaps somebody well sure fair worse better big huge trust watch talk
+over under after before since during despite through without within behind between against
+among around ahead along across beyond into onto upon about above below off out up down
+he she him her his hers them us me my mine its theirs ours yours who whom whose which
+set last next first second third another other such same several most least none neither
+multiple across three two four five six seven eight nine ten twice once again already
+yes then thus therefore however instead otherwise indeed still nor
 """.split())
 
 

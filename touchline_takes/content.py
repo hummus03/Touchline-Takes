@@ -19,6 +19,7 @@ from urllib.parse import urlparse
 from touchline_takes.agents.factcheck import check_draft
 from touchline_takes.state import Draft, Evidence, utcnow_iso
 from touchline_takes.tools.text import word_count
+from touchline_takes.tools.x_poster import intent_url
 
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 REQUIRED = ("slug", "title", "body", "article_type", "evidence", "published_at")
@@ -103,10 +104,13 @@ def load_articles(content_dir: str | Path) -> tuple[list[dict[str, Any]], dict[s
     return articles, errors
 
 
-def review_body(draft: Draft, slug: str, path: str) -> str:
+def review_body(draft: Draft, slug: str, path: str,
+                site_url: str = "https://touchlinetakes.com") -> str:
     """Markdown description for the review pull request."""
     checks = [c for c in check_draft(draft) if c.is_claim]
     sourced = sum(c.supported for c in checks)
+    share = intent_url({"slug": slug, "title": draft.title, "body": draft.body,
+                        "mode": draft.mode}, site_url)
     lines = [
         f"## {draft.title}", "",
         f"**Type:** {draft.article_type.replace('_', ' ')} · **League:** {draft.league or '-'} "
@@ -128,6 +132,8 @@ def review_body(draft: Draft, slug: str, path: str) -> str:
         "", "### How to review", "",
         "- **Merge** this pull request to publish the article on the site.",
         "- **Close** it to reject the article.",
+        f"- **Share:** once the site has updated (about a minute after merging), "
+        f"[**Post to X**]({share}) opens X with the post written; check it and press Post.",
         f"- To change the wording, edit `{path}` in this PR before merging. The site build "
         "re-checks every claim against its cited source and refuses to publish a claim "
         "without one.",

@@ -118,9 +118,10 @@ SYSTEM_PROMPT = (
     "(any name, number, date, result or event) must be stated in the evidence it cites, and "
     "must end with that citation marker, e.g. [S1] or [ST1]. Use only the evidence you are "
     "given: nothing from memory, no invented quotes, no guesses presented as fact. Opinion "
-    "sentences carry no citation and must not name any club, person, place or number: write "
-    "'they', 'the side' or 'the manager' instead. Any sentence that names one needs a "
-    "citation, including your opening line.")
+    "sentences in the body carry no citation and must not name any club, person, place or "
+    "number: write 'they', 'the side' or 'the manager' instead. Any body sentence that names "
+    "one needs a citation, including your opening line. The headline is different: it must "
+    "name the club the article is about.")
 # Template copy is a fallback: it can report a result, a sacking or a transfer, but on a
 # general story (a gossip column, a feature) it has nothing to add beyond the headline.
 TEMPLATE_TOPICS = {"match_report", "manager", "transfer", "injury", "discipline"}
@@ -506,7 +507,8 @@ class WriterAgent(Agent):
                   "and say what they suggest.",
                   "4. Give a clear, arguable opinion as a pundit would, without new facts.",
                   "End with a one-line verdict starting 'The Touchline Take:'.",
-                  "Write a punchy, specific headline (not 'the Touchline Take on...').",
+                  "Write a punchy, specific headline that names the club (both clubs for a "
+                  "match), not 'the Touchline Take on...'.",
                   "Reply as:\nTITLE: <headline>\n\n<body>"]
         if draft is not None:
             lines += ["", "REVISION REQUEST: fix these problems:"]

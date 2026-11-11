@@ -177,7 +177,8 @@ def _publish_staged(staged: list[tuple[Draft, dict, str]], db: Database, ops: Gi
 
 
 def export_pending(db: Database, ops: GitOps, content_dir: str = "content/articles",
-                   auto_publish: bool = False) -> ExportResult:
+                   auto_publish: bool = False,
+                   site_url: str = "https://touchlinetakes.com") -> ExportResult:
     """Send every ``pending_review`` draft to GitHub (PRs, or straight to main)."""
     result = ExportResult()
     pending = db.drafts_by_status("pending_review")
@@ -205,7 +206,7 @@ def export_pending(db: Database, ops: GitOps, content_dir: str = "content/articl
         else:
             try:
                 url = ops.open_review_pr(draft.id, {path: article_text(record)}, draft.title,
-                                         review_body(draft, record["slug"], path))
+                                         review_body(draft, record["slug"], path, site_url))
             except GitOpsError as exc:
                 result.errors.append(f"{draft.id}: {exc}")
                 continue  # stays pending_review; retried next run

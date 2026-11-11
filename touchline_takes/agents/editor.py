@@ -10,6 +10,7 @@ from touchline_takes.agents.base import Agent
 from touchline_takes.agents.factcheck import check_draft
 from touchline_takes.db import Database
 from touchline_takes.state import Draft, NewsroomState
+from touchline_takes.tools.teams import TeamDirectory
 from touchline_takes.tools.text import (shared_ngram, strip_citations, without_quotes,
                                         word_count)
 
@@ -37,11 +38,20 @@ class EditorAgent(Agent):
     name = "editor"
 
     def __init__(self, db: Database, style: StyleGuide | None = None,
-                 max_revisions: int = 2) -> None:
+                 max_revisions: int = 2, teams: TeamDirectory | None = None) -> None:
         super().__init__()
+        self.teams = teams
         self.db = db
         self.style = style or StyleGuide()
         self.max_revisions = max_revisions
+
+    def _names_a_club(self, draft: Draft) -> bool:
+        """A headline should say who it's about: "Out of the Frame? The Dugout Decision
+        Facing a Club in Trouble" tells a reader (or a timeline) nothing."""
+        if self.teams is not None:
+            return bool(set(self.teams.find_teams(draft.title)) & set(draft.teams))
+        title = draft.title.lower()
+        return any(team.lower() in title for team in draft.teams)
 
     def review(self, draft: Draft) -> list[str]:
         """Return a list of problems (empty means approved)."""
@@ -55,12 +65,15 @@ class EditorAgent(Agent):
         if not style.min_title <= len(draft.title) <= style.max_title:
             problems.append(f"title length {len(draft.title)} outside "
                             f"{style.min_title}-{style.max_title} characters")
+        if draft.teams and not self._names_a_club(draft):
+            problems.append(f"headline: name the club ({draft.teams[0]}) in the headline")
         lower = draft.body.lower()
         problems += [f"banned phrase: '{p}'" for p in BANNED_PHRASES if p in lower]
         if draft.body.count("!") > style.max_exclamations:
             problems.append("tone: too many exclamation marks")
+        # Form strings ("WWLDL") are data, not shouting.
         shouting = [w for w in re.findall(r"\b[A-Z]{4,}\b", strip_citations(draft.body))
-                    if w not in ACRONYMS]
+                    if w not in ACRONYMS and not re.fullmatch(r"[WDL]+", w)]
         if shouting:
             problems.append(f"tone: avoid shouting ({', '.join(shouting[:3])})")
         checks = check_draft(draft)

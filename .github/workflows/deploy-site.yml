@@ -69,10 +69,12 @@ jobs:
       - id: deployment
         uses: actions/deploy-pages@v4
 
-  # Posts each newly published article to X once the site is live. Off until the
-  # four X_* secrets exist. Which articles were posted is kept on the social-state
-  # branch; a failed post is retried on the next deploy and never fails this one.
-  post-to-x:
+  # Posts each newly published article to social networks once the site is live.
+  # Bluesky (free) runs when its two secrets exist. X costs credits per post, so it also
+  # needs the repository variable X_AUTO_POST=true. Which articles were posted is kept
+  # on the social-state branch; a failed post is retried on the next deploy and never
+  # fails this one.
+  post-social:
     needs: deploy
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -81,6 +83,8 @@ jobs:
     env:
       STATE_BRANCH: social-state
       STATE_DIR: .social
+      BLUESKY_HANDLE: ${{ vars.BLUESKY_HANDLE }}
+      BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
       X_API_KEY: ${{ secrets.X_API_KEY }}
       X_API_SECRET: ${{ secrets.X_API_SECRET }}
       X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
@@ -100,9 +104,14 @@ jobs:
       - name: Restore what has been posted
         run: scripts/newsroom_state.sh restore
 
-      - name: Post new articles to X
+      - name: Post new articles to Bluesky
         continue-on-error: true
-        run: python scripts/post_to_x.py --state .social/x_posted.json
+        run: python scripts/post_social.py --network bluesky --state .social/bluesky_posted.json
+
+      - name: Post new articles to X
+        if: vars.X_AUTO_POST == 'true'
+        continue-on-error: true
+        run: python scripts/post_social.py --network x --state .social/x_posted.json
 
       - name: Save what has been posted
         run: scripts/newsroom_state.sh save

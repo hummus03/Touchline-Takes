@@ -135,7 +135,7 @@ class Newsroom:
             writer=WriterAgent(db, teams, ResultsStore(load_results(settings.results_dir), label),
                                research, llm, settings.max_articles_per_run),
             factcheck=FactCheckAgent(db, settings.max_revisions, teams=teams, verifier=verifier),
-            editor=EditorAgent(db, max_revisions=settings.max_revisions),
+            editor=EditorAgent(db, max_revisions=settings.max_revisions, teams=teams),
             # Static mode: the export step publishes (commits to main), so drafts always queue.
             publisher=PublisherAgent(db, settings.auto_publish and not settings.is_static),
             checkpointer=newsroom_graph.make_checkpointer(settings.checkpoint_path),

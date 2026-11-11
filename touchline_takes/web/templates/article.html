@@ -19,6 +19,11 @@
   <h1>{{ article.title }}</h1>
   <p class="meta">Published {{ article.published_at[:10] }} by the {{ brand }} newsroom</p>
   <div class="body">{{ article.body | render_body }}</div>
+  {% set share_text = article.title ~ "\n\n" ~ canonical_url %}
+  <p class="share small">Share:
+    <a href="https://x.com/intent/post?text={{ share_text | urlencode }}" rel="noopener" target="_blank">X</a> ·
+    <a href="https://bsky.app/intent/compose?text={{ share_text | urlencode }}" rel="noopener" target="_blank">Bluesky</a>
+  </p>
   {% if photo_tags %}
   <section class="photo-tags" aria-labelledby="photo-tags">
     <h2 id="photo-tags">Source photo, as our tagger sees it</h2>
