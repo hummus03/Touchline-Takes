@@ -1,0 +1,57 @@
+{
+  "slug": "chelsea-the-touchline-take-on-the-result-2026-11-11",
+  "title": "Chelsea: the Touchline Take on the result",
+  "body": "Sky Sports has a match story involving Chelsea [S1]. The headline said it plainly: “Hacken 0-0 Chelsea commentary” [S1]. For context, BBC Sport also ran: “Chelsea play out goalless draw with Hacken” [S2].\n\nIn our Football-Data.co.uk results, Chelsea have 3 wins, 0 draws and 2 defeats from their last 5 league games: 9 points, 9 scored and 4 conceded [ST1].\n\nThere is no hiding from a scoreline, and this one will be picked apart all week. It was the kind of game that tells you more about character than about tactics. The Touchline Take: file this one under unfinished business.",
+  "article_type": "match_report",
+  "league": "Premier League",
+  "teams": [
+    "Chelsea"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/bk-hcken-women-vs-chelsea-women/live/578259",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/videos/c62keklwjpe0o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Hacken 0-0 Chelsea commentary. Hacken 0-0 Chelsea commentary",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/bk-hcken-women-vs-chelsea-women/live/578259"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Chelsea play out goalless draw with Hacken. Chelsea maintain their unbeaten start in the Women's Champions League but were frustrated by Hacken who pick up their second point in this season's competition.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/videos/c62keklwjpe0o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Chelsea last 5 league matches in Football-Data.co.uk results: 3 wins, 0 draws, 2 defeats, 9 points, 9 goals scored, 4 conceded (sequence WWLWL).",
+      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-11T04:49:59+00:00",
+  "draft_id": "78d7924e51",
+  "story_ids": [
+    "96f0c1e6bb67"
+  ],
+  "mode": "template",
+  "revision": 0
+}
