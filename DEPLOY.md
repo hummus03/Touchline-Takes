@@ -14,7 +14,7 @@ There are two ways to run the site:
 ## How it works
 
 ```
-every 3 hours  ┌──────────────────── Newsroom workflow ────────────────────┐
+twice a day    ┌──────────────────── Newsroom workflow ────────────────────┐
                │ restore state → download results → run the newsroom → open │
                │ one pull request per approved draft → save state           │
                └───────────────────────────────────────────────────────────┘
@@ -80,7 +80,7 @@ In **Settings → Secrets and variables → Actions**:
 |---|---|---|
 | `TOUCHLINE_LIVE` | `true` | the on switch |
 | `LLM_PROVIDER` | `offline` | free template writer (default). `anthropic` needs the secret below and costs money per article. |
-| `LLM_MODEL` | `claude-haiku-5-5` | default in the workflow: roughly $2 a month at one run every 3 hours. `claude-sonnet-5-5` or `claude-opus-5-5` write better and cost about 15-40x more. Set a monthly spend limit in the Claude Console either way. |
+| `LLM_MODEL` | `claude-haiku-5-5` | default in the workflow: about $1 a month or less at two runs a day (at most 12 articles). `claude-sonnet-5-5` or `claude-opus-5-5` write better and cost about 15-40x more. Set a monthly spend limit in the Claude Console either way. |
 | `AUTO_PUBLISH` | `false` | `true` skips your review and commits articles straight to `main` |
 | `RESULTS_SEASONS` | `2425 2526 2627` | optional, this is the default |
 | `RSS_FEEDS` | comma-separated feed URLs | optional, default is BBC Sport, The Guardian and Sky Sports football. Check each feed's terms. |
@@ -131,7 +131,8 @@ record it shows you at GoDaddy.
 4. **Merge** the ones you want published and **close** the rest.
 
 Each merge triggers **Deploy site**, and the article is live a minute or two later. After
-that, the newsroom runs by itself every 3 hours.
+that, the newsroom runs by itself twice a day, at 07:23 and 19:23 UTC (change the `cron`
+line in `.github/workflows/newsroom.yml` to run more often).
 
 ### Day to day
 

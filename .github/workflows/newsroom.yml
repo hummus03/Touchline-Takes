@@ -4,7 +4,9 @@ name: Newsroom
 
 on:
   schedule:
-    - cron: "23 */3 * * *"   # every 3 hours
+    # Twice a day (UTC): 07:23 picks up evening and midweek-night games, 19:23 the
+    # Saturday 3pm kick-offs and the day's news. At most 12 articles a day.
+    - cron: "23 7,19 * * *"
   workflow_dispatch:
 
 permissions:
@@ -29,7 +31,7 @@ env:
   PHOTO_TAGGER: "false"
   RSS_FEEDS: ${{ vars.RSS_FEEDS || 'https://feeds.bbci.co.uk/sport/football/rss.xml,https://www.theguardian.com/football/rss,https://www.skysports.com/rss/12040' }}
   LLM_PROVIDER: ${{ vars.LLM_PROVIDER || 'offline' }}
-  LLM_MODEL: ${{ vars.LLM_MODEL || 'claude-haiku-5-5' }}   # ~$2/month at this schedule
+  LLM_MODEL: ${{ vars.LLM_MODEL || 'claude-haiku-5-5' }}   # well under $2/month at this schedule
   LLM_MAX_CALLS_PER_RUN: ${{ vars.LLM_MAX_CALLS_PER_RUN || '40' }}
   AUTO_PUBLISH: ${{ vars.AUTO_PUBLISH || 'false' }}
   MAX_ARTICLES_PER_RUN: ${{ vars.MAX_ARTICLES_PER_RUN || '6' }}
