@@ -31,6 +31,10 @@ PRICES = {
     "gpt-4o-mini": (0.15, 0.60),
 }
 DEFAULT_MODELS = {"anthropic": "claude-opus-5-5", "openai": "gpt-4o-mini"}
+# Models that accept server-side refusal fallbacks; others (e.g. Claude Haiku 5.5) reject
+# the parameter, so it is only sent to these.
+FALLBACK_MODELS = {"claude-opus-5-5", "claude-opus-5", "claude-sonnet-5-5",
+                   "claude-fable-5-2", "claude-fable-5-1"}
 
 
 class LLMError(RuntimeError):
@@ -190,17 +194,22 @@ class AnthropicLLM(LLMClient):
             "model": self.model, "max_tokens": max_tokens,
             "messages": [{"role": "user", "content": prompt}],
             "output_config": {"effort": self.effort},
-            # Server-side fallback on refusals (see Anthropic docs).
-            "betas": ["server-side-fallback-2026-07-01"], "fallbacks": "default",
         }
         if system:
             kwargs["system"] = system
         try:
-            response = self.client.beta.messages.create(**kwargs)
+            if self.model in FALLBACK_MODELS:
+                # Server-side fallback on refusals (see Anthropic docs).
+                response = self.client.beta.messages.create(
+                    **kwargs, betas=["server-side-fallback-2026-07-01"], fallbacks="default")
+            else:
+                response = self.client.messages.create(**kwargs)
         except self._api_error as exc:
             raise LLMError(f"anthropic call failed: {exc}") from exc
         if response.stop_reason == "refusal":
             raise LLMError("anthropic declined the request (refusal)")
+        if response.stop_reason == "max_tokens":
+            raise LLMError(f"anthropic reply cut off at max_tokens={max_tokens}")
         text = "".join(b.text for b in response.content if b.type == "text").strip()
         usage = response.usage
         return LLMResponse(

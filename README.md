@@ -213,7 +213,7 @@ flask --app "touchline_takes.web:create_app()" run
 See **[DEPLOY.md](DEPLOY.md)**. In short:
 
 - **Free option, static mode** (`SITE_MODE=static`):
-  - GitHub Actions runs the newsroom every 3 hours and opens a pull request for each
+  - GitHub Actions runs the newsroom twice a day (07:23 and 19:23 UTC) and opens a pull request for each
     approved draft. Merge to publish, close to reject.
   - GitHub Pages serves the site, built from `content/articles/*.json`. Every article is
     re-validated at build time, so a hand edit can't sneak in an unsourced claim.
