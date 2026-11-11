@@ -37,7 +37,7 @@ TOPIC_KEYWORDS = {
                  r"\bon (?:their|the) radar\b"],
     "injury": [r"\binjur", r"\bruled out\b", r"\bhamstring\b", r"\bknee\b", r"\bsidelined\b",
                r"\bfitness\b", r"\bankle\b", r"\bsurgery\b", r"\btreatment\b"],
-    "manager": [r"\bsacked\b", r"\bappointed\b", r"\bhead coach\b", r"\bdismissed\b",
+    "manager": [r"\bsack(?:s|ed|ing)?\b", r"\bappointed\b", r"\bhead coach\b", r"\bdismissed\b",
                 r"\bresign", r"\bboss\b", r"\b(?:manager(?:ial)?|coaching) (?:job|post|role)\b",
                 r"\blinked with [\w\s]{0,30}\bjob\b", r"\bmanager ins and outs\b",
                 r"\bmanag(?:er|ers|erial)\b"],
@@ -47,9 +47,10 @@ TOPIC_KEYWORDS = {
     "preview": [r"\bpreview\b", r"\bahead of\b", r"\bthis weekend\b", r"\bwill host\b",
                 r"\bhost\b", r"\btravel to\b", r"\bupcoming\b"],
 }
-# A story only counts as a match report if it has a scoreline, or its headline uses a
-# result verb. Words like "win" or "defeat" on their own ("title win", "World Cup
-# winner", "semi-final defeat") turned features and transfer stories into match reports.
+# A story only counts as a match report if its headline has a scoreline or a result
+# verb: Guardian summaries run to a paragraph and mention earlier results in passing.
+# Words like "win" or "defeat" on their own ("title win", "World Cup winner",
+# "semi-final defeat") turned features and transfer stories into match reports.
 SCORE_RE = re.compile(r"(?<![\d-])\d{1,2}\s?[-–]\s?\d{1,2}(?![\d-])")
 TITLE_RESULT_RE = re.compile(
     r"\b(beat|beats|thrash(?:es|ed)?|stun(?:s|ned)?|held|hold|draw (?:with|at|against)|"
@@ -59,6 +60,9 @@ TITLE_RESULT_RE = re.compile(
     re.I)
 AWARD_RE = re.compile(r"\b(vote|voting|award|awards|of the year|nominee|nominated|ballon d'or)\b",
                       re.I)
+# Legal and governance stories use "deal" and "in talks" too, but aren't transfers.
+LEGAL_RE = re.compile(r"\b(lawyers?|court|fraud|charges?|police|tribunal|whistleblower|"
+                      r"investigation|hearing|lawsuit)\b", re.I)
 TOPIC_WEIGHTS = {"manager": 1.6, "transfer": 1.3, "injury": 1.5, "discipline": 1.4,
                  "preview": 1.6, "match_report": 1.0}
 POSITIVE = set("""win wins won beat victory thrash thrashed brilliant superb stunning delight
@@ -139,10 +143,10 @@ class LexiconClassifier(BaseClassifier):
                 score += 2 * len(re.findall(pattern, title, re.I))
                 score += len(re.findall(pattern, summary, re.I))
             scores[topic] = score * TOPIC_WEIGHTS.get(topic, 1.0)
-        if not (SCORE_RE.search(f"{title} {summary}") or TITLE_RESULT_RE.search(title)):
+        if not (SCORE_RE.search(title) or TITLE_RESULT_RE.search(title)):
             scores["match_report"] = 0.0
-        if AWARD_RE.search(title):
-            return "general"  # awards shortlists aren't transfer shortlists
+        if AWARD_RE.search(title) or LEGAL_RE.search(title):
+            return "general"  # awards shortlists and legal "deals" aren't transfer stories
         for topic in ("transfer", "injury", "manager", "discipline", "preview"):
             # A passing mention in the summary ("...after Joao Pedro's injury...") doesn't
             # make a story about that topic: the headline has to say so too.

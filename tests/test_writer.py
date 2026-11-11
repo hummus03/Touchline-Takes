@@ -131,6 +131,11 @@ def test_names_cases(db, teams):
         ("Everyone remembers Pep Guardiola's Manchester City winning the cup four times.",
          ["Manchester City"], ["Pep Guardiola"]),
         ("Scott McTominay opens up about his recovery.", [], ["Scott McTominay"]),
+        # Guardian/Sky patterns
+        ("Former Spurs manager Frank is the main candidate.", [], []),
+        ("A deal with Rui Pinto He said it was fair.", [], []),
+        ("Test Wire' Paul Merson says the policy is to blame.", [], ["Paul Merson"]),
+        ("It happened only once before, to Sheffield Wednesday in 1904-05.", [], []),
     ]
     for summary, story_teams, expected in cases:
         assert writer._names(story_with(summary, teams=story_teams)) == expected, summary  # pylint: disable=protected-access
@@ -260,3 +265,15 @@ def test_same_match_from_two_outlets_is_one_article(db, teams):
     assert len(make_writer(db, teams).plan(state)) == 1
     assert any(log.action == "merged" and "Arsenal v Chelsea" in log.detail
                for log in state.logs)
+
+
+def test_seasons_and_years_are_not_scores_or_details(db, teams):
+    """'1904-05' is a season, not a result; 'in November 2026' isn't a detail."""
+    story = story_with("After three straight defeats, the manager will reassess. It happened "
+                       "once before, in 1904-05. Not in November 2026.",
+                       title="Manchester City's weaknesses are being exposed",
+                       teams=["Manchester City", "Nottingham Forest"], topic="match_report")
+    comp = make_writer(db, teams).compose(Assignment("match_report", story=story))
+    assert "1904" not in " ".join(comp.facts)
+    assert "One detail from the report stands out: “After three straight defeats” [S1]." \
+        in comp.facts

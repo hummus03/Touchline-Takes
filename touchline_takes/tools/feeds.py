@@ -25,6 +25,36 @@ USER_AGENT = "TouchlineTakesBot/0.1 (+https://touchlinetakes.com)"
 SOURCE_NAMES = {"bbc.co.uk": "BBC Sport", "bbci.co.uk": "BBC Sport",
                 "theguardian.com": "The Guardian", "skysports.com": "Sky Sports"}
 TRAILER_RE = re.compile(r"\s*(?:Continue reading|Read more|Full story)\s*(?:\.\.\.|…)?\s*$", re.I)
+# Newsletter plugs inside summaries ("Sign up now! Sign up now!", "Subscribe for free here").
+PROMO_RE = re.compile(
+    r"(?:\bSign up (?:now|here|for [^.!?]{0,60}?(?:newsletter|email)(?:\s+here)?)[.!?]?\s*)+|"
+    r"\bThis is an extract from [^.]{0,120}\.\s*(?:Subscribe[^.]{0,60}\.?)?|"
+    r"\bSubscribe (?:for free )?here\s*\.?", re.I)
+# Not news articles: live blogs, commentary, newsletters, podcasts, videos, quizzes.
+FORMAT_TITLE_RE = re.compile(
+    r"(?:\bcommentary$|(?:^|[-–|:]\s*)live\b|as it happened|^Football Daily\b|Football Weekly|"
+    r"\| The Knowledge|\bpodcast\b|\bquiz\b|\bvideo\b|\bin pictures\b)", re.I)
+FORMAT_URL_RE = re.compile(r"/(?:live|video|videos|audio|podcasts?|gallery|picture)/", re.I)
+# Touchline Takes covers men's senior football; the classifier only skips "Chelsea Women".
+WOMENS_RE = re.compile(
+    r"\bwomen(?:'s|’s)?\b|\bWSL\b|\bWCL\b|\bLionesses\b|\bNWSL\b|\bLiga F\b", re.I)
+# Outlets whose feeds mix sports: keep only football URLs.
+FOOTBALL_PATH = {"skysports.com": "/football/"}
+
+
+def skip_reason(story: Story) -> str:
+    """Why a feed item isn't a football news story we can write from ('' = keep it)."""
+    host = (urlparse(story.url).hostname or "").lower()
+    path = urlparse(story.url).path
+    for domain, section in FOOTBALL_PATH.items():
+        if (host == domain or host.endswith("." + domain)) and section not in path:
+            return "not football"
+    if FORMAT_TITLE_RE.search(story.title) or FORMAT_URL_RE.search(path):
+        return "not a news article"
+    if WOMENS_RE.search(story.title) or "women" in path.lower() \
+            or WOMENS_RE.search(story.summary[:300]):
+        return "women's football"
+    return ""
 
 
 def source_name(url: str) -> str:
@@ -77,8 +107,8 @@ def parse_feed(xml_text: str, default_source: str = "") -> list[Story]:
     for entry in parsed.entries:
         title = strip_html(entry.get("title", ""))
         url = entry.get("link", "").strip()
-        summary = TRAILER_RE.sub("", strip_html(entry.get("summary", "")
-                                                or entry.get("description", "")))
+        summary = strip_html(entry.get("summary", "") or entry.get("description", ""))
+        summary = re.sub(r"\s+", " ", PROMO_RE.sub(" ", TRAILER_RE.sub("", summary))).strip()
         if not title or not url:
             continue
         stories.append(Story(

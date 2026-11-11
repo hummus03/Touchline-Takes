@@ -6,7 +6,7 @@ from touchline_takes.agents.base import Agent
 from touchline_takes.db import Database
 from touchline_takes.state import NewsroomState, Story
 from touchline_takes.tools.embeddings import Embeddings, cosine_matrix
-from touchline_takes.tools.feeds import FeedClient
+from touchline_takes.tools.feeds import FeedClient, skip_reason
 
 
 class IngestAgent(Agent):
@@ -61,8 +61,15 @@ class IngestAgent(Agent):
         fetched = result.stories
         seen_urls: set[str] = set()
         fresh = []
+        skipped = 0
         for story in fetched:
             if story.url in seen_urls or self.db.story_url_exists(story.url):
+                continue
+            reason = skip_reason(story)
+            if reason:
+                seen_urls.add(story.url)
+                skipped += 1
+                self.log(state, "skipped", f"{reason}: {story.source}: {story.title}", story.id)
                 continue
             seen_urls.add(story.url)
             fresh.append(story)
@@ -76,5 +83,5 @@ class IngestAgent(Agent):
                 self.log(state, "stored", f"{story.source}: {story.title}", story.id)
         state.metrics["ingest"] = {
             "fetched": len(fetched), "new": len(state.new_stories),
-            "duplicates": len(duplicates), "fallback": result.used_fallback}
+            "duplicates": len(duplicates), "skipped": skipped, "fallback": result.used_fallback}
         return state

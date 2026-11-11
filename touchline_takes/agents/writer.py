@@ -21,7 +21,7 @@ from touchline_takes.agents.base import Agent
 from touchline_takes.db import Database
 from touchline_takes.state import Draft, Evidence, NewsroomState, Story
 from touchline_takes.tools.llm import LLMClient, LLMError
-from touchline_takes.tools.relations import extract_results, headline_winner
+from touchline_takes.tools.relations import SCORE_RE, extract_results, headline_winner
 from touchline_takes.tools.stats import ResultsStore
 from touchline_takes.tools.teams import TeamDirectory
 from touchline_takes.tools.text import split_paragraphs
@@ -29,10 +29,12 @@ from touchline_takes.tools.text import split_paragraphs
 ROLE_WORDS = {"midfielder", "striker", "forward", "winger", "manager", "defender", "goalkeeper",
               "substitute", "captain", "head", "coach", "boss", "centre-back", "full-back",
               "the", "a", "an", "local"}
+PRONOUNS = {"He", "She", "They", "It", "His", "Her", "Their", "We", "I", "You"}
 PLACE_WORDS = {"Park", "Stadium", "Arena", "Road", "Lane", "Ground",
                # club names ("Wimborne Town", "Dover Athletic") aren't people either
                "Town", "City", "United", "Athletic", "Rovers", "County", "Albion",
-               "Wanderers", "Rangers", "Hotspur", "FC", "AFC", "Borough", "Villa"}
+               "Wanderers", "Rangers", "Hotspur", "FC", "AFC", "Borough", "Villa",
+               "Wednesday", "Forest", "Palace", "Argyle", "Alexandra", "Orient"}
 # Countries and national teams with multi-word names: not people "in the frame".
 NATIONS = {"Northern Ireland", "Republic Of Ireland", "United States", "South Korea",
            "North Korea", "Saudi Arabia", "New Zealand", "Costa Rica", "Ivory Coast",
@@ -284,8 +286,15 @@ class WriterAgent(Agent):
             words = match.group(0).split()
             if words[0] == "By":
                 continue  # "By Sami Mokbel": a byline
-            while words and words[0].lower() in ROLE_WORDS | JOURNALIST_WORDS | {"senior"}:
+            source = story.source.split()
+            if words[:len(source)] == source[:-1] + [source[-1] + "'"] or \
+                    words[:len(source)] == source[:-1] + [source[-1] + "’"]:
+                words = words[len(source):]  # "Sky Sports' Paul Merson" -> "Paul Merson"
+            while words and words[0].lower() in ROLE_WORDS | JOURNALIST_WORDS | {"senior",
+                                                                                 "former"}:
                 words = words[1:]
+            if any(w in PRONOUNS for w in words):
+                continue  # "Pinto He": two sentences run together, not a name
             sponsor = False
             for i, w in enumerate(words):  # "Pep Guardiola's Manchester City" -> "Pep Guardiola"
                 if w.endswith(("'s", "’s")):
@@ -326,11 +335,13 @@ class WriterAgent(Agent):
         Only whole phrases (4-14 words, not ending on a dangling word) are quoted, so
         a quote never stops mid-sentence.
         """
-        for frag in re.split(r"[.,;:–—]|\band\b|\bas\b|\bbut\b", story.summary):
+        for frag in re.split(r"[.;:!?–—]|,(?!\d)|\band\b|\bas\b|\bbut\b", story.summary):
             words = frag.split()
             if not 4 <= len(words) <= 14 or words[-1].lower() in DANGLING:
                 continue
-            if re.search(rf"\b{NUMBER_WORDS}\b", frag) and not re.search(r"\b\d+-\d+\b", frag):
+            # A year alone ("Not in November 2026") isn't a detail worth quoting.
+            numbers = re.findall(rf"\b{NUMBER_WORDS}\b", re.sub(r"\b(?:19|20)\d\d\b", "", frag))
+            if numbers and not re.search(r"\b\d+-\d+\b", frag):
                 return " ".join(words)
         return None
 
@@ -338,7 +349,7 @@ class WriterAgent(Agent):
         evidence = [self._story_evidence("S1", story)]
         facts = []
         teams = story.teams[:2]
-        score = re.search(r"\b(\d+)-(\d+)\b", story.text)
+        score = SCORE_RE.search(story.title) or SCORE_RE.search(story.summary)
         winner = headline_winner(story.title, self.teams, story.teams) \
             if len(teams) >= 2 else None
         if story.topic == "match_report" and len(teams) >= 2 and score:

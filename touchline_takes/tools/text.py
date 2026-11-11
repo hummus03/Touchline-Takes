@@ -27,10 +27,24 @@ sometimes maybe perhaps somebody well sure fair worse better big huge trust watc
 """.split())
 
 
+BLOCK_END_RE = re.compile(r"</(?:p|li|h[1-6]|div|blockquote)>|<br\s*/?>", re.I)
+
+
 def strip_html(text: str) -> str:
-    """Remove tags/entities and collapse whitespace."""
-    text = html.unescape(TAG_RE.sub(" ", text or ""))
-    return re.sub(r"\s+", " ", text).strip()
+    """Remove tags/entities and collapse whitespace.
+
+    Block elements (paragraphs, list items) end a sentence, so a Guardian standfirst
+    such as ``<p>Exit not confirmed</p><ul><li>Return could benefit Palace</li></ul>``
+    doesn't run its lines together.
+    """
+    parts = BLOCK_END_RE.split(text or "")
+    lines = [re.sub(r"\s+", " ", html.unescape(TAG_RE.sub(" ", part))).strip()
+             for part in parts]
+    lines = [line for line in lines if line]
+    if len(lines) > 1:
+        lines = [line if line[-1] in ".!?…:;\"”’'" else line + "." for line in lines[:-1]] \
+            + lines[-1:]
+    return " ".join(lines)
 
 
 def _open_quote(text: str) -> bool:
