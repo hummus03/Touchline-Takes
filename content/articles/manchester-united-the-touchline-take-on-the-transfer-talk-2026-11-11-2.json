@@ -1,0 +1,57 @@
+{
+  "slug": "manchester-united-the-touchline-take-on-the-transfer-talk-2026-11-11-2",
+  "title": "Manchester United: the Touchline Take on the transfer talk",
+  "body": "Sky Sports has a transfer story involving Manchester United [S1]. The headline said it plainly: “Man Utd close to agreeing Poch deal as Carrick reports for work” [S1]. The names in the frame: Mauricio Pochettino and Michael Carrick [S1].\n\nFor context, The Guardian also ran: “Manchester United close on Mauricio Pochettino deal before settling Carrick’s fate” [S2]. In our Football-Data.co.uk results, Manchester United have 0 wins, 3 draws and 2 defeats from their last 5 league games: 3 points, 6 scored and 11 conceded [ST1].\n\nIf this one goes through, it says plenty about where the club thinks it is heading. The smart money is on patience: rushed deals rarely age well. The Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester United"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13610862/mauricio-pochettino-man-utd-close-to-agreeing-deal-with-michael-carricks-potential-successor-ahead-of-monaco-meeting",
+      "kind": "story"
+    },
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/11/manchester-united-close-mauricio-pochettino-deal-michael-carrick",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Man Utd close to agreeing Poch deal as Carrick reports for work. Manchester United are close to agreeing a deal with Mauricio Pochettino to become their next head coach if they decide to sack Michael Carrick.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13610862/mauricio-pochettino-man-utd-close-to-agreeing-deal-with-michael-carricks-potential-successor-ahead-of-monaco-meeting"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "The Guardian: Manchester United close on Mauricio Pochettino deal before settling Carrick’s fate. Pochettino wants to leave USA role for United. United board meeting scheduled for Wednesday. Manchester United are closing in on agreeing a deal for Mauricio Pochettino to become their head coach if Michael Carrick is sacked in line with the recommendation from Jason Wilcox, the director of football, and Omar Berrada, the chief executive, to Sir Jim Ratcliffe. Pochettino is the US men’s national team head coach but wants the United job if, as expected, Carrick is removed.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/11/manchester-united-close-mauricio-pochettino-deal-michael-carrick"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 3 draws, 2 defeats, 3 points, 6 goals scored, 11 conceded (sequence DDLLD).",
+      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-11T11:07:10+00:00",
+  "draft_id": "19c1c003d6",
+  "story_ids": [
+    "a98363c3b238"
+  ],
+  "mode": "template",
+  "revision": 0
+}
