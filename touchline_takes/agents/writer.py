@@ -29,7 +29,10 @@ from touchline_takes.tools.text import split_paragraphs
 ROLE_WORDS = {"midfielder", "striker", "forward", "winger", "manager", "defender", "goalkeeper",
               "substitute", "captain", "head", "coach", "boss", "centre-back", "full-back",
               "the", "a", "an", "local"}
-PLACE_WORDS = {"Park", "Stadium", "Arena", "Road", "Lane", "Ground"}
+PLACE_WORDS = {"Park", "Stadium", "Arena", "Road", "Lane", "Ground",
+               # club names ("Wimborne Town", "Dover Athletic") aren't people either
+               "Town", "City", "United", "Athletic", "Rovers", "County", "Albion",
+               "Wanderers", "Rangers", "Hotspur", "FC", "AFC", "Borough", "Villa"}
 # Countries and national teams with multi-word names: not people "in the frame".
 NATIONS = {"Northern Ireland", "Republic Of Ireland", "United States", "South Korea",
            "North Korea", "Saudi Arabia", "New Zealand", "Costa Rica", "Ivory Coast",
@@ -188,7 +191,10 @@ class WriterAgent(Agent):
         for story in self.db.unused_stories():
             candidates.setdefault(story.id, story)
         priority = ["match_report", "manager", "transfer", "injury", "discipline", "preview"]
-        stories = sorted((s for s in candidates.values() if s.teams),
+        # Only write about a club the headline names: a club listed in passing in the
+        # summary (one of many in a cup draw, say) isn't what the story is about.
+        stories = sorted((s for s in candidates.values()
+                          if s.teams and self._about(s.title, s.teams[:1])),
                          key=lambda s: s.published, reverse=True)  # newest first...
         stories.sort(key=lambda s: priority.index(s.topic) if s.topic in priority
                      else len(priority))  # ...within topic priority (stable sort)
@@ -196,13 +202,15 @@ class WriterAgent(Agent):
         previews = [Assignment("preview", fixture=f) for f in state.fixtures
                     if f.get("probs")][: self.max_previews]
         story_slots = max(0, self.max_articles - len(previews))
-        covered: dict[tuple[str, str], str] = {}  # (lead team, topic) -> story id
+        covered: dict[tuple[str, str], str] = {}  # (lead club, kind) -> story id
         for story in stories:
             if len(assignments) >= story_slots:
                 break
-            key = (story.teams[0], story.topic or "general")
+            # A result and a news story about the same club are different articles, but
+            # several news stories about one club (a saga often spans manager, transfer
+            # and general angles) become one article with the rest as related coverage.
+            key = (story.teams[0], "match" if story.topic == "match_report" else "news")
             if key in covered:
-                # Same club, same kind of story: one article, the rest as related coverage.
                 self.db.mark_used([story.id])
                 self.log(state, "merged", f"covered by the {key[0]} {key[1]} article "
                          f"({covered[key]}): {story.title}", story.id)
@@ -272,10 +280,17 @@ class WriterAgent(Agent):
                 continue  # "By Sami Mokbel": a byline
             while words and words[0].lower() in ROLE_WORDS | JOURNALIST_WORDS | {"senior"}:
                 words = words[1:]
+            sponsor = False
             for i, w in enumerate(words):  # "Pep Guardiola's Manchester City" -> "Pep Guardiola"
                 if w.endswith(("'s", "’s")):
+                    # "Jersey Mike's Trophy" is a sponsored competition, not a person.
+                    after = story.summary[match.start() + len(" ".join(words[:i + 1])):]
+                    sponsor = bool(re.match(r"\s+(Trophy|Cup|League|Shield|Challenge|Awards?|"
+                                            r"Championship|Stadium|Arena|Park)\b", after))
                     words = words[:i] + [w[:-2]]
                     break
+            if sponsor:
+                continue
             name = " ".join(words)
             for nation in NATIONS:  # "Northern Ireland" is a country, not a person
                 if f" {nation.lower()} " in f" {name.lower()} ":

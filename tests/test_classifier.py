@@ -106,3 +106,17 @@ def test_ambiguous_nicknames_are_not_teams(lexicon):
     assert lexicon.classify(make_story(title="Man City thrash Wolves",
                                        summary="A big win.")).teams == ["Manchester City",
                                                                        "Wolves"]
+
+
+def test_topic_needs_headline_evidence_and_youth_teams_ignored(lexicon):
+    """A passing mention ('...after his injury...') doesn't set the topic; U21 isn't the club."""
+    fpl = lexicon.classify(make_story(
+        title="Chelsea staff warned over fantasy football use",
+        summary="Staff were told to be careful after a striker's injury leaked online."))
+    assert fpl.topic == "general" and fpl.teams == ["Chelsea"]
+    youth = lexicon.classify(make_story(title="Leicester and Brentford U21 reach knockouts",
+                                        summary="Brentford U21 won 2-0."))
+    assert youth.teams == ["Leicester"]
+    bans = lexicon.classify(make_story(title="Who is set for yellow card suspensions?",
+                                       summary="Five players are one booking away."))
+    assert bans.topic == "discipline"

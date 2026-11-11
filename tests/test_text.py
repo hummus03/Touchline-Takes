@@ -37,3 +37,17 @@ def test_slugify_and_strip_html():
         "arsenal-v-chelsea-the-touchline-take")
     assert text.strip_html("<p>Hello&nbsp;<b>world</b></p>") == "Hello world"
     assert text.word_count("Arsenal won [S1].") == 2
+
+
+def test_split_sentences_keeps_quotes_whole():
+    """A quoted headline containing '?' or '...' stays one sentence."""
+    text = ("The headline said: “Emery... or Carrick? Man Utd's options” [S1]. Next. "
+            'He said "Really? Yes" today [S2].')
+    assert text_sentences(text) == ["The headline said: “Emery... or Carrick? Man Utd's "
+                                     "options” [S1].", "Next.",
+                                     'He said "Really? Yes" today [S2].']
+
+
+def text_sentences(value):
+    """Alias kept short for the assertion above."""
+    return text.split_sentences(value)

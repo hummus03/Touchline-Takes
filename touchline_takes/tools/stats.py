@@ -61,9 +61,20 @@ class ResultsStore:
                 "points": 3 * wins + draws, "goals_for": gf, "goals_against": ga,
                 "sequence": "".join(letters)}
 
+    def is_current(self, data_name: str, max_gap_days: int = 60) -> bool:
+        """True if the team played within ``max_gap_days`` of the newest match in the data.
+
+        A club relegated in May 2025 still has "last 5 league games" in the data, but
+        quoting them as form in November 2026 would mislead.
+        """
+        matches = self.team_matches(data_name)
+        if matches.empty or self.results.empty:
+            return False
+        return (self.results.Date.max() - matches.Date.max()).days <= max_gap_days
+
     def form_text(self, display: str, data_name: str, n: int = 5) -> str | None:
-        """Evidence sentence describing recent form."""
-        form = self.form(data_name, n)
+        """Evidence sentence describing recent form (``None`` if the form isn't current)."""
+        form = self.form(data_name, n) if self.is_current(data_name) else None
         if not form:
             return None
         def _n(count: int, noun: str) -> str:

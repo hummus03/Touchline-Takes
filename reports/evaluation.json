@@ -241,25 +241,25 @@
   "configs": {
     "template_writer": {
       "scores": {
-        "drafts": 29,
-        "published": 25,
-        "rejected": 4,
+        "drafts": 27,
+        "published": 24,
+        "rejected": 3,
         "claims_with_source_share_first_pass": 1.0,
         "claims_with_source_share_published": 1.0,
         "unsupported_claims_caught": 0,
         "contradictions_caught": 0,
         "factcheck_bounces": 0,
-        "editor_reviews": 37,
-        "editor_rejection_rate": 0.324,
-        "retries_total": 8,
-        "retries_mean": 0.276,
+        "editor_reviews": 33,
+        "editor_rejection_rate": 0.273,
+        "retries_total": 6,
+        "retries_mean": 0.222,
         "retries_max": 2,
         "llm_calls_per_article": 0.0,
         "cost_usd_per_article": 0.0,
         "projected_cost_usd_per_article_claude_opus_5_5": 0.0,
         "tokens_per_article": 0.0,
-        "agent_latency_s_per_article": 0.0102,
-        "pipeline_s_per_article": 0.0335
+        "agent_latency_s_per_article": 0.0104,
+        "pipeline_s_per_article": 0.0296
       },
       "expectations": {
         "passed": 21,
@@ -443,33 +443,6 @@
           ]
         },
         {
-          "draft": "Celtic: the Touchline Take on the dugout",
-          "agent": "editor",
-          "revision": 0,
-          "reasons": [
-            "too short: 57 words (minimum 90)",
-            "too thin: 2 sourced claims (minimum 3)"
-          ]
-        },
-        {
-          "draft": "Celtic: the Touchline Take on the dugout",
-          "agent": "editor",
-          "revision": 1,
-          "reasons": [
-            "too short: 57 words (minimum 90)",
-            "too thin: 2 sourced claims (minimum 3)"
-          ]
-        },
-        {
-          "draft": "Celtic: the Touchline Take on the dugout",
-          "agent": "editor",
-          "revision": 2,
-          "reasons": [
-            "too short: 58 words (minimum 90)",
-            "too thin: 2 sourced claims (minimum 3)"
-          ]
-        },
-        {
           "draft": "Celtic: the Touchline Take on the transfer talk",
           "agent": "editor",
           "revision": 0,
@@ -497,25 +470,25 @@
     },
     "scripted_llm_writer": {
       "scores": {
-        "drafts": 29,
-        "published": 25,
-        "rejected": 4,
-        "claims_with_source_share_first_pass": 0.885,
+        "drafts": 27,
+        "published": 24,
+        "rejected": 3,
+        "claims_with_source_share_first_pass": 0.881,
         "claims_with_source_share_published": 1.0,
         "unsupported_claims_caught": 32,
         "contradictions_caught": 11,
         "factcheck_bounces": 10,
-        "editor_reviews": 37,
-        "editor_rejection_rate": 0.324,
-        "retries_total": 18,
-        "retries_mean": 0.621,
+        "editor_reviews": 33,
+        "editor_rejection_rate": 0.273,
+        "retries_total": 16,
+        "retries_mean": 0.593,
         "retries_max": 2,
-        "llm_calls_per_article": 1.621,
+        "llm_calls_per_article": 1.593,
         "cost_usd_per_article": 0.0,
-        "projected_cost_usd_per_article_claude_opus_5_5": 0.010339,
-        "tokens_per_article": 1319.2,
-        "agent_latency_s_per_article": 0.0132,
-        "pipeline_s_per_article": 0.031
+        "projected_cost_usd_per_article_claude_opus_5_5": 0.010513,
+        "tokens_per_article": 1337.0,
+        "agent_latency_s_per_article": 0.0148,
+        "pipeline_s_per_article": 0.0356
       },
       "expectations": {
         "passed": 21,
@@ -759,33 +732,6 @@
             "unsupported claim (not in cited evidence: insiders, 200, january): Insiders claim the club will spend 200 million in January [S1].",
             "unsupported claim (not in cited evidence: rival, juventus): Rival scouts from Juventus were reportedly in the stands [S1].",
             "unsupported claim (not in cited evidence: sunday, wembley): The squad trained twice on Sunday at Wembley [S1]."
-          ]
-        },
-        {
-          "draft": "Celtic: the Touchline Take on the dugout",
-          "agent": "editor",
-          "revision": 0,
-          "reasons": [
-            "too short: 57 words (minimum 90)",
-            "too thin: 2 sourced claims (minimum 3)"
-          ]
-        },
-        {
-          "draft": "Celtic: the Touchline Take on the dugout",
-          "agent": "editor",
-          "revision": 1,
-          "reasons": [
-            "too short: 57 words (minimum 90)",
-            "too thin: 2 sourced claims (minimum 3)"
-          ]
-        },
-        {
-          "draft": "Celtic: the Touchline Take on the dugout",
-          "agent": "editor",
-          "revision": 2,
-          "reasons": [
-            "too short: 58 words (minimum 90)",
-            "too thin: 2 sourced claims (minimum 3)"
           ]
         },
         {
