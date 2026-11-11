@@ -101,6 +101,10 @@ CREATE TABLE IF NOT EXISTS runs (
     finished_at TEXT,
     summary TEXT
 );
+CREATE TABLE IF NOT EXISTS meta (
+    key TEXT PRIMARY KEY,
+    value TEXT
+);
 """
 
 
@@ -116,7 +120,7 @@ def _story_from_row(row: sqlite3.Row) -> Story:
     )
 
 
-class Database:
+class Database:  # pylint: disable=too-many-public-methods  # one repository for the newsroom
     """SQLite-backed repository. Safe to share across Flask request threads."""
 
     def __init__(self, path: str) -> None:
@@ -224,6 +228,23 @@ class Database:
             "SELECT * FROM stories WHERE classified = 1 AND used = 0"
             " ORDER BY published DESC LIMIT ?", (limit,))
         return [_story_from_row(r) for r in rows]
+
+    def reset_unused_classification(self) -> int:
+        """Queue every story not yet written up for classification again."""
+        n = int(self._query("SELECT COUNT(*) AS n FROM stories WHERE classified = 1 AND used = 0"
+                            )[0]["n"])
+        self._execute("UPDATE stories SET classified = 0 WHERE used = 0")
+        return n
+
+    def get_meta(self, key: str) -> str | None:
+        """A stored setting (e.g. the classifier rules version), or None."""
+        rows = self._query("SELECT value FROM meta WHERE key = ?", (key,))
+        return rows[0]["value"] if rows else None
+
+    def set_meta(self, key: str, value: str) -> None:
+        """Store a setting."""
+        self._execute("INSERT INTO meta (key, value) VALUES (?, ?) ON CONFLICT(key) "
+                      "DO UPDATE SET value = excluded.value", (key, value))
 
     def mark_used(self, story_ids: Iterable[str]) -> None:
         """Flag stories as already written up."""

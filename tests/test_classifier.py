@@ -127,3 +127,20 @@ def test_topic_needs_headline_evidence_and_youth_teams_ignored(lexicon):
     bans = lexicon.classify(make_story(title="Who is set for yellow card suspensions?",
                                        summary="Five players are one booking away."))
     assert bans.topic == "discipline"
+
+
+def test_rules_change_retags_waiting_stories(db, lexicon):
+    """Stories stored under old rules are tagged again; written-up ones are left alone."""
+    waiting = make_story(1, title="Palace could avoid compensation if Sage rejoins Lens",
+                         summary="Palace lost 3-1 to Liverpool.")
+    done = make_story(2)
+    for story in (waiting, done):
+        db.insert_story(story)
+        story.topic, story.teams = "match_report", ["Crystal Palace"]
+        db.update_classification(story)
+    db.mark_used([done.id])
+    state = ClassifierAgent(db, lexicon).run(NewsroomState())
+    assert [s.id for s in state.stories] == [waiting.id]
+    assert state.stories[0].topic == "general"
+    assert any(log.action == "rules_changed" for log in state.logs)
+    assert not ClassifierAgent(db, lexicon).run(NewsroomState()).stories  # once only

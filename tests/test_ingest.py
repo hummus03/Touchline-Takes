@@ -105,3 +105,17 @@ def test_skip_reason(title, url, summary, reason):
     story = make_story(1, title=title, summary=summary or title)
     story.url = url
     assert skip_reason(story) == reason
+
+
+def test_feed_categories_mark_womens_football():
+    """A Guardian interview with a WSL player names no women's team; its category does."""
+    rss = ("<?xml version=\"1.0\"?><rss version=\"2.0\"><channel><title>x</title><item>"
+           "<title>Manchester City's full-back: 'I love football'</title>"
+           "<link>https://www.theguardian.com/football/2026/nov/10/interview</link>"
+           "<description>The full-back on winning the Double.</description>"
+           "<category domain=\"https://www.theguardian.com/football/womens-football\">"
+           "Women's football</category><category domain=\"https://www.theguardian.com/"
+           "football/manchestercity\">Manchester City</category></item></channel></rss>")
+    story = parse_feed(rss, "The Guardian")[0]
+    assert "Women's football" in story.categories
+    assert skip_reason(story) == "women's football"
