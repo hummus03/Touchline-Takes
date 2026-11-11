@@ -1,5 +1,14 @@
 {% extends "base.html" %}
 {% block title %}{{ article.title }} | {{ brand }}{% endblock %}
+{% block description %}{{ article.body | teaser(200) }}{% endblock %}
+{% block share_title %}{{ article.title }}{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block extra_meta %}
+  <meta property="article:published_time" content="{{ article.published_at }}">
+  {% if article.league %}<meta property="article:section" content="{{ article.league }}">{% endif %}
+  {% for t in article.teams %}<meta property="article:tag" content="{{ t }}">
+  {% endfor %}
+{% endblock %}
 {% block content %}
 <article class="article">
   <div class="tags">

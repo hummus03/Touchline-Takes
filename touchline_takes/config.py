@@ -10,7 +10,9 @@ from typing import Mapping
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = PROJECT_ROOT / "data"
 
-DEFAULT_FEEDS = ("https://feeds.bbci.co.uk/sport/football/rss.xml",)
+DEFAULT_FEEDS = ("https://feeds.bbci.co.uk/sport/football/rss.xml",
+                 "https://www.theguardian.com/football/rss",
+                 "https://www.skysports.com/rss/12040")
 
 
 def _as_bool(value: str | None, default: bool = False) -> bool:
