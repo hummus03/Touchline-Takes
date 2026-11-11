@@ -305,5 +305,4 @@ def test_link_preview_tags(tmp_path, static):
     assert 'property="article:published_time"' in page
     assert '<meta property="og:description" content="Arsenal beat Chelsea 2-1' in page
     assert (out / "static" / "og-image.png").stat().st_size > 10_000
-    assert 'href="https://x.com/intent/post?text=Arsenal' in page
-    assert 'href="https://bsky.app/intent/compose?text=' in page
+    assert "intent/post" not in page  # sharing is for the editor (review PRs), not readers
