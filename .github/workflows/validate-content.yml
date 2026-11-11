@@ -1,8 +1,11 @@
-# Checks article files changed in a pull request (e.g. a human edit to a review PR).
+# Checks article files when someone pushes changes to a pull request (e.g. a human edit
+# to a review PR). Not run when the newsroom bot opens a PR: GitHub would ask for approval
+# first, and those files were already validated when the bot wrote them.
 name: Validate articles
 
 on:
   pull_request:
+    types: [synchronize, reopened]
     paths:
       - "content/**"
 
@@ -14,8 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.13"
           cache: pip

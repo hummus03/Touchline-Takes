@@ -245,7 +245,7 @@ pylint touchline_takes tests scripts
 python scripts/evaluate.py
 ```
 
-- **Tests** (128) cover every agent, tool, the static-site mode (content validation, review
+- **Tests** (149) cover every agent, tool, the static-site mode (content validation, review
   PRs, state branch round trip, site build), the production hardening (preflight, rate
   limits, security headers, no sample fallbacks, scheduler resilience) and the LangGraph
   orchestration (pause, resume
@@ -258,11 +258,11 @@ python scripts/evaluate.py
   - One extra test uses the ImageNet weights and runs only when they're already cached in
     `~/.keras/models`; otherwise it's skipped.
 - **Pylint** scores 10.00/10 with the config in `pyproject.toml`.
-- **Evaluation** runs the full pipeline on `data/eval/fixture_stories.json` (25 labelled
+- **Evaluation** runs the full pipeline on `data/eval/fixture_stories.json` (31 labelled
   stories with expected outcomes) in two configurations: the offline template writer, and a
   scripted fake LLM writer that, for flagged stories, invents claims and swaps facts around
   (flipped winners, stats pinned on the wrong team). It also scores the fact-checker on
-  `data/eval/claim_cases.json`: 56 labelled claims, including correct paraphrases to measure
+  `data/eval/claim_cases.json`: 60 labelled claims, including correct paraphrases to measure
   false alarms, split into a `dev` set used while building the checks and a `heldout` set
   written afterwards. The report (`reports/evaluation.md` / `.json`) includes:
   - the share of claims with a source, on first drafts and in published articles
@@ -319,6 +319,13 @@ Latest snapshot (`reports/evaluation.md`):
   surprise, neutral).
 - `LexiconClassifier` works offline. It uses a team/alias directory (`data/teams.json`),
   weighted keyword topics, and a sentiment/emotion lexicon with negation.
+- Lessons from the first live run on BBC Sport:
+  - **Match reports need evidence of a match:** a scoreline, or a result verb in the
+    headline ("thrash", "beat", "held"). "Title win", "World Cup winner" or "semi-final
+    defeat" alone don't count.
+  - **Awards stories are general news.** Their shortlists aren't transfer shortlists.
+  - **The team directory holds formal names only.** Nicknames are excluded because they're
+    ambiguous: "the Magpies" can be Newcastle or Notts County.
 - `LLMClassifier` (`CLASSIFIER_PROVIDER=llm`) asks the configured hosted LLM for JSON, checks
   every label against the allowed set, and falls back to the lexicon on any failure.
 
@@ -335,6 +342,12 @@ Latest snapshot (`reports/evaluation.md`):
   instructions. Offline, a deterministic template composer writes the piece.
 - If the LLM fails or the call budget runs out, it falls back to templates and logs it.
 - Revises drafts sent back by the Fact-checker or Editor, using their feedback.
+- Writes one article per club and topic per run. Other stories on the same saga become
+  related coverage instead of near-duplicate articles.
+- Never lists the article's author as a "name in the frame", and only quotes complete
+  phrases.
+- Names the winner from the headline when there's no scoreline ("Man City thrash Inter"),
+  and the verdict line fits what happened.
 
 ### 4. Fact-check + Editor (`agents/factcheck.py`, `agents/editor.py`)
 - **Fact-check.** A sentence is a *claim* if it has numbers or proper nouns. Each claim

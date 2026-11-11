@@ -3,8 +3,7 @@
   "league": "Premier League",
   "data_name": "Arsenal",
   "aliases": [
-   "Arsenal",
-   "Gunners"
+   "Arsenal"
   ]
  },
  "Aston Villa": {
@@ -18,8 +17,7 @@
   "league": "Premier League",
   "data_name": "Bournemouth",
   "aliases": [
-   "Bournemouth",
-   "Cherries"
+   "Bournemouth"
   ]
  },
  "Brentford": {
@@ -34,8 +32,7 @@
   "data_name": "Brighton",
   "aliases": [
    "Brighton",
-   "Brighton & Hove Albion",
-   "Seagulls"
+   "Brighton & Hove Albion"
   ]
  },
  "Chelsea": {
@@ -56,16 +53,14 @@
   "league": "Premier League",
   "data_name": "Everton",
   "aliases": [
-   "Everton",
-   "Toffees"
+   "Everton"
   ]
  },
  "Fulham": {
   "league": "Premier League",
   "data_name": "Fulham",
   "aliases": [
-   "Fulham",
-   "Cottagers"
+   "Fulham"
   ]
  },
  "Ipswich": {
@@ -81,8 +76,7 @@
   "data_name": "Leicester",
   "aliases": [
    "Leicester",
-   "Leicester City",
-   "Foxes"
+   "Leicester City"
   ]
  },
  "Liverpool": {
@@ -114,8 +108,7 @@
   "data_name": "Newcastle",
   "aliases": [
    "Newcastle",
-   "Newcastle United",
-   "Magpies"
+   "Newcastle United"
   ]
  },
  "Nottingham Forest": {
@@ -147,8 +140,7 @@
   "data_name": "West Ham",
   "aliases": [
    "West Ham",
-   "West Ham United",
-   "Hammers"
+   "West Ham United"
   ]
  },
  "Wolves": {

@@ -5,8 +5,8 @@ import pytest
 
 from touchline_takes.config import Settings
 from touchline_takes.tools.relations import (MatchResult, attribution_matches, extract_results,
-                                             lemma, number_units, result_conflict,
-                                             team_number_pairs)
+                                             headline_winner, lemma, number_units,
+                                             result_conflict, team_number_pairs)
 from touchline_takes.tools.teams import TeamDirectory
 
 
@@ -70,3 +70,19 @@ def test_number_units_and_lemma():
     units = number_units("out for 6 weeks, the 78th minute, a 23-year-old, a 45% chance")
     assert {("6", "week"), ("78", "minute"), ("23", "year"), ("45", "%")} <= units
     assert lemma("matches") == "match" and lemma("goals") == "goal" and lemma("loss") == "loss"
+
+
+@pytest.mark.parametrize("title,story_teams,expected", [
+    ("Man City thrash Inter to claim first win", ["Manchester City", "Inter Milan"],
+     ("Manchester City", "Inter Milan")),
+    ("Real Madrid stunned by Sevilla", ["Real Madrid", "Sevilla"], ("Sevilla", "Real Madrid")),
+    ("Barcelona fight back to beat Atleti", ["Barcelona", "Atletico Madrid"],
+     ("Barcelona", "Atletico Madrid")),
+    ("Chelsea play out goalless draw with Hacken", ["Chelsea"], None),
+    ("Arsenal eye Real's Endrick", ["Arsenal", "Real Madrid"], None),
+    ("Man City thrash Inter as Liverpool watch", ["Manchester City", "Inter Milan", "Liverpool"],
+     None),
+])
+def test_headline_winner(teams, title, story_teams, expected):
+    """Winners from headlines without scores, and no guessing when it's unclear."""
+    assert headline_winner(title, teams, story_teams) == expected

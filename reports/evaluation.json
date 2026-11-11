@@ -1,17 +1,20 @@
 {
-  "fixture_stories": 25,
+  "fixture_stories": 31,
   "classifier": {
-    "n": 25,
+    "n": 31,
     "accuracy": {
       "league": 1.0,
-      "topic": 0.96,
-      "sentiment": 0.92,
+      "topic": 0.968,
+      "sentiment": 0.839,
       "teams": 1.0
     },
     "errors": [
       "Celtic boss Rory Quinn signs new contrac: topic expected 'manager', got 'transfer'",
       "Aston Villa stun Manchester City with 1-: sentiment expected 'positive', got 'neutral'",
-      "Crystal Palace winger handed three-match: sentiment expected 'negative', got 'neutral'"
+      "Crystal Palace winger handed three-match: sentiment expected 'negative', got 'neutral'",
+      "Arsenal had a long transfer shortlist to: sentiment expected 'neutral', got 'positive'",
+      "The part-timers who won three Wembley fi: sentiment expected 'positive', got 'neutral'",
+      "Midfielder reveals heart treatment at Wo: sentiment expected 'neutral', got 'positive'"
     ]
   },
   "predictor": {
@@ -123,18 +126,20 @@
   },
   "claim_checks": {
     "token_only/dev": {
-      "cases": 38,
-      "accuracy": 0.632,
+      "cases": 42,
+      "accuracy": 0.643,
       "precision": 1.0,
-      "recall": 0.263,
-      "f1": 0.417,
+      "recall": 0.286,
+      "f1": 0.444,
       "false_positive_rate": 0.0,
       "per_category": {
         "correct": "19/19",
         "draw_vs_win": "0/2",
-        "flipped_winner": "0/5",
+        "flipped_winner": "0/6",
+        "formal_alias": "2/2",
         "invented_entity": "1/1",
         "invented_number": "2/2",
+        "nickname": "1/1",
         "no_citation": "1/1",
         "swapped_probability": "0/1",
         "swapped_stats": "0/2",
@@ -156,7 +161,8 @@
         "swapped_probability: The Analyst model makes Liverpool 45% favourites, with Arsenal on 28% [M1].",
         "wrong_unit: Dan Mercer is out for 6 months [S1].",
         "wrong_unit: Felix Amari has scored 23 goals this season [S1].",
-        "wrong_unit: Leo Hartmann scored the winner after 78 seconds [S1]."
+        "wrong_unit: Leo Hartmann scored the winner after 78 seconds [S1].",
+        "flipped_winner: Inter Milan beat Manchester City [S1]."
       ]
     },
     "token_only/heldout": {
@@ -188,7 +194,7 @@
       ]
     },
     "relation_aware/dev": {
-      "cases": 38,
+      "cases": 42,
       "accuracy": 1.0,
       "precision": 1.0,
       "recall": 1.0,
@@ -197,9 +203,11 @@
       "per_category": {
         "correct": "19/19",
         "draw_vs_win": "2/2",
-        "flipped_winner": "5/5",
+        "flipped_winner": "6/6",
+        "formal_alias": "2/2",
         "invented_entity": "1/1",
         "invented_number": "2/2",
+        "nickname": "1/1",
         "no_citation": "1/1",
         "swapped_probability": "1/1",
         "swapped_stats": "2/2",
@@ -233,29 +241,29 @@
   "configs": {
     "template_writer": {
       "scores": {
-        "drafts": 26,
-        "published": 21,
-        "rejected": 5,
+        "drafts": 29,
+        "published": 25,
+        "rejected": 4,
         "claims_with_source_share_first_pass": 1.0,
         "claims_with_source_share_published": 1.0,
         "unsupported_claims_caught": 0,
         "contradictions_caught": 0,
         "factcheck_bounces": 0,
-        "editor_reviews": 36,
-        "editor_rejection_rate": 0.417,
-        "retries_total": 10,
-        "retries_mean": 0.385,
+        "editor_reviews": 37,
+        "editor_rejection_rate": 0.324,
+        "retries_total": 8,
+        "retries_mean": 0.276,
         "retries_max": 2,
         "llm_calls_per_article": 0.0,
         "cost_usd_per_article": 0.0,
         "projected_cost_usd_per_article_claude_opus_5_5": 0.0,
         "tokens_per_article": 0.0,
-        "agent_latency_s_per_article": 0.0142,
-        "pipeline_s_per_article": 0.0476
+        "agent_latency_s_per_article": 0.0102,
+        "pipeline_s_per_article": 0.0309
       },
       "expectations": {
-        "passed": 19,
-        "total": 19,
+        "passed": 21,
+        "total": 21,
         "results": [
           {
             "story": "Arsenal beat Chelsea 2-1 in tense London derby",
@@ -301,8 +309,8 @@
           },
           {
             "story": "Real Madrid stunned 2-0 by Sevilla in La Liga upset",
-            "expected": "rejected",
-            "got": "rejected",
+            "expected": "published",
+            "got": "published",
             "ok": true
           },
           {
@@ -369,41 +377,29 @@
             "story": "Ipswich beat Leicester 2-0 for first win of the season",
             "expected": "published",
             "got": "published",
+            "ok": true
+          },
+          {
+            "story": "Fans could not see the FA Cup tie in thick fog",
+            "expected": "not drafted",
+            "got": "not drafted",
+            "ok": true
+          },
+          {
+            "story": "Midfielder reveals heart treatment at World Cup",
+            "expected": "not drafted",
+            "got": "not drafted",
             "ok": true
           }
         ]
       },
       "rejection_reasons": [
         {
-          "draft": "Real Madrid v Sevilla: the Touchline Take",
-          "agent": "editor",
-          "revision": 0,
-          "reasons": [
-            "too short: 85 words (minimum 90)"
-          ]
-        },
-        {
-          "draft": "Real Madrid v Sevilla: the Touchline Take",
-          "agent": "editor",
-          "revision": 1,
-          "reasons": [
-            "too short: 83 words (minimum 90)"
-          ]
-        },
-        {
-          "draft": "Real Madrid v Sevilla: the Touchline Take",
-          "agent": "editor",
-          "revision": 2,
-          "reasons": [
-            "too short: 82 words (minimum 90)"
-          ]
-        },
-        {
           "draft": "Paris Saint-Germain v Marseille: the Touchline Take",
           "agent": "editor",
           "revision": 0,
           "reasons": [
-            "too short: 82 words (minimum 90)"
+            "too short: 88 words (minimum 90)"
           ]
         },
         {
@@ -411,7 +407,7 @@
           "agent": "editor",
           "revision": 1,
           "reasons": [
-            "too short: 83 words (minimum 90)"
+            "too short: 89 words (minimum 90)"
           ]
         },
         {
@@ -419,108 +415,111 @@
           "agent": "editor",
           "revision": 2,
           "reasons": [
+            "too short: 89 words (minimum 90)"
+          ]
+        },
+        {
+          "draft": "Bayern Munich v Bayer Leverkusen: the Touchline Take",
+          "agent": "editor",
+          "revision": 0,
+          "reasons": [
+            "too short: 82 words (minimum 90)"
+          ]
+        },
+        {
+          "draft": "Bayern Munich v Bayer Leverkusen: the Touchline Take",
+          "agent": "editor",
+          "revision": 1,
+          "reasons": [
+            "too short: 80 words (minimum 90)"
+          ]
+        },
+        {
+          "draft": "Bayern Munich v Bayer Leverkusen: the Touchline Take",
+          "agent": "editor",
+          "revision": 2,
+          "reasons": [
             "too short: 83 words (minimum 90)"
           ]
         },
         {
-          "draft": "Juventus v Napoli: the Touchline Take",
+          "draft": "Celtic: the Touchline Take on the dugout",
           "agent": "editor",
           "revision": 0,
           "reasons": [
-            "too short: 87 words (minimum 90)"
+            "too short: 57 words (minimum 90)",
+            "too thin: 2 sourced claims (minimum 3)"
           ]
         },
         {
-          "draft": "Juventus v Napoli: the Touchline Take",
+          "draft": "Celtic: the Touchline Take on the dugout",
           "agent": "editor",
           "revision": 1,
           "reasons": [
-            "too short: 84 words (minimum 90)"
+            "too short: 57 words (minimum 90)",
+            "too thin: 2 sourced claims (minimum 3)"
           ]
         },
         {
-          "draft": "Juventus v Napoli: the Touchline Take",
+          "draft": "Celtic: the Touchline Take on the dugout",
           "agent": "editor",
           "revision": 2,
           "reasons": [
-            "too short: 86 words (minimum 90)"
+            "too short: 58 words (minimum 90)",
+            "too thin: 2 sourced claims (minimum 3)"
           ]
         },
         {
-          "draft": "Bayern Munich v Bayer Leverkusen: the Touchline Take",
+          "draft": "Celtic: the Touchline Take on the transfer talk",
           "agent": "editor",
           "revision": 0,
           "reasons": [
-            "too short: 81 words (minimum 90)"
+            "too short: 69 words (minimum 90)"
           ]
         },
         {
-          "draft": "Bayern Munich v Bayer Leverkusen: the Touchline Take",
+          "draft": "Celtic: the Touchline Take on the transfer talk",
           "agent": "editor",
           "revision": 1,
           "reasons": [
-            "too short: 79 words (minimum 90)"
+            "too short: 64 words (minimum 90)"
           ]
         },
         {
-          "draft": "Bayern Munich v Bayer Leverkusen: the Touchline Take",
+          "draft": "Celtic: the Touchline Take on the transfer talk",
           "agent": "editor",
           "revision": 2,
           "reasons": [
-            "too short: 82 words (minimum 90)"
-          ]
-        },
-        {
-          "draft": "Celtic: what the transfer story really means",
-          "agent": "editor",
-          "revision": 0,
-          "reasons": [
-            "too short: 82 words (minimum 90)"
-          ]
-        },
-        {
-          "draft": "Celtic: what the transfer story really means",
-          "agent": "editor",
-          "revision": 1,
-          "reasons": [
-            "too short: 77 words (minimum 90)"
-          ]
-        },
-        {
-          "draft": "Celtic: what the transfer story really means",
-          "agent": "editor",
-          "revision": 2,
-          "reasons": [
-            "too short: 79 words (minimum 90)"
+            "too short: 66 words (minimum 90)"
           ]
         }
       ]
     },
     "scripted_llm_writer": {
       "scores": {
-        "drafts": 26,
-        "published": 21,
-        "rejected": 5,
-        "claims_with_source_share_first_pass": 0.88,
+        "drafts": 29,
+        "published": 25,
+        "rejected": 4,
+        "claims_with_source_share_first_pass": 0.886,
         "claims_with_source_share_published": 1.0,
         "unsupported_claims_caught": 32,
-        "contradictions_caught": 14,
+        "contradictions_caught": 11,
         "factcheck_bounces": 10,
-        "editor_reviews": 36,
-        "editor_rejection_rate": 0.417,
-        "retries_total": 20,
-        "retries_mean": 0.769,
+        "editor_reviews": 37,
+        "editor_rejection_rate": 0.324,
+        "retries_total": 18,
+        "retries_mean": 0.621,
         "retries_max": 2,
-        "llm_calls_per_article": 1.769,
+        "llm_calls_per_article": 1.621,
         "cost_usd_per_article": 0.0,
-        "projected_cost_usd_per_article_claude_opus_5_5": 0.011445,
-        "tokens_per_article": 1468.9,
-        "agent_latency_s_per_article": 0.0174,
-        "pipeline_s_per_article": 0.0505
+        "projected_cost_usd_per_article_claude_opus_5_5": 0.010391,
+        "tokens_per_article": 1325.8,
+        "agent_latency_s_per_article": 0.0136,
+        "pipeline_s_per_article": 0.0328
       },
       "expectations": {
-        "passed": 19,
-        "total": 19,
+        "passed": 21,
+        "total": 21,
         "results": [
           {
             "story": "Arsenal beat Chelsea 2-1 in tense London derby",
@@ -566,8 +565,8 @@
           },
           {
             "story": "Real Madrid stunned 2-0 by Sevilla in La Liga upset",
-            "expected": "rejected",
-            "got": "rejected",
+            "expected": "published",
+            "got": "published",
             "ok": true
           },
           {
@@ -634,6 +633,18 @@
             "story": "Ipswich beat Leicester 2-0 for first win of the season",
             "expected": "published",
             "got": "published",
+            "ok": true
+          },
+          {
+            "story": "Fans could not see the FA Cup tie in thick fog",
+            "expected": "not drafted",
+            "got": "not drafted",
+            "ok": true
+          },
+          {
+            "story": "Midfielder reveals heart treatment at World Cup",
+            "expected": "not drafted",
+            "got": "not drafted",
             "ok": true
           }
         ]
@@ -647,40 +658,6 @@
             "unsupported claim (not in cited evidence: insiders, 200, january): Insiders claim the club will spend 200 million in January [S1].",
             "unsupported claim (not in cited evidence: rival, juventus): Rival scouts from Juventus were reportedly in the stands [S1].",
             "unsupported claim (not in cited evidence: sunday, wembley): The squad trained twice on Sunday at Wembley [S1]."
-          ]
-        },
-        {
-          "draft": "Manchester City v Wolves: the Touchline Take",
-          "agent": "factcheck",
-          "revision": 0,
-          "reasons": [
-            "contradicted claim (contradicts source: claim says Wolves beat Manchester City 4-0, source says Manchester City beat Wolves 4-0): Wolves beat Manchester City 4-0, as reported by Eval Wire [S1].",
-            "contradicted claim (wrong team for 1 defeat: Wolves (the evidence gives it to Manchester City)): In our synthetic sample results, Wolves have 3 wins, 1 draw and 1 defeat from their last 5 league games: 10 points, 9 scored and 5 conceded [ST1][ST2].",
-            "contradicted claim (wrong team for 1 win: Manchester City (the evidence gives it to Wolves)): In our synthetic sample results, Manchester City have 1 win, 1 draw and 3 defeats from their last 5 league games: 4 points, 9 scored and 13 conceded [ST1][ST2]."
-          ]
-        },
-        {
-          "draft": "Real Madrid v Sevilla: the Touchline Take",
-          "agent": "editor",
-          "revision": 0,
-          "reasons": [
-            "too short: 85 words (minimum 90)"
-          ]
-        },
-        {
-          "draft": "Real Madrid v Sevilla: the Touchline Take",
-          "agent": "editor",
-          "revision": 1,
-          "reasons": [
-            "too short: 83 words (minimum 90)"
-          ]
-        },
-        {
-          "draft": "Real Madrid v Sevilla: the Touchline Take",
-          "agent": "editor",
-          "revision": 2,
-          "reasons": [
-            "too short: 82 words (minimum 90)"
           ]
         },
         {
@@ -698,7 +675,7 @@
           "agent": "editor",
           "revision": 0,
           "reasons": [
-            "too short: 82 words (minimum 90)"
+            "too short: 88 words (minimum 90)"
           ]
         },
         {
@@ -706,7 +683,7 @@
           "agent": "editor",
           "revision": 1,
           "reasons": [
-            "too short: 83 words (minimum 90)"
+            "too short: 89 words (minimum 90)"
           ]
         },
         {
@@ -714,31 +691,7 @@
           "agent": "editor",
           "revision": 2,
           "reasons": [
-            "too short: 83 words (minimum 90)"
-          ]
-        },
-        {
-          "draft": "Juventus v Napoli: the Touchline Take",
-          "agent": "editor",
-          "revision": 0,
-          "reasons": [
-            "too short: 87 words (minimum 90)"
-          ]
-        },
-        {
-          "draft": "Juventus v Napoli: the Touchline Take",
-          "agent": "editor",
-          "revision": 1,
-          "reasons": [
-            "too short: 84 words (minimum 90)"
-          ]
-        },
-        {
-          "draft": "Juventus v Napoli: the Touchline Take",
-          "agent": "editor",
-          "revision": 2,
-          "reasons": [
-            "too short: 86 words (minimum 90)"
+            "too short: 89 words (minimum 90)"
           ]
         },
         {
@@ -759,7 +712,7 @@
           "agent": "editor",
           "revision": 0,
           "reasons": [
-            "too short: 81 words (minimum 90)"
+            "too short: 82 words (minimum 90)"
           ]
         },
         {
@@ -767,7 +720,7 @@
           "agent": "editor",
           "revision": 1,
           "reasons": [
-            "too short: 79 words (minimum 90)"
+            "too short: 80 words (minimum 90)"
           ]
         },
         {
@@ -775,7 +728,7 @@
           "agent": "editor",
           "revision": 2,
           "reasons": [
-            "too short: 82 words (minimum 90)"
+            "too short: 83 words (minimum 90)"
           ]
         },
         {
@@ -789,7 +742,7 @@
           ]
         },
         {
-          "draft": "Tottenham: what the dugout story really means",
+          "draft": "Tottenham: the Touchline Take on the dugout",
           "agent": "factcheck",
           "revision": 0,
           "reasons": [
@@ -799,7 +752,7 @@
           ]
         },
         {
-          "draft": "Chelsea: what the dugout story really means",
+          "draft": "Chelsea: the Touchline Take on the dugout",
           "agent": "factcheck",
           "revision": 0,
           "reasons": [
@@ -809,7 +762,34 @@
           ]
         },
         {
-          "draft": "Newcastle: what the transfer story really means",
+          "draft": "Celtic: the Touchline Take on the dugout",
+          "agent": "editor",
+          "revision": 0,
+          "reasons": [
+            "too short: 57 words (minimum 90)",
+            "too thin: 2 sourced claims (minimum 3)"
+          ]
+        },
+        {
+          "draft": "Celtic: the Touchline Take on the dugout",
+          "agent": "editor",
+          "revision": 1,
+          "reasons": [
+            "too short: 57 words (minimum 90)",
+            "too thin: 2 sourced claims (minimum 3)"
+          ]
+        },
+        {
+          "draft": "Celtic: the Touchline Take on the dugout",
+          "agent": "editor",
+          "revision": 2,
+          "reasons": [
+            "too short: 58 words (minimum 90)",
+            "too thin: 2 sourced claims (minimum 3)"
+          ]
+        },
+        {
+          "draft": "Newcastle: the Touchline Take on the transfer talk",
           "agent": "factcheck",
           "revision": 0,
           "reasons": [
@@ -819,31 +799,41 @@
           ]
         },
         {
-          "draft": "Celtic: what the transfer story really means",
+          "draft": "Celtic: the Touchline Take on the transfer talk",
           "agent": "editor",
           "revision": 0,
           "reasons": [
-            "too short: 82 words (minimum 90)"
+            "too short: 69 words (minimum 90)"
           ]
         },
         {
-          "draft": "Celtic: what the transfer story really means",
+          "draft": "Celtic: the Touchline Take on the transfer talk",
           "agent": "editor",
           "revision": 1,
           "reasons": [
-            "too short: 77 words (minimum 90)"
+            "too short: 64 words (minimum 90)"
           ]
         },
         {
-          "draft": "Celtic: what the transfer story really means",
+          "draft": "Celtic: the Touchline Take on the transfer talk",
           "agent": "editor",
           "revision": 2,
           "reasons": [
-            "too short: 79 words (minimum 90)"
+            "too short: 66 words (minimum 90)"
           ]
         },
         {
-          "draft": "Aston Villa: what the injury story really means",
+          "draft": "Arsenal: the Touchline Take on the transfer talk",
+          "agent": "factcheck",
+          "revision": 0,
+          "reasons": [
+            "unsupported claim (not in cited evidence: insiders, 200, january): Insiders claim the club will spend 200 million in January [S1].",
+            "unsupported claim (not in cited evidence: rival, juventus): Rival scouts from Juventus were reportedly in the stands [S1].",
+            "unsupported claim (not in cited evidence: sunday, wembley): The squad trained twice on Sunday at Wembley [S1]."
+          ]
+        },
+        {
+          "draft": "Aston Villa: the Touchline Take on the injury news",
           "agent": "factcheck",
           "revision": 0,
           "reasons": [
@@ -852,7 +842,7 @@
           ]
         },
         {
-          "draft": "Brentford: what the refereeing story really means",
+          "draft": "Brentford: the Touchline Take on the refereeing row",
           "agent": "factcheck",
           "revision": 0,
           "reasons": [

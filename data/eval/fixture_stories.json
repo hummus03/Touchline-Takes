@@ -1,5 +1,5 @@
 {
- "description": "Fixture stories with known-good expectations for scripts/evaluate.py. Fictional events and people. Labels were written by hand from the story text; expect_outcome is set only where the right newsroom decision is clear-cut.",
+ "description": "Fixture stories with known-good expectations for scripts/evaluate.py. Fictional events and people. Labels were written by hand from the story text; expect_outcome is set only where the right newsroom decision is clear-cut. Stories 26-31 are modelled on patterns seen in the first live run (paraphrased, fictional people).",
  "stories": [
   {
    "title": "Arsenal beat Chelsea 2-1 in tense London derby",
@@ -147,12 +147,13 @@
     "topic": "match_report",
     "sentiment": "negative"
    },
-   "expect_outcome": "rejected",
+   "expect_outcome": "published",
    "url": "https://example.com/eval/8",
    "source": "Eval Wire",
    "published": "2026-11-09T12:00:00+00:00",
    "inject_hallucination": false,
-   "inject_contradiction": false
+   "inject_contradiction": false,
+   "note": "Was 'rejected' (too short) until the verdict started naming the cited winner; the 91-word article is accurate and sourced, so publishing is the right call."
   },
   {
    "title": "Celtic beat Rangers 3-1 to extend Scottish Premiership lead",
@@ -461,6 +462,107 @@
    "url": "https://example.com/eval/25",
    "source": "Eval Wire",
    "published": "2026-11-08T12:00:00+00:00",
+   "inject_hallucination": false,
+   "inject_contradiction": false
+  },
+  {
+   "title": "Arsenal had a long transfer shortlist to build on title win",
+   "summary": "Senior football correspondent Jo Bloggs looks at how Arsenal plan to strengthen the squad after winning the league, with more than 20 names considered.",
+   "expected": {
+    "league": "Premier League",
+    "teams": [
+     "Arsenal"
+    ],
+    "topic": "transfer",
+    "sentiment": "neutral"
+   },
+   "url": "https://example.com/eval/26",
+   "source": "Eval Wire",
+   "published": "2026-11-09T12:00:00+00:00",
+   "inject_hallucination": false,
+   "inject_contradiction": false
+  },
+  {
+   "title": "The part-timers who won three Wembley finals in a row",
+   "summary": "Manchester City won four League Cups in a row, but a part-time side completed the hat-trick first.",
+   "expected": {
+    "league": "Premier League",
+    "teams": [
+     "Manchester City"
+    ],
+    "topic": "general",
+    "sentiment": "positive"
+   },
+   "url": "https://example.com/eval/27",
+   "source": "Eval Wire",
+   "published": "2026-11-01T12:00:00+00:00",
+   "inject_hallucination": false,
+   "inject_contradiction": false
+  },
+  {
+   "title": "Fans could not see the FA Cup tie in thick fog",
+   "summary": "Thick fog meant Notts County fans missed parts of the Magpies' FA Cup win over Altrincham.",
+   "expected": {
+    "league": "General",
+    "teams": [],
+    "topic": "general",
+    "sentiment": "positive"
+   },
+   "expect_outcome": "not drafted",
+   "url": "https://example.com/eval/28",
+   "source": "Eval Wire",
+   "published": "2026-11-02T12:00:00+00:00",
+   "inject_hallucination": false,
+   "inject_contradiction": false
+  },
+  {
+   "title": "Midfielder reveals heart treatment at World Cup",
+   "summary": "Lewis Grant says he had treatment on his heart two days before Scotland's World Cup win over Haiti.",
+   "expected": {
+    "league": "International",
+    "teams": [],
+    "topic": "injury",
+    "sentiment": "neutral"
+   },
+   "expect_outcome": "not drafted",
+   "url": "https://example.com/eval/29",
+   "source": "Eval Wire",
+   "published": "2026-11-03T12:00:00+00:00",
+   "inject_hallucination": false,
+   "inject_contradiction": false
+  },
+  {
+   "title": "Man City thrash Inter to claim first European win",
+   "summary": "Manchester City came from behind to beat Inter Milan in the Champions League.",
+   "expected": {
+    "league": "Champions League",
+    "teams": [
+     "Manchester City",
+     "Inter Milan"
+    ],
+    "topic": "match_report",
+    "sentiment": "positive"
+   },
+   "url": "https://example.com/eval/30",
+   "source": "Eval Wire",
+   "published": "2026-11-04T12:00:00+00:00",
+   "inject_hallucination": false,
+   "inject_contradiction": false
+  },
+  {
+   "title": "Coaches linked with Aberdeen job",
+   "summary": "Early names emerge for the Aberdeen job as a Celtic midfielder withdraws from international duty.",
+   "expected": {
+    "league": "Scottish Premiership",
+    "teams": [
+     "Celtic"
+    ],
+    "topic": "manager",
+    "sentiment": "neutral"
+   },
+   "url": "https://example.com/eval/31",
+   "source": "Eval Wire",
+   "published": "2026-11-05T12:00:00+00:00",
    "inject_hallucination": false,
    "inject_contradiction": false
   }
