@@ -12,6 +12,8 @@ from markupsafe import escape
 
 from touchline_takes.agents.factcheck import check_draft
 from touchline_takes.agents.publisher import build_rss
+from touchline_takes.tools.stats import load_results
+from touchline_takes.transparency import newsroom_stats, prediction_scorecard
 from touchline_takes.web.urls import canonical_url, slugify
 
 bp = Blueprint("site", __name__)
@@ -74,7 +76,7 @@ def index():
     """Latest takes and fixtures with Analyst predictions."""
     db = services().db
     return render_template("index.html", articles=db.list_articles(20),
-                           fixtures=db.fixtures_with_predictions(8))
+                           fixtures=db.fixtures_with_predictions(8, upcoming=True))
 
 
 def photo_tags_for(story_ids: list[str]) -> list[dict]:
@@ -96,7 +98,7 @@ def archive():
 
 def _fixtures_for(match) -> list[dict]:
     """Upcoming fixtures (with predictions) for which ``match(fixture)`` is true."""
-    return [f for f in services().db.fixtures_with_predictions(100) if match(f)]
+    return [f for f in services().db.fixtures_with_predictions(100, upcoming=True) if match(f)]
 
 
 def club_directory() -> dict[str, dict]:
@@ -115,7 +117,7 @@ def club_directory() -> dict[str, dict]:
     for item in services().db.list_articles(100_000):
         for name in item["teams"]:
             add(name, True)
-    for fixture in services().db.fixtures_with_predictions(100):
+    for fixture in services().db.fixtures_with_predictions(100, upcoming=True):
         for side in ("home", "away"):
             add(teams.canonical(fixture[side]), False)
     return dict(sorted(found.items(), key=lambda kv: kv[1]["name"]))
@@ -124,7 +126,7 @@ def club_directory() -> dict[str, dict]:
 def league_directory() -> dict[str, str]:
     """Every league with an article or a fixture: slug -> name."""
     names = {a["league"] for a in services().db.list_articles(100_000) if a.get("league")}
-    names |= {f["league"] for f in services().db.fixtures_with_predictions(100)
+    names |= {f["league"] for f in services().db.fixtures_with_predictions(100, upcoming=True)
               if f.get("league")}
     return {slugify(n): n for n in sorted(names)}
 
@@ -161,6 +163,25 @@ def league(slug: str):
                            fixtures=_fixtures_for(lambda f: f.get("league") == name))
 
 
+def transparency_numbers() -> dict:
+    """Newsroom stats and the prediction scorecard. The static build computes them from
+    the newsroom's state and passes them in; the server computes them from its database."""
+    numbers = current_app.config.get("TRANSPARENCY")
+    if numbers is None:
+        db, settings = services().db, current_app.config["SETTINGS"]
+        numbers = {"newsroom": newsroom_stats(db, db.list_articles(100_000)),
+                   "scorecard": prediction_scorecard(
+                       db, load_results(settings.results_dir, odds=True), services().teams)}
+    return numbers
+
+
+@bp.get("/how-we-check")
+def how_we_check():
+    """The newsroom in numbers: what it read, checked, cut and spent, and how its
+    predictions did against real results and the bookmaker."""
+    return render_template("how_we_check.html", **transparency_numbers())
+
+
 @bp.get("/about")
 def about():
     """How Touchline Takes works, editorial standards and corrections."""
@@ -179,7 +200,7 @@ def terms():
     return render_template("terms.html")
 
 
-PAGES = ("/archive", "/clubs", "/about", "/privacy", "/terms")
+PAGES = ("/archive", "/clubs", "/how-we-check", "/about", "/privacy", "/terms")
 
 
 def site_paths() -> list[str]:

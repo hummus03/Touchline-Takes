@@ -9,16 +9,21 @@ import pandas as pd
 REQUIRED = ["Date", "HomeTeam", "AwayTeam", "FTHG", "FTAG", "FTR"]
 
 
-def load_results(results_dir: str | Path) -> pd.DataFrame:
-    """Load and concatenate every CSV in ``results_dir``, sorted by date."""
+ODDS = ["B365H", "B365D", "B365A"]  # Bet365 pre-match odds, where the files have them
+
+
+def load_results(results_dir: str | Path, odds: bool = False) -> pd.DataFrame:
+    """Load and concatenate every CSV in ``results_dir``, sorted by date (``odds`` keeps
+    the Bet365 columns too)."""
     frames = []
     for path in sorted(Path(results_dir).glob("*.csv")):
         frame = pd.read_csv(path, encoding="latin-1")
         missing = [c for c in REQUIRED if c not in frame.columns]
         if missing:
             continue
-        frame = frame[REQUIRED + (["Div"] if "Div" in frame.columns else [])].dropna(
-            subset=REQUIRED)
+        keep = REQUIRED + (["Div"] if "Div" in frame.columns else [])
+        keep += [c for c in ODDS if odds and c in frame.columns]
+        frame = frame[keep].dropna(subset=REQUIRED)
         frame["Date"] = pd.to_datetime(frame["Date"], dayfirst=True, errors="coerce")
         frames.append(frame.dropna(subset=["Date"]))
     if not frames:

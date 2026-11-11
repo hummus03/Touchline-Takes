@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}How we check | {{ brand }}{% endblock %}
+{% block share_title %}How we check: {{ brand }} in numbers{% endblock %}
+{% block description %}What our AI newsroom read, wrote, fact-checked and cut, what it cost, and how its match predictions did against real results and the bookmaker.{% endblock %}
+{% block content %}
+{% set n = newsroom %}{% set s = scorecard %}
+<article class="article page numbers">
+  <h1>How we check</h1>
+  <p class="lede">Every article here is written by an AI newsroom, checked claim by claim against its sources and approved by a person. These are the newsroom's own records{% if n.since %}, since {{ n.since }}{% endif %}, updated every time the site is.</p>
+
+  <h2>The newsroom</h2>
+  <div class="stat-grid">
+    <div class="stat"><span class="stat-n">{{ n.runs }}</span><span class="stat-l">newsroom runs</span></div>
+    <div class="stat"><span class="stat-n">{{ n.stories_new + n.stories_skipped }}</span><span class="stat-l">news items collected</span></div>
+    <div class="stat"><span class="stat-n">{{ n.stories_skipped }}</span><span class="stat-l">set aside (not football news)</span></div>
+    <div class="stat"><span class="stat-n">{{ n.drafts }}</span><span class="stat-l">drafts written</span></div>
+    <div class="stat"><span class="stat-n">{{ n.published }}</span><span class="stat-l">articles published</span></div>
+    <div class="stat"><span class="stat-n">{{ n.not_published }}</span><span class="stat-l">drafts not published</span></div>
+  </div>
+  <p class="muted small">Set aside: live blogs, videos, newsletters, other sports and women's football, which we don't cover yet. Drafts not published were rejected by the checks, turned down by the editor, or are still waiting for review.</p>
+
+  <h2>Fact-checking</h2>
+  <div class="stat-grid">
+    <div class="stat"><span class="stat-n">{{ n.claims_checked }}</span><span class="stat-l">factual claims checked</span></div>
+    <div class="stat"><span class="stat-n">{{ n.claims_unsupported }}</span><span class="stat-l">unsupported claims caught ({{ n.unsupported_rate | pct }})</span></div>
+    <div class="stat"><span class="stat-n">{{ n.claims_contradicted }}</span><span class="stat-l">contradicted a source</span></div>
+    <div class="stat"><span class="stat-n">{{ n.revisions }}</span><span class="stat-l">rewrites requested</span></div>
+    <div class="stat"><span class="stat-n">{{ n.rejected }}</span><span class="stat-l">drafts rejected outright</span></div>
+  </div>
+  <p>A claim is any sentence with a name or a number. Each one must cite a source, and the checker tests it against that source: the names and numbers must be there, a result must match the score and the winner, and a statistic must belong to the right club. A claim that fails is cut, or the whole draft goes back for a rewrite; after two failed rewrites it is rejected.</p>
+
+  <h2>Cost</h2>
+  <p>{{ n.llm_calls }} calls to Claude, about <strong>${{ '%.2f' | format(n.llm_cost_usd) }}</strong> in total{% if n.cost_per_claude_article %}, roughly <strong>${{ '%.3f' | format(n.cost_per_claude_article) }}</strong> per published article{% endif %}. The fact-checker and editor run without AI calls.</p>
+
+  <h2 id="predictions">Predictions scorecard</h2>
+  <p>Our match model (logistic regression on Elo ratings and recent form, trained on real Premier League results) gives every fixture win, draw and loss probabilities. Each prediction is frozen at kick-off. Here's how they did, next to the bookmaker's odds for the same matches.</p>
+  {% if s.graded %}
+  <table class="scorecard">
+    <thead><tr><th></th><th>Matches</th><th>Picked the result</th><th>Brier score</th></tr></thead>
+    <tbody>
+      <tr><th>Touchline Takes model</th><td>{{ s.graded }}</td><td>{{ s.accuracy | pct }}</td><td>{{ '%.3f' | format(s.brier) }}</td></tr>
+      {% if s.book_graded %}<tr><th>Bookmaker (Bet365 odds)</th><td>{{ s.book_graded }}</td><td>{{ s.book_accuracy | pct }}</td><td>{{ '%.3f' | format(s.book_brier) }}</td></tr>{% endif %}
+      <tr><th>Always pick the home team</th><td>{{ s.graded }}</td><td>{{ s.home_accuracy | pct }}</td><td class="muted">–</td></tr>
+    </tbody>
+  </table>
+  <p class="muted small">Brier score: 0 is perfect, 0.667 is a blind guess, lower is better.{% if s.book_graded and s.model_brier_same is not none %} On the same {{ s.book_graded }} matches the model scored {{ '%.3f' | format(s.model_brier_same) }}.{% endif %}{% if s.graded < 30 %} Small samples swing a lot: give it a few rounds.{% endif %}</p>
+  <h3 class="small-heading">Latest</h3>
+  <ul class="archive">
+  {% for g in s.recent %}
+    <li><span class="muted small">{{ g.date }}</span> {{ g.home }} {{ g.score }} {{ g.away }}:
+      we said {{ {'H': 'home win', 'D': 'draw', 'A': 'away win'}[g.pick] }} ({{ g.probs[g.pick] | pct }})
+      {% if g.correct %}<strong class="hit">✓</strong>{% else %}<span class="miss">✗</span>{% endif %}</li>
+  {% endfor %}
+  </ul>
+  {% else %}
+  <p class="card">No predicted match has been played yet{% if s.pending %} ({{ s.pending }} played, waiting for the results file){% endif %}. The scorecard fills in as the fixtures we've predicted are played.</p>
+  {% endif %}
+  {% if n.model_test_accuracy %}
+  <p>On matches it hasn't seen (the most recent part of its training data, held back for testing), the model picks the right result {{ n.model_test_accuracy | pct }} of the time{% if n.model_test_roc_auc %}, with a ROC-AUC of {{ '%.2f' | format(n.model_test_roc_auc) }} (0.5 is guessing){% endif %}.</p>
+  {% endif %}
+  <p class="muted small">Predictions are for interest only, not betting advice. Results and odds: Football-Data.co.uk. Fixtures: football-data.org.</p>
+
+  <p class="muted small"><a href="{{ url_for('site.about') }}">About</a> · <a href="{{ url_for('site.about') }}#corrections">Report a mistake</a></p>
+</article>
+{% endblock %}

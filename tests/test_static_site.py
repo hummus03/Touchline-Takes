@@ -328,11 +328,13 @@ def test_club_league_and_info_pages(tmp_path, static):
     assert "news@example.org" in about and "Corrections" in about
     assert "not betting advice" in (out / "terms" / "index.html").read_text()
     assert "no cookies" in (out / "privacy" / "index.html").read_text()
+    numbers = (out / "how-we-check" / "index.html").read_text()
+    assert "factual claims checked" in numbers and "No predicted match has been played" in numbers
     assert 'href="/privacy"' in page  # footer
     sitemap = (out / "sitemap.xml").read_text()
     for url in ("https://touchlinetakes.com/club/arsenal/", "https://touchlinetakes.com/clubs/",
                 "https://touchlinetakes.com/league/premier-league/",
-                "https://touchlinetakes.com/about/",
+                "https://touchlinetakes.com/about/", "https://touchlinetakes.com/how-we-check/",
                 "https://touchlinetakes.com/article/arsenal-v-chelsea-2026-11-11/"):
         assert f"<loc>{url}</loc>" in sitemap
 
