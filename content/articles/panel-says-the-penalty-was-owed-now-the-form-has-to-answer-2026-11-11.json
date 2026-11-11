@@ -1,0 +1,53 @@
+{
+  "slug": "panel-says-the-penalty-was-owed-now-the-form-has-to-answer-2026-11-11",
+  "title": "Panel says the penalty was owed, now the form has to answer",
+  "body": "Liverpool were on the wrong end of a major refereeing call at Anfield, and an independent panel now says so. [S1] The panel ruled that a penalty should have been given when Jurrien Timber pulled the shirt of Alexander Isak during Arsenal's victory. [S1]\n\nSky Sports reported the finding under a headline that calls the original decision an incorrect denial, which turns a fan grievance into a formal verdict on one moment. [S1] That distinction matters. This is not a pundit shouting at the telly. It is an official judgement on a single decision, and it will be quoted for as long as the fixture is remembered. [S1]\n\nThe form guide is where the argument gets sharper.\n\nThe goal numbers tell the same story. Both sides have scored seven in those five games, but Liverpool have conceded six while Arsenal have conceded one. [ST1] [ST2] That gap points to the back line, not the referee, as the problem worth fixing.\n\nA wrongly denied penalty is a grievance you can frame, not a result you can bank. The side should use the ruling as fuel, not as an excuse to sulk. The manager's real job now is to tighten the defence, because that is where the evidence says the pressure lies. Expect the penalty row to fade quickly, while the record will keep getting read.\n\nThe Touchline Take: one to keep an eye on, because the defensive record is the story that will not go away.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Liverpool",
+    "Arsenal"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13610916/liverpool-incorrectly-denied-penalty-for-jurrien-timber-pull-on-alexander-isak-vs-arsenal-rules-independent-panel",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Liverpool incorrectly denied pen vs Arsenal says independent panel. Liverpool should have been awarded a penalty when Jurrien Timber pulled Alexander Isak's shirt in Arsenal's victory at Anfield, an independent panel has ruled.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13610916/liverpool-incorrectly-denied-penalty-for-jurrien-timber-pull-on-alexander-isak-vs-arsenal-rules-independent-panel"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Liverpool last 5 league matches in Football-Data.co.uk results: 3 wins, 0 draws, 2 defeats, 9 points, 7 goals scored, 6 conceded (sequence LWWLW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Arsenal last 5 league matches in Football-Data.co.uk results: 5 wins, 0 draws, 0 defeats, 15 points, 7 goals scored, 1 conceded (sequence WWWWW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-11T18:55:55+00:00",
+  "draft_id": "2366c90c2b",
+  "story_ids": [
+    "f2288925c456"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
