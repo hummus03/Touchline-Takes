@@ -304,8 +304,11 @@ class FactCheckAgent(Agent):
         draft.claims = [c.to_dict() for c in checks]
         draft.add_metrics(claims_checked=len(claims), claims_unsupported=len(bad),
                           claims_contradicted=len(contradictions))
-        ratio = len(bad) / len(claims) if claims else 1.0
-        lead_bad = bool(claims) and not claims[0].supported
+        # An uncited line ("Manchester City have hit a wall.") is cut, not argued over: it
+        # never reaches readers either way. Wrong or unknown sources send the draft back.
+        serious = [c for c in bad if c.kind != "no_citation"]
+        ratio = len(serious) / len(claims) if claims else 1.0
+        lead_bad = bool(claims) and claims[0] in serious
         if not claims:
             reasons = ["no sourced claims at all: the piece needs grounded facts"]
         elif ratio > self.max_unsupported_ratio or lead_bad or contradictions:

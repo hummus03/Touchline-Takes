@@ -161,3 +161,21 @@ def test_formal_team_names_count_but_nicknames_do_not():
                         "https://example.com/m")]
     assert not ClaimChecker(magpies).check("Wire has a match story involving Newcastle [S1]."
                                            ).supported
+
+
+def test_uncited_lines_are_cut_not_bounced(db):
+    """An uncited line naming a club is removed and the sound draft goes through; a claim
+    its citation doesn't support still sends the draft back."""
+    uncited = make_draft("Arsenal look like a different side these days. " + GOOD)
+    checked = FactCheckAgent(db, 2).check(uncited, NewsroomState())
+    assert checked.status == "checked" and "different side" not in checked.body
+    wrong = make_draft(GOOD.replace("Leo Hartmann scored", "Kai Brandt scored"))
+    assert FactCheckAgent(db, 2).check(wrong, NewsroomState()).status == "needs_revision"
+
+
+def test_curly_possessives_match():
+    """'City’s' in a source supports 'City' in a claim."""
+    draft = make_draft("City opened strongly [S1].")
+    draft.evidence = [Evidence("S1", "story", "After three defeats, City’s manager will "
+                               "reassess.", "Test Wire", "https://x")]
+    assert check_draft(draft)[0].supported

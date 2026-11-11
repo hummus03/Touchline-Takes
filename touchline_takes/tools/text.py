@@ -87,11 +87,10 @@ def strip_citations(text: str) -> str:
 
 def normalise_token(token: str) -> str:
     """Lowercase, strip accents/possessives so 'Atlético's' matches 'atletico'."""
-    token = unicodedata.normalize("NFKD", token).encode("ascii", "ignore").decode("ascii")
     token = token.lower().strip("'’-")
-    if token.endswith("'s") or token.endswith("’s"):
+    if token.endswith("'s") or token.endswith("’s"):  # before the ASCII step drops "’"
         token = token[:-2]
-    return token
+    return unicodedata.normalize("NFKD", token).encode("ascii", "ignore").decode("ascii")
 
 
 def word_tokens(text: str) -> set[str]:
