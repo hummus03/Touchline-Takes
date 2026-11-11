@@ -75,8 +75,10 @@ def _inject_csrf():
 def index():
     """Latest takes and fixtures with Analyst predictions."""
     db = services().db
+    numbers = current_app.config.get("TRANSPARENCY")
+    stats = numbers["newsroom"] if numbers else newsroom_stats(db, db.list_articles(100_000))
     return render_template("index.html", articles=db.list_articles(20),
-                           fixtures=db.fixtures_with_predictions(8, upcoming=True))
+                           fixtures=db.fixtures_with_predictions(8, upcoming=True), stats=stats)
 
 
 def photo_tags_for(story_ids: list[str]) -> list[dict]:

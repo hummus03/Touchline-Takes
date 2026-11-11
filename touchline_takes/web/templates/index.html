@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 {% import "macros.html" as m %}
 {% block content %}
+{% if stats and stats.claims_checked %}
+<p class="stats-strip">
+  <span><strong>{{ stats.claims_checked }}</strong> claims fact-checked</span>
+  <span><strong>{{ stats.claims_unsupported }}</strong> unsupported claims caught</span>
+  {% if stats.cost_per_claude_article %}<span>about <strong>${{ '%.3f' | format(stats.cost_per_claude_article) }}</strong> per article</span>{% endif %}
+  <a href="{{ url_for('site.how_we_check') }}">How we check →</a>
+</p>
+{% endif %}
 <div class="layout">
   <section aria-labelledby="latest">
     <h1 id="latest" class="section-title">Latest takes</h1>

@@ -38,6 +38,7 @@
         <a href="{{ url_for('site.index') }}">Latest</a>
         <a href="{{ url_for('site.clubs') }}">Clubs</a>
         <a href="{{ url_for('site.archive') }}">Archive</a>
+        <a href="{{ url_for('site.how_we_check') }}">How we check</a>
         {% if not static_site %}<a href="{{ url_for('site.ask') }}">Ask the archive</a>{% endif %}
         <a href="{{ url_for('site.feed') }}">RSS</a>
         {% if not static_site %}<a href="{{ url_for('site.admin') }}">Desk</a>{% endif %}
