@@ -139,3 +139,8 @@ a.tag:hover, a.tag:focus { outline: 2px solid var(--pitch); outline-offset: 1px;
 .scorecard td { font-variant-numeric: tabular-nums; }
 .hit { color: var(--pitch); }
 .miss { color: #b3261e; }
+
+/* Home page: the newsroom in one line, linking to How we check. */
+.stats-strip { display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: baseline; margin: 0 0 18px; padding: 10px 14px; background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--card-yellow); border-radius: 8px; font-size: .9rem; color: var(--muted); }
+.stats-strip strong { color: var(--ink); }
+.stats-strip a { margin-left: auto; font-weight: 600; }

@@ -328,6 +328,7 @@ def test_club_league_and_info_pages(tmp_path, static):
     assert "news@example.org" in about and "Corrections" in about
     assert "not betting advice" in (out / "terms" / "index.html").read_text()
     assert "no cookies" in (out / "privacy" / "index.html").read_text()
+    assert 'href="/how-we-check"' in page  # top menu
     numbers = (out / "how-we-check" / "index.html").read_text()
     assert "factual claims checked" in numbers and "No predicted match has been played" in numbers
     assert 'href="/privacy"' in page  # footer
