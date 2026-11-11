@@ -1,0 +1,67 @@
+{
+  "slug": "palace-s-sage-sacking-is-the-easy-bit-2026-11-11",
+  "title": "Palace's Sage Sacking Is the Easy Bit",
+  "body": "Crystal Palace are poised to sack Pierre Sage after a 3-1 defeat to Liverpool left them bottom of the Premier League [S1][S2]. It is a stark moment for a club that has spent the season sliding, and the decision reportedly came on the Sunday evening after that game [S2].\n\nSage was appointed in mid-June to replace Oliver Glasner [S1]. The pressure grew after a 5-0 defeat by Brighton last month [S1], and Palace have since lost four successive league games [S1]. Thomas Frank, the former Spurs manager, is emerging as the main candidate to take over [S1]. There is also a financial wrinkle: Palace could avoid significant compensation if Sage rejoins his former club, Lens, though his departure has not yet been confirmed [S2].\n\nThe form figures tell the same story. Palace have won one and lost four of their last five league games, collecting three points and conceding 13 [ST1]. Liverpool have won three of their last five, with nine points and six conceded [ST2]. That gap is not about one bad afternoon. The leaky defence is the real problem, and it is the first thing a new manager has to fix.\n\nIn my view, sacking a manager is the easy part, and it is the bit that grabs the headlines. The harder job is the appointment that follows, and too many clubs treat it as a quick fix. Fans don't need a fresh start that fades after a fortnight. They need a structure that can survive a bad run without the panic button being pressed again.\n\nThe Touchline Take: get the next appointment right and this slump becomes a footnote; get it wrong and bottom of the table becomes a habit.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Crystal Palace",
+    "Liverpool",
+    "Tottenham",
+    "Brighton"
+  ],
+  "sources": [
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/08/crystal-palace-pierre-sage-thomas-frank-main-candidate-manager-selhurst-park",
+      "kind": "story"
+    },
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/10/pierre-sage-crystal-palace-premier-league-lens",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "The Guardian: Crystal Palace poised to sack Pierre Sage and target Frank after Liverpool defeat. Frenchman under pressure after four successive defeats Former Spurs manager Frank emerging as main candidate Crystal Palace are poised to sack Pierre Sage after Sunday’s defeat by Liverpool left them bottom of the Premier League for the first time since December 2017, with Thomas Frank emerging as the main candidate to succeed him. The Frenchman, appointed in mid-June to replace Oliver Glasner, has been under mounting pressure since a 5-0 defeat by Brighton last month. There have been few signs of improvement as Palace have slumped to four successive league defeats.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/08/crystal-palace-pierre-sage-thomas-frank-main-candidate-manager-selhurst-park"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "The Guardian: Crystal Palace could avoid significant compensation if Pierre Sage rejoins Lens. Sage’s exit from Premier League club still not confirmed Manager’s potential return to France could benefit Palace Crystal Palace could avoid paying Pierre Sage significant compensation if he is reappointed by his former club, Lens, with the manager’s departure from Selhurst Park yet to be confirmed. The decision to sack Sage was made on Sunday evening after Palace slumped to a 3-1 defeat against Liverpool .",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/10/pierre-sage-crystal-palace-premier-league-lens"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Crystal Palace last 5 league matches in Football-Data.co.uk results: 1 win, 0 draws, 4 defeats, 3 points, 4 goals scored, 13 conceded (sequence WLLLL).",
+      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Liverpool last 5 league matches in Football-Data.co.uk results: 3 wins, 0 draws, 2 defeats, 9 points, 7 goals scored, 6 conceded (sequence LWWLW).",
+      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-11T17:14:47+00:00",
+  "draft_id": "b2b489934d",
+  "story_ids": [
+    "d8bc84f19346"
+  ],
+  "mode": "llm",
+  "revision": 2
+}
