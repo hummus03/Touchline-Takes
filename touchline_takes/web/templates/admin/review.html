@@ -4,10 +4,12 @@
 <section class="admin">
   <div class="admin-head">
     <h1 class="section-title">Review desk</h1>
+    {% if not production %}
     <form method="post" action="{{ url_for('site.run_pipeline') }}">
       <input type="hidden" name="csrf" value="{{ csrf_token() }}">
       <button type="submit" class="secondary">Run newsroom now</button>
     </form>
+    {% endif %}
   </div>
   <p class="muted">Mode: <strong>{{ 'auto-publish' if settings.auto_publish else 'human approval required' }}</strong> · LLM: {{ settings.llm_provider }} · Max revisions: {{ settings.max_revisions }}</p>
 

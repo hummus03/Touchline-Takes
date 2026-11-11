@@ -124,8 +124,12 @@ class Database:
         if path != ":memory:":
             Path(path).parent.mkdir(parents=True, exist_ok=True)
         self._lock = threading.RLock()
-        self._conn = sqlite3.connect(path, check_same_thread=False)
+        self._conn = sqlite3.connect(path, check_same_thread=False, timeout=10)
         self._conn.row_factory = sqlite3.Row
+        if path != ":memory:":
+            # WAL lets the web process read while the scheduler writes.
+            self._conn.execute("PRAGMA journal_mode=WAL")
+            self._conn.execute("PRAGMA busy_timeout=10000")
         with self._lock:
             self._conn.executescript(SCHEMA)
             self._migrate()
@@ -200,6 +204,10 @@ class Database:
         rows = self._query(
             "SELECT * FROM stories ORDER BY ingested_at DESC, published DESC LIMIT ?", (limit,))
         return [_story_from_row(r) for r in rows]
+
+    def count_stories(self) -> int:
+        """Number of stored stories."""
+        return int(self._query("SELECT COUNT(*) AS n FROM stories")[0]["n"])
 
     def all_stories(self) -> list[Story]:
         """Every stored story."""

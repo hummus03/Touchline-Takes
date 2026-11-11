@@ -25,6 +25,9 @@
     </div>
     <p class="wrap tagline">{{ tagline }}</p>
   </header>
+  {% if sample_mode %}
+  <div class="sample-banner" role="note">Demo mode: stories, stats and fixtures here may be <strong>sample or synthetic data</strong>, not real news.</div>
+  {% endif %}
   <main class="wrap">
     {% with messages = get_flashed_messages(with_categories=true) %}
       {% for category, message in messages %}<div class="flash flash-{{ category }}">{{ message }}</div>{% endfor %}

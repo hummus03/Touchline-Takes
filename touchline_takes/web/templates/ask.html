@@ -9,6 +9,9 @@
     <input id="q" name="q" type="text" maxlength="300" value="{{ question }}" placeholder="e.g. How long is the Aston Villa captain out for?" required>
     <button type="submit">Ask</button>
   </form>
+  {% if limited %}
+    <div class="flash flash-error">That's a lot of questions. Give it a minute and try again.</div>
+  {% endif %}
   {% if answer %}
     <div class="card answer">
       <p>{{ answer.answer }}</p>

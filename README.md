@@ -131,7 +131,7 @@ source .venv/bin/activate
 ```
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements-dev.txt   # runtime deps + pytest/pylint
 ```
 
 ```bash
@@ -139,6 +139,8 @@ cp .env.example .env   # optional; every key is optional
 ```
 
 All dependencies are pinned and were verified together with `pip check` in a clean venv.
+`requirements.txt` holds the runtime dependencies (used by the Docker image), including
+gunicorn as the production server. `requirements-dev.txt` adds the test and lint tools.
 Provider SDKs are plain HTTP calls or the official `anthropic` SDK. LangGraph is the only
 LangChain-family dependency (it pulls in `langchain-core`). The photo tagger uses Keras 3 on
 the **JAX** CPU backend, which is much lighter than TensorFlow; `jaxlib` is about 90 MB.
@@ -206,6 +208,20 @@ flask --app "touchline_takes.web:create_app()" run
 | `/feed.xml` | RSS feed of Touchline Takes' own articles |
 | `/admin` | Review desk: approve or reject drafts, see the fact-check table for each draft, the rejection log, recent runs and the agent log. You can also trigger a run from here. HTTP Basic auth: user `admin`, password `ADMIN_PASSWORD`. With no password set, only localhost can open it. Forms are CSRF-protected. |
 
+## Deploy
+
+See **[DEPLOY.md](DEPLOY.md)**. In short:
+
+- **One Docker image** runs the website (gunicorn), the scheduler, or both.
+- **On a VPS,** `docker-compose.yml` runs them with Caddy for automatic HTTPS on
+  touchlinetakes.com.
+- **On Fly.io or Render,** a single container (`all` mode) works with one disk.
+- **Preflight check:** with `TOUCHLINE_ENV=production` the app runs
+  `python -m touchline_takes.preflight` at startup. It refuses to start with weak secrets,
+  plain-HTTP URLs or synthetic/sample data, and never falls back to sample content.
+- **Demo banner:** outside production, every page shows a banner saying the content may be
+  sample data.
+
 ## Test, lint, evaluate
 
 ```bash
@@ -220,7 +236,9 @@ pylint touchline_takes tests scripts
 python scripts/evaluate.py
 ```
 
-- **Tests** (102) cover every agent, tool and the LangGraph orchestration (pause, resume
+- **Tests** (115) cover every agent, tool, the production hardening (preflight, rate
+  limits, security headers, no sample fallbacks, scheduler resilience) and the LangGraph
+  orchestration (pause, resume
   from a separate process, parity with the sequential loop). The suite blocks real HTTP in
   `tests/conftest.py` and uses fake sessions, `FakeLLM`, `RecordedLLM`
   (`tests/fixtures/recorded_llm.json`) and `ScriptedWriterLLM`, so it needs no network or API
@@ -448,6 +466,9 @@ See `.env.example` for every variable. The main ones:
 - `EMBEDDINGS_PROVIDER`, `VECTOR_STORE`
 - `CLASSIFIER_PROVIDER`, `FACTCHECK_VERIFIER`
 - `ORCHESTRATOR` (`langgraph` or `sequential`), `CHECKPOINT_PATH`
+- `TOUCHLINE_ENV` (`development` or `production`), `ALLOW_SAMPLE_DATA`, `ASK_RATE_LIMIT`,
+  `ADMIN_AUTH_RATE_LIMIT`, `PROXY_HOPS`; production-only `RESULTS_SEASONS` and
+  `SCHEDULE_MINUTES` (see `deploy/production.env.example`)
 - `PHOTO_TAGGER`, `PHOTO_MODEL_DIR`, `PHOTO_MAX_PER_RUN`
 - `AUTO_PUBLISH`, `MAX_REVISIONS`, `MAX_ARTICLES_PER_RUN`, `DEDUPE_THRESHOLD`
 - `ADMIN_PASSWORD`, `SECRET_KEY`, `DATABASE_PATH`
@@ -461,15 +482,17 @@ touchline_takes/
                rag, relations, stats, synthetic_photos, teams, text
   models/      match_predictor (logistic regression + baselines), photo_tagger (VGG16)
   db/          SQLite repository
-  web/         Flask app factory, views, templates, static
+  web/         Flask app factory, views, rate limiter, templates, static
   graph.py     LangGraph graph   pipeline.py  wiring + runs    review.py  review CLI
   run.py       pipeline CLI      evaluation.py  evaluation harness
+  preflight.py production checks wsgi.py  gunicorn entry point
   config.py    settings from env state.py shared state objects
 tests/         unit + end-to-end tests (offline)
 data/          sample feeds, synthetic results, fixtures, teams, eval fixtures
 scripts/       evaluate.py, train_photo_tagger.py, make_sample_data.py,
                make_sample_photos.py, download_football_data.py
 reports/       latest evaluation report
+Dockerfile, docker/, docker-compose.yml, deploy/   production packaging (see DEPLOY.md)
 ```
 
 ## Next steps

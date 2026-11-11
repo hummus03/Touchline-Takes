@@ -1,11 +1,13 @@
-"""Download real Football-Data.co.uk results CSVs into ``data/results``.
+"""Download real Football-Data.co.uk results CSVs into ``RESULTS_DIR``.
 
 Usage::
 
     python scripts/download_football_data.py --league E0 --seasons 2223 2324 2425 [--replace]
 
-``--replace`` removes the bundled synthetic ``sample_*.csv`` files so the model
-trains only on real data. Then retrain: ``python -m touchline_takes.run --retrain``.
+Files go to ``RESULTS_DIR`` (default ``data/results``; in the Docker image
+``/data/results`` on the persistent volume). ``--replace`` removes any synthetic
+``sample_*.csv`` files there so the model trains only on real data.
+Then retrain: ``python -m touchline_takes.run --retrain``.
 """
 
 from __future__ import annotations
@@ -17,6 +19,9 @@ from pathlib import Path
 import requests
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+
+from touchline_takes.config import Settings  # pylint: disable=wrong-import-position
 URL = "https://www.football-data.co.uk/mmz4281/{season}/{league}.csv"
 
 
@@ -27,7 +32,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--seasons", nargs="+", default=["2223", "2324", "2425"])
     parser.add_argument("--replace", action="store_true", help="delete bundled samples")
     args = parser.parse_args(argv)
-    out_dir = ROOT / "data" / "results"
+    out_dir = Path(Settings.from_env().results_dir)  # RESULTS_DIR
     out_dir.mkdir(parents=True, exist_ok=True)
     ok = 0
     for season in args.seasons:

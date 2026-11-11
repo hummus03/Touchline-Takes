@@ -22,14 +22,24 @@ def services():
 
 
 def admin_required(view):
-    """HTTP Basic auth with ADMIN_PASSWORD; without one, only localhost may enter."""
+    """HTTP Basic auth with ADMIN_PASSWORD; without one, only localhost may enter.
+
+    Failed logins are rate-limited per client IP to slow down password guessing.
+    """
     @wraps(view)
     def wrapper(*args, **kwargs):
         password = current_app.config["SETTINGS"].admin_password
         if password:
+            limiter = services().admin_limiter
+            client = request.remote_addr or "unknown"
+            if limiter.blocked(client):
+                return Response("Too many failed logins; try again later.", 429,
+                                {"Retry-After": str(limiter.window)})
             auth = request.authorization
             if not (auth and auth.username == "admin" and auth.password is not None and
-                    hmac.compare_digest(auth.password, password)):
+                    hmac.compare_digest(auth.password.encode(), password.encode())):
+                if auth is not None:
+                    limiter.hit(client)
                 return Response("Admin login required", 401,
                                 {"WWW-Authenticate": 'Basic realm="Touchline Takes admin"'})
         elif request.remote_addr not in LOCAL_ADDRS:
@@ -92,7 +102,13 @@ def article(slug: str):
 def ask():
     """Ask the archive (RAG)."""
     question = request.values.get("q", "").strip()[:300]
-    answer = services().research().ask(question) if question else None
+    answer = None
+    if question:
+        limiter = services().ask_limiter
+        if not limiter.hit(request.remote_addr or "unknown"):
+            return render_template("ask.html", question=question, answer=None,
+                                   limited=True), 429, {"Retry-After": str(limiter.window)}
+        answer = services().research().ask(question)
     return render_template("ask.html", question=question, answer=answer)
 
 
@@ -104,10 +120,18 @@ def feed():
     return Response(xml, mimetype="application/rss+xml")
 
 
+@bp.get("/robots.txt")
+def robots():
+    """Let search engines in, keep them out of the admin desk."""
+    settings = current_app.config["SETTINGS"]
+    body = f"User-agent: *\nDisallow: /admin\nSitemap: {settings.site_url}/feed.xml\n"
+    return Response(body, mimetype="text/plain")
+
+
 @bp.get("/healthz")
 def healthz():
-    """Liveness probe."""
-    return {"status": "ok"}
+    """Health probe: the app is up and the database answers."""
+    return {"status": "ok", "stories": services().db.count_stories()}
 
 
 @bp.get("/admin")
@@ -149,7 +173,9 @@ def review_draft(draft_id: str, action: str):
 @bp.post("/admin/run")
 @admin_required
 def run_pipeline():
-    """Run the newsroom once from the admin desk."""
+    """Run the newsroom once from the admin desk (development only; production is scheduled)."""
+    if current_app.config["SETTINGS"].is_production:
+        abort(403, "Runs are scheduled in production (the scheduler process).")
     check_csrf()
     state = services().newsroom.run_once()
     flash(f"Run {state.run_id}: {state.metrics.get('drafts')}", "ok")

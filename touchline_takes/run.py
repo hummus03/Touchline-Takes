@@ -8,13 +8,34 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import signal
 import sys
 import time
 
 from touchline_takes import BRAND_NAME
 from touchline_takes.config import Settings
 from touchline_takes.pipeline import Newsroom
+from touchline_takes.preflight import PreflightError, require_ready
 from touchline_takes.state import NewsroomState
+
+LOGGER = logging.getLogger("touchline_takes.run")
+
+
+class StopFlag:
+    """Set by SIGTERM/SIGINT so the scheduler finishes the current run, then exits."""
+
+    def __init__(self) -> None:
+        self.stop = False
+
+    def __call__(self, signum, _frame) -> None:
+        LOGGER.warning("received signal %s: stopping after the current run", signum)
+        self.stop = True
+
+    def sleep(self, seconds: float) -> None:
+        """Sleep in short steps so a stop request is noticed quickly."""
+        end = time.monotonic() + seconds
+        while not self.stop and time.monotonic() < end:
+            time.sleep(min(1.0, end - time.monotonic()))
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
@@ -52,7 +73,8 @@ def print_summary(state: NewsroomState, quiet: bool = False) -> None:
 def main(argv: list[str] | None = None) -> int:
     """Entry point."""
     args = parse_args(argv)
-    logging.basicConfig(level=logging.WARNING, format="%(levelname)s %(name)s: %(message)s")
+    logging.basicConfig(level=logging.INFO if args.schedule else logging.WARNING,
+                        format="%(asctime)s %(levelname)s %(name)s: %(message)s")
     settings = Settings.from_env()
     overrides = {}
     if args.offline:
@@ -63,17 +85,35 @@ def main(argv: list[str] | None = None) -> int:
         overrides["orchestrator"] = args.orchestrator
     settings = settings.with_overrides(**overrides)
     newsroom = Newsroom.build(settings, retrain=args.retrain)
-    runs = 0
+    try:
+        report = require_ready(settings, newsroom.db)
+    except PreflightError as exc:
+        print(exc, file=sys.stderr)
+        return 2
+    for warning in report.warnings if settings.is_production else []:
+        LOGGER.warning("preflight: %s", warning)
+    flag = StopFlag()
+    if args.schedule:
+        signal.signal(signal.SIGTERM, flag)
+        signal.signal(signal.SIGINT, flag)
+    runs = failures = 0
     while True:
-        state = newsroom.run_once()
-        print_summary(state, args.quiet)
-        runs += 1
-        if not args.schedule or (args.max_runs and runs >= args.max_runs):
-            break
-        print(f"\nNext run in {args.schedule:g} minute(s). Ctrl+C to stop.")
         try:
-            time.sleep(args.schedule * 60)
-        except KeyboardInterrupt:
+            state = newsroom.run_once()
+            print_summary(state, args.quiet)
+        except Exception:  # pylint: disable=broad-exception-caught
+            # A scheduled newsroom must survive one bad run (e.g. a provider outage).
+            if not args.schedule:
+                raise
+            failures += 1
+            LOGGER.exception("run failed (%d so far); will retry on schedule", failures)
+        runs += 1
+        sys.stdout.flush()
+        if not args.schedule or flag.stop or (args.max_runs and runs >= args.max_runs):
+            break
+        print(f"\nNext run in {args.schedule:g} minute(s). Ctrl+C to stop.", flush=True)
+        flag.sleep(args.schedule * 60)
+        if flag.stop:
             break
     return 0
 

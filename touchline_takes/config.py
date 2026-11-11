@@ -37,6 +37,12 @@ def _resolve(path: str) -> str:
 class Settings:
     """All tunable knobs for the newsroom, the web app and the tools."""
 
+    environment: str = "development"  # development | production
+    allow_sample_data: bool = True    # False in production unless ALLOW_SAMPLE_DATA=true
+    ask_rate_limit: str = "10/minute"
+    admin_auth_rate_limit: str = "20/hour"
+    proxy_hops: int = 0               # reverse proxies in front of the app (ProxyFix)
+
     database_path: str = str(DATA_DIR / "touchline_takes.db")
     rss_feeds: list[str] = field(default_factory=lambda: list(DEFAULT_FEEDS))
     sample_feed_dir: str = str(DATA_DIR / "sample_feeds")
@@ -88,7 +94,13 @@ class Settings:
             env = os.environ
         get = env.get
         defaults = cls()
+        environment = (get("TOUCHLINE_ENV", "development") or "development").strip().lower()
         return cls(
+            environment=environment,
+            allow_sample_data=_as_bool(get("ALLOW_SAMPLE_DATA"), environment != "production"),
+            ask_rate_limit=get("ASK_RATE_LIMIT", "10/minute") or "10/minute",
+            admin_auth_rate_limit=get("ADMIN_AUTH_RATE_LIMIT", "20/hour") or "20/hour",
+            proxy_hops=int(get("PROXY_HOPS", "0") or 0),
             database_path=_resolve(get("DATABASE_PATH", defaults.database_path)),
             rss_feeds=_as_list(get("RSS_FEEDS"), DEFAULT_FEEDS),
             sample_feed_dir=_resolve(get("SAMPLE_FEED_DIR", defaults.sample_feed_dir)),
@@ -129,6 +141,11 @@ class Settings:
             site_url=(get("SITE_URL", defaults.site_url) or defaults.site_url).rstrip("/"),
             request_timeout=float(get("REQUEST_TIMEOUT", "10") or 10),
         )
+
+    @property
+    def is_production(self) -> bool:
+        """True when running as the public site."""
+        return self.environment == "production"
 
     def with_overrides(self, **changes) -> "Settings":
         """Return a copy with some fields replaced (handy in tests and the CLI)."""

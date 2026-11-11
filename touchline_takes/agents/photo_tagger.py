@@ -30,7 +30,8 @@ class ImageFetcher:
     """Fetches photos over HTTP(S), or from a local folder for bundled sample feeds."""
 
     def __init__(self, local_root: str, timeout: float = 10.0,
-                 session: requests.Session | None = None) -> None:
+                 session: requests.Session | None = None, allow_local: bool = True) -> None:
+        self.allow_local = allow_local
         self.local_root = Path(local_root).resolve()
         self.timeout = timeout
         self.session = session or requests.Session()
@@ -48,7 +49,7 @@ class ImageFetcher:
             content = resp.content
             if not str(resp.headers.get("Content-Type", "image/")).startswith("image/"):
                 raise ImageFetchError(f"{url}: not an image")
-        elif scheme in ("", "file"):
+        elif scheme in ("", "file") and self.allow_local:
             path = (self.local_root / urlparse(url).path.lstrip("/")).resolve()
             if not path.is_relative_to(self.local_root) or not path.is_file():
                 raise ImageFetchError(f"{url}: not a sample photo")

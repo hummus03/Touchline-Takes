@@ -1,0 +1,15 @@
+.git
+.venv
+venv
+**/__pycache__
+.pytest_cache
+.env
+.env.*
+tests
+reports
+data/*.db
+data/*.db-*
+data/chroma
+data/models
+data/photos
+data/photos_synthetic

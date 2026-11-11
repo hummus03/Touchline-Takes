@@ -1,0 +1,48 @@
+# Production on a single VPS: website + scheduler sharing one volume, Caddy for HTTPS.
+#   cp deploy/production.env.example .env.production   # fill it in
+#   docker compose up -d --build
+services:
+  web:
+    build: .
+    image: touchline-takes:latest
+    command: ["web"]
+    env_file: .env.production
+    environment:
+      PROXY_HOPS: "1"          # Caddy sits in front
+    volumes:
+      - touchline-data:/data
+    expose:
+      - "8000"
+    restart: unless-stopped
+
+  scheduler:
+    image: touchline-takes:latest
+    command: ["scheduler"]
+    env_file: .env.production
+    volumes:
+      - touchline-data:/data
+    depends_on:
+      - web
+    healthcheck:
+      disable: true            # no web server in this container
+    restart: unless-stopped
+
+  caddy:
+    image: caddy:2
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      SITE_DOMAIN: ${SITE_DOMAIN:-touchlinetakes.com}
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      - web
+    restart: unless-stopped
+
+volumes:
+  touchline-data:
+  caddy-data:
+  caddy-config:

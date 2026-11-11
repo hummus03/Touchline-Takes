@@ -1,0 +1,9 @@
+# Automatic HTTPS (Let's Encrypt) once DNS for the domain points at this server.
+{$SITE_DOMAIN} {
+	encode zstd gzip
+	reverse_proxy web:8000
+}
+
+www.{$SITE_DOMAIN} {
+	redir https://{$SITE_DOMAIN}{uri} permanent
+}

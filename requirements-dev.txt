@@ -1,0 +1,5 @@
+-r requirements.txt
+
+# Tests and lint
+pytest==9.2.0
+pylint==4.1.3

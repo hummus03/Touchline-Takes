@@ -45,11 +45,14 @@ class FixturesClient:
         data = json.loads(self.sample_path.read_text(encoding="utf-8"))
         return [{**f, "source": f.get("source", "sample fixtures")} for f in data]
 
-    def upcoming(self, offline: bool = False) -> tuple[list[dict[str, Any]], bool]:
-        """Return ``(fixtures, used_fallback)``."""
+    def upcoming(self, offline: bool = False, allow_fallback: bool = True
+                 ) -> tuple[list[dict[str, Any]], bool]:
+        """Return ``(fixtures, used_fallback)``; no fixtures at all if fallback is disabled."""
         if self.api_key and not offline:
             try:
                 return self.from_api(), False
             except (requests.RequestException, KeyError, ValueError) as exc:
-                LOGGER.warning("fixtures API failed, using sample: %s", exc)
+                LOGGER.warning("fixtures API failed: %s", exc)
+        if not allow_fallback:
+            return [], False
         return self.load_sample(), True

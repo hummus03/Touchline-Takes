@@ -10,6 +10,7 @@ dist/
 
 # Secrets
 .env
+.env.production
 
 # Runtime data (generated)
 data/*.db

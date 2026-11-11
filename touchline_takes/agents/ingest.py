@@ -16,7 +16,7 @@ class IngestAgent(Agent):
 
     def __init__(self, db: Database, feeds: FeedClient, embeddings: Embeddings,
                  feed_urls: list[str], threshold: float = 0.8, offline: bool = False,
-                 history: int = 300) -> None:
+                 history: int = 300, allow_fallback: bool = True) -> None:
         super().__init__()
         self.db = db
         self.feeds = feeds
@@ -25,6 +25,7 @@ class IngestAgent(Agent):
         self.threshold = threshold
         self.offline = offline
         self.history = history
+        self.allow_fallback = allow_fallback
 
     def dedupe(self, candidates: list[Story], existing: list[Story]
                ) -> tuple[list[Story], list[tuple[Story, Story, float]]]:
@@ -49,11 +50,14 @@ class IngestAgent(Agent):
         return unique, duplicates
 
     def run(self, state: NewsroomState) -> NewsroomState:
-        result = self.feeds.fetch_all(self.feed_urls, offline=self.offline)
+        result = self.feeds.fetch_all(self.feed_urls, offline=self.offline,
+                                      allow_fallback=self.allow_fallback)
         for err in result.errors:
             self.log(state, "feed_error", err)
         if result.used_fallback:
             self.log(state, "fallback", "using bundled sample feeds")
+        elif not result.stories and result.errors:
+            self.log(state, "no_stories", "every feed failed and sample fallback is disabled")
         fetched = result.stories
         seen_urls: set[str] = set()
         fresh = []

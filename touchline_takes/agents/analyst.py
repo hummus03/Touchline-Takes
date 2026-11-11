@@ -23,7 +23,7 @@ class AnalystAgent(Agent):
 
     def __init__(self, db: Database, fixtures: FixturesClient, teams: TeamDirectory,
                  results_dir: str, model_path: str, offline: bool = False,
-                 retrain: bool = False) -> None:
+                 retrain: bool = False, allow_fallback: bool = True) -> None:
         super().__init__()
         self.db = db
         self.fixtures = fixtures
@@ -32,6 +32,7 @@ class AnalystAgent(Agent):
         self.model_path = model_path
         self.offline = offline
         self.retrain = retrain
+        self.allow_fallback = allow_fallback
         self.model: MatchPredictor | None = None
 
     def ensure_model(self) -> MatchPredictor:
@@ -60,7 +61,8 @@ class AnalystAgent(Agent):
 
     def run(self, state: NewsroomState) -> NewsroomState:
         model = self.ensure_model()
-        fixtures, used_fallback = self.fixtures.upcoming(offline=self.offline)
+        fixtures, used_fallback = self.fixtures.upcoming(offline=self.offline,
+                                                         allow_fallback=self.allow_fallback)
         if used_fallback:
             self.log(state, "fallback", "using bundled sample fixtures")
         predicted = 0

@@ -57,7 +57,10 @@ def make_checkpointer(path: str | None):
     if not path:
         return InMemorySaver(serde=serializer())
     Path(path).parent.mkdir(parents=True, exist_ok=True)
-    return SqliteSaver(sqlite3.connect(path, check_same_thread=False), serde=serializer())
+    conn = sqlite3.connect(path, check_same_thread=False, timeout=10)
+    conn.execute("PRAGMA journal_mode=WAL")  # web and scheduler share this file
+    conn.execute("PRAGMA busy_timeout=10000")
+    return SqliteSaver(conn, serde=serializer())
 
 
 def _agent_node(room: "Newsroom", name: str,

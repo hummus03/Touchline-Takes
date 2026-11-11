@@ -96,8 +96,13 @@ class FeedClient:
             stories.extend(parse_feed(path.read_text(encoding="utf-8")))
         return stories
 
-    def fetch_all(self, urls: list[str], offline: bool = False) -> FeedResult:
-        """Fetch all feeds; use samples if offline or if every feed failed."""
+    def fetch_all(self, urls: list[str], offline: bool = False,
+                  allow_fallback: bool = True) -> FeedResult:
+        """Fetch all feeds; use samples if offline or if every feed failed.
+
+        With ``allow_fallback=False`` (production) samples are never used: a failed
+        fetch simply yields no stories.
+        """
         result = FeedResult()
         if not offline:
             for url in urls:
@@ -106,7 +111,7 @@ class FeedClient:
                 except FeedError as exc:
                     LOGGER.warning("feed failed: %s", exc)
                     result.errors.append(str(exc))
-        if offline or not result.stories:
+        if (offline or not result.stories) and allow_fallback:
             result.used_fallback = True
             result.stories = self.load_samples()
         return result
