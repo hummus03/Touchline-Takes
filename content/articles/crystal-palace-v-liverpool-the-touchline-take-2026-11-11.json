@@ -1,0 +1,65 @@
+{
+  "slug": "crystal-palace-v-liverpool-the-touchline-take-2026-11-11",
+  "title": "Crystal Palace v Liverpool: the Touchline Take",
+  "body": "The game between Crystal Palace and Liverpool ended 3-1, as reported by The Guardian [S1]. The headline said it plainly: “Crystal Palace could avoid significant compensation if Pierre Sage rejoins Lens” [S1]. The names in the frame: Palace Crystal Palace and Pierre Sage [S1].\n\nOne detail from the report stands out: “left them bottom of the table for the first time since 2017” [S1]. For context, The Guardian also ran: “Crystal Palace poised to sack Pierre Sage and target Frank after Liverpool defeat” [S2]. In our Football-Data.co.uk results, Crystal Palace have 1 win, 0 draws and 4 defeats from their last 5 league games: 3 points, 4 scored and 13 conceded [ST1].\n\nIn our Football-Data.co.uk results, Liverpool have 3 wins, 0 draws and 2 defeats from their last 5 league games: 9 points, 7 scored and 6 conceded [ST2].\n\nThere is no hiding from a scoreline, and this one will be picked apart all week. It was the kind of game that tells you more about character than about tactics. The Touchline Take: file this one under unfinished business.",
+  "article_type": "match_report",
+  "league": "Premier League",
+  "teams": [
+    "Crystal Palace",
+    "Liverpool"
+  ],
+  "sources": [
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/10/pierre-sage-crystal-palace-premier-league-lens",
+      "kind": "story"
+    },
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/08/crystal-palace-pierre-sage-thomas-frank-main-candidate-manager-selhurst-park",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "The Guardian: Crystal Palace could avoid significant compensation if Pierre Sage rejoins Lens. Sage’s exit from Premier League club still not confirmed Manager’s potential return to France could benefit Palace Crystal Palace could avoid paying Pierre Sage significant compensation if he is reappointed by his former club, Lens, with the manager’s departure from Selhurst Park yet to be confirmed. The decision to sack Sage was made on Sunday evening after Palace slumped to a 3-1 defeat against Liverpool . It was their fourth successive loss in the Premier League and left them bottom of the table for the first time since 2017.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/10/pierre-sage-crystal-palace-premier-league-lens"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "The Guardian: Crystal Palace poised to sack Pierre Sage and target Frank after Liverpool defeat. Frenchman under pressure after four successive defeats Former Spurs manager Frank emerging as main candidate Crystal Palace are poised to sack Pierre Sage after Sunday’s defeat by Liverpool left them bottom of the Premier League for the first time since December 2017, with Thomas Frank emerging as the main candidate to succeed him. The Frenchman, appointed in mid-June to replace Oliver Glasner, has been under mounting pressure since a 5-0 defeat by Brighton last month.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/08/crystal-palace-pierre-sage-thomas-frank-main-candidate-manager-selhurst-park"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Crystal Palace last 5 league matches in Football-Data.co.uk results: 1 win, 0 draws, 4 defeats, 3 points, 4 goals scored, 13 conceded (sequence WLLLL).",
+      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Liverpool last 5 league matches in Football-Data.co.uk results: 3 wins, 0 draws, 2 defeats, 9 points, 7 goals scored, 6 conceded (sequence LWWLW).",
+      "source": "Football-Data.co.uk-format Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-11T04:50:04+00:00",
+  "draft_id": "52587656c3",
+  "story_ids": [
+    "0dd39a8cb847"
+  ],
+  "mode": "template",
+  "revision": 0
+}
