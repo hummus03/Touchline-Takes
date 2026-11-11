@@ -4,7 +4,7 @@
 from touchline_takes.agents.ingest import IngestAgent
 from touchline_takes.state import NewsroomState
 from touchline_takes.tools.embeddings import HashingTfidfEmbeddings
-from touchline_takes.tools.feeds import FeedClient, parse_feed
+from touchline_takes.tools.feeds import FeedClient, parse_feed, source_name
 
 from tests.conftest import FakeResponse, FakeSession
 
@@ -52,3 +52,19 @@ def test_ingest_stores_and_dedupes(settings, db):
     # A second run finds nothing new (URL + similarity dedupe).
     again = agent.run(NewsroomState())
     assert again.metrics["ingest"]["new"] == 0
+
+
+def test_source_names_and_trailers():
+    """Feeds are credited by outlet, and 'Continue reading...' tails are dropped."""
+    assert source_name("https://www.theguardian.com/football/rss") == "The Guardian"
+    assert source_name("https://feeds.bbci.co.uk/sport/football/rss.xml") == "BBC Sport"
+    assert source_name("https://www.skysports.com/rss/12040") == "Sky Sports"
+    assert source_name("https://example.org/feed") == ""
+    rss = ("<?xml version=\"1.0\"?><rss version=\"2.0\"><channel><title>Football | The "
+           "Guardian</title><item><title>Arsenal win</title><link>https://g.test/1</link>"
+           "<description>&lt;p&gt;Arsenal won the derby.&lt;/p&gt; &lt;a href=\"x\"&gt;"
+           "Continue reading...&lt;/a&gt;</description></item></channel></rss>")
+    client = FeedClient(".", session=FakeSession(
+        {"theguardian.com": FakeResponse(rss)}))
+    story = client.fetch("https://www.theguardian.com/football/rss")[0]
+    assert story.source == "The Guardian" and story.summary == "Arsenal won the derby."

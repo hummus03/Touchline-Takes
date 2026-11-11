@@ -5,7 +5,7 @@ from __future__ import annotations
 import secrets
 import threading
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from markupsafe import Markup, escape
 from werkzeug.middleware.proxy_fix import ProxyFix
 
@@ -29,6 +29,13 @@ def render_body(body: str) -> Markup:
             "The Touchline Take:" in para) else ""
         html.append(f"<p{cls}>{text}</p>")
     return Markup("\n".join(html))
+
+
+def canonical_url(site_url: str, path: str) -> str:
+    """Absolute URL of a page as the static site serves it (directories end in '/')."""
+    if path.startswith("/article/") or path == "/archive":
+        path = path.rstrip("/") + "/"
+    return f"{site_url}{path}"
 
 
 def teaser(body: str, length: int = 220) -> str:
@@ -132,7 +139,8 @@ def create_app(settings: Settings | None = None, newsroom=None, testing: bool = 
     def _brand():
         return {"brand": BRAND_NAME, "tagline": TAGLINE, "domain": DOMAIN,
                 "sample_mode": settings.allow_sample_data, "production": settings.is_production,
-                "static_site": settings.is_static,
+                "static_site": settings.is_static, "site_url": settings.site_url,
+                "canonical_url": canonical_url(settings.site_url, request.path),
                 "csp": SECURITY_HEADERS["Content-Security-Policy"].replace(
                     "frame-ancestors 'none'; ", "")}
 

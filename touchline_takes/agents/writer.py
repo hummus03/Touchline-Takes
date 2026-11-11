@@ -202,17 +202,23 @@ class WriterAgent(Agent):
         previews = [Assignment("preview", fixture=f) for f in state.fixtures
                     if f.get("probs")][: self.max_previews]
         story_slots = max(0, self.max_articles - len(previews))
-        covered: dict[tuple[str, str], str] = {}  # (lead club, kind) -> story id
+        covered: dict[tuple, str] = {}  # (lead club, "news") or ("match", clubs) -> story id
         for story in stories:
             if len(assignments) >= story_slots:
                 break
             # A result and a news story about the same club are different articles, but
             # several news stories about one club (a saga often spans manager, transfer
             # and general angles) become one article with the rest as related coverage.
-            key = (story.teams[0], "match" if story.topic == "match_report" else "news")
+            # The same match reported by two outlets ("Arsenal beat Chelsea", "Chelsea fall
+            # to Arsenal") is one article too, whichever club leads the headline.
+            if story.topic == "match_report":
+                key = ("match", frozenset(story.teams[:2]))
+            else:
+                key = (story.teams[0], "news")
             if key in covered:
                 self.db.mark_used([story.id])
-                self.log(state, "merged", f"covered by the {key[0]} {key[1]} article "
+                label = " v ".join(sorted(key[1])) if key[0] == "match" else key[0]
+                self.log(state, "merged", f"covered by the {label} article "
                          f"({covered[key]}): {story.title}", story.id)
                 continue
             covered[key] = story.id

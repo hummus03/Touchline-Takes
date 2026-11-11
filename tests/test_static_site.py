@@ -281,3 +281,25 @@ def test_static_cli(tmp_path, static, monkeypatch, capsys):
                         lambda: static.with_overrides(environment="production"))
     assert static_main(["run"]) == 2
     assert "refused to start" in capsys.readouterr().err
+
+
+def test_link_preview_tags(tmp_path, static):
+    """Every page has Open Graph/Twitter tags with absolute URLs; articles get their own."""
+    content = tmp_path / "content"
+    write_article(content, record())
+    out = tmp_path / "_site"
+    build_site(content, out, static.with_overrides(environment="production",
+                                                   allow_sample_data=False))
+    home = (out / "index.html").read_text()
+    assert '<meta property="og:image" content="https://touchlinetakes.com/static/og-image.png">' \
+        in home
+    assert '<link rel="canonical" href="https://touchlinetakes.com/">' in home
+    assert '<meta name="twitter:card" content="summary_large_image">' in home
+    page = (out / "article" / "arsenal-v-chelsea-2026-11-11" / "index.html").read_text()
+    assert ('<meta property="og:url" content="https://touchlinetakes.com/article/'
+            'arsenal-v-chelsea-2026-11-11/">') in page
+    assert '<meta property="og:type" content="article">' in page
+    assert '<meta property="og:title" content="Arsenal v Chelsea: the Touchline Take">' in page
+    assert 'property="article:published_time"' in page
+    assert '<meta property="og:description" content="Arsenal beat Chelsea 2-1' in page
+    assert (out / "static" / "og-image.png").stat().st_size > 10_000

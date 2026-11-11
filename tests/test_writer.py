@@ -244,3 +244,19 @@ def test_stale_form_is_not_quoted():
     store = ResultsStore(results, "test results")
     assert store.form_text("Arsenal", "Arsenal") and not store.form_text("Leicester",
                                                                           "Leicester")
+
+
+def test_same_match_from_two_outlets_is_one_article(db, teams):
+    """'Arsenal beat Chelsea' (BBC) and 'Chelsea fall to Arsenal' (Guardian): one article."""
+    bbc = make_story(50, title="Arsenal beat Chelsea 2-1", summary="Arsenal beat Chelsea 2-1.",
+                     teams=["Arsenal", "Chelsea"], topic="match_report", source="BBC Sport")
+    guardian = make_story(51, title="Chelsea fall 2-1 to Arsenal in London derby",
+                          summary="Chelsea lost 2-1 to Arsenal.", teams=["Chelsea", "Arsenal"],
+                          topic="match_report", source="The Guardian")
+    for story in (bbc, guardian):
+        db.insert_story(story)
+        db.update_classification(story)
+    state = NewsroomState(stories=[bbc, guardian])
+    assert len(make_writer(db, teams).plan(state)) == 1
+    assert any(log.action == "merged" and "Arsenal v Chelsea" in log.detail
+               for log in state.logs)

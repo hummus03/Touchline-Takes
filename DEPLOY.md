@@ -82,7 +82,7 @@ In **Settings → Secrets and variables → Actions**:
 | `LLM_PROVIDER` | `offline` | free template writer (default). `anthropic` needs the secret below and costs money per article. |
 | `AUTO_PUBLISH` | `false` | `true` skips your review and commits articles straight to `main` |
 | `RESULTS_SEASONS` | `2425 2526 2627` | optional, this is the default |
-| `RSS_FEEDS` | comma-separated feed URLs | optional, default is BBC Sport football. Check each feed's terms. |
+| `RSS_FEEDS` | comma-separated feed URLs | optional, default is BBC Sport, The Guardian and Sky Sports football. Check each feed's terms. |
 
 **Secrets tab:**
 
@@ -156,7 +156,10 @@ These need you, a machine with normal internet access, or both:
 - [ ] **An LLM key** (`ANTHROPIC_API_KEY`, or an OpenAI-compatible endpoint). The template
       writer works without one, but reads robotically.
 - [ ] **Feed terms.** Check the terms of each RSS feed you use before publishing summaries
-      of it on a commercial site.
+      of it on a commercial site. The defaults are BBC Sport, The Guardian and Sky Sports.
+      Their RSS is offered for personal, non-commercial use, and articles here only link
+      back and quote short facts, but read each outlet's current terms yourself. Drop any
+      feed from `RSS_FEEDS` (the repository variable in static mode) to stop using it.
 - [ ] **Legal pages.** Privacy notice and terms of use aren't built yet. The site sets no
       tracking cookies (only the admin session cookie), but you still need a privacy notice
       in most jurisdictions.

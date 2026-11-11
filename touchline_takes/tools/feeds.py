@@ -8,6 +8,9 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 
+import re
+from urllib.parse import urlparse
+
 import feedparser
 import requests
 
@@ -16,6 +19,19 @@ from touchline_takes.tools.text import strip_html
 
 LOGGER = logging.getLogger(__name__)
 USER_AGENT = "TouchlineTakesBot/0.1 (+https://touchlinetakes.com)"
+
+
+# Clean attribution names by feed host (feed titles are often "Football | The Guardian").
+SOURCE_NAMES = {"bbc.co.uk": "BBC Sport", "bbci.co.uk": "BBC Sport",
+                "theguardian.com": "The Guardian", "skysports.com": "Sky Sports"}
+TRAILER_RE = re.compile(r"\s*(?:Continue reading|Read more|Full story)\s*(?:\.\.\.|…)?\s*$", re.I)
+
+
+def source_name(url: str) -> str:
+    """Attribution name for a feed URL ("" if unknown, so the feed's own title is used)."""
+    host = (urlparse(url).hostname or "").lower()
+    return next((name for domain, name in SOURCE_NAMES.items()
+                 if host == domain or host.endswith("." + domain)), "")
 
 
 class FeedError(RuntimeError):
@@ -61,7 +77,8 @@ def parse_feed(xml_text: str, default_source: str = "") -> list[Story]:
     for entry in parsed.entries:
         title = strip_html(entry.get("title", ""))
         url = entry.get("link", "").strip()
-        summary = strip_html(entry.get("summary", "") or entry.get("description", ""))
+        summary = TRAILER_RE.sub("", strip_html(entry.get("summary", "")
+                                                or entry.get("description", "")))
         if not title or not url:
             continue
         stories.append(Story(
@@ -87,7 +104,7 @@ class FeedClient:
             resp.raise_for_status()
         except requests.RequestException as exc:
             raise FeedError(f"{url}: {exc}") from exc
-        return parse_feed(resp.text)
+        return parse_feed(resp.text, source_name(url))
 
     def load_samples(self) -> list[Story]:
         """Parse every bundled sample feed (``*.xml``)."""

@@ -27,7 +27,7 @@ env:
   CHECKPOINT_PATH: ""
   VECTOR_STORE: memory
   PHOTO_TAGGER: "false"
-  RSS_FEEDS: ${{ vars.RSS_FEEDS || 'https://feeds.bbci.co.uk/sport/football/rss.xml' }}
+  RSS_FEEDS: ${{ vars.RSS_FEEDS || 'https://feeds.bbci.co.uk/sport/football/rss.xml,https://www.theguardian.com/football/rss,https://www.skysports.com/rss/12040' }}
   LLM_PROVIDER: ${{ vars.LLM_PROVIDER || 'offline' }}
   LLM_MODEL: ${{ vars.LLM_MODEL }}
   LLM_MAX_CALLS_PER_RUN: ${{ vars.LLM_MAX_CALLS_PER_RUN || '40' }}
