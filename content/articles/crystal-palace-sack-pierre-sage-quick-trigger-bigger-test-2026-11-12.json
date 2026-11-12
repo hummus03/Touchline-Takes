@@ -1,0 +1,57 @@
+{
+  "slug": "crystal-palace-sack-pierre-sage-quick-trigger-bigger-test-2026-11-12",
+  "title": "Crystal Palace Sack Pierre Sage: Quick Trigger, Bigger Test",
+  "body": "Crystal Palace have moved on from Pierre Sage after just 16 matches in charge [S1]. The decision came with the club bottom of the table [S2].\n\nBBC Sport framed it the same way, as a sacking after 16 games [S2]. Sky Sports led with the same bare fact [S1]. The basics are not in dispute, so the real argument is about what comes next, not whether the call was made.\n\nThe form explains the frustration. In their last five league matches, Crystal Palace have won once, lost four, taken 3 points, scored 4 and conceded 13 [ST1]. The sequence reads WLLLL [ST1]. A side shipping that many goals with that little return was always going to have a nervous dugout.\n\nThe sack is the easiest lever to pull and the hardest one to pull well. The next appointment matters far more than the timing of this one. A rushed hire after a rushed sacking is how a bad run turns into a bad season.\n\nThe Touchline Take: get the next appointment right and this is forgotten.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Crystal Palace"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13606476/pierre-sage-crystal-palace-sack-manager-with-club-bottom-of-premier-league-table-after-10-matches",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cv5y18lkk87do?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Crystal Palace sack Sage. Crystal Palace have sacked manager Pierre Sage after just 16 matches.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13606476/pierre-sage-crystal-palace-sack-manager-with-club-bottom-of-premier-league-table-after-10-matches"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Crystal Palace sack boss Sage after 16 games. Crystal Palace have sacked manager Pierre Sage after 16 games in charge and the club bottom of the table.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cv5y18lkk87do?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Crystal Palace last 5 league matches in Football-Data.co.uk results: 1 win, 0 draws, 4 defeats, 3 points, 4 goals scored, 13 conceded (sequence WLLLL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-12T16:02:59+00:00",
+  "draft_id": "09533a9453",
+  "story_ids": [
+    "ca5e7cd91fd2"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
