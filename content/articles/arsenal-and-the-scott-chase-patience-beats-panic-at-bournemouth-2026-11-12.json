@@ -1,0 +1,64 @@
+{
+  "slug": "arsenal-and-the-scott-chase-patience-beats-panic-at-bournemouth-2026-11-12",
+  "title": "Arsenal and the Scott chase: patience beats panic at Bournemouth",
+  "body": "Arsenal have reportedly contacted Bournemouth about midfielder Alex Scott [S1].\n\nSky Sports reported that Arsenal, Chelsea and Liverpool are all chasing the Bournemouth player [S2]. Elsewhere, Manchester United have added two defenders to their list of potential targets, and Aston Villa are weighing up a move for Chelsea midfielder Romeo Lavia [S1]. A crowded chase like this tells you more about newspaper competition than about any deal being close.\n\nThe form numbers add a wrinkle. Arsenal have won all five of their recent league matches, scoring 7 and conceding 1 [ST1]. Bournemouth have also been strong, winning four of their last five, though they have conceded 6 in that run [ST2]. A side on that kind of run has little reason to sell cheaply, and a club that is winning does not need to panic into a bad fee.\n\nThe side that wins this kind of race is usually the one that refuses to overpay for a rumour. Every move that has been linked so far is still just talk, and a club that bids too early tends to pay for it later.\n\nThe Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Arsenal"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c62l51xyl98no?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13611225/arsenal-chelsea-and-liverpool-chase-bournemouth-star-alex-scott-paper-talk",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Arsenal join Scott chase - Thursday's gossip. Arsenal contact Bournemouth about midfielder Alex Scott, Manchester United add two defenders to list of potential targets, Aston Villa weigh up move for Chelsea midfielder Romeo Lavia, plus more.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c62l51xyl98no?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "Sky Sports: Papers: Arsenal, Chelsea and Liverpool chase Bournemouth star Scott. The top stories and transfer rumours from Thursday's newspapers...",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13611225/arsenal-chelsea-and-liverpool-chase-bournemouth-star-alex-scott-paper-talk"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Arsenal last 5 league matches in Football-Data.co.uk results: 5 wins, 0 draws, 0 defeats, 15 points, 7 goals scored, 1 conceded (sequence WWWWW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Bournemouth last 5 league matches in Football-Data.co.uk results: 4 wins, 0 draws, 1 defeat, 12 points, 10 goals scored, 6 conceded (sequence LWWWW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-12T01:35:19+00:00",
+  "draft_id": "df65328ed1",
+  "story_ids": [
+    "ac8f9461f856"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
