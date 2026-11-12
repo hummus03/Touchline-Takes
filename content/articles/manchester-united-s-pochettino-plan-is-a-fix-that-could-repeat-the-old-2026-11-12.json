@@ -1,0 +1,57 @@
+{
+  "slug": "manchester-united-s-pochettino-plan-is-a-fix-that-could-repeat-the-old-2026-11-12",
+  "title": "Manchester United's Pochettino plan is a fix that could repeat the old mistakes",
+  "body": "Manchester United are closing in on a deal to make Mauricio Pochettino their head coach, but only if Michael Carrick is sacked first [S2]. That recommendation came from Jason Wilcox and Omar Berrada to Sir Jim Ratcliffe [S2]. Nothing about this is a clean break, and that is the point.\n\nBarney Ronay, writing in The Guardian, notes that the club has spent 13 years hiring and firing managers and has nearly done the same to Pochettino over the last eight years [S1]. Ronay also argues that Pochettino has been hurt by experiences at elite clubs, yet several players at Old Trafford could suit his style [S1].\n\nThe form explains the urgency. United have won none of their last five league games, drawing three and losing two [ST1]. They have picked up three points, scoring six and conceding eleven in that spell, with the sequence reading DDLLD [ST1]. A run like that suggests the defence is leaking more than a new name can plug, and whoever arrives will inherit those problems on day one.\n\nThe romance of a battered manager and a battered club is easy to sell, and the idea of accidental synergy is tempting. But this club has a habit of falling in love with fresh starts and then flinching at the first hard month. The board should be judged on whether it can hold a plan through a bad run, not on how good the announcement looks.\n\nThe Touchline Take: a reunion with a club's worst habits only works if the board finally stops repeating them.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester United"
+  ],
+  "sources": [
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/11/mauricio-pochettino-manchester-united-old-trafford-manager",
+      "kind": "story"
+    },
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/11/manchester-united-close-mauricio-pochettino-deal-michael-carrick",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "The Guardian: Meeting of two lost souls: can Pochettino make it work at Manchester United? | Barney Ronay. Manager has been hurt by experiences at elite clubs but several players at Old Trafford could fit his playing style. Welcome, Mauricio, to the meat grinder. Or rather, welcome back. We’ve been expecting you. There is nothing surprising in the news Manchester United may be on the verge of appointing Mauricio Pochettino. United are always on the verge of appointing Pochettino. This is a club that has spent 13 years hiring and firing the same structurally doomed manager – same shellshocked eyes, same irresolvable macro-problems – and the last eight years almost but not quite doing this to Pochettino. Well, maybe we’re finally here. Maybe he just needed to be broken enough to make it fit. And who knows, perhaps there is even a kind of accidental synergy here.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/11/mauricio-pochettino-manchester-united-old-trafford-manager"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "The Guardian: Manchester United close on Mauricio Pochettino deal before settling Carrick’s fate. Pochettino wants to leave USA role for United. United board meeting scheduled for Wednesday. Manchester United are closing in on agreeing a deal for Mauricio Pochettino to become their head coach if Michael Carrick is sacked in line with the recommendation from Jason Wilcox, the director of football, and Omar Berrada, the chief executive, to Sir Jim Ratcliffe. Pochettino is the US men’s national team head coach but wants the United job if, as expected, Carrick is removed.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/11/manchester-united-close-mauricio-pochettino-deal-michael-carrick"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 3 draws, 2 defeats, 3 points, 6 goals scored, 11 conceded (sequence DDLLD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-12T01:35:24+00:00",
+  "draft_id": "082cdb97c0",
+  "story_ids": [
+    "418705e569fe"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
