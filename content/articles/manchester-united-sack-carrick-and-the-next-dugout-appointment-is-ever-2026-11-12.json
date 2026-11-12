@@ -1,0 +1,57 @@
+{
+  "slug": "manchester-united-sack-carrick-and-the-next-dugout-appointment-is-ever-2026-11-12",
+  "title": "Manchester United sack Carrick, and the next dugout appointment is everything",
+  "body": "Manchester United have removed Michael Carrick as head coach [S1]. The timing will dominate the chatter, but the appointment that follows will decide how this chapter is remembered.\n\nGary Neville of Sky Sports called the club's treatment of Carrick \"disgusting\", and the strength of that word shows how personal the reaction is [S2]. Mauricio Pochettino is expected to take over at Old Trafford [S2]. Carrick is described as a club legend, which is why the anger goes beyond tactics [S2].\n\nThe league numbers explain the nerves. Over the last five league matches, the side has won none, drawn three and lost two, scoring six and conceding eleven [ST1]. The run reads DDLLD [ST1]. A team that cannot win, cannot score and cannot stop goals is not short of a new face. It is short of a plan.\n\nEvery board loves a fresh start, but supporters only want a plan that survives a bad month. A new name brings noise, not answers. Whoever walks into that dressing room inherits a squad that needs structure far more than it needs a press release.\n\nThe Touchline Take: get the next appointment right and this sacking becomes a footnote; get it wrong and the timing will be the least of their problems.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester United"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13606106/man-utd-sack-michael-carrick-with-mauricio-pochettino-set-to-be-appointed-after-worst-start-to-premier-league-season",
+      "kind": "story"
+    },
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13611501/gary-neville-man-utds-treatment-of-michael-carrick-disgusting-as-mauricio-pochettino-prepares-to-take-over-at-old-trafford",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Carrick sacked by Man Utd. Michael Carrick has been sacked as Manchester United head coach with Mauricio Pochettino lined up to replace him.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13606106/man-utd-sack-michael-carrick-with-mauricio-pochettino-set-to-be-appointed-after-worst-start-to-premier-league-season"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "Sky Sports: Neville 'disgusted' at Man Utd's treatment of Carrick. Sky Sports' Gary Neville has described Manchester United's treatment of Michael Carrick as \"disgusting\" after the club legend was sacked as head coach, with Mauricio Pochettino set to succeed him at Old Trafford.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13611501/gary-neville-man-utds-treatment-of-michael-carrick-disgusting-as-mauricio-pochettino-prepares-to-take-over-at-old-trafford"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 3 draws, 2 defeats, 3 points, 6 goals scored, 11 conceded (sequence DDLLD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-12T16:03:04+00:00",
+  "draft_id": "f26fb365f1",
+  "story_ids": [
+    "886565345646"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
