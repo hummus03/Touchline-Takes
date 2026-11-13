@@ -1,0 +1,64 @@
+{
+  "slug": "chelsea-and-manchester-united-pochettino-s-blueprint-and-the-leaky-def-2026-11-13",
+  "title": "Chelsea and Manchester United: Pochettino's blueprint, and the leaky defence",
+  "body": "Manchester United have made contact with the US federation, and the US men's national team coach is reported to have agreed the framework of a deal [S2]. Mauricio Pochettino is expected to lead the US side through the rest of this international window [S2].\n\nThe Guardian argues that his single season at Chelsea is the best yardstick for what lies ahead at United [S1]. That Chelsea side oversaw high-scoring games [S1], and Opta predicts his United side will move upfield quicker than them [S1]. The tempo is the selling point, and it is a fair one to sell.\n\nThe wider record backs the hype. Among 20 managers with more than 290 Premier League matches, only five have a better points-per-game average than Pochettino: Ferguson, Wenger, Mourinho, Klopp and Guardiola [S1]. He led Tottenham to second in 2016-17 and reached the 2019 Champions League final [S1]. The current form is less encouraging. Chelsea's last five league games brought three wins, no draws and two defeats, with nine points, nine goals scored and four conceded [ST1]. United's last five produced no wins, three draws and two defeats, with three points, six goals scored and 11 conceded [ST2].\n\nA side that has been drawing too often and shipping goals at this rate should worry anyone hoping the fireworks last longer than a single match. The attacking ambition is not the problem. The problem is that ambition without protection simply hands the opposition easy chances.\n\nThe sensible plan is to fix the back door first, then let the front men off the leash.\n\nThe Touchline Take: the attacking promise is exciting, but the defence has to be sorted before the fireworks can matter.",
+  "article_type": "explainer",
+  "league": "Champions League",
+  "teams": [
+    "Chelsea"
+  ],
+  "sources": [
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/13/pochettino-chelsea-maelstrom-yardstick-what-lies-ahead-manchester-united",
+      "kind": "story"
+    },
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/12/mauricio-pochettino-manchester-united-usmnt-nations-league",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "The Guardian: Pochettino’s Chelsea maelstrom the best yardstick for what lies ahead at United. Argentinian oversaw high-scoring games in his one Chelsea season and Opta predicts his Manchester United side will move upfield quicker than that team. Among the 20 managers with more than 290 matches in the Premier League, only the five “ big beasts ” of Alex Ferguson, Arsène Wenger, José Mourinho, Jürgen Klopp and Pep Guardiola have better points-per-game averages than Mauricio Pochettino. He is an elite manager. Pochettino took over Southampton midway through their first season back in the top flight (2012-13) after the club spent seven years in the lower leagues. In his only full campaign, they finished eighth. He led Tottenham to second in 2016-17, third in the seasons either side, and reached the 2019 Champions League final . His presence lifted those clubs.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/13/pochettino-chelsea-maelstrom-yardstick-what-lies-ahead-manchester-united"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "The Guardian: Pochettino expected to lead US in Nations League games before Manchester United move. USMNT coach agreed framework of a deal with United. United have made contact with US federation. Balogun: ‘I’d like to keep things the way they are’ Live news and reaction for Pochettino’s move to Man Utd. Mauricio Pochettino will lead the US men’s national team through the remainder of this international window, a source with direct knowledge of US Soccer’s plans told the Guardian on Thursday.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/12/mauricio-pochettino-manchester-united-usmnt-nations-league"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Chelsea last 5 league matches in Football-Data.co.uk results: 3 wins, 0 draws, 2 defeats, 9 points, 9 goals scored, 4 conceded (sequence WWLWL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 3 draws, 2 defeats, 3 points, 6 goals scored, 11 conceded (sequence DDLLD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-13T15:30:00+00:00",
+  "draft_id": "c29397267f",
+  "story_ids": [
+    "16cdfdbbccbe"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
