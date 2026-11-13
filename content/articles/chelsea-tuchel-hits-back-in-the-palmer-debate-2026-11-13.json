@@ -1,0 +1,45 @@
+{
+  "slug": "chelsea-tuchel-hits-back-in-the-palmer-debate-2026-11-13",
+  "title": "Chelsea: Tuchel Hits Back in the Palmer Debate",
+  "body": "Chelsea's manager has responded to a passionate defence of Palmer from Rogers, according to Sky Sports [S1].\n\nThe only source we have is the headline itself, which confirms the exchange but not the full quotes or the context behind them [S1]. That gap matters. Before anyone draws a firm conclusion, the words themselves need to be read, not just the summary.\n\nThe form book gives us firmer ground. The sequence reads WWLWL [ST1]. That is a side producing goals and winning more than it loses, which gives the manager a stronger hand than a noisy week might suggest.\n\nThe sensible answer is that the results should do the talking. If the side keeps scoring at this rate and tightening up at the back, the public back-and-forth fades into the background. If the defeats start stacking up, the same words will sound like a distraction. They have the evidence on their side for now, and they should use it.\n\nThe Touchline Take: one to keep an eye on.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Chelsea"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/live-blog/12040/13025497/chelsea-transfer-news-rumours-and-gossip-live-updates-and-latest-on-deals-signings-loans-and-contracts",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Chelsea latest: Tuchel responds to Rogers' passionate defence of Palmer. Chelsea latest: Tuchel responds to Rogers' passionate defence of Palmer",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/live-blog/12040/13025497/chelsea-transfer-news-rumours-and-gossip-live-updates-and-latest-on-deals-signings-loans-and-contracts"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Chelsea last 5 league matches in Football-Data.co.uk results: 3 wins, 0 draws, 2 defeats, 9 points, 9 goals scored, 4 conceded (sequence WWLWL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-13T00:34:30+00:00",
+  "draft_id": "7bbd3e2dc0",
+  "story_ids": [
+    "991408d224d1"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
