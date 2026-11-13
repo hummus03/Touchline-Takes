@@ -1,0 +1,46 @@
+{
+  "slug": "arsenal-s-gritty-barcelona-draw-could-be-a-turning-point-2026-11-13",
+  "title": "Arsenal's Gritty Barcelona Draw Could Be a Turning Point",
+  "body": "Arsenal drew with European champions Barcelona, and the BBC has framed it as a gritty display that showed a different side of the team [S1]. The question the coverage asks is whether a resilient result against opposition of that quality can mark the point where a season changes direction [S1].\n\nThe league numbers give the claim some real substance. Arsenal have won their last five league matches, collecting 15 points [ST1]. Across that run they have scored 7 and conceded only 1, with the sequence reading WWWWW [ST1].\n\nThat is the sort of run that changes how a squad sees itself. The defensive record is the part to watch. A team that stops giving chances can absorb pressure, and absorbing pressure is what title challenges are built on.\n\nStill, the evidence has limits. The form figures cover league matches only [ST1], and the BBC piece is a single report on one draw [S1]. Neither proves the season has turned, so keep the party hats in the box for now.\n\nThe Touchline Take: the grit is real, the form is hot, and it is one to keep an eye on as the season unfolds.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Arsenal",
+    "Barcelona"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cqe85vym242jo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Gritty Arsenal show different side in Barcelona draw. Could a resilient draw against European champions Barcelona be a turning point in Arsenal's season?",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cqe85vym242jo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Arsenal last 5 league matches in Football-Data.co.uk results: 5 wins, 0 draws, 0 defeats, 15 points, 7 goals scored, 1 conceded (sequence WWWWW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-13T00:34:26+00:00",
+  "draft_id": "b9f7679d59",
+  "story_ids": [
+    "60e5fdad2b0d"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
