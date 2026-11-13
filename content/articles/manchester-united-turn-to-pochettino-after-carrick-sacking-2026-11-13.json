@@ -1,0 +1,57 @@
+{
+  "slug": "manchester-united-turn-to-pochettino-after-carrick-sacking-2026-11-13",
+  "title": "Manchester United Turn to Pochettino After Carrick Sacking",
+  "body": "Manchester United have dismissed Michael Carrick as head coach [S2], and Mauricio Pochettino has been appointed as his replacement [S1]. The speed of the move tells you the club wanted the next chapter to start straight away.\n\nSky Sports covered the sacking as a story in its own right, with Pochettino already lined up to take over [S2]. The appointment was reported as a separate headline, confirming him as the new head coach following Carrick's exit [S1].\n\nThe league form explains the pressure. Across their last five league matches, Manchester United have won none, drawn three and lost two, collecting 3 points [ST1]. They have scored 6 and conceded 11 [ST1], and the sequence reads DDLLD [ST1]. That is a side that has stopped winning and started leaking goals, which is exactly the kind of run that makes a board lose patience.\n\nStill, a run like that should not be the whole verdict on a coach. Every board loves a fresh start, but supporters just want a plan that survives a bad month. The sack is the easiest lever to pull and the hardest one to pull well, because it hands the problem to someone new and asks them to fix it in public.\n\nThe Touchline Take: get this appointment right and the sacking will be forgotten by the time the next league table lands.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester United"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13610882/mauricio-pochettino-appointed-as-manchester-united-head-coach-after-michael-carricks-sacking-at-old-trafford",
+      "kind": "story"
+    },
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13606106/man-utd-sack-michael-carrick-with-mauricio-pochettino-set-to-be-appointed-after-worst-start-to-premier-league-season",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Man Utd appoint Pochettino as head coach. Mauricio Pochettino has been appointed as the new Manchester United head coach, following the sacking of Michael Carrick.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13610882/mauricio-pochettino-appointed-as-manchester-united-head-coach-after-michael-carricks-sacking-at-old-trafford"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "Sky Sports: Carrick sacked by Man Utd. Michael Carrick has been sacked as Manchester United head coach with Mauricio Pochettino lined up to replace him.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13606106/man-utd-sack-michael-carrick-with-mauricio-pochettino-set-to-be-appointed-after-worst-start-to-premier-league-season"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 3 draws, 2 defeats, 3 points, 6 goals scored, 11 conceded (sequence DDLLD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-13T15:29:50+00:00",
+  "draft_id": "f461b66526",
+  "story_ids": [
+    "d9a3709d0117"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
