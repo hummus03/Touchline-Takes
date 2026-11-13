@@ -1,0 +1,57 @@
+{
+  "slug": "manchester-united-s-pochettino-plan-hinges-on-carrick-s-future-2026-11-13",
+  "title": "Manchester United's Pochettino Plan Hinges on Carrick's Future",
+  "body": "Manchester United have reportedly agreed a two-and-a-half-year deal to bring in Mauricio Pochettino as head coach [S1]. The club are reportedly close to a deal with Pochettino if they decide to sack Carrick [S2].\n\nThe timing is awkward. Carrick was still reporting for work while the Pochettino talks were moving [S2]. Sky Sports ran both versions, one saying the agreement was done and one saying it depended on a sacking [S1][S2]. That gap is the real story. The decision is being made in public before it has been fully made in private.\n\nThe results explain the nerves. They have scored 6 and conceded 11 [ST1], and the run reads DDLLD [ST1]. That is a side that has stopped winning and started leaking goals, and a manager change is the kind of move that gets pulled out when things turn ugly.\n\nEvery board loves a fresh start, but supporters just want a plan that survives a bad month. The sack is the easiest lever to pull and the hardest to pull well. A new coach with a long contract only helps if the structure around him can handle the next poor run, not just the headlines around the appointment.\n\nThe Touchline Take: get the next appointment right and this whole mess gets forgotten, but get it wrong and the dugout becomes the story all season.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester United"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13611745/mauricio-pochettino-manchester-united-agree-two-and-a-half-year-deal-with-usa-manager-to-replace-michael-carrick",
+      "kind": "story"
+    },
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13610862/mauricio-pochettino-man-utd-close-to-agreeing-deal-with-michael-carricks-potential-successor-ahead-of-monaco-meeting",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Pochettino agrees two-and-a-half-year deal to become Man Utd boss. Manchester United and Mauricio Pochettino have agreed a deal for him to become the club's next head coach.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13611745/mauricio-pochettino-manchester-united-agree-two-and-a-half-year-deal-with-usa-manager-to-replace-michael-carrick"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "Sky Sports: Man Utd close to agreeing Poch deal as Carrick reports for work. Manchester United are close to agreeing a deal with Mauricio Pochettino to become their next head coach if they decide to sack Michael Carrick.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13610862/mauricio-pochettino-man-utd-close-to-agreeing-deal-with-michael-carricks-potential-successor-ahead-of-monaco-meeting"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 3 draws, 2 defeats, 3 points, 6 goals scored, 11 conceded (sequence DDLLD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-13T00:34:20+00:00",
+  "draft_id": "ffc02d7d34",
+  "story_ids": [
+    "41a1bb4b1074"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
