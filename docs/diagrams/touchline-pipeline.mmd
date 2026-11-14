@@ -1,0 +1,50 @@
+flowchart TB
+    subgraph SRC[Data sources]
+        RSS[RSS feeds<br/>BBC · Guardian · Sky]
+        CSV[football-data.co.uk<br/>past results + odds]
+        API[football-data.org<br/>upcoming fixtures]
+    end
+
+    subgraph GATHER[Gather]
+        direction LR
+        ING[1 · Ingest<br/>Wire reporter<br/>code]
+        CLS[2 · Classifier<br/>Section editor<br/>code]
+        RES[3 · Research RAG<br/>Researcher<br/>code]
+        ANA[4 · Analyst<br/>Stats person<br/>machine learning]
+        ING --> CLS --> RES --> ANA
+    end
+
+    subgraph WRITE[Write and check]
+        direction LR
+        WR[5 · Writer<br/>Journalist<br/>Claude - generative AI]
+        FC[6 · Fact-checker<br/>Is it true?<br/>code]
+        ED[7 · Editor<br/>Is it good?<br/>code]
+        PUB[8 · Publisher<br/>Production desk<br/>code]
+        WR --> FC --> ED --> PUB
+        FC -. rewrite, max 2 .-> WR
+        ED -. rewrite, max 2 .-> WR
+    end
+
+    subgraph PUBLISH[Publish]
+        direction LR
+        PR[GitHub pull request] --> YOU[You merge] --> SITE[Live site<br/>GitHub Pages]
+    end
+
+    RSS --> ING
+    CSV --> ANA
+    API --> ANA
+    ANA -- evidence pack --> WR
+    PUB --> PR
+
+    classDef code fill:#dae8fc,stroke:#6c8ebf
+    classDef ml fill:#ffe6cc,stroke:#d79b00
+    classDef ai fill:#e1d5e7,stroke:#9673a6,stroke-width:3px
+    classDef src fill:#f5f5f5,stroke:#666666
+    classDef pub fill:#d5e8d4,stroke:#82b366
+    classDef you fill:#fff2cc,stroke:#d6b656,stroke-width:2px
+    class ING,CLS,RES,FC,ED,PUB code
+    class ANA ml
+    class WR ai
+    class RSS,CSV,API src
+    class PR,SITE pub
+    class YOU you

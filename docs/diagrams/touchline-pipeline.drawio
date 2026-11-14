@@ -1,0 +1,128 @@
+<?xml version="1.0" ?>
+<mxfile host="app.diagrams.net">
+  <diagram id="touchline" name="Pipeline">
+    <mxGraphModel dx="1000" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="940" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="&lt;b&gt;Touchline Takes&lt;/b&gt;: AI newsroom pipeline" style="text;html=1;align=left;verticalAlign=middle;fontSize=22;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="10" width="700" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="g1" value="GATHER" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#999999;dashed=1;verticalAlign=top;align=left;spacingLeft=10;fontStyle=1;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="30" y="170" width="860" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="g2" value="WRITE AND CHECK" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#999999;dashed=1;verticalAlign=top;align=left;spacingLeft=10;fontStyle=1;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="30" y="360" width="860" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="g3" value="PUBLISH" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#999999;dashed=1;verticalAlign=top;align=left;spacingLeft=10;fontStyle=1;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="280" y="550" width="610" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="rss" value="&lt;b&gt;RSS feeds&lt;/b&gt;&lt;br&gt;BBC · Guardian · Sky" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="50" y="70" width="170" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="csv" value="&lt;b&gt;football-data.co.uk&lt;/b&gt;&lt;br&gt;past results + odds" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="470" y="70" width="170" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="api" value="&lt;b&gt;football-data.org&lt;/b&gt;&lt;br&gt;upcoming fixtures" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="700" y="70" width="170" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="ingest" value="&lt;b&gt;1 · Ingest&lt;/b&gt;&lt;br&gt;&lt;i&gt;Wire reporter&lt;/i&gt;&lt;br&gt;RSS, dedupe, skip non-news" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="50" y="200" width="170" height="96" as="geometry"/>
+        </mxCell>
+        <mxCell id="classify" value="&lt;b&gt;2 · Classifier&lt;/b&gt;&lt;br&gt;&lt;i&gt;Section editor&lt;/i&gt;&lt;br&gt;league · clubs · topic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="260" y="200" width="170" height="96" as="geometry"/>
+        </mxCell>
+        <mxCell id="research" value="&lt;b&gt;3 · Research (RAG)&lt;/b&gt;&lt;br&gt;&lt;i&gt;Researcher&lt;/i&gt;&lt;br&gt;TF-IDF + Chroma" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="470" y="200" width="170" height="96" as="geometry"/>
+        </mxCell>
+        <mxCell id="analyst" value="&lt;b&gt;4 · Analyst&lt;/b&gt;&lt;br&gt;&lt;i&gt;Stats person&lt;/i&gt;&lt;br&gt;scikit-learn W/D/L model" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="700" y="200" width="170" height="96" as="geometry"/>
+        </mxCell>
+        <mxCell id="writer" value="&lt;b&gt;5 · Writer&lt;/b&gt;&lt;br&gt;&lt;i&gt;Journalist&lt;/i&gt;&lt;br&gt;Claude Haiku 5.5&lt;br&gt;cites evidence [S1]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="50" y="390" width="170" height="96" as="geometry"/>
+        </mxCell>
+        <mxCell id="factcheck" value="&lt;b&gt;6 · Fact-checker&lt;/b&gt;&lt;br&gt;&lt;i&gt;&quot;Is it true?&quot;&lt;/i&gt;&lt;br&gt;claims vs sources" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="260" y="390" width="170" height="96" as="geometry"/>
+        </mxCell>
+        <mxCell id="editor" value="&lt;b&gt;7 · Editor&lt;/b&gt;&lt;br&gt;&lt;i&gt;&quot;Is it good?&quot;&lt;/i&gt;&lt;br&gt;style · headline · originality" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="470" y="390" width="170" height="96" as="geometry"/>
+        </mxCell>
+        <mxCell id="publisher" value="&lt;b&gt;8 · Publisher&lt;/b&gt;&lt;br&gt;&lt;i&gt;Production desk&lt;/i&gt;&lt;br&gt;final check, opens PR" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="700" y="390" width="170" height="96" as="geometry"/>
+        </mxCell>
+        <mxCell id="pr" value="&lt;b&gt;GitHub pull request&lt;/b&gt;&lt;br&gt;article + sources + Post to X" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="700" y="580" width="170" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="you" value="&lt;b&gt;You merge&lt;/b&gt;&lt;br&gt;(editor-in-chief)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="490" y="580" width="160" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="site" value="&lt;b&gt;Live site&lt;/b&gt;&lt;br&gt;GitHub Actions → Pages" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="300" y="580" width="160" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend" value="&lt;b&gt;Legend:&lt;/b&gt; blue = code (rules) · orange = machine learning · purple = generative AI (Claude, the only one) · grey = data sources · green = publishing · yellow = human.&lt;br&gt;Runs twice a day on GitHub Actions; memory (SQLite) saved on the &lt;i&gt;newsroom-state&lt;/i&gt; branch. Orchestrated with LangGraph." style="text;html=1;align=left;verticalAlign=top;fontSize=12;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="40" y="700" width="850" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="rss" target="ingest">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="ingest" target="classify">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="classify" target="research">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="research" target="analyst">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="csv" target="analyst">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="api" target="analyst">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" value="evidence pack" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="analyst" target="writer">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="785" y="330"/>
+              <mxPoint x="135" y="330"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="writer" target="factcheck">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="factcheck" target="editor">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="editor" target="publisher">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e11" value="rewrite (max 2)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=2;dashed=1;strokeColor=#9673a6;fontColor=#9673a6;exitX=0.5;exitY=0;entryX=0.5;entryY=0;" edge="1" parent="1" source="factcheck" target="writer">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="345" y="375"/>
+              <mxPoint x="135" y="375"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=2;dashed=1;strokeColor=#9673a6;fontColor=#9673a6;exitX=0.5;exitY=1;entryX=0.5;entryY=1;" edge="1" parent="1" source="editor" target="writer">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="555" y="515"/>
+              <mxPoint x="135" y="515"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="publisher" target="pr">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="pr" target="you">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e15" value="merge" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="you" target="site">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
