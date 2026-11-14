@@ -1,0 +1,64 @@
+{
+  "slug": "arsenal-s-66m-nusa-question-and-the-chelsea-noise-2026-11-14",
+  "title": "Arsenal's £66m Nusa question and the Chelsea noise",
+  "body": "Arsenal could be asked to pay £66m for RB Leipzig's Antonio Nusa, a figure that turns a transfer target into a test of nerve [S1].\n\nBig fees for players who haven't pulled on your shirt yet deserve a hard stare. The price tag is the first thing to interrogate, not the last.\n\nChelsea feature in the same gossip round-up, with Real Betis reported to have rejected their bid for Jose Morante [S1]. Elsewhere, Arsenal have been linked with contacting Bournemouth about Alex Scott [S2], while Aston Villa are weighing up a move for Chelsea's Romeo Lavia [S2]. That is a lot of names and very little certainty.\n\nThe form tells a clearer story. Arsenal's last five league results read WWWWW: five wins, 15 points, seven goals scored and one conceded [ST1]. Chelsea's run reads WWLWL: three wins, two defeats, nine points, nine scored and four conceded [ST2]. A side on a perfect run has little reason to splash cash on a rumour, and a side with a looser record has more reason to keep shopping. Neither fact forces a deal to happen this week.\n\nThe smart money is on patience, because rushed deals rarely age well. The better move is to let the noise pass and see who is still standing when the deadline arrives.\n\nThe Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Arsenal"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c6e9kgn532gxo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c62l51xyl98no?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Arsenal target Nusa could cost £66m - Sunday's gossip. Arsenal could have to pay £66m for RB Leipzig's Antonio Nusa, Real Betis reject Chelsea's bid for Jose Morante, plus more.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c6e9kgn532gxo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Arsenal join Scott chase - Thursday's gossip. Arsenal contact Bournemouth about midfielder Alex Scott, Manchester United add two defenders to list of potential targets, Aston Villa weigh up move for Chelsea midfielder Romeo Lavia, plus more.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c62l51xyl98no?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Arsenal last 5 league matches in Football-Data.co.uk results: 5 wins, 0 draws, 0 defeats, 15 points, 7 goals scored, 1 conceded (sequence WWWWW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Chelsea last 5 league matches in Football-Data.co.uk results: 3 wins, 0 draws, 2 defeats, 9 points, 9 goals scored, 4 conceded (sequence WWLWL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-14T23:03:09+00:00",
+  "draft_id": "2240739625",
+  "story_ids": [
+    "77bbd9ac699e"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
