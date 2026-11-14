@@ -1,0 +1,45 @@
+{
+  "slug": "borussia-dortmund-nmecha-s-strikes-buy-time-not-answers-2026-11-14",
+  "title": "Borussia Dortmund: Nmecha's strikes buy time, not answers",
+  "body": "Borussia Dortmund needed a rescue act against Elversberg, and Felix Nmecha provided one with spectacular strikes that turned a grinding afternoon around [S1]. The promoted visitors had made the home side work hard through a tricky first half, keeping them honest and refusing to fold [S1].\n\nThe celebrations have also reopened a debate that has followed Nmecha throughout his career, this time about his faith [S1]. The sporting director, Ole Book, said the fatigue was clearly visible after a week that included Der Klassiker in Munich and a hard-fought Champions League win against Betis [S1].\n\nThe league picture is mostly encouraging. The club has enjoyed a largely excellent start, and it sits level on points with Bayern Munich at the top, though Bayern hold the edge on goal difference [S1]. Last Saturday, Max Beier's lone goal beat Eintracht Frankfurt in front of a sold-out crowd of 81,365, putting the home side level with Bayern again [S2]. The problem is goals: Dortmund have been far from prolific, and they have been without the injured centre-forward Serhou Guirassy [S1].\n\nHere is the take: late heroics are welcome, but they are not a sustainable plan. A side with genuine title ambitions cannot keep waiting for a substitute-style escape, and the lack of end product is the real story under the noise. The faith debate also deserves a serious conversation rather than being buried under the scoreline.\n\nThe Touchline Take: the goals bought time, but the questions up front are still waiting for answers.",
+  "article_type": "explainer",
+  "league": "Champions League",
+  "teams": [
+    "Borussia Dortmund"
+  ],
+  "sources": [
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/09/felix-nmecha-faith-borussia-dortmund-debate-bundesliga",
+      "kind": "story"
+    },
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/oct/29/borussia-dortmund-fans-phones",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "The Guardian: Felix Nmecha’s faith is forcing Borussia Dortmund into an uncomfortable debate. Midfielder’s spectacular strikes rescued a frustrating day, only for celebrations to reignite dialogue that has followed him through his career. It was just what they needed at just the right time. For a tricky first half and beyond, Elversberg had been a stone in Borussia Dortmund’s shoe, the promoted side not just keeping the home team at bay but keeping them honest, nourishing ambitions of their own. “The fatigue was clearly visible,” the sporting director, Ole Book, said to Sky after a week which had contained Der Klassiker in Munich and a hard-fought Champions League victory against Betis. “We were a bit too focused on managing the game, which was understandable.” Enter Felix Nmecha. BVB have enjoyed a largely excellent start to the season, are unbeaten and level on points with Bayern Munich at the top; Bayern lead, unsurprisingly, thanks to their superior goal difference. It is a gap which has been widened by Dortmund being far from prolific, a facet which looked as if it might undercut their efforts to roll over their visitors on Saturday, especially in the absence of the injured centre-forward Serhou Guirassy.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/09/felix-nmecha-faith-borussia-dortmund-debate-bundesliga"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "The Guardian: The stadium announcer hollered out the first names of Borussia Dortmund’s starting lineup and the supporters responded with their last names, tens of thousands of voices bellowing as one. Dozens of black and yellow flags waved over Europe’s largest standing terrace, a mass of faces fixed on the field beneath them. And then Signal Iduna Park, sold out with 81,365 fans, roared when Max Beier’s lone goal led Dortmund to victory over Eintracht Frankfurt last Saturday, putting the home side even on points with Bayern Munich atop the Bundesliga standings.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/oct/29/borussia-dortmund-fans-phones"
+    }
+  ],
+  "published_at": "2026-11-14T00:23:38+00:00",
+  "draft_id": "5d322ee80c",
+  "story_ids": [
+    "dce3f8108361"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
