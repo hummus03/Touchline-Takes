@@ -1,5 +1,38 @@
 {% extends "base.html" %}
 {% import "macros.html" as m %}
+{% block hero %}
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow">{{ tagline }}</p>
+      <h1 class="hero-title">Football takes,<br>checked line by line.</h1>
+      <p class="hero-lede">Original Premier League opinion from an AI newsroom. Every fact cites its source, every claim is checked, and a person approves every article.</p>
+      <p class="hero-actions"><a class="btn" href="#latest">Read the latest</a> <a class="btn btn-ghost" href="{{ url_for('site.how_we_check') }}">How we check</a></p>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 560 380" role="presentation">
+        <path d="M150 20 A150 150 0 0 0 0 170 L150 170 Z" class="f-maroon"/>
+        <path d="M0 170 L150 170 L150 320 A150 150 0 0 1 0 170 Z" class="f-teal"/>
+        <circle cx="150" cy="170" r="52" class="f-sand"/>
+        <circle cx="150" cy="170" r="52" class="s-ink" fill="none" stroke-width="10"/>
+        <path d="M150 118 A52 52 0 0 1 202 170 L150 170 Z" class="f-gold"/>
+        <g class="s-ink" stroke-width="2">
+          <line x1="250" y1="20" x2="250" y2="200"/><line x1="268" y1="20" x2="268" y2="200"/><line x1="286" y1="20" x2="286" y2="200"/>
+          <line x1="304" y1="20" x2="304" y2="200"/><line x1="322" y1="20" x2="322" y2="200"/><line x1="340" y1="20" x2="340" y2="200"/>
+          <line x1="358" y1="20" x2="358" y2="200"/><line x1="376" y1="20" x2="376" y2="200"/><line x1="394" y1="20" x2="394" y2="200"/>
+          <line x1="412" y1="20" x2="412" y2="200"/><line x1="430" y1="20" x2="430" y2="200"/>
+          <line x1="250" y1="80" x2="430" y2="80"/><line x1="250" y1="140" x2="430" y2="140"/>
+        </g>
+        <path d="M430 200 L560 200 L560 70 A130 130 0 0 0 430 200 Z" class="f-gold"/>
+        <line x1="548" y1="112" x2="548" y2="200" class="s-maroon" stroke-width="5"/>
+        <path d="M546 114 L506 128 L546 142 Z" class="f-maroon"/>
+        <circle cx="215" cy="60" r="7" class="f-teal"/><circle cx="232" cy="96" r="4" class="f-maroon"/><circle cx="210" cy="250" r="5" class="f-gold"/>
+      </svg>
+      <p class="hero-ar" lang="ar" dir="rtl">على الخط</p>
+    </div>
+  </div>
+</section>
+{% endblock %}
 {% block content %}
 {% if stats and stats.claims_checked %}
 <p class="stats-strip">
@@ -11,7 +44,7 @@
 {% endif %}
 <div class="layout">
   <section aria-labelledby="latest">
-    <h1 id="latest" class="section-title">Latest takes</h1>
+    <h2 id="latest" class="section-title">Latest takes</h2>
     {% if not articles %}
       <div class="empty card">
         <h2>The dressing room is quiet.</h2>

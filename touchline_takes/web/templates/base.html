@@ -31,8 +31,9 @@
   <header class="masthead">
     <div class="wrap masthead-inner">
       <a class="logo" href="{{ url_for('site.index') }}" aria-label="{{ brand }} home">
-        <span class="logo-mark" aria-hidden="true"></span>
-        <span class="logo-text">Touchline<strong>Takes</strong></span>
+        <span class="logo-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span class="logo-text">Touchline<br>Takes</span>
+        <span class="logo-ar" lang="ar" dir="rtl" aria-hidden="true">على الخط</span>
       </a>
       <nav class="nav">
         <a href="{{ url_for('site.index') }}">Latest</a>
@@ -44,11 +45,11 @@
         {% if not static_site %}<a href="{{ url_for('site.admin') }}">Desk</a>{% endif %}
       </nav>
     </div>
-    <p class="wrap tagline">{{ tagline }}</p>
   </header>
   {% if sample_mode %}
   <div class="sample-banner" role="note">Demo mode: stories, stats and fixtures here may be <strong>sample or synthetic data</strong>, not real news.</div>
   {% endif %}
+  {% block hero %}{% endblock %}
   <main class="wrap">
     {% with messages = get_flashed_messages(with_categories=true) %}
       {% for category, message in messages %}<div class="flash flash-{{ category }}">{{ message }}</div>{% endfor %}
@@ -56,10 +57,13 @@
     {% block content %}{% endblock %}
   </main>
   <footer class="footer">
-    <div class="wrap">
+    <div class="wrap footer-inner">
+      <p class="footer-ar" lang="ar" dir="rtl" aria-hidden="true">على الخط</p>
+      <div>
       <p><strong>{{ brand }}</strong> · {{ domain }} · Written by an automated newsroom of AI agents, fact-checked against cited sources, and approved by a human editor before publication.</p>
       <p class="muted">Every factual sentence links to its source. We summarise and comment; we never republish source articles.</p>
       <p class="muted small footer-links"><a href="{{ url_for('site.about') }}">About</a> · <a href="{{ url_for('site.how_we_check') }}">How we check</a> · <a href="{{ url_for('site.about') }}#corrections">Corrections</a> · <a href="{{ url_for('site.privacy') }}">Privacy</a> · <a href="{{ url_for('site.terms') }}">Terms</a> · <a href="mailto:{{ contact_email }}">Contact</a></p>
+      </div>
     </div>
   </footer>
 </body>
