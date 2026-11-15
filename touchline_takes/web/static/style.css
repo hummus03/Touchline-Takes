@@ -1,14 +1,13 @@
-/* Touchline Takes: sand, maroon and Bauhaus geometry, with Arabic calligraphy (على الخط, "on the line"). */
+/* Touchline Takes: sand, maroon and Bauhaus geometry, with a brush-script signature ("On the line"). */
 @font-face { font-family: "DM Sans"; src: url("fonts/dm-sans-latin.woff2") format("woff2"); font-weight: 400 800; font-display: swap; }
-@font-face { font-family: "Aref Ruqaa"; src: url("fonts/aref-ruqaa-arabic.woff2") format("woff2"); font-weight: 700; font-display: swap;
-  unicode-range: U+0600-06FF, U+0750-077F, U+FB50-FDFF, U+FE70-FEFF; }
+@font-face { font-family: "Kaushan Script"; src: url("fonts/kaushan-script-latin.woff2") format("woff2"); font-weight: 400; font-display: swap; }
 :root {
   --sand: #efe4d0; --sand-deep: #e2d1b3; --card: #faf4e8; --line: #dccbad;
   --maroon: #6e1a2a; --maroon-deep: #4e111d; --ink: #3f121b; --muted: #85625a;
   --gold: #d8a23b; --teal: #1f5a63; --geo-ink: #2c1a17; --on-dark: #f5ead6;
   --radius: 4px;
   --font: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  --arabic: "Aref Ruqaa", "Noto Naskh Arabic", "Geeza Pro", serif;
+  --script: "Kaushan Script", "Brush Script MT", cursive;
 }
 @media (prefers-color-scheme: dark) {
   :root { --sand: #1c1311; --sand-deep: #2a1d19; --card: #251a17; --line: #3a2a24;
@@ -24,9 +23,9 @@ a { color: var(--maroon); text-decoration-color: var(--gold); text-decoration-th
 .small { font-size: .875rem; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 code { background: var(--sand-deep); padding: 1px 5px; border-radius: 3px; font-size: .9em; }
-[lang="ar"] { font-family: var(--arabic); font-weight: 700; line-height: 1.2; }
+.logo-script, .hero-script, .footer-script { font-family: var(--script); font-weight: 400; line-height: 1.1; white-space: nowrap; }
 
-/* Masthead: geometric mark, stacked wordmark and the Arabic signature */
+/* Masthead: geometric mark, stacked wordmark and the script signature */
 .masthead { background: var(--card); border-bottom: 1px solid var(--line); }
 .masthead-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 16px; flex-wrap: wrap; }
 .logo { display: flex; align-items: center; gap: 12px; color: var(--maroon); text-decoration: none; }
@@ -36,7 +35,7 @@ code { background: var(--sand-deep); padding: 1px 5px; border-radius: 3px; font-
 .logo-mark i:nth-child(3) { background: var(--geo-ink); }
 .logo-mark i:nth-child(4) { background: var(--gold); border-radius: 0 0 20px 0; }
 .logo-text { font-size: 1.05rem; font-weight: 800; line-height: 1.1; letter-spacing: .01em; }
-.logo-ar { font-size: 1.7rem; color: var(--gold); margin-left: 6px; padding-left: 14px; border-left: 1px solid var(--line); }
+.logo-script { font-size: 1.7rem; color: var(--gold); margin-left: 6px; padding-left: 14px; border-left: 1px solid var(--line); }
 .nav { display: flex; gap: 4px; flex-wrap: wrap; }
 .nav a { color: var(--ink); text-decoration: none; font-weight: 500; padding: 6px 12px; border-radius: 2px; }
 .nav a:hover, .nav a:focus-visible { color: var(--maroon); box-shadow: inset 0 -3px 0 var(--gold); }
@@ -56,8 +55,8 @@ code { background: var(--sand-deep); padding: 1px 5px; border-radius: 3px; font-
 .f-maroon { fill: var(--maroon); } .f-teal { fill: var(--teal); } .f-gold { fill: var(--gold); }
 .f-ink { fill: var(--geo-ink); } .f-sand { fill: var(--card); }
 .s-ink { stroke: var(--geo-ink); } .s-maroon { stroke: var(--maroon); }
-.hero-ar { position: absolute; right: 0; bottom: 0; margin: 0; font-size: clamp(3.8rem, 10vw, 7.5rem); color: var(--maroon); }
-@media (max-width: 860px) { .hero-inner { grid-template-columns: 1fr; padding-top: 32px; } .logo-ar { display: none; } }
+.hero-script { position: absolute; right: 0; bottom: 0; transform: rotate(-6deg); margin: 0; font-size: clamp(3.2rem, 8vw, 6rem); color: var(--maroon); }
+@media (max-width: 860px) { .hero-inner { grid-template-columns: 1fr; padding-top: 32px; } .logo-script { display: none; } }
 
 .sample-banner { background: var(--gold); color: #2b1a10; text-align: center; padding: 8px 16px; font-size: .9rem; }
 main.wrap { padding-top: 32px; padding-bottom: 56px; }
@@ -134,10 +133,10 @@ th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line
 tr.bad td { background: rgba(179,38,30,.12); }
 tr.ok td:nth-child(2) { color: var(--teal); }
 
-/* Footer: maroon band with the calligraphy */
+/* Footer: maroon band with the script signature */
 .footer { background: #5a1522; color: #f5ead6; padding: 28px 0; font-size: .85rem; }
 .footer-inner { display: flex; gap: 28px; align-items: center; }
-.footer-ar { font-size: 3.2rem; color: #e0b158; margin: 0; flex: none; }
+.footer-script { font-size: 3.2rem; color: #e0b158; margin: 0; flex: none; }
 .footer p { margin: 4px 0; }
 .footer .muted { color: #d9bfae; }
 .footer a { color: #f5ead6; text-decoration-color: #e0b158; }
