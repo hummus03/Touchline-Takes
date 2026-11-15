@@ -1,0 +1,57 @@
+{
+  "slug": "chelsea-s-striker-fix-rests-on-old-loyalty-but-the-goals-must-follow-2026-11-14",
+  "title": "Chelsea's striker fix rests on old loyalty, but the goals must follow",
+  "body": "Chelsea's problem up front is being credited to a reunion, with BBC Sport tying the fix to a long-standing bond between forward Melvine Malard and manager Sonia Bompastor [S1]. The headline frames the move as a return to Bompastor in a scouting role [S1].\n\nThe report traces that partnership back 12 years, and the story is built on that shared history [S1]. Elsewhere, The Guardian is using Mauricio Pochettino's single season in charge at Chelsea as a benchmark for Manchester United, recalling high-scoring games from that spell [S2].\n\nThe recent results give the story its test. In the last five league matches, Chelsea have won three, drawn none and lost two, collecting 9 points [ST1]. They have scored 9 goals and conceded 4 [ST1], and the run reads WWLWL [ST1].\n\nA tidy story about an old working relationship is pleasant to read, but chemistry does not finish chances. The proof will come in the box, not in the anecdotes, and the side has to turn the reunion into a steady supply of goals.\n\nThe Touchline Take: one to keep an eye on, because a striker's fix only counts once the goals keep arriving.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Chelsea"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c5lyey8p8yv4o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/13/pochettino-chelsea-maelstrom-yardstick-what-lies-ahead-manchester-united",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: How a reunion with scout Bompastor solved Chelsea's striker issue. Chelsea striker Melvine Malard and manager Sonia Bompastor tell the story of their 12-year footballing relationship.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c5lyey8p8yv4o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "The Guardian: Pochettino’s Chelsea maelstrom the best yardstick for what lies ahead at United. Argentinian oversaw high-scoring games in his one Chelsea season and Opta predicts his Manchester United side will move upfield quicker than that team. Among the 20 managers with more than 290 matches in the Premier League, only the five “ big beasts ” of Alex Ferguson, Arsène Wenger, José Mourinho, Jürgen Klopp and Pep Guardiola have better points-per-game averages than Mauricio Pochettino. He is an elite manager.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/13/pochettino-chelsea-maelstrom-yardstick-what-lies-ahead-manchester-united"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Chelsea last 5 league matches in Football-Data.co.uk results: 3 wins, 0 draws, 2 defeats, 9 points, 9 goals scored, 4 conceded (sequence WWLWL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-14T14:15:54+00:00",
+  "draft_id": "25fc60415e",
+  "story_ids": [
+    "db6f86396d0d"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
