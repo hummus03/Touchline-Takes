@@ -1,0 +1,57 @@
+{
+  "slug": "manchester-united-keep-chasing-yesterday-s-answers-with-pochettino-tal-2026-11-14",
+  "title": "Manchester United Keep Chasing Yesterday's Answers With Pochettino Talk",
+  "body": "Manchester United are close to appointing Mauricio Pochettino, and Jonathan Wilson of The Guardian reads the move as one that should have been made years ago [S1]. The club's search keeps looking backwards, and that is the real problem.\n\nWilson compares the process to a Two Ronnies Mastermind sketch, where the contestant's specialist subject turns out to be answering the previous question [S1]. His point is that the club keeps working out the answer to a question that has already passed [S1]. Barney Ronay adds that Pochettino has been bruised by his experiences at elite clubs, yet several players at Old Trafford could suit the way he likes to play [S2]. Ronay also notes that the club has been on the verge of appointing him for a long time [S2].\n\nThe recent form gives no comfort. In the last five league matches, United have won none, drawn three and lost two, collecting three points while scoring six and conceding eleven [ST1]. The sequence reads DDLLD [ST1]. A run like that does not call for patience. It calls for a plan that can withstand a rough stretch, and the current approach has not shown one.\n\nThe sack is the easiest lever to pull and the hardest one to get right, and the club has a habit of pulling it without a clear picture of what comes next.\n\nThe Touchline Take: get the next appointment right and this whole saga will be forgotten.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester United"
+  ],
+  "sources": [
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/14/here-manchester-united-go-again-taking-the-two-ronnies-route-to-hiring-a-new-boss",
+      "kind": "story"
+    },
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/11/mauricio-pochettino-manchester-united-old-trafford-manager",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "The Guardian: Here Manchester United go again, taking the Two Ronnies route to hiring a new boss | Jonathan Wilson. Mauricio Pochettino’s arrival feels like yet another appointment that would have been better made a few years ago. Magnusson: And your time starts ... now! What is paleontology? Smithers: Yes, absolutely correct. Magnusson: What’s the name of the directory that lists members of the peerage? Smithers: A study of old fossils. Magnusson: Correct. Who are Len Murray and Sir Geoffrey Howe? Smithers: Burke’s. Magnusson: Correct. What is the difference between a donkey and an ass? Smithers: One’s a trade union leader, the other’s a member of the Cabinet … One of the Two Ronnies’ most celebrated sketches involves a Mastermind contestant whose specialist subject is answering the previous question. History repeats itself: the first time as comedy, the second time as Manchester United, who seem continually to be answering not the question of who would be the best available manager now, but who might have been the best available manager a few years ago.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/14/here-manchester-united-go-again-taking-the-two-ronnies-route-to-hiring-a-new-boss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "The Guardian: Meeting of two lost souls: can Pochettino make it work at Manchester United? | Barney Ronay. Manager has been hurt by experiences at elite clubs but several players at Old Trafford could fit his playing style. Welcome, Mauricio, to the meat grinder. Or rather, welcome back. We’ve been expecting you. There is nothing surprising in the news Manchester United may be on the verge of appointing Mauricio Pochettino. United are always on the verge of appointing Pochettino.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/11/mauricio-pochettino-manchester-united-old-trafford-manager"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 3 draws, 2 defeats, 3 points, 6 goals scored, 11 conceded (sequence DDLLD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-14T23:03:04+00:00",
+  "draft_id": "7787e0ee1f",
+  "story_ids": [
+    "e9daf71e3d76"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
