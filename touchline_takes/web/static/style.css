@@ -1,13 +1,13 @@
 /* Touchline Takes: sand, maroon and Bauhaus geometry, with a brush-script signature ("On the line"). */
 @font-face { font-family: "DM Sans"; src: url("fonts/dm-sans-latin.woff2") format("woff2"); font-weight: 400 800; font-display: swap; }
-@font-face { font-family: "Kaushan Script"; src: url("fonts/kaushan-script-latin.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Yellowtail"; src: url("fonts/yellowtail-latin.woff2") format("woff2"); font-weight: 400; font-display: swap; }
 :root {
   --sand: #efe4d0; --sand-deep: #e2d1b3; --card: #faf4e8; --line: #dccbad;
   --maroon: #6e1a2a; --maroon-deep: #4e111d; --ink: #3f121b; --muted: #85625a;
   --gold: #d8a23b; --teal: #1f5a63; --geo-ink: #2c1a17; --on-dark: #f5ead6;
   --radius: 4px;
   --font: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  --script: "Kaushan Script", "Brush Script MT", cursive;
+  --script: "Yellowtail", "Brush Script MT", cursive;
 }
 @media (prefers-color-scheme: dark) {
   :root { --sand: #1c1311; --sand-deep: #2a1d19; --card: #251a17; --line: #3a2a24;
