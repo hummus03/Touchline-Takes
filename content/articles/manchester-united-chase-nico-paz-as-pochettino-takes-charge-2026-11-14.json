@@ -1,0 +1,65 @@
+{
+  "slug": "manchester-united-chase-nico-paz-as-pochettino-takes-charge-2026-11-14",
+  "title": "Manchester United Chase Nico Paz as Pochettino Takes Charge",
+  "body": "Manchester United are targeting Como midfielder Nico Paz as they prepare to back their new manager in the transfer market [S1]. Mauricio Pochettino has agreed a two-and-a-half-year deal to become the club's head coach [S2].\n\nChelsea are in the same market, with Kounde among the names linked to them in the same BBC roundup [S1]. Sky Sports has also reported the Pochettino agreement, which makes this more than idle chatter [S2].\n\nThe recent form explains the urgency. Manchester United have taken 3 points from their last five league games, with no wins, 3 draws and 2 defeats, and they have conceded 11 goals [ST1]. Chelsea have collected 9 points from the same stretch, winning three of five and conceding just 4 [ST2]. Set those records side by side and the need for change is obvious, even if it is not an excuse for panic.\n\nA new head coach needs time to learn the squad, and the smart money is on seeing what he has before spending big on the names being whispered about.\n\nIf this one goes through, it says plenty about where the club thinks it is heading.\n\nThe Touchline Take: judge the business when the window shuts, not on the strength of a weekend rumour.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester United",
+    "Chelsea"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cq39glw42xkjo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13611745/mauricio-pochettino-manchester-united-agree-two-and-a-half-year-deal-with-usa-manager-to-replace-michael-carrick",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Man Utd want Paz, Chelsea target Kounde - Saturday's gossip. Manchester United are targeting Como midfielder Nico Paz as new manager Mauricio Pochettino prepares to receive backing in the transfer market at Old Trafford.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cq39glw42xkjo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "Sky Sports: Pochettino agrees two-and-a-half-year deal to become Man Utd boss. Manchester United and Mauricio Pochettino have agreed a deal for him to become the club's next head coach.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13611745/mauricio-pochettino-manchester-united-agree-two-and-a-half-year-deal-with-usa-manager-to-replace-michael-carrick"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 3 draws, 2 defeats, 3 points, 6 goals scored, 11 conceded (sequence DDLLD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Chelsea last 5 league matches in Football-Data.co.uk results: 3 wins, 0 draws, 2 defeats, 9 points, 9 goals scored, 4 conceded (sequence WWLWL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-14T00:23:28+00:00",
+  "draft_id": "56e94f58a7",
+  "story_ids": [
+    "a5517cab5422"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
