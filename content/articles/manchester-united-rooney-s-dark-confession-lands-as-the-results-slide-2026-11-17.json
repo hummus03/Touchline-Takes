@@ -1,0 +1,57 @@
+{
+  "slug": "manchester-united-rooney-s-dark-confession-lands-as-the-results-slide-2026-11-17",
+  "title": "Manchester United: Rooney's dark confession lands as the results slide",
+  "body": "Wayne Rooney has disclosed that there was a stretch of his Manchester United career when he thought about ending his own life [S1]. He has also said he sought help from a therapist to work out what was going on inside him [S2].\n\nSky Sports tied the admission to the lowest point of his time at the club [S1]. BBC Sport carried the same central claim, reporting that the thoughts came while he was still playing there [S2]. The story is heavy, and it deserves to be treated as a human one first.\n\nNow look at the football. Across their last five league matches, the side have won none, drawn three and lost two, collecting just three points [ST1]. They have scored six and conceded eleven [ST1]. That is a team leaking goals and struggling to build any momentum, which is a grim backdrop for anyone already carrying something heavy.\n\nThe lesson here is that a famous shirt can be a crushing weight, and that the noise around results should never drown out the person wearing it. Fans love to judge players by their scorelines, but this story shows how little those numbers reveal about what is happening behind the scenes.\n\nThe Touchline Take: one to keep an eye on, because the person behind the headline matters more than the table.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester United"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13613275/wayne-rooney-says-he-contemplated-suicide-during-lowest-point-of-manchester-united-career",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cx1l0n3v003eo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Rooney contemplated suicide at ‘lowest point’ of Man Utd career. Wayne Rooney has revealed there was a period in his Manchester United career where he contemplated suicide.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13613275/wayne-rooney-says-he-contemplated-suicide-during-lowest-point-of-manchester-united-career"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Rooney says he considered taking his own life at Man Utd. Wayne Rooney says he considered taking his own life during his playing days at Manchester United and was \"speaking to a therapist to try and figure out what was up\".",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cx1l0n3v003eo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 3 draws, 2 defeats, 3 points, 6 goals scored, 11 conceded (sequence DDLLD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-17T16:58:07+00:00",
+  "draft_id": "cb0c652842",
+  "story_ids": [
+    "ee12187ae993"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
