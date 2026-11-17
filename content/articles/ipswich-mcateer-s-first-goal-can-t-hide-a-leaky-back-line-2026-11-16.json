@@ -1,0 +1,45 @@
+{
+  "slug": "ipswich-mcateer-s-first-goal-can-t-hide-a-leaky-back-line-2026-11-16",
+  "title": "Ipswich: McAteer's first goal can't hide a leaky back line",
+  "body": "Ipswich boss David Wright has spoken up for Mary McAteer after her first goal for the club, praising her football intelligence [S1].\n\nThe praise centred on her reading of the game, and the manager was speaking about a Wales international [S1].\n\nThe numbers behind the mood are less comfortable. Over their last five league matches, Ipswich have won one, drawn two and lost two, collecting five points [ST1]. They have scored eight and conceded nine, with the sequence reading WLDDL [ST1]. The attack is creating enough to stay in games, but a back line that leaks this often turns every close match into a coin toss.\n\nFans have heard plenty of upbeat quotes during rough spells, and a good debut goal makes a lovely headline. But a side that lets in this many will keep handing away points it has earned. The praise is deserved; the question is whether the rest of the work can back it up.\n\nThe Touchline Take: enjoy the moment, but judge this side on its defending and its next run of results, not on a single goal.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Ipswich"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cmrlg3dgyp50o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: McAteer 'intelligence' earns praise from Ipswich boss. Ipswich Town boss David Wright praised the football intelligence of Wales international Mary McAteer following her first goal for the club.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cmrlg3dgyp50o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Ipswich last 5 league matches in Football-Data.co.uk results: 1 win, 2 draws, 2 defeats, 5 points, 8 goals scored, 9 conceded (sequence WLDDL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-16T17:08:28+00:00",
+  "draft_id": "259aeb55bc",
+  "story_ids": [
+    "ce1f0978a5d2"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
