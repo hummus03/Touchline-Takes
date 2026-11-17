@@ -1,0 +1,65 @@
+{
+  "slug": "manchester-united-s-bassey-rumour-meets-a-leaky-back-line-2026-11-15",
+  "title": "Manchester United's Bassey Rumour Meets a Leaky Back Line",
+  "body": "Manchester United are reportedly interested in Fulham defender Calvin Bassey, according to BBC Sport's gossip column [S1]. The story matters because the club's recent form has been poor, and any defensive reinforcement would be a direct answer to that.\n\nThe same column links Brentford's Nathan Collins with a move and reports that AC Milan want Real Madrid's Endrick on loan [S1]. A separate BBC Sport round-up says Como midfielder Nico Paz is also on United's list, and that new head coach Mauricio Pochettino is set to have money to spend [S2].\n\nThe numbers explain the urgency. Across their last five league games, United have picked up three points from three draws and two defeats, scoring six and conceding eleven [ST1]. Fulham, by contrast, have eight points from two wins, two draws and one defeat, with five scored and four conceded [ST2].\n\nTalk is cheap until the paperwork is signed, so treat every rumour with care.\n\nThe Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester United",
+    "Fulham"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cklyegvq86w8o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cq39glw42xkjo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Man Utd target Fulham's Bassey - Monday's gossip. Manchester United target Fulham's Calvin Bassey and Brentford's Nathan Collins, AC Milan want Real Madrid's Endrick on loan, plus more.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cklyegvq86w8o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Man Utd want Paz, Chelsea target Kounde - Saturday's gossip. Manchester United are targeting Como midfielder Nico Paz as new manager Mauricio Pochettino prepares to receive backing in the transfer market at Old Trafford.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cq39glw42xkjo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 3 draws, 2 defeats, 3 points, 6 goals scored, 11 conceded (sequence DDLLD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Fulham last 5 league matches in Football-Data.co.uk results: 2 wins, 2 draws, 1 defeat, 8 points, 5 goals scored, 4 conceded (sequence LWWDD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-15T23:25:45+00:00",
+  "draft_id": "6b2905743c",
+  "story_ids": [
+    "29edd6d85625"
+  ],
+  "mode": "llm",
+  "revision": 1
+}

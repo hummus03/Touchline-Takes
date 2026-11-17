@@ -1,0 +1,57 @@
+{
+  "slug": "crystal-palace-hand-thomas-frank-a-rebuild-job-2026-11-16",
+  "title": "Crystal Palace Hand Thomas Frank a Rebuild Job",
+  "body": "Crystal Palace have made Thomas Frank their new manager [S1]. Nobody in the stands cares who signed the paperwork. They care whether the team stops sliding.\n\nBBC Sport's framing is blunt: it asks whether Frank can rebuild his reputation after a bruising time in charge of Tottenham [S2]. The same coverage treats the job as a rescue mission as much as a fresh start, with the aim of restoring reputation and saving the club [S2]. That is the right way to read it. The new man is taking on a repair job as much as a project.\n\nThe recent numbers explain the urgency. Over the last five league matches, Palace have won once, drawn none and lost four, collecting three points [ST1]. They have scored four and conceded thirteen, with the sequence reading WLLLL [ST1]. That is a side that has lost its shape at both ends, and the defensive collapse is where the real damage has been done.\n\nThe easy move is always to pull the lever at the top. It fixes nothing on its own. The real test is what comes next, because a rushed replacement can turn one bad spell into a long one.\n\nThe Touchline Take: get the next appointment right and this moment is forgotten.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Crystal Palace"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13610988/thomas-frank-crystal-palace-appoint-former-spurs-and-brentford-boss-as-pierre-sages-successor-at-selhurst-park",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cmge3y2qjlyro?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Frank appointed Crystal Palace manager. Crystal Palace have appointed Thomas Frank as their new manager.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13610988/thomas-frank-crystal-palace-appoint-former-spurs-and-brentford-boss-as-pierre-sages-successor-at-selhurst-park"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: How Frank can restore reputation and save Crystal Palace. Will Thomas Frank rebuild his reputation at Crystal Palace after a bruising time in charge of Tottenham?",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cmge3y2qjlyro?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Crystal Palace last 5 league matches in Football-Data.co.uk results: 1 win, 0 draws, 4 defeats, 3 points, 4 goals scored, 13 conceded (sequence WLLLL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-16T17:08:23+00:00",
+  "draft_id": "c2108ff3ba",
+  "story_ids": [
+    "fb0153ac37b0"
+  ],
+  "mode": "llm",
+  "revision": 0
+}

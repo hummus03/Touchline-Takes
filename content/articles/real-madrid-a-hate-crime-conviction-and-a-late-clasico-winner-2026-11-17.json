@@ -1,0 +1,45 @@
+{
+  "slug": "real-madrid-a-hate-crime-conviction-and-a-late-clasico-winner-2026-11-17",
+  "title": "Real Madrid: a hate-crime conviction and a late clásico winner",
+  "body": "Racist insults aimed at Kylian Mbappé during a La Liga game at Real Oviedo have now led to a guilty verdict for the man who directed them [S1]. The game likes to say it has moved on from this sort of thing, so a court actually ruling on it deserves more than a passing glance.\n\nThe case was not treated as a heated moment in the stands. It was prosecuted as a hate crime against one player during a match [S1], which tells you the abuse was judged a criminal matter rather than background noise. The incident took place in 2025 [S1]. The same weekend's sport coverage framed the clásico result as a statement win for a side under its manager [S2].\n\nOn Sunday night the striker scored first in that clásico, while the manager stayed largely still near the bench [S2]. The decisive goal came later, with time almost gone, and the manager celebrated on the turf with obvious glee [S2]. The evidence offers no form figures or predictions, so this read rests on the night itself rather than the numbers.\n\nHere is the uncomfortable part for anyone who wants the football to speak for itself. A forward who delivers in the biggest moments makes a side dangerous, and a boss who relishes the big finish makes the team hard to dismiss as a one-off. But a late winner in one fixture does not close the file on what the verdict says about the game around it.\n\nThe Touchline Take: one to keep an eye on.",
+  "article_type": "explainer",
+  "league": "La Liga",
+  "teams": [
+    "Real Madrid"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cjn504vweneyo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/oct/26/mourinhos-plan-comes-together-as-real-madrid-relaunch-with-clasico-statement",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Man convicted for racist abuse of Real Madrid's Mbappe. A man has been convicted of a hate crime after directing racist insults at Real Madrid forward Kylian Mbappe during a La Liga match at Real Oviedo in 2025.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cjn504vweneyo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "The Guardian: Now he’s done a knee slide too, and in the perfect place: back where it all began and where it can all begin again. When Kylian Mbappé scored the first in the clásico on Sunday night, Real Madrid’s manager hardly moved, sitting in the shadow of the bench – but when the striker got the second to win it with time running out, that was different. Mourinho leapt into the light, throwing himself to the grass, the knees of a 63-year-old’s trousers muddy as a schoolboy’s, stuck his tongue out and pumped his fists. He does so love it when a plan comes together.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/oct/26/mourinhos-plan-comes-together-as-real-madrid-relaunch-with-clasico-statement"
+    }
+  ],
+  "published_at": "2026-11-17T16:58:13+00:00",
+  "draft_id": "5dc9bcd04c",
+  "story_ids": [
+    "75dfac0f646f"
+  ],
+  "mode": "llm",
+  "revision": 1
+}

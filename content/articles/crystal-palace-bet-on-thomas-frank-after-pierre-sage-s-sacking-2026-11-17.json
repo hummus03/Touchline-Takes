@@ -1,0 +1,64 @@
+{
+  "slug": "crystal-palace-bet-on-thomas-frank-after-pierre-sage-s-sacking-2026-11-17",
+  "title": "Crystal Palace bet on Thomas Frank after Pierre Sage's sacking",
+  "body": "Crystal Palace have turned to Thomas Frank to replace Pierre Sage, who was dismissed last week, and the club at the foot of the Premier League has moved quickly to make the appointment official [S1]. Sky Sports has reported the same move [S2].\n\nFrank has been without a job since Tottenham let him go in February, and this is his first role since then [S1]. Palace made him their top target, even though he had earlier turned down the chance to succeed Oliver Glasner over the summer because he wanted time away from the game [S1]. He has also been promised money for January signings, and he has agreed a multi-year arrangement with the club [S1].\n\nThe recent form explains why nobody at the club can afford to wait. Palace have collected 3 points from their last five league matches, with one win, four defeats, and 13 goals conceded [ST1].\n\nEvery board loves a fresh start, but supporters only want a plan that survives a bad month. The sack is the easiest lever to pull and the hardest one to get right.\n\nThe Touchline Take: get this appointment right and nobody will remember the sacking that came before it.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Crystal Palace"
+  ],
+  "sources": [
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/16/thomas-frank-confirmed-crystal-palace-manager-pierre-sage",
+      "kind": "story"
+    },
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13610988/thomas-frank-crystal-palace-appoint-former-spurs-and-brentford-boss-as-pierre-sages-successor-at-selhurst-park",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "The Guardian: Thomas Frank confirmed as Crystal Palace manager after Pierre Sage’s sacking. Frank’s first job since Spurs dismissal in February. He has been promised funds for January signings. Thomas Frank has been confirmed as Crystal Palace’s manager after Pierre Sage was sacked last week. Frank, out of work since being dismissed by Tottenham in February, was quickly identified as Palace’s main target and has signed a two-and-a-half-year deal at the Premier League’s bottom club. Frank spoke to Palace in the summer about succeeding Oliver Glasner but decided he was not ready to return to the dugout because he wanted to take a break from football.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/16/thomas-frank-confirmed-crystal-palace-manager-pierre-sage"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "Sky Sports: Frank appointed Crystal Palace manager. Crystal Palace have appointed Thomas Frank as their new manager.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13610988/thomas-frank-crystal-palace-appoint-former-spurs-and-brentford-boss-as-pierre-sages-successor-at-selhurst-park"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Crystal Palace last 5 league matches in Football-Data.co.uk results: 1 win, 0 draws, 4 defeats, 3 points, 4 goals scored, 13 conceded (sequence WLLLL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Tottenham last 5 league matches in Football-Data.co.uk results: 3 wins, 1 draw, 1 defeat, 10 points, 8 goals scored, 3 conceded (sequence DWWWL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-17T02:31:43+00:00",
+  "draft_id": "04d6054ae7",
+  "story_ids": [
+    "5eeb0ba32ec1"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
