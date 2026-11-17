@@ -1,0 +1,57 @@
+{
+  "slug": "arsenal-and-declan-rice-why-the-contract-talk-needs-patience-2026-11-17",
+  "title": "Arsenal and Declan Rice: why the contract talk needs patience",
+  "body": "Declan Rice has reportedly agreed verbally to a new long-term contract at Arsenal, according to Sky Sports News [S1]. The story carries more weight than a routine renewal. Sky Sports reports that the Kroenke family, who usually stay out of transfer business, got closely involved because the club was weighing its first £100m signing [S2]. Sky also ran a piece calling the player a £105m 'bargain' and promising more to come [S2].\n\nThe owners' involvement shows how seriously the club treats this deal. A player at that price has to justify himself on the pitch, and the family wanted proof that the investment made sense before committing [S2].\n\nThe form backs up the optimism. Arsenal have won all of their last five league matches, collecting 15 points, scoring 7 goals and conceding just 1 [ST1]. A run like that makes a side look untouchable, and it makes the headlines easy to believe.\n\nStill, the smart money is on patience. Talk is cheap until the paperwork is done, so every rumour deserves some scepticism, even from a major broadcaster.\n\nThe Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Arsenal"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13612986/declan-rice-contract-arsenal-midfielder-verbally-agrees-new-320000-a-week-deal-with-the-premier-league-champions",
+      "kind": "story"
+    },
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13596475/declan-rice-arsenals-total-player-and-105m-bargain-can-unlock-more-levels-after-agreeing-new-contract",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Rice verbally agrees new Arsenal contract. Declan Rice has verbally agreed terms on a new long-term contract at Arsenal, Sky Sports News can reveal.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13612986/declan-rice-contract-arsenal-midfielder-verbally-agrees-new-320000-a-week-deal-with-the-premier-league-champions"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "Sky Sports: Rice: More to come from Arsenal's £105m 'bargain'. Arsenal's Kroenke family owners tend not to get involved in transfer dealings but when it came to Declan Rice, and the prospect of spending £100m on a player for the first time, they needed to be sure that it was a sensible investment.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13596475/declan-rice-arsenals-total-player-and-105m-bargain-can-unlock-more-levels-after-agreeing-new-contract"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Arsenal last 5 league matches in Football-Data.co.uk results: 5 wins, 0 draws, 0 defeats, 15 points, 7 goals scored, 1 conceded (sequence WWWWW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-17T02:31:52+00:00",
+  "draft_id": "eea6e24e45",
+  "story_ids": [
+    "7af4e410deab"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
