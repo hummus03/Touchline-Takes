@@ -1,0 +1,64 @@
+{
+  "slug": "manchester-united-hall-hunt-and-gusto-tussle-show-a-club-in-a-hurry-2026-11-17",
+  "title": "Manchester United: Hall Hunt and Gusto Tussle Show a Club in a Hurry",
+  "body": "Manchester United are reportedly set to revive their interest in Newcastle defender Lewis Hall, though they may struggle to prise him away [S1]. The same round-up has Manchester United and Manchester City going head-to-head for Chelsea defender Malo Gusto [S2], while Leeds United are pursuing Will Lankshear [S2]. Arsenal midfielder Martin Zubimendi is reportedly pondering his future [S1], and Chelsea are said to be eyeing a double swoop for two Barcelona players [S1].\n\nTheir last five league matches brought no wins, three draws and two defeats, earning 3 points from 6 goals scored and 11 conceded [ST1]. Newcastle have fared only slightly better, with one win, one draw and three defeats from their last five, taking 4 points while scoring 4 and conceding 7 [ST2]. [ST1] [ST2]\n\nNeither side is in the kind of form that makes a headline signing a quick fix, and the goals-against column tells its own story. A team leaking that many chances needs a plan, not a shopping list of shiny names.\n\nThe smart money is on patience, because rushed deals rarely age well. Talk is cheap until the paperwork is signed, so treat every rumour with a healthy dose of scepticism.\n\nThe Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester United"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c6d91x7nz85jo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cmp86enlly13o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Man Utd to resurrect Hall interest - Tuesday's gossip. Manchester United may struggle to prise defender Lewis Hall from Newcastle, Arsenal midfielder Martin Zubimendi is pondering his future, Chelsea eye a double swoop for Barcelona duo, plus more.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c6d91x7nz85jo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Man Utd & Man City in Gusto battle - Friday's gossip. Manchester United and Manchester City are going head-to-head for Chelsea defender Malo Gusto and Leeds United pursue Will Lankshear, plus more.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cmp86enlly13o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 3 draws, 2 defeats, 3 points, 6 goals scored, 11 conceded (sequence DDLLD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Newcastle last 5 league matches in Football-Data.co.uk results: 1 win, 1 draw, 3 defeats, 4 points, 4 goals scored, 7 conceded (sequence LLWLD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-17T02:31:48+00:00",
+  "draft_id": "299bad14ac",
+  "story_ids": [
+    "cfb6359143db"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
