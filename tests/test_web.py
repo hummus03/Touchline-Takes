@@ -38,6 +38,15 @@ def test_home_and_brand(client):
     assert "Upcoming fixtures" in page and "probbar" in page
 
 
+def test_stylesheet_url_changes_with_the_design(client):
+    """The stylesheet and icon URLs carry a fingerprint of the files, so browsers fetch the
+    new design after a change instead of reusing a cached old stylesheet."""
+    page = client.get("/").get_data(as_text=True)
+    css = re.search(r'href="/static/style\.css\?v=([0-9a-f]{10})"', page)
+    assert css and f'href="/static/favicon.svg?v={css.group(1)}"' in page
+    assert client.get(f"/static/style.css?v={css.group(1)}").status_code == 200
+
+
 def test_admin_requires_auth(client):
     """The desk is password-protected."""
     assert client.get("/admin").status_code == 401
