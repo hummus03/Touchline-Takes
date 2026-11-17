@@ -31,7 +31,8 @@
   <header class="masthead">
     <div class="wrap masthead-inner">
       <a class="logo" href="{{ url_for('site.index') }}" aria-label="{{ brand }} home">
-        <span class="logo-text">Touchline <span class="logo-script">Takes</span></span>
+        <img class="logo-icon" src="{{ url_for('static', filename='favicon.svg') }}" alt="" width="44" height="44">
+        <span class="logo-script">Touchline Takes</span>
       </a>
       <nav class="nav">
         <a href="{{ url_for('site.index') }}">Latest</a>

@@ -25,12 +25,13 @@ a { color: var(--maroon); text-decoration-color: var(--gold); text-decoration-th
 code { background: var(--sand-deep); padding: 1px 5px; border-radius: 3px; font-size: .9em; }
 .logo-script, .hero-script, .footer-script { font-family: var(--script); font-weight: 400; line-height: 1.1; white-space: nowrap; }
 
-/* Masthead: the wordmark is the logo, "Takes" in script */
+/* Masthead: the T-and-ball icon and the script wordmark with a gold touchline under it */
 .masthead { background: var(--card); border-bottom: 1px solid var(--line); }
 .masthead-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 16px; flex-wrap: wrap; }
 .logo { display: flex; align-items: center; gap: 12px; color: var(--maroon); text-decoration: none; }
-.logo-text { font-size: 1.75rem; font-weight: 800; line-height: 1; letter-spacing: -.01em; white-space: nowrap; }
-.logo-script { font-size: 1.35em; color: var(--gold-text); font-weight: 400; margin-left: 2px; letter-spacing: 0; }
+.logo-icon { display: block; flex: none; }
+.logo-script { font-size: 2.3rem; color: var(--maroon); position: relative; padding-bottom: 6px; }
+.logo-script::after { content: ""; position: absolute; left: 2px; right: -4px; bottom: 0; height: 3px; background: var(--gold); border-radius: 3px; transform: rotate(-1.5deg); }
 .nav { display: flex; gap: 4px; flex-wrap: wrap; }
 .nav a { color: var(--ink); text-decoration: none; font-weight: 500; padding: 6px 12px; border-radius: 2px; }
 .nav a:hover, .nav a:focus-visible { color: var(--maroon); box-shadow: inset 0 -3px 0 var(--gold); }
