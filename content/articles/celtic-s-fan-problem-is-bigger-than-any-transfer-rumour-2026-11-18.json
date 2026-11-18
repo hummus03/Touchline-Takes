@@ -1,0 +1,45 @@
+{
+  "slug": "celtic-s-fan-problem-is-bigger-than-any-transfer-rumour-2026-11-18",
+  "title": "Celtic's Fan Problem Is Bigger Than Any Transfer Rumour",
+  "body": "Celtic's rift with their own supporters is the real story, and a club great has put a concrete fix on the table [S1]. Paul McStay believes a fan representative in the boardroom could help calm the tension between the club and its supporters [S1].\n\nMcStay is a Celtic legend, so his view carries weight on the terraces and in the boardroom alike [S1]. The same BBC Sport section also ran a lighter item, filed as gossip, saying Celtic have their eye on midfielder Ebonog [S2]. That report adds that a Turkish club is still interested in a Rangers midfielder, leaving two possible January targets for Celtic [S2].\n\nA seat for supporters is the sort of structural move that either rebuilds trust or gets waved through as lip service. The side cannot keep talking past its own fans, and no signing will paper over that gap.\n\nThe harder question is whether the hierarchy listens to the stands before the window shuts, not after the damage is done.\n\nThe Touchline Take: one to keep an eye on.",
+  "article_type": "explainer",
+  "league": "Scottish Premiership",
+  "teams": [
+    "Celtic"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/crx20q47ljl7o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cvglr4d04x2go?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Fan voice on board key to ending Celtic unrest - club legend McStay. Celtic legend Paul McStay says having a supporters representative on the board would be a significant step to halting the unrest between the club and the fans.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/crx20q47ljl7o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Celtic have eye on midfielder Ebonog - gossip. Two possible January targets for Celtic as Turkish club maintain interest in Rangers midfielder...",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cvglr4d04x2go?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "published_at": "2026-11-18T16:32:07+00:00",
+  "draft_id": "aedcca0067",
+  "story_ids": [
+    "883e2836a021"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
