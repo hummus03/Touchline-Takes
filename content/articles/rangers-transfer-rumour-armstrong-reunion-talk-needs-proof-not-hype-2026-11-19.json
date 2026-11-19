@@ -1,0 +1,45 @@
+{
+  "slug": "rangers-transfer-rumour-armstrong-reunion-talk-needs-proof-not-hype-2026-11-19",
+  "title": "Rangers transfer rumour: Armstrong reunion talk needs proof, not hype",
+  "body": "A Romania-based winger is reportedly eyeing a reunion with his former manager at Ibrox [S1]. A Celtic hero has apparently revealed an approach from Rangers, and that is what has got the speculation going [S1].\n\nThe story sits alongside a separate BBC Sport item in which Celtic are linked with a midfielder called Ebonog [S2]. That same report says a Turkish club is still interested in a Rangers midfielder, and that Celtic have two possible January targets [S2]. Both pieces are filed under the same label: gossip [S1][S2]. That tells you how much weight the source itself puts on them.\n\nNo form figures or predictions came with this material. Without numbers to lean on, the case rests on reputation and rumour, and that is a thin foundation for any judgement about a club's plans.\n\nThe smart money is on patience. Every whisper about a player's preference or a club's interest should be treated as a possibility, not a done deal.\n\nThe Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Scottish Premiership",
+  "teams": [
+    "Rangers"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cm62pqd0v7dlo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cvglr4d04x2go?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Armstrong would relish Rangers switch - gossip. Romania-based winger eyes reunion with manager at Ibrox as Celtic hero reveals approach from Rangers...",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cm62pqd0v7dlo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Celtic have eye on midfielder Ebonog - gossip. Two possible January targets for Celtic as Turkish club maintain interest in Rangers midfielder...",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cvglr4d04x2go?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "published_at": "2026-11-19T16:39:30+00:00",
+  "draft_id": "3dcfa8666c",
+  "story_ids": [
+    "1bf5f8871eb7"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
