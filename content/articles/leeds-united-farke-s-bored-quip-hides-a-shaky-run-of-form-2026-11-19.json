@@ -1,0 +1,45 @@
+{
+  "slug": "leeds-united-farke-s-bored-quip-hides-a-shaky-run-of-form-2026-11-19",
+  "title": "Leeds United: Farke's 'bored' quip hides a shaky run of form",
+  "body": "Leeds United are in the spotlight after Sky Sports reported Farke joking that he is \"a bit bored\" following a Trafford frenzy [S1]. On the surface it is a light line from a busy moment, but the context deserves a closer look.\n\nThe only detail we hold is that headline, so the quip is the story as far as the evidence goes [S1]. We do not know what the frenzy involved or what followed it, so readers should treat the joke as a window rather than the full picture [S1].\n\nThe form numbers tell a harder story. Across their last five league matches, Leeds United have one win, two draws and two defeats, collecting 5 points [ST1]. They have scored 3 and conceded 5, with the sequence running LDDLW [ST1].\n\nA side that can laugh off a bad week has the luxury of a strong base, and a run like this one calls for answers on the pitch rather than punchlines. The mood around the club should be about fixing the problems, not enjoying the banter.\n\nThe Touchline Take: the quip is harmless, but the run behind it is the real story, and one to keep an eye on.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Leeds United"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/live-blog/12040/13353569/leeds-united-transfer-news-rumours-and-gossip-live-updates-and-latest-on-deals-signings-loans-and-contracts",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Leeds latest: 'I’m a bit bored,' jokes Farke after Trafford frenzy. Leeds latest: 'I’m a bit bored,' jokes Farke after Trafford frenzy",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/live-blog/12040/13353569/leeds-united-transfer-news-rumours-and-gossip-live-updates-and-latest-on-deals-signings-loans-and-contracts"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Leeds United last 5 league matches in Football-Data.co.uk results: 1 win, 2 draws, 2 defeats, 5 points, 3 goals scored, 5 conceded (sequence LDDLW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-19T16:39:40+00:00",
+  "draft_id": "0b3813b103",
+  "story_ids": [
+    "b69fee6375b3"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
