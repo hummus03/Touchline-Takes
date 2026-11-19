@@ -1,0 +1,57 @@
+{
+  "slug": "arsenal-mourn-peter-storey-a-double-hero-gone-at-81-2026-11-18",
+  "title": "Arsenal mourn Peter Storey, a Double hero gone at 81",
+  "body": "Arsenal have paid tribute to Peter Storey, the former midfielder who has died at the age of 81 [S2]. BBC Sport also reported the death, describing him as a former Arsenal and England midfielder [S1].\n\nHe made 501 appearances for the club from 1965, placing him eighth on Arsenal's all-time list [S2]. He also earned 19 England caps and finished his playing career at Fulham [S2].\n\nThose are not the numbers of a squad passenger, and the club's response shows how seriously it still takes its own history. The present side is in a confident spell, having won its last five league matches with 15 points, 7 goals scored and just 1 conceded [ST1]. That kind of run suggests a team that can honour the past without being weighed down by it.\n\nA club's history is built from men like this, and a tribute is more than a line in a press release. The football can wait a day or two, but nobody should rush past the man who wore the shirt.\n\nThe Touchline Take: Remember the player before you judge the team on the pitch.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Arsenal"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c63eg3ekxnpyo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/17/peter-storey-arsenal-england-dies-aged-81",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Arsenal Double winner Storey dies aged 81. Former Arsenal and England midfielder Peter Storey - who helped the Gunners win the Double in 1970-71 - has died at the age of 81.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c63eg3ekxnpyo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "The Guardian: Peter Storey, Arsenal Double winner and England international, dies aged 81. Storey made 501 appearances for Arsenal from 1965. He got 19 England caps and finished career at Fulham. Arsenal have paid tribute to Peter Storey, a key member of their 1971 Double-winning team, after the death of the former England midfielder at the age of 81. Storey was part of the Bertie Mee team that secured the First Division title and FA Cup in a season that remains one of the most celebrated in Arsenal’s history and played 501 times for the club. That places him eighth on their appearances list.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/17/peter-storey-arsenal-england-dies-aged-81"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Arsenal last 5 league matches in Football-Data.co.uk results: 5 wins, 0 draws, 0 defeats, 15 points, 7 goals scored, 1 conceded (sequence WWWWW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-18T01:41:27+00:00",
+  "draft_id": "bb71b9b219",
+  "story_ids": [
+    "9ec7cec39781"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
