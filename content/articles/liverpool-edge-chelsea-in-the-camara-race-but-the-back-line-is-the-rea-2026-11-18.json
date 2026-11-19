@@ -1,0 +1,65 @@
+{
+  "slug": "liverpool-edge-chelsea-in-the-camara-race-but-the-back-line-is-the-rea-2026-11-18",
+  "title": "Liverpool Edge Chelsea in the Camara Race, but the Back Line Is the Real Story",
+  "body": "Liverpool are reportedly ahead of Chelsea in the race for Monaco's Lamine Camara [S1]. The same round-up says Barcelona have closed the door on moves for Virgil van Dijk and Bruno Fernandes [S1], and that Wilfried Zaha, once of Palace, could come back to the club [S1]. On Van Dijk, BBC Sport frames the situation as a decision that Liverpool and the defender still have to make [S2]. He has said he is not panicking about his contract [S2].\n\nThe form guide adds some context. Liverpool's last five league matches brought three wins, two defeats and nine points, with seven goals scored and six conceded [ST1]. Chelsea have the same three wins, two defeats and nine points, but they have scored nine and conceded only four [ST2].\n\nOn paper the two sides look level in the table, but the difference sits at the back. A team shipping goals at that rate has a clear problem, and goals conceded are harder to hide than a rumour. Any ambitious side needs a settled defence more than a headline signing, so the transfer chatter should be judged on whether it actually fixes that.\n\nTalk is cheap until the paperwork is signed. If a deal does go through, it will say plenty about where the club believes it is heading, and that is the story worth watching.\n\nThe Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Liverpool",
+    "Chelsea"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cvx2xwx604y0o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/ck4gnd2pgd06o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Liverpool lead Chelsea in Camara race - Wednesday's gossip. Liverpool leading Chelsea in race for Monaco's Lamine Camara, Barcelona rule out moves for Virgil van Dijk and Bruno Fernandes, and ex-Crystal Palace winger Wilfried Zaha could rejoin the club.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cvx2xwx604y0o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Liverpool and Van Dijk have a decision to make. Virgil van Dijk says he is in no panic about his contract situation at Liverpool - BBC Sport takes a look at what could happen with his future.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/ck4gnd2pgd06o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Liverpool last 5 league matches in Football-Data.co.uk results: 3 wins, 0 draws, 2 defeats, 9 points, 7 goals scored, 6 conceded (sequence LWWLW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Chelsea last 5 league matches in Football-Data.co.uk results: 3 wins, 0 draws, 2 defeats, 9 points, 9 goals scored, 4 conceded (sequence WWLWL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-18T01:41:14+00:00",
+  "draft_id": "4192aaac22",
+  "story_ids": [
+    "06b944d0c104"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
