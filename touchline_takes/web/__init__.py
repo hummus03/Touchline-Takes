@@ -16,7 +16,7 @@ from touchline_takes.config import Settings
 from touchline_takes.db import Database
 from touchline_takes.preflight import require_ready
 from touchline_takes.tools.teams import TeamDirectory
-from touchline_takes.tools.text import CITATION_RE, split_paragraphs, strip_citations
+from touchline_takes.tools.text import CITATION_RE, split_paragraphs, teaser
 from touchline_takes.web.ratelimit import RateLimiter
 from touchline_takes.web.urls import canonical_url, slugify
 
@@ -33,13 +33,6 @@ def render_body(body: str) -> Markup:
             "The Touchline Take:" in para) else ""
         html.append(f"<p{cls}>{text}</p>")
     return Markup("\n".join(html))
-
-
-def teaser(body: str, length: int = 220) -> str:
-    """First paragraph without citations, trimmed."""
-    paras = split_paragraphs(strip_citations(body))
-    text = paras[0] if paras else ""
-    return text if len(text) <= length else text[:length].rsplit(" ", 1)[0] + "…"
 
 
 SECURITY_HEADERS = {
@@ -158,5 +151,7 @@ def create_app(settings: Settings | None = None, newsroom=None, testing: bool = 
                     "frame-ancestors 'none'; ", "")}
 
     from touchline_takes.web.views import bp  # pylint: disable=import-outside-toplevel
+    from touchline_takes.web.api import api  # pylint: disable=import-outside-toplevel
     app.register_blueprint(bp)
+    app.register_blueprint(api)
     return app

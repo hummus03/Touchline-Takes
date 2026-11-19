@@ -102,10 +102,14 @@ def _copy_site_root(out: Path) -> None:
 
 
 def _routes(app, views) -> dict[str, str]:
-    """Output file -> route for every public page, plus the feed, sitemap and robots."""
+    """Output file -> route for every public page, plus the feed, sitemap, robots and the
+    app's JSON feed (``api/v1/...``)."""
+    from touchline_takes.web.api import api_paths  # pylint: disable=import-outside-toplevel
     with app.test_request_context():
         paths = views.site_paths()  # home, archive, clubs, leagues, articles, info pages
+        data = api_paths()
     routes = {"index.html" if p == "/" else f"{p.strip('/')}/index.html": p for p in paths}
+    routes.update({p.strip("/"): p for p in data})
     routes.update({"feed.xml": "/feed.xml", "sitemap.xml": "/sitemap.xml",
                    "robots.txt": "/robots.txt"})
     return routes

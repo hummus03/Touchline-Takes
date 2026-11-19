@@ -91,6 +91,13 @@ def strip_citations(text: str) -> str:
     return re.sub(r"\s+([.,;:!?])", r"\1", CITATION_RE.sub("", text)).strip()
 
 
+def teaser(body: str, length: int = 220) -> str:
+    """First paragraph without citations, trimmed."""
+    paras = split_paragraphs(strip_citations(body))
+    text = paras[0] if paras else ""
+    return text if len(text) <= length else text[:length].rsplit(" ", 1)[0] + "…"
+
+
 def normalise_token(token: str) -> str:
     """Lowercase, strip accents/possessives so 'Atlético's' matches 'atletico'."""
     token = token.lower().strip("'’-")
