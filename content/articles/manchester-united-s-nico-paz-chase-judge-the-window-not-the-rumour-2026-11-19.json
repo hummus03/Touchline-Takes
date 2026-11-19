@@ -1,0 +1,57 @@
+{
+  "slug": "manchester-united-s-nico-paz-chase-judge-the-window-not-the-rumour-2026-11-19",
+  "title": "Manchester United's Nico Paz chase: judge the window, not the rumour",
+  "body": "Manchester United are reportedly targeting Como midfielder Nico Paz as their new manager, Mauricio Pochettino, is set to receive backing in the transfer market [S2].\n\nThe wider coverage shows how crowded the market is. BBC Sport's gossip column also linked Besiktas with a move for Amad Diallo and reported that Barcelona plan to resist offers for Alejandro Balde [S1]. Chelsea are also said to be targeting Kounde [S2].\n\nAcross their last five league matches they have won none, drawn three and lost two, collecting three points while scoring six and conceding 11 [ST1]. The sequence reads draw, draw, defeat, defeat, draw [ST1]. A side with that defensive record needs more than one glamorous name to turn things around.\n\nStill, the cautious view is the better one. A club in this position is tempted to sign a headline player quickly to show progress.\n\nThe Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester United"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cxnv4q2qnvjvo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cq39glw42xkjo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Man Utd pursuing Como's Paz - Thursday's gossip. Manchester United pursuing Nico Paz, Besiktas plot move for Amad Diallo, Barcelona to rebuff offers for Alejandro Balde, plus more.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cxnv4q2qnvjvo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Man Utd want Paz, Chelsea target Kounde - Saturday's gossip. Manchester United are targeting Como midfielder Nico Paz as new manager Mauricio Pochettino prepares to receive backing in the transfer market at Old Trafford.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cq39glw42xkjo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 3 draws, 2 defeats, 3 points, 6 goals scored, 11 conceded (sequence DDLLD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-19T01:17:41+00:00",
+  "draft_id": "68b89b7428",
+  "story_ids": [
+    "cb1e550a2889"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
