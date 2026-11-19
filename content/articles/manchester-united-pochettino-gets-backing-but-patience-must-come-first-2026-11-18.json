@@ -1,0 +1,57 @@
+{
+  "slug": "manchester-united-pochettino-gets-backing-but-patience-must-come-first-2026-11-18",
+  "title": "Manchester United: Pochettino Gets Backing, But Patience Must Come First",
+  "body": "Manchester United's new head coach is reportedly set to get backing in the next transfer window, as the club try to fix a poor start to the season [S1]. Mauricio Pochettino was appointed after Michael Carrick was sacked from the role [S2].\n\nSky Sports presents the expected support as a direct response to that disappointing beginning [S1]. The same outlet also reported the appointment, so the new coach and the promised funding arrive as one package [S2].\n\nThe form explains the urgency. In the last five league matches, the side have won none, drawn three and lost two, collecting three points while scoring six and conceding eleven [ST1]. The run reads draw, draw, defeat, defeat, draw [ST1].\n\nThose numbers are a warning, not a shopping list. A side shipping that many goals needs its shape fixed before it needs new faces, and a signing cannot repair a defence on its own.\n\nThe smart money is on patience. Talk is cheap until the paperwork is signed, so treat every rumour with care, and do not mistake a busy market for a sound plan.\n\nThe Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester United"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13613260/man-utd-transfer-news-calvin-bassey-and-jarrad-branthwaite-among-targets-with-mauricio-pochettino-set-to-be-backed-in-january",
+      "kind": "story"
+    },
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13610882/mauricio-pochettino-appointed-as-manchester-united-head-coach-after-michael-carricks-sacking-at-old-trafford",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Man Utd expected to back Poch in January transfer window. Manchester United head coach Mauricio Pochettino is expected to be backed in the January transfer window as the club aim to address their disappointing start to the season.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13613260/man-utd-transfer-news-calvin-bassey-and-jarrad-branthwaite-among-targets-with-mauricio-pochettino-set-to-be-backed-in-january"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "Sky Sports: Man Utd appoint Pochettino as head coach. Mauricio Pochettino has been appointed as the new Manchester United head coach, following the sacking of Michael Carrick.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13610882/mauricio-pochettino-appointed-as-manchester-united-head-coach-after-michael-carricks-sacking-at-old-trafford"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 3 draws, 2 defeats, 3 points, 6 goals scored, 11 conceded (sequence DDLLD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-18T16:31:55+00:00",
+  "draft_id": "4067180841",
+  "story_ids": [
+    "8b3b5d281acb"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
