@@ -1,0 +1,57 @@
+{
+  "slug": "manchester-united-s-new-boss-inherits-a-long-urgent-to-do-list-2026-11-19",
+  "title": "Manchester United's new boss inherits a long, urgent to-do list",
+  "body": "Manchester United have agreed a deal to make Mauricio Pochettino their next head coach [S2]. Sky Sports reports the agreement as a two-and-a-half-year contract [S2].\n\nBBC Sport has framed his in-tray around three issues: culture, defence and Bruno Fernandes [S1]. Each is a different kind of headache, and they are not easy to solve in isolation. A culture problem can hide a defensive one, and a midfield question can make both worse.\n\nThe league record shows why those issues are urgent. Over their last five league matches, Manchester United have taken 3 points, with no wins, three draws and two defeats [ST1]. They have scored 6 goals and conceded 11 [ST1].\n\nThat run reads like a side that has become easy to hit and hard to trust. The sequence matters as much as the totals: draws, then defeats, with nothing to build on. The new man inherits a defence that has been leaking and a dressing room that needs a reason to believe again.\n\nThe new coach's first job is to stop the bleeding, not to chase a grand plan. Give the appointment time, but judge it quickly on whether the goals against start to fall.\n\nThe Touchline Take: one to keep an eye on as the season unfolds, because the to-do list is longer than the headline suggests.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester United"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cxlylzyg38l8o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13611745/mauricio-pochettino-manchester-united-agree-two-and-a-half-year-deal-with-usa-manager-to-replace-michael-carrick",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Culture, defence, Fernandes - Pochettino's priorities at Man Utd. Culture, defence and Bruno Fernandes - the key issues facing Mauricio Pochettino as he takes over as Manchester United boss.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cxlylzyg38l8o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "Sky Sports: Pochettino agrees two-and-a-half-year deal to become Man Utd boss. Manchester United and Mauricio Pochettino have agreed a deal for him to become the club's next head coach.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13611745/mauricio-pochettino-manchester-united-agree-two-and-a-half-year-deal-with-usa-manager-to-replace-michael-carrick"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 3 draws, 2 defeats, 3 points, 6 goals scored, 11 conceded (sequence DDLLD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-19T16:39:45+00:00",
+  "draft_id": "91334ae7f6",
+  "story_ids": [
+    "6ed1b2f3bfaf"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
