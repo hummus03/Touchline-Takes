@@ -1,0 +1,57 @@
+{
+  "slug": "manchester-united-eye-a-historic-hire-as-their-form-stalls-2026-11-18",
+  "title": "Manchester United Eye a Historic Hire as Their Form Stalls",
+  "body": "Manchester United are reportedly set to appoint their first-ever female coach, with Poch the name linked to the move [S1]. The claim comes from a Wednesday round-up of newspaper talk, so it is press reporting rather than an official announcement [S1]. Whatever the final paperwork says, a story like this lands hard and deserves more than a glance at the headline.\n\nThe same run of coverage also pointed to interest in Como star Paz, so the transfer agenda looks busy on more than one front [S2]. Either way, supporters will want substance rather than a string of rumours.\n\nThe results make the backdrop harder to ignore. In their last five league matches the club have collected 3 points from three draws and two defeats, with no wins at all [ST1]. They have scored 6 and conceded 11 over that run, following a DDLLD sequence [ST1]. That is a team stuck in neutral rather than in freefall, and it makes the timing of any new appointment a real test of nerve.\n\nBut the hiring has to be judged on what happens on the grass. A groundbreaking title means little if the defence keeps leaking and the points keep drying up, and the supporters who turn up every week will judge the side on results, not on the press release.\n\nThe Touchline Take: one to keep an eye on, because headlines are cheap and results are the only currency that counts.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester United"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13613427/man-utd-boss-mauricio-pochettino-to-appoint-clubs-first-ever-female-coach-paper-talk",
+      "kind": "story"
+    },
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13611965/man-utd-transfer-news-como-star-nico-paz-emerges-as-target-ahead-of-summer-transfer-window-paper-talk",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Papers: Poch to appoint Man Utd's first-ever female coach. The top stories and transfer rumours from Wednesday's newspapers...",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13613427/man-utd-boss-mauricio-pochettino-to-appoint-clubs-first-ever-female-coach-paper-talk"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "Sky Sports: Papers: Man Utd eyeing move for Como star Paz. The top stories and transfer rumours from Saturday's newspapers...",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13611965/man-utd-transfer-news-como-star-nico-paz-emerges-as-target-ahead-of-summer-transfer-window-paper-talk"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 3 draws, 2 defeats, 3 points, 6 goals scored, 11 conceded (sequence DDLLD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-18T01:41:18+00:00",
+  "draft_id": "046da5f698",
+  "story_ids": [
+    "ce383db34d92"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
