@@ -1,0 +1,57 @@
+{
+  "slug": "manchester-city-premier-league-clubs-shield-board-directors-from-spons-2026-11-19",
+  "title": "Manchester City: Premier League clubs shield board directors from sponsor lawsuits",
+  "body": "Premier League clubs have agreed to cover the legal costs of the five directors on Manchester City's board if the club's sponsors sue them as individuals [S1][S2]. Both Sky Sports and BBC Sport ran the story [S1][S2], which suggests it is being treated as more than a minor governance footnote.\n\nThe detail matters. The protection applies to the people in the boardroom, not the club itself, so any personal exposure in a dispute with sponsors would be covered by the wider group of clubs [S1][S2]. That is an unusual step, and it tells you the directors are being treated as potential targets rather than bystanders.\n\nThe timing is awkward. On the pitch, Manchester City have won two of their last five league matches and lost three, collecting six points [ST1]. They have scored eight and conceded eight in that spell, with the sequence reading WWLLL [ST1]. A side scraping points needs its focus in one place, and a boardroom legal row is the last thing anyone wants hanging over the training ground.\n\nThere is more to this than the headline suggests. This vote reads less like a formality and more like the wider game bracing for a fight, and that makes it a story with consequences beyond the paperwork.\n\nThe Touchline Take: one to keep an eye on, because the courtroom and the results will both shape how this season is remembered.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester City"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13614031/premier-league-clubs-vote-to-cover-legal-costs-if-man-city-sponsors-sue-competitions-board-members",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cqy4jvdw7jdlo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: PL clubs vote to cover legal costs of board members if Man City sponsors sue. Premier League clubs have voted to cover the legal costs of their five board members if they are sued individually by Manchester City's sponsors.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13614031/premier-league-clubs-vote-to-cover-legal-costs-if-man-city-sponsors-sue-competitions-board-members"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Premier League clubs to cover legal costs if Man City sponsors sue. Premier League clubs vote to provide legal cover to the organisation's five board directors in the event Manchester City's sponsors sue them.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cqy4jvdw7jdlo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester City last 5 league matches in Football-Data.co.uk results: 2 wins, 0 draws, 3 defeats, 6 points, 8 goals scored, 8 conceded (sequence WWLLL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-19T16:39:36+00:00",
+  "draft_id": "372acca44a",
+  "story_ids": [
+    "bee234491b5d"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
