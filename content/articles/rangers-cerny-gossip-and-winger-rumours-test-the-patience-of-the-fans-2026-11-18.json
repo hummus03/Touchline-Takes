@@ -1,0 +1,33 @@
+{
+  "slug": "rangers-cerny-gossip-and-winger-rumours-test-the-patience-of-the-fans-2026-11-18",
+  "title": "Rangers: Cerny gossip and winger rumours test the patience of the fans",
+  "body": "Rangers are reportedly exploring a return for Cerny, and BBC Sport has filed the story under gossip. [S1] The same coverage links two familiar wingers with Rangers returns in January. [S1] It also sits alongside a wider story about SFA redraft proposals aimed at a youth development crisis. [S1]\n\nThose threads pull in different directions. One is a name on a list, the other is a governing body trying to fix how young players are developed. [S1] The transfer talk is the louder of the two, but it is the least reliable.\n\nNothing in the evidence offers form figures or predictions to settle the argument, so what you have is judgement, not data. [S1] That is the honest starting point for any fan who wants to read this story without getting carried away.\n\nThe smart money is on patience. Talk is cheap until the paperwork is signed, so treat every rumour with care.\n\nThe Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Scottish Premiership",
+  "teams": [
+    "Rangers"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cq702kr3xd38o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Rangers explore return for Cerny - gossip. Two familiar wingers linked with Rangers returns in January as SFA redraft proposals to address youth development crisis...",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cq702kr3xd38o?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "published_at": "2026-11-18T16:32:01+00:00",
+  "draft_id": "81375a5334",
+  "story_ids": [
+    "b39afeaa0983"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
