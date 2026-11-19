@@ -2,8 +2,10 @@
 
 from __future__ import annotations
 
+import hashlib
 import secrets
 import threading
+from pathlib import Path
 
 from flask import Flask, render_template, request
 from markupsafe import Markup, escape
@@ -139,12 +141,18 @@ def create_app(settings: Settings | None = None, newsroom=None, testing: bool = 
     app.jinja_env.filters["slug"] = slugify
     app.jinja_env.filters["pct"] = lambda v: f"{round(100 * v)}%" if v is not None else "–"
 
+    # A fingerprint of the stylesheet and icon, added to their URLs (?v=...) so browsers
+    # fetch the new files after a redesign instead of reusing a cached old copy.
+    static_dir = Path(app.static_folder)
+    asset_version = hashlib.sha256(b"".join(
+        (static_dir / name).read_bytes() for name in ("style.css", "favicon.svg"))).hexdigest()[:10]
+
     @app.context_processor
     def _brand():
         return {"brand": BRAND_NAME, "tagline": TAGLINE, "domain": DOMAIN,
                 "sample_mode": settings.allow_sample_data, "production": settings.is_production,
                 "static_site": settings.is_static, "site_url": settings.site_url,
-                "contact_email": settings.contact_email,
+                "contact_email": settings.contact_email, "asset_version": asset_version,
                 "canonical_url": canonical_url(settings.site_url, request.path),
                 "csp": SECURITY_HEADERS["Content-Security-Policy"].replace(
                     "frame-ancestors 'none'; ", "")}

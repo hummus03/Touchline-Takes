@@ -23,9 +23,9 @@
   <meta name="twitter:image" content="{{ site_url }}/static/og-image.png">
   {% block extra_meta %}{% endblock %}
   {% if static_site %}<meta http-equiv="Content-Security-Policy" content="{{ csp }}">{% endif %}
-  <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
+  <link rel="icon" href="{{ url_for('static', filename='favicon.svg', v=asset_version) }}" type="image/svg+xml">
   <link rel="alternate" type="application/rss+xml" title="{{ brand }}" href="{{ url_for('site.feed') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css', v=asset_version) }}">
 </head>
 <body>
   <header class="masthead">
