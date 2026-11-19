@@ -1,0 +1,66 @@
+{
+  "slug": "arsenal-s-alex-scott-chase-sales-on-the-table-as-chelsea-and-liverpool-2026-11-18",
+  "title": "Arsenal's Alex Scott chase: sales on the table as Chelsea and Liverpool circle",
+  "body": "Arsenal are reportedly willing to sell players to fund a move for Bournemouth midfielder Alex Scott, with Chelsea and Liverpool also in the hunt [S1]. The England international is wanted by three top Premier League clubs, and Arsenal are one of them [S1]. BBC Sport says Arsenal have already contacted Bournemouth about the player [S2].\n\nThe same BBC gossip roundup says Manchester United have added two defenders to their list of potential targets, and Aston Villa are weighing up a move for Chelsea midfielder Romeo Lavia [S2].\n\nForm matters when a club asks its supporters to accept big sales. Arsenal have won all five of their recent league matches, scoring seven and conceding one for 15 points [ST1]. Chelsea have taken nine points from their last five, with a WWLWL sequence, scoring nine and conceding four [ST2]. Those records tell a clear story: one side is cruising, while the other is still searching for consistency.\n\nThe club is asking its fans to trust the plan, and that trust has to be earned on the pitch as well as in the paperwork. If this one goes through, it says plenty about where the club thinks it is heading.\n\nThe Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Arsenal",
+    "Chelsea",
+    "Liverpool"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13613285/alex-scott-arsenal-keen-on-chelsea-and-liverpool-target-with-bournemouth-softening-stance-over-potential-sale",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c62l51xyl98no?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Arsenal willing to make sales to beat Chelsea and Liverpool to Scott signing. Arsenal are one of three top Premier League clubs interested in signing Bournemouth and England midfielder Alex Scott.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13613285/alex-scott-arsenal-keen-on-chelsea-and-liverpool-target-with-bournemouth-softening-stance-over-potential-sale"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Arsenal join Scott chase - Thursday's gossip. Arsenal contact Bournemouth about midfielder Alex Scott, Manchester United add two defenders to list of potential targets, Aston Villa weigh up move for Chelsea midfielder Romeo Lavia, plus more.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c62l51xyl98no?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Arsenal last 5 league matches in Football-Data.co.uk results: 5 wins, 0 draws, 0 defeats, 15 points, 7 goals scored, 1 conceded (sequence WWWWW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Chelsea last 5 league matches in Football-Data.co.uk results: 3 wins, 0 draws, 2 defeats, 9 points, 9 goals scored, 4 conceded (sequence WWLWL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-18T16:31:49+00:00",
+  "draft_id": "69a6e26535",
+  "story_ids": [
+    "2c2e2ec3feae"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
