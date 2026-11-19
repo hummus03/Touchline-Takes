@@ -1,0 +1,45 @@
+{
+  "slug": "leicester-cut-ties-with-bc-game-after-sponsor-row-2026-11-19",
+  "title": "Leicester Cut Ties With BC Game After Sponsor Row",
+  "body": "Leicester have ended their front-of-shirt partnership with BC Game, a sponsor that had been on the shirt since 2024 [S2]. The break came after a fans group complained about the casino's choice of ambassador [S1].\n\nThe casino had made Eva Elfie a brand ambassador, and that appointment sparked a fan backlash [S2]. The club ended the deal early, citing \"differing commercial priorities\" [S2]. BC Game is an offshore company registered in Belize and is unlicensed to operate in the UK [S2]. Both BBC Sport and The Guardian covered the split [S1][S2].\n\nNo results or league form were included in the evidence for this piece, so there are no numbers to weigh here, and the story has to be judged on its own terms.\n\nThe club listened, and it should be credited for that, even if it took a fan complaint to get there.\n\nThe Touchline Take: one to keep an eye on, because the real test is whether the next sponsor gets the same scrutiny before the deal is signed, not after the backlash.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Leicester"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/news/articles/cq4gnx28zp5lo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/18/leicester-city-bc-game-porn-star-eva-elfie-sponsorship",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Leicester split with sponsor after porn actress row. A fans group had complained after BC Game appointed a porn actress as a brand ambassador.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/news/articles/cq4gnx28zp5lo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "The Guardian: Leicester part ways with BC Game after sponsor’s partnership with porn actor. Cryptocurrency casino made Eva Elfie a brand ambassador. Club end deal early citing ‘differing commercial priorities’ Leicester City have ditched their front-of-shirt sponsor, BC Game, after the cryptocurrency casino’s partnership with a porn actor sparked a fan backlash. BC Game, an offshore company registered in Belize that is unlicensed to operate in the UK , had been Leicester’s main sponsor since 2024.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/18/leicester-city-bc-game-porn-star-eva-elfie-sponsorship"
+    }
+  ],
+  "published_at": "2026-11-19T01:17:46+00:00",
+  "draft_id": "a274769aad",
+  "story_ids": [
+    "f275da7534ac"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
