@@ -27,3 +27,20 @@ jobs:
       - run: pip install -r requirements-dev.txt
       - run: python -m pytest -q -p no:warnings
       - run: pylint touchline_takes tests scripts
+
+  mobile:
+    # The Expo app in mobile/: install exactly what the lockfile says, then typecheck.
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: mobile
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: mobile/package-lock.json
+      - run: npm ci
+      - run: npx tsc --noEmit

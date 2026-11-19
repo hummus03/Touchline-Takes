@@ -348,3 +348,26 @@ def test_site_root_files_are_published(tmp_path, static):
     build_site(content, out, static)
     assert (out / "google96cacfec37ea204a.html").read_text().startswith(
         "google-site-verification: google96cacfec37ea204a.html")
+
+
+def test_app_json_feed_is_built(tmp_path, static):
+    """The static build writes the mobile app's feed: articles, each article, clubs, fixtures."""
+    content = tmp_path / "content"
+    write_article(content, record(teams=["Arsenal", "Chelsea"]))
+    out = tmp_path / "_site"
+    build_site(content, out, static.with_overrides(environment="production",
+                                                   allow_sample_data=False))
+    feed = json.loads((out / "api" / "v1" / "articles.json").read_text())
+    assert feed["version"] == 1 and len(feed["articles"]) == 1
+    summary = feed["articles"][0]
+    assert summary["slug"] == "arsenal-v-chelsea-2026-11-11" and summary["teams"]
+    assert summary["url"] == "https://touchlinetakes.com/article/arsenal-v-chelsea-2026-11-11/"
+    assert "[S" not in summary["teaser"]
+    full = json.loads((out / "api" / "v1" / "article" / f"{summary['slug']}.json").read_text())
+    assert full["title"] == summary["title"] and full["paragraphs"]
+    assert all("[S" not in p["text"] for p in full["paragraphs"])
+    cited = {c for p in full["paragraphs"] for c in p["cites"]}
+    assert cited and cited <= {e["id"] for e in full["evidence"]}
+    clubs = json.loads((out / "api" / "v1" / "clubs.json").read_text())["clubs"]
+    assert {c["name"] for c in clubs} >= set(summary["teams"])
+    assert "fixtures" in json.loads((out / "api" / "v1" / "fixtures.json").read_text())
