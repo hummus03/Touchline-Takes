@@ -1,0 +1,45 @@
+{
+  "slug": "celtic-face-a-midfield-test-as-mika-baur-is-sidelined-with-an-ankle-in-2026-11-20",
+  "title": "Celtic face a midfield test as Mika Baur is sidelined with an ankle injury",
+  "body": "Celtic have lost a midfielder to an ankle problem, and the expected length of his absence is what makes it bite [S1]. The player is Mika Baur, and the Germany international is expected to miss around ten weeks [S2].\n\nManager Martin O'Neill has pinned the problem on ligament damage in the ankle, which is a more serious diagnosis than a knock that clears up in days [S2]. Sky Sports and BBC Sport both ran the news, a sign that the absence is being treated as more than a passing concern [S1][S2].\n\nA midfielder's absence changes far more than one name on the team sheet. It shifts the minutes, the passing patterns and the confidence of everyone around him, and that ripple effect is often bigger than the injury itself.\n\nThis is exactly the kind of blow that exposes a thin bench. The side will be judged on whether the replacements can keep the shape and control without a drop in quality, and anyone who thinks the squad is deep enough should be asked to prove it now.\n\nThe Touchline Take: the bench will decide how much this hurts.",
+  "article_type": "explainer",
+  "league": "Scottish Premiership",
+  "teams": [
+    "Celtic"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13614395/mika-baur-celtic-midfielder-ruled-out-for-considerable-period-with-ankle-ligament-damage",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cvrlgx1l4lnlo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Celtic suffer Baur injury blow. Celtic midfielder Mika Baur faces a lengthy period on the sidelines with an ankle injury.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13614395/mika-baur-celtic-midfielder-ruled-out-for-considerable-period-with-ankle-ligament-damage"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Celtic's Baur out for 10 weeks, says O'Neill. Germany midfielder Mika Baur will be out for around 10 weeks with ankle ligament damage, Celtic manager Martin O'Neill says.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cvrlgx1l4lnlo?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "published_at": "2026-11-20T16:14:39+00:00",
+  "draft_id": "d0f2eb95f8",
+  "story_ids": [
+    "8e03864867a0"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
