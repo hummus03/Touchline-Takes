@@ -1,0 +1,33 @@
+{
+  "slug": "southampton-tie-head-coach-tonda-eckert-down-until-2029-2026-11-20",
+  "title": "Southampton tie head coach Tonda Eckert down until 2029",
+  "body": "Southampton have committed their head coach to a new contract running through 2029 [S1]. Tonda Eckert is the name at the centre of it, and the length of the deal is the detail that matters most [S1].\n\nThe BBC Sport report treats this as a signed agreement, not a rumour still under negotiation [S1]. That distinction matters in a game where interest is often reported long before anything is finalised. The piece frames it as a new deal for a head coach already at the club, not an incoming transfer [S1].\n\nThere are no league results, form figures or predictions attached to this story, so any judgement on how the football will look from here would be guesswork. The only firm evidence is the contract itself, and that is enough to start a conversation.\n\nStill, a contract that runs several seasons into the future is a bet on continuity.\n\nTalk is cheap until the paperwork is signed, and this paperwork is signed. If the side sticks with a long-term project rather than chasing a quick fix, that is a sensible stance. The Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Southampton"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cwm25yx3kj5lo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Southampton give head coach Eckert new deal. Southampton head coach Tonda Eckert signs a new contract at the club through until 2029.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cwm25yx3kj5lo?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "published_at": "2026-11-20T16:14:28+00:00",
+  "draft_id": "34c254489d",
+  "story_ids": [
+    "db9278715120"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
