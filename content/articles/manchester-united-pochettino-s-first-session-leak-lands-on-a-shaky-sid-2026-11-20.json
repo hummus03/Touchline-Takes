@@ -1,0 +1,57 @@
+{
+  "slug": "manchester-united-pochettino-s-first-session-leak-lands-on-a-shaky-sid-2026-11-20",
+  "title": "Manchester United: Pochettino's First Session Leak Lands on a Shaky Side",
+  "body": "Mauricio Pochettino's first Manchester United training session has been leaked online in what Sky Sports calls a major security breach [S1]. The footage came from the air, which makes this a story about who was watching the training ground, not just what was shown [S2].\n\nBBC Sport reports that a fan flew a drone to film the session from outside the club's Carrington training ground [S2]. Both outlets have run with the drone angle, so this is not a rumour on a fan forum. It is a controlled environment that was breached in plain sight [S1][S2].\n\nThe form makes the timing awkward. In the last five league matches, the side has no wins, three draws and two defeats, taking three points while scoring six and conceding eleven [ST1]. The sequence reads DDLLD, a run of stalemates and losses rather than a team finding its rhythm [ST1].\n\nA side in that kind of slump does not need a new boss's first week turning into a security story. Every leaked session hands the doubters a stick to beat the place with, and the dressing room needs to feel sealed off, not picked apart by a hovering camera. The footage itself is a sideshow. What matters is whether the club can lock down its base while it tries to turn results around, and nobody should pretend that question is minor.\n\nThe Touchline Take: one to keep an eye on as the season unfolds.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester United"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13614159/manchester-united-drone-footage-of-mauricio-pochettinos-first-training-session-leaked-online",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c6wy9d7wqy7wo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Drone footage of Pochettino's first Man Utd training session leaked online. Mauricio Pochettino’s first Manchester United training session today has been leaked online in a major security breach.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13614159/manchester-united-drone-footage-of-mauricio-pochettinos-first-training-session-leaked-online"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Pochettino's first Man Utd training session filmed by drone operator. Mauricio Pochettino's first Manchester United training session has been filmed by fan with a drone from outside the club's Carrington training ground.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c6wy9d7wqy7wo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 3 draws, 2 defeats, 3 points, 6 goals scored, 11 conceded (sequence DDLLD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-20T01:21:50+00:00",
+  "draft_id": "9c0208431e",
+  "story_ids": [
+    "506f38e81d79"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
