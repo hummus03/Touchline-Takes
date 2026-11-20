@@ -1,0 +1,58 @@
+{
+  "slug": "manchester-united-s-transfer-chatter-plenty-of-noise-little-proof-yet-2026-11-20",
+  "title": "Manchester United's transfer chatter: plenty of noise, little proof yet",
+  "body": "Barcelona are reportedly interested in Lisandro Martinez, a player Manchester United are also linked with [S1]. The story comes from BBC Sport's gossip round-up, which is a reason to take it as a rumour rather than a deal [S1].\n\nThe same round-ups add more names. BBC Sport's Monday column tied Manchester United to Fulham's Calvin Bassey and Brentford's Nathan Collins [S2]. Liverpool were also reported to be scouting a Serie A top scorer [S1], and AC Milan want Real Madrid's Endrick on loan [S2]. That is a lot of traffic for one club's gossip column.\n\nThe real context is the club's recent league form. Over their last five league matches they have won none, drawn three and lost two, collecting three points while scoring six and conceding 11 [ST1]. The sequence reads DDLLD [ST1]. That record points to a side that needs a fix at the back more than a headline signing.\n\nWhen a team is leaking goals this freely, the temptation is to buy in a hurry and call it a plan. The smarter route is to define exactly what the defence needs, then pay for the right fit.\n\nTalk is cheap until the paperwork is signed, so treat every rumour, whichever column it appears in, with care.\n\nThe Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Serie A",
+  "teams": [
+    "Barcelona",
+    "Manchester United"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cj5y14g2wppko?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cklyegvq86w8o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Barcelona target Man Utd's Martinez - Friday's gossip. Barcelona interested in Lisandro Martinez, while Manchester United target Fulham defensive pair and Liverpool scout Serie A top scorer, plus more.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cj5y14g2wppko?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Man Utd target Fulham's Bassey - Monday's gossip. Manchester United target Fulham's Calvin Bassey and Brentford's Nathan Collins, AC Milan want Real Madrid's Endrick on loan, plus more.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cklyegvq86w8o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 3 draws, 2 defeats, 3 points, 6 goals scored, 11 conceded (sequence DDLLD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-20T01:21:45+00:00",
+  "draft_id": "4c326bb7a4",
+  "story_ids": [
+    "d34d18fbf07b"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
