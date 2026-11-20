@@ -1,0 +1,58 @@
+{
+  "slug": "manchester-united-mctominay-gossip-a-gabriel-exit-and-a-rough-patch-to-2026-11-20",
+  "title": "Manchester United: McTominay gossip, a Gabriel exit and a rough patch to fix",
+  "body": "Manchester United are back in the rumour mill, with BBC Sport linking them to Napoli's Scott McTominay [S1]. That report is filed as gossip, and it should be treated that way until something concrete appears.\n\nThe same story says AC Milan and Real Madrid are also reportedly interested in the midfielder [S1]. It also claims Celtic would be interested in Aston Villa's John McGinn [S1]. Elsewhere, Sky Sports reports that JJ Gabriel is leaving Manchester United, with a move to Real Madrid described as close [S2].\n\nThe on-pitch picture is less glamorous. Over the last five league matches, United have taken 3 points from 3 draws, 2 defeats and no wins, scoring 6 and conceding 11 [ST1]. The sequence reads DDLLD [ST1]. A run like that should make any supporter ask whether the squad needs repairing before it needs reinforcing.\n\nA big name arriving at a time like this would say plenty about where the hierarchy thinks the project is heading, and whether it is fixing the right problems.\n\nThe Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester United",
+    "Napoli"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/ckjwj2295640o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13613361/jj-gabriel-transfer-news-manchester-united-teenager-announces-departure-from-club-amid-real-madrid-agreement",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: 'Milan, Real & Man Utd eye Napoli's McTominay' - gossip. AC Milan, Manchester United and Real Madrid are reportedly interested in Napoli's Scott McTominay, while it is claimed Celtic would be interested in Aston Villa's John McGinn.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/ckjwj2295640o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "Sky Sports: JJ Gabriel says goodbye to Man Utd with Real Madrid move close. JJ Gabriel has announced he is leaving Manchester United as he looks forward to his \"next chapter\" at Real Madrid.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13613361/jj-gabriel-transfer-news-manchester-united-teenager-announces-departure-from-club-amid-real-madrid-agreement"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 3 draws, 2 defeats, 3 points, 6 goals scored, 11 conceded (sequence DDLLD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-20T16:14:33+00:00",
+  "draft_id": "0cea5df82d",
+  "story_ids": [
+    "99ea20b3094c"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
