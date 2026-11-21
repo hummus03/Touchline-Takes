@@ -1,0 +1,57 @@
+{
+  "slug": "chelsea-face-a-depth-test-without-joao-pedro-again-2026-11-21",
+  "title": "Chelsea Face a Depth Test Without Joao Pedro Again",
+  "body": "Chelsea are missing Joao Pedro again for Saturday, and the setback puts their dependence on him back under the microscope [S1]. The absence stings most when the player missing is the one everyone leans on.\n\nBBC Sport argues that Joao Pedro may be the most important player in the side, weighing up what his availability means for the team [S1]. The same outlet also reported that Chelsea have warned staff to be careful about what they reveal through Fantasy Premier League, after his injury appeared to leak through team selections [S2].\n\nThe recent results are not comfortable. In the last five league matches, Chelsea have won three, lost two and drawn none, taking 9 points from a WWLWL run [ST1]. They have scored 9 and conceded 4 across that spell [ST1]. Those figures show a team that can win games but still gives away enough to make every defeat sting. With a key player out, there is little room for error.\n\nThis is where squad depth gets tested, and that is where seasons are quietly decided. A thin bench gets exposed fast when a player of this stature drops out, and the manager now has to show the rest of the group can carry the weight.\n\nThe Touchline Take: how the squad copes without him will define the next month.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Chelsea"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cr62p7x23vg3o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c98rzr51rlvpo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Why injured Joao Pedro may be Chelsea's most important player. With Joao Pedro missing again for Chelsea on Saturday, BBC Sport looks at the importance of the Brazilian to the Blues.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cr62p7x23vg3o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Chelsea staff warned over Fantasy Premier League use. Chelsea warn staff to be careful about revealing team news through Fantasy Premier League after Joao Pedro's injury appeared to have been inadvertently disclosed through team selections.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c98rzr51rlvpo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Chelsea last 5 league matches in Football-Data.co.uk results: 3 wins, 0 draws, 2 defeats, 9 points, 9 goals scored, 4 conceded (sequence WWLWL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-21T00:52:24+00:00",
+  "draft_id": "8542398067",
+  "story_ids": [
+    "4819f42791d9"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
