@@ -1,0 +1,75 @@
+{
+  "slug": "hull-city-v-brighton-why-the-visitors-hold-the-edge-2026-11-21",
+  "title": "Hull City v Brighton: Why the visitors hold the edge",
+  "body": "Hull City host Brighton in the Premier League on 2026-11-22 [F1]. The visitors arrive on four wins and a defeat from their last five league games [ST2], while the home side have taken just three points from five [ST1].\n\nThe Guardian has framed the visitors as a side rocking the league's elite, and asks whether they can now mount a title push [S1]. Its explanation rests on smart analytics, a young manager and players chosen for particular skills [S1]. That story matters here, because a squad assembled this carefully tends to be hard to rattle in games like this one.\n\nTheir five games have brought three draws and two defeats, with five goals scored and seven conceded [ST1]. The visitors have scored ten and conceded two over the same stretch [ST2]. Our model gives the visitors a 49% chance of winning, the draw 27% and the home side 24% [M1]. The numbers lean firmly one way.\n\nStill, this is the kind of fixture where one moment of quality settles everything. Expect nerves early and a lot more freedom once the first goal goes in, because whoever scores first suddenly has a game to manage rather than a game to fear. The side that has leaked the most goals lately is always one lapse away from a rough afternoon, so the favourites should not be complacent.\n\nThe Touchline Take: back the visitors, but do not be shocked if this gets messy.",
+  "article_type": "preview",
+  "league": "Premier League",
+  "teams": [
+    "Hull City",
+    "Brighton"
+  ],
+  "sources": [
+    {
+      "name": "football-data.org",
+      "url": "",
+      "kind": "fixture"
+    },
+    {
+      "name": "Touchline Takes Analyst model",
+      "url": "",
+      "kind": "model"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    },
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/21/brighton-rocking-premier-league-elite-title-challenge",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "F1",
+      "kind": "fixture",
+      "text": "Fixture: Hull City v Brighton, Premier League, 2026-11-22.",
+      "source": "football-data.org",
+      "url": ""
+    },
+    {
+      "id": "M1",
+      "kind": "model",
+      "text": "Touchline Takes Analyst model (logistic regression on Football-Data.co.uk results): Hull City win 24%, draw 27%, Brighton win 49%.",
+      "source": "Touchline Takes Analyst model",
+      "url": ""
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Hull City last 5 league matches in Football-Data.co.uk results: 0 wins, 3 draws, 2 defeats, 3 points, 5 goals scored, 7 conceded (sequence DLDDL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Brighton last 5 league matches in Football-Data.co.uk results: 4 wins, 0 draws, 1 defeat, 12 points, 10 goals scored, 2 conceded (sequence WWLWW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "The Guardian: Brighton are rocking the Premier League elite. But can they mount a title tilt?. A combination of smart analytics, a young manager and players hand-picked for their particular skills has the Seagulls flying high. They lined up in sky‑blue shirts, white shorts. A combined value of £327m. Enzo Fernández, Ayyoub Bouaddi and Elliot Anderson were starting their first match together in Manchester City’s midfield. But it was a Brighton midfielder who made the game’s first decisive contribution. Yasin Ayari slotted the ball home.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/21/brighton-rocking-premier-league-elite-title-challenge"
+    }
+  ],
+  "published_at": "2026-11-21T15:28:15+00:00",
+  "draft_id": "9939fdf77f",
+  "story_ids": [],
+  "mode": "llm",
+  "revision": 1
+}
