@@ -1,0 +1,65 @@
+{
+  "slug": "manchester-city-v-fulham-relief-without-conviction-at-the-etihad-2026-11-21",
+  "title": "Manchester City v Fulham: Relief Without Conviction at the Etihad",
+  "body": "They were held to a 1-1 draw by Fulham at the Etihad Stadium [S1].\n\nBBC Sport's player ratings picked out Anderson and Berge as the standouts [S2].\n\nThe form numbers tell the sharper story. Manchester City's last five league matches brought two wins, no draws, three defeats, six points, eight goals scored and eight conceded [ST1]. Fulham's last five produced two wins, two draws, one defeat, eight points, five scored and four conceded [ST2].\n\nThe visitors have been the steadier outfit, and their tight defence over that spell is the quiet story of the run. The hosts have been trading goals and points at an uncomfortable rate, which makes a stalemate feel like a win for the wrong side.\n\nThis was the kind of game that tells you more about character than tactics. Results like this shape a season far more than any press conference ever will.\n\nThe Touchline Take: a point apiece, and nobody fully satisfied.",
+  "article_type": "match_report",
+  "league": "Premier League",
+  "teams": [
+    "Manchester City",
+    "Fulham"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/manchester-city-vs-fulham/report/559551",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cqwy06p44g3no?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Man City end losing streak but held at home by Fulham. Man City ended their losing streak but were still held to a 1-1 draw at home to Fulham at the Etihad Stadium.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/manchester-city-vs-fulham/report/559551"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Anderson steps up, Berge impresses - player ratings for Man City v Fulham. How Manchester City and Fulham players rated in their Premier League match.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cqwy06p44g3no?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester City last 5 league matches in Football-Data.co.uk results: 2 wins, 0 draws, 3 defeats, 6 points, 8 goals scored, 8 conceded (sequence WWLLL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Fulham last 5 league matches in Football-Data.co.uk results: 2 wins, 2 draws, 1 defeat, 8 points, 5 goals scored, 4 conceded (sequence LWWDD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-21T15:27:53+00:00",
+  "draft_id": "34bf518e95",
+  "story_ids": [
+    "236ef59f17d9"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
