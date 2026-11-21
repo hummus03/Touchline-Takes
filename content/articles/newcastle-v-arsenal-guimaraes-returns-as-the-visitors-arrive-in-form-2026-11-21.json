@@ -1,0 +1,82 @@
+{
+  "slug": "newcastle-v-arsenal-guimaraes-returns-as-the-visitors-arrive-in-form-2026-11-21",
+  "title": "Newcastle v Arsenal: Guimaraes Returns as the Visitors Arrive in Form",
+  "body": "Newcastle host Arsenal in the Premier League on 2026-11-21 [F1]. The headline fixture is the spreadsheet favourite against the home side, but there is a personal storyline too. Bruno Guimaraes goes back to face the club where he was a hero and captained the team to cup success [S1].\n\nSky Sports describes him as a growing part of Arsenal's system, while Arteta still wants more from him [S1]. That tension makes him the figure to watch. The last meeting in our Football-Data.co.uk results was on 2026-04-25, and Arsenal won 1-0 at Newcastle [ST3].\n\nThe form guide shows the gap. Newcastle have one win, one draw and three defeats from their last five league games, with 4 points, 4 goals scored and 7 conceded [ST1]. Arsenal have won all five, collecting 15 points while scoring 7 and conceding just 1 [ST2]. The Touchline Takes Analyst model makes Arsenal the clear favourite at 54%, with Newcastle at 17% and the draw at 29% [M1]. That is a strong call, and the recent results give it weight.\n\nThe numbers are not the whole picture. Expect nerves early, with both sides careful not to make the first mistake. Once the first goal goes in, the game should loosen up and bring a lot more freedom. Form matters, but big games have a habit of ignoring the spreadsheet, and this is exactly the kind of fixture where the favourite can end up in a scrap.\n\nThe Touchline Take: back the visitors, but do not be shocked if this gets messy.",
+  "article_type": "preview",
+  "league": "Premier League",
+  "teams": [
+    "Newcastle",
+    "Arsenal"
+  ],
+  "sources": [
+    {
+      "name": "football-data.org",
+      "url": "",
+      "kind": "fixture"
+    },
+    {
+      "name": "Touchline Takes Analyst model",
+      "url": "",
+      "kind": "model"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    },
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13612946/bruno-guimaraes-arsenal-midfielder-is-growing-in-stature-but-mikel-arteta-still-wants-more-from-brazilian-ahead-of-newcastle-return",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "F1",
+      "kind": "fixture",
+      "text": "Fixture: Newcastle v Arsenal, Premier League, 2026-11-21.",
+      "source": "football-data.org",
+      "url": ""
+    },
+    {
+      "id": "M1",
+      "kind": "model",
+      "text": "Touchline Takes Analyst model (logistic regression on Football-Data.co.uk results): Newcastle win 17%, draw 29%, Arsenal win 54%.",
+      "source": "Touchline Takes Analyst model",
+      "url": ""
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Newcastle last 5 league matches in Football-Data.co.uk results: 1 win, 1 draw, 3 defeats, 4 points, 4 goals scored, 7 conceded (sequence LLWLD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Arsenal last 5 league matches in Football-Data.co.uk results: 5 wins, 0 draws, 0 defeats, 15 points, 7 goals scored, 1 conceded (sequence WWWWW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST3",
+      "kind": "stats",
+      "text": "Last meeting in Football-Data.co.uk results: 2026-04-25, Arsenal 1-0 Newcastle.",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Guimaraes growing at Arsenal - but Arteta still wants more. It's all eyes on Bruno Guimaraes this Saturday. The Newcastle hero who captained the team to cup success returns in Arsenal colours. And he returns as a growing cog in the Gunners' system.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13612946/bruno-guimaraes-arsenal-midfielder-is-growing-in-stature-but-mikel-arteta-still-wants-more-from-brazilian-ahead-of-newcastle-return"
+    }
+  ],
+  "published_at": "2026-11-21T15:28:10+00:00",
+  "draft_id": "6793e23237",
+  "story_ids": [],
+  "mode": "llm",
+  "revision": 1
+}
