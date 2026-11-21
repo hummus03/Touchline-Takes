@@ -1,0 +1,65 @@
+{
+  "slug": "tottenham-v-ipswich-williams-barnett-hands-spurs-their-winner-2026-11-21",
+  "title": "Tottenham v Ipswich: Williams-Barnett Hands Spurs Their Winner",
+  "body": "Luca Williams-Barnett, 18, made his first senior start and scored, and then set up the winner for Dominic Solanke in a 2-0 win over Ipswich [S1][S2]. He became Tottenham's youngest Premier League goalscorer since Gareth Bale in 2007 [S1].\n\nThe bigger story is the academy. Tottenham have struggled to match Arsenal and Chelsea for homegrown talent in recent years, and this performance suggests that may be changing [S1]. Roberto De Zerbi was not surprised by the display and compared the teenager to Barcelona's Lamine Yamal [S2]. The manager could only watch from the stands, serving a one-match touchline ban [S1].\n\nThe form numbers back up the mood. Tottenham have 10 points from their last five league games, with eight scored and three conceded, and a sequence of DWWWL [ST1]. Ipswich have five points from the same span, with eight scored and nine conceded, and a sequence of WLDDL [ST2]. The Guardian counts four league wins from Tottenham's last five, while our results table shows three, so the exact tally is worth checking [S1][ST1]. Either way, the trend points upward for the home side.\n\nResults like this shape a season far more than any press conference ever will. A debut that wins a game, rather than just filling a gap, gives a dressing room something to believe in. The question now is whether the side can turn one brilliant afternoon into a habit, because teenagers who dazzle once can fade just as quickly if the team around them drops its standards.\n\nThe Touchline Take: the side earned this one, and now they have to back it up.",
+  "article_type": "match_report",
+  "league": "Premier League",
+  "teams": [
+    "Tottenham",
+    "Ipswich"
+  ],
+  "sources": [
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/21/tottenham-ipswich-premier-league-match-report",
+      "kind": "story"
+    },
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13615058/luca-williams-barnett-tottenham-boss-roberto-de-zerbi-compares-teenager-to-lamine-yamal-after-ipswich-heroics",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "The Guardian: Teenage ace Williams-Barnett puts Tottenham on path to win over Ipswich. Not since the emergence of a certain Harry Kane has there been this much excitement about a player from Tottenham’s academy. On his first senior start, Luca Williams-Barnett showed just why as the 18-year-old became their youngest Premier League goalscorer since Gareth Bale in 2007 before teeing up Dominic Solanke with a mesmerising and match-winning assist against Ipswich. That made it four league victories from their last five matches for Roberto De Zerbi’s side and the Italian could only have enjoyed the view from the stands as he served his one-match touchline ban. Tottenham have struggled to match their London rivals Arsenal and Chelsea’s record of producing homegrown players in recent years but they appear to have struck gold with Williams-Barnett.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/21/tottenham-ipswich-premier-league-match-report"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "Sky Sports: De Zerbi compares Williams-Barnett to Lamine Yamal - who is Spurs teen?. Tottenham boss Roberto De Zerbi was not surprised by a dazzling full-debut display from “special” talent Luca Williams-Barnett and compared the 18-year-old to Barcelona’s Lamine Yamal after Saturday’s 2-0 win over Ipswich.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13615058/luca-williams-barnett-tottenham-boss-roberto-de-zerbi-compares-teenager-to-lamine-yamal-after-ipswich-heroics"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Tottenham last 5 league matches in Football-Data.co.uk results: 3 wins, 1 draw, 1 defeat, 10 points, 8 goals scored, 3 conceded (sequence DWWWL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Ipswich last 5 league matches in Football-Data.co.uk results: 1 win, 2 draws, 2 defeats, 5 points, 8 goals scored, 9 conceded (sequence WLDDL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-21T23:52:22+00:00",
+  "draft_id": "4dcf4ed473",
+  "story_ids": [
+    "19072253fde5"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
