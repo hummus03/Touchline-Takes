@@ -1,0 +1,33 @@
+{
+  "slug": "bayern-munich-lose-harry-kane-for-months-with-ankle-ligament-tear-2026-11-21",
+  "title": "Bayern Munich Lose Harry Kane for Months With Ankle Ligament Tear",
+  "body": "Bayern Munich have lost Harry Kane for the next few months, with the club confirming ankle ligament damage from Friday's 1-1 draw with Cologne. [S1]\n\nKane was taken off after 20 minutes of the Bundesliga game, left limping after a challenge from Cologne defender Joël Schmied. [S1] The club statement describes a tear of the ligament in his left ankle, and returning coach Vincent Kompany said the recovery would take months rather than weeks. [S1] This is not a knock to shrug off, and the tone from the touchline says as much.\n\nThere are no form figures or predictions in the material here, so this is about structure rather than statistics. What the report does establish is that a player who is a Ballon d'Or winner and an England forward is facing a long spell on the sidelines. [S1]\n\nWhen the first-choice forward goes down, the bench stops being a formality. Every substitute chosen from here becomes a statement about how the squad was built, and thin depth gets exposed fast. This is where seasons are quietly decided: not in the headlines, but in how the next few weeks are handled behind the scenes.\n\nThe Touchline Take: how the squad copes over the next month will define this spell, and the bench has to answer for it.",
+  "article_type": "explainer",
+  "league": "Bundesliga",
+  "teams": [
+    "Bayern Munich"
+  ],
+  "sources": [
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/20/harry-kane-ankle-ligament-injury-bayern-munich-england",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "The Guardian: Bayern Munich confirm Harry Kane ‘out for next few months’ with ankle injury. England forward injured in Friday’s 1-1 draw with Cologne. Club statement confirms ‘tear of ligament in left ankle’ Bayern Munich have confirmed Harry Kane will be “out for the next few months” with ankle ligament damage sustained in their 1-1 draw with Cologne on Friday. Kane was substituted after 20 minutes of the Bundesliga game, having been left limping after a challenge from the Cologne defender Joël Schmied. The Ballon d’Or winner was substituted and the returning Bayern coach, Vincent Kompany, said that the injury would take “months” rather than weeks to heal.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/20/harry-kane-ankle-ligament-injury-bayern-munich-england"
+    }
+  ],
+  "published_at": "2026-11-21T00:52:20+00:00",
+  "draft_id": "7b49166595",
+  "story_ids": [
+    "cadb60dbb6eb"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
