@@ -1,0 +1,45 @@
+{
+  "slug": "southampton-beat-derby-as-larin-returns-and-the-home-fortress-holds-2026-11-21",
+  "title": "Southampton beat Derby as Larin returns and the home fortress holds",
+  "body": "Southampton beat Derby at home, and the scoreline flatters nobody, because Derby were sitting second from bottom [S1]. The hosts were the sharper side from start to finish, and they came away with the points [S1].\n\nHe had been sidelined by a hamstring problem and had gone four matches without a goal before this one [S2]. He came back and scored his eighth goal of the season [S2]. The win also stretched Southampton's unbeaten home run in the Championship to 18 games [S1].\n\nElsewhere, Norwich beat Cardiff 2-1 to make it five wins in a row [S2]. QPR earned their first away win since August, and they did it at 10-man Millwall [S2]. The chasing pack is building momentum, and the teams near the bottom have less room to breathe than they did recently.\n\nA result like this changes the mood in a dressing room, but one clean home win against a struggling visitor proves nothing yet. The side needs the same edge on the road, and the attack needs more than one name carrying the load. Until that happens, the home record looks more reliable than the team's overall form.\n\nThe Touchline Take: file this one under unfinished business.",
+  "article_type": "match_report",
+  "league": "Premier League",
+  "teams": [
+    "Southampton"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/southampton-vs-derby-county/report/560685",
+      "kind": "story"
+    },
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/21/championship-roundup-southampton-birmingham-middlesbrough-swansea",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Southampton see off Derby to return to winning ways. Cyle Larin returned to action with a bang as Southampton extended their unbeaten run at home in the Championship to 18 games with a 2-0 victory over second-bottom Derby.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/southampton-vs-derby-county/report/560685"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "The Guardian: Championship roundup: Southampton get Larin lift as Norwich win five in a row. Southampton 2-0 Derby; Norwich 2-1 Cardiff. QPR get first away win since August at 10-man Millwall. Cyle Larin returned to action with a bang as Southampton extended their unbeaten run at home in the Championship to 18 games with a 2-0 victory over second-bottom Derby . Larin turned in his eighth goal of the season but his first since 12 September – after a four-game drought and a hamstring problem.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/21/championship-roundup-southampton-birmingham-middlesbrough-swansea"
+    }
+  ],
+  "published_at": "2026-11-21T15:27:47+00:00",
+  "draft_id": "77547c75d6",
+  "story_ids": [
+    "5899ae2af393"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
