@@ -1,0 +1,65 @@
+{
+  "slug": "manchester-city-vs-fulham-anderson-rescues-a-flat-draw-as-haaland-frus-2026-11-21",
+  "title": "Manchester City vs Fulham: Anderson Rescues a Flat Draw as Haaland Frustrates",
+  "body": "They have been found guilty of financial breaches and are waiting on the outcome of their appeal [S1]. Their form has slumped, and they go into their next match without a win in four [S1].\n\nThe draw did end a three-game losing run against Fulham, but it was hardly convincing [S1]. Elliot Anderson was the player who got something out of the fixture, and BBC's player ratings singled out his step up and Berge's impressive showing [S1][S2]. Erling Haaland had a goal disallowed and missed several fine chances, while Rodrigo Muniz took advantage of a porous City defence [S1].\n\nThe side's problem is not a single bad afternoon. They hand chances to opponents and then ask one player to bail them out. The recent numbers back that up. Over their last five league games City have 6 points from 2 wins, 0 draws and 3 defeats, having scored 8 and conceded 8 [ST1]. Fulham have 8 points from 2 wins, 2 draws and 1 defeat, having scored 5 and conceded 4 [ST2]. On that evidence, the visitors have the steadier defence and the more reliable results, which should worry anyone expecting a quick recovery.\n\nThe appeal will dominate the headlines, but the football is the bigger concern. A side that is leaking goals and relying on a single hero cannot expect to survive a long run of passive performances, however strong the squad looks on paper.\n\nThe Touchline Take: a story worth watching as the season unfolds, because this side needs more than rescue acts to climb out of trouble.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester City",
+    "Fulham"
+  ],
+  "sources": [
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/21/manchester-city-fulham-premier-league-match-report",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cqwy06p44g3no?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "The Guardian: Elliot Anderson ends Manchester City’s losing run but boos greet Fulham draw. Manchester City are living in Premier League purgatory, without a win in four but at least ended their three-game losing run against Fulham. As they await the fate of their much-publicised appeal after being found guilty of financial breaches , their form has slumped as further evidenced by a passive draw. Arguments will be made over Erling Haaland’s disallowed goal but City did not deserve anything more. The Norwegian uncharacteristically missed a number of fine chances as Rodrigo Muniz took advantage of City’s porous defence, who had to rely on Elliot Anderson to get anything out of the fixture.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/21/manchester-city-fulham-premier-league-match-report"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Anderson steps up, Berge impresses - player ratings for Man City v Fulham. How Manchester City and Fulham players rated in their Premier League match.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cqwy06p44g3no?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester City last 5 league matches in Football-Data.co.uk results: 2 wins, 0 draws, 3 defeats, 6 points, 8 goals scored, 8 conceded (sequence WWLLL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Fulham last 5 league matches in Football-Data.co.uk results: 2 wins, 2 draws, 1 defeat, 8 points, 5 goals scored, 4 conceded (sequence LWWDD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-21T15:28:05+00:00",
+  "draft_id": "949ee55f87",
+  "story_ids": [
+    "6bf225bde843"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
