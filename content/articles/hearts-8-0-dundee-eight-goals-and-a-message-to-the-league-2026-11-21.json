@@ -1,0 +1,46 @@
+{
+  "slug": "hearts-8-0-dundee-eight-goals-and-a-message-to-the-league-2026-11-21",
+  "title": "Hearts 8-0 Dundee: Eight Goals and a Message to the League",
+  "body": "Hearts dismantled Dundee 8-0 at Dens Park, and they did it against a side that had been reduced to ten men [S1][S2]. The scoreline alone would be eye-catching, but the way it was built makes it more interesting. Sabah Kerjota and Pierre Landry Kaboré each scored twice [S1]. The rest came from other scorers, plus an own goal by Ryan Finnigan [S1].\n\nThe manager, Wouter Vrancken, called it the best performance since he took charge at Tynecastle [S1]. It also ended a run of three defeats in a row [S1]. BBC Sport framed it as a reply to a worrying week before the international break [S2]. This was the kind of game that tells you more about character than about tactics. A reply this loud also sends a message to everyone still chasing the top of the table.\n\nElsewhere in the round, Celtic beat St Mirren 4-1, and Steven Pressley said he was embarrassed and apologised [S1]. Rangers beat Motherwell 2-1 [S1].\n\nThe big question is whether this was a one-off or a sign of real recovery. A side can look like a team again on one blazing afternoon. The real test is what comes next, and a performance like this only matters if it is repeated.\n\nThe Touchline Take: file this one under unfinished business, because a side that finds its identity under pressure is one nobody wants to meet.",
+  "article_type": "match_report",
+  "league": "Scottish Premiership",
+  "teams": [
+    "Hearts",
+    "Celtic"
+  ],
+  "sources": [
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/21/scottish-premiership-roundup-celtic-sweep-st-mirren-aside-to-strengthen-grip-at-top",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cm9w98y28djno?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "The Guardian: Scottish Premiership roundup: Dundee left reeling after 8-0 mauling by Hearts. Steven Pressley: ‘I’m embarrassed … I apologise’ Celtic 4-1 St Mirren; Rangers 2-1 Motherwell. Wouter Vrancken said Hearts ’ remarkable 8-0 demolition of 10-man Dundee was his team’s best performance since he took charge at Tynecastle. Sabah Kerjota and Pierre Landry Kaboré both scored twice with Claudio Braga, Sabri Guendouz, Stuart Findlay and a Ryan Finnigan own goal completing the rout. Vrancken was naturally delighted that his players had ended a run of three defeats in a row in such spectacular style.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/21/scottish-premiership-roundup-celtic-sweep-st-mirren-aside-to-strengthen-grip-at-top"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: 'They looked like a team again' - Hearts roar back with Dundee demolition. After a worrying week before the international break, Hearts respond is style by thrashing Dundee 8-0 at Dens Park.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cm9w98y28djno?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "published_at": "2026-11-21T23:52:13+00:00",
+  "draft_id": "26bfef16b1",
+  "story_ids": [
+    "87a9c946e298"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
