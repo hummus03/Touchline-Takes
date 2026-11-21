@@ -1,0 +1,53 @@
+{
+  "slug": "aston-villa-and-sunderland-villa-s-attack-is-running-out-of-ideas-2026-11-21",
+  "title": "Aston Villa and Sunderland: Villa's attack is running out of ideas",
+  "body": "Aston Villa were held at home by Sunderland, and Unai Emery's side could not find a way through [S1]. For Régis Le Bris and his players, the result was a triumph of sorts, built on a defence that backed itself to keep the hosts at bay [S1].\n\nThe shot count tells the story. Seven of Villa's shots were on target, and all but one came from outside the box [S1]. The one from inside, by Ian Maatsen, was forgettable [S1]. Maatsen was the only player left in the starting line-up from the 4-3 classic these sides played seven months ago [S1].\n\nEmery rested John McGinn with Tuesday's trip to Galatasaray in mind [S1]. Alejandro Garnacho was left out of the matchday squad for a second successive game and has played only 38 Premier League minutes this season [S1]. Tammy Abraham, the April match-winner, was dropped too, and a winter exit is on the cards [S1]. The form guide points the same way. Villa have 2 wins, 3 draws and no defeats in their last five league games, collecting 9 points [ST1]. Sunderland have 1 win, 1 draw and 3 defeats across the same span, with 4 points, 2 goals scored and 7 conceded [ST2].\n\nThe side in claret had plenty of possession and plenty of effort, but the attacking ideas ran dry. The visitors made their plan work, and the manager deserves credit for that, even if the hosts will feel they should have done more.\n\nThat is the sort of afternoon that changes the mood around a dressing room, and this one will be picked apart all week. The Touchline Take: file this one under unfinished business.",
+  "article_type": "match_report",
+  "league": "Premier League",
+  "teams": [
+    "Aston Villa",
+    "Sunderland"
+  ],
+  "sources": [
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/21/aston-villa-sunderland-premier-league-match-report",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "The Guardian: Aston Villa held at home as dogged Sunderland battle for Régis Le Bris. For Aston Villa , a painful stalemate at home to Sunderland, but for Régis Le Bris and his players, this was another triumph of sorts. The raw numbers spoke volumes of Villa’s struggles against a defence that backed themselves to keep Unai Emery’s side at bay. All but one of Villa’s seven shots on target came from outside the visitors’ box and the one inside it, courtesy of Ian Maatsen, was forgettable. Owing to a summer of change, injuries and Emery resting John McGinn with Tuesday’s game at Galatasaray in mind, Maatsen, incredibly, was the sole survivor in the Villa starting XI from when these sides played out a 4-3 classic seven months ago. Villa were too predictable, short of a spark, someone to unpick an organised back line. Johan Manzambi, Emi Buendía and Alysson all flattered to deceive on an afternoon when Ibrahim Mbaye and McGinn arrived from the bench. Alejandro Garnacho, however, was not involved in Villa’s matchday squad for the second successive match and the Chelsea loanee has played just 38 minutes in the Premier League this campaign. Tammy Abraham, the match-winner in April, was also left out and a January move looks likely.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/21/aston-villa-sunderland-premier-league-match-report"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Aston Villa last 5 league matches in Football-Data.co.uk results: 2 wins, 3 draws, 0 defeats, 9 points, 10 goals scored, 8 conceded (sequence DWWDD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Sunderland last 5 league matches in Football-Data.co.uk results: 1 win, 1 draw, 3 defeats, 4 points, 2 goals scored, 7 conceded (sequence LLDLW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-21T23:52:17+00:00",
+  "draft_id": "90f0fd0fc8",
+  "story_ids": [
+    "7be5faf3a4a3"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
