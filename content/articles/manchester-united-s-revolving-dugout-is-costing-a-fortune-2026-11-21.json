@@ -1,0 +1,57 @@
+{
+  "slug": "manchester-united-s-revolving-dugout-is-costing-a-fortune-2026-11-21",
+  "title": "Manchester United's revolving dugout is costing a fortune",
+  "body": "Manchester United's managerial merry-go-round now runs close to £100m in total [S1]. After sacking Michael Carrick, they moved to appoint Mauricio Pochettino as head coach [S2]. The dugout has become a revolving door, and the bill is the uncomfortable headline.\n\nThe detail that stands out is the speed of the money. United borrowed £10m just three days after confirming Pochettino as their new head coach [S1]. That borrowing comes alongside a £7.5m compensation payment to US Soccer [S1]. Sky Sports presented the appointment as a straightforward announcement [S2], but the financial trail tells a messier story.\n\nThe results explain the urgency. Over their last five league games, they have won none, drawn three and lost two, collecting 3 points [ST1]. They have scored 6 and conceded 11, with the sequence reading DDLLD [ST1]. Those figures show a side leaking goals and short of belief.\n\nEvery board loves a fresh start, and every fan just wants a plan that survives a bad month. The sack is the easiest lever to pull and the hardest one to get right.\n\nThe Touchline Take: get the next appointment right and this whole expensive saga gets forgotten.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester United"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cwd01n9z23x5o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13610882/mauricio-pochettino-appointed-as-manchester-united-head-coach-after-michael-carricks-sacking-at-old-trafford",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Cost of Man Utd hiring and firing managers nears £100m. Manchester United borrowed £10m three days after confirming Mauricio Pochettino would be their new head coach, which will cost them £7.5m in compensation to US Soccer.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cwd01n9z23x5o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "Sky Sports: Man Utd appoint Pochettino as head coach. Mauricio Pochettino has been appointed as the new Manchester United head coach, following the sacking of Michael Carrick.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13610882/mauricio-pochettino-appointed-as-manchester-united-head-coach-after-michael-carricks-sacking-at-old-trafford"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 3 draws, 2 defeats, 3 points, 6 goals scored, 11 conceded (sequence DDLLD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-21T00:52:15+00:00",
+  "draft_id": "09890bd5c5",
+  "story_ids": [
+    "0c46cce146a9"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
