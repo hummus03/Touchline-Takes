@@ -1,0 +1,45 @@
+{
+  "slug": "rangers-transfer-talk-danny-armstrong-plays-down-the-ibrox-rumour-2026-11-22",
+  "title": "Rangers transfer talk: Danny Armstrong plays down the Ibrox rumour",
+  "body": "Dinamo Bucharest winger Danny Armstrong is publicly cooling a link with Rangers, saying he has not been in discussions with Derek McInnes about a switch to Ibrox [S1]. The denial is the first thing to weigh.\n\nThe same BBC coverage also downplays talk of Jack Grealish moving to Celtic [S1]. A second BBC piece goes the other way, saying Armstrong would relish a reunion with his manager at Ibrox and that a Celtic hero has revealed an approach from Rangers [S2]. Both accounts cannot be fully right, and the reporting does not show which one is closer to the truth [S1][S2].\n\nThere are no form figures or predictions in the material, so this debate runs on mood music rather than performance. Nobody has shown how the winger has been playing, or what the odds of a deal really look like.\n\nTalk is cheap until the paperwork is signed, so every rumour deserves suspicion. If a move like this does happen, it says a lot about where the club thinks it is heading.\n\nThe Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Scottish Premiership",
+  "teams": [
+    "Rangers"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/ckdd1epzz60eo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cm62pqd0v7dlo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Armstrong plays down talk of Rangers transfer - gossip. Dinamo Bucharest winger Danny Armstrong says he has not talked with Rangers manager Derek McInnes about a move to Ibrox, while the chances of Jack Grealish joining Celtic are played down.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/ckdd1epzz60eo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Armstrong would relish Rangers switch - gossip. Romania-based winger eyes reunion with manager at Ibrox as Celtic hero reveals approach from Rangers...",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cm62pqd0v7dlo?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "published_at": "2026-11-22T15:28:36+00:00",
+  "draft_id": "5fdf7e2afb",
+  "story_ids": [
+    "d34c6573cabb"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
