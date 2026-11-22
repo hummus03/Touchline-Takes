@@ -1,0 +1,57 @@
+{
+  "slug": "manchester-united-s-fernandes-stand-off-is-a-warning-shot-for-the-boar-2026-11-22",
+  "title": "Manchester United's Fernandes stand-off is a warning shot for the boardroom",
+  "body": "Manchester United captain Bruno Fernandes has put contract talks on hold, saying it is \"not the right time\" to discuss his future [S1]. Both outlets frame it as a stand-off over the club's offer [S1][S2].\n\nSky Sports reports that he has rejected a second contract offer, and his current deal runs out at the end of the season [S2]. The club has made the running, but the player is not yet ready to sign on the dotted line, and that gap is now public.\n\nThe timing matters because of the football on the pitch. Across the last five league matches, Manchester United have won none, drawn three and lost two, collecting 3 points while scoring 6 and conceding 11 [ST1]. The sequence reads DDLLD [ST1]. A side in that kind of run does not need a captain's contract becoming a bargaining chip.\n\nStill, a player wanting time before signing is not automatically a problem. The smart money is on patience, because rushed deals rarely age well. Talk is cheap until the paperwork is signed, so treat every rumour with care, including the ones that sound like certainties.\n\nThe Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester United"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c6x2e8devk1po?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13611749/bruno-fernandes-rejects-second-manchester-united-contract-offer",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: 'Not the right time' - Fernandes pauses Man Utd contract talks. Manchester United captain Bruno Fernandes says he has been offered a new contract by the club but feels it \"is not the right time\" for discussions about his future.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c6x2e8devk1po?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "Sky Sports: Fernandes rejects second Man Utd contract offer. Manchester United captain Bruno Fernandes has rejected a second contract offer from the club, with his current deal due to expire at the end of the season.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13611749/bruno-fernandes-rejects-second-manchester-united-contract-offer"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 3 draws, 2 defeats, 3 points, 6 goals scored, 11 conceded (sequence DDLLD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-22T15:28:41+00:00",
+  "draft_id": "b90e706215",
+  "story_ids": [
+    "83f89ef1f829"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
