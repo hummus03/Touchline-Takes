@@ -1,0 +1,45 @@
+{
+  "slug": "psg-face-major-doue-setback-as-acl-surgery-looms-2026-11-23",
+  "title": "PSG Face Major Doué Setback as ACL Surgery Looms",
+  "body": "Paris Saint-Germain have a serious problem on their hands, with Désiré Doué facing an operation on a ruptured anterior cruciate ligament in his right knee [S1].\n\nThe damage came during a 3-2 Ligue 1 win over Nice [S2]. Doué had just put his side 2-1 ahead, then twisted awkwardly late in the first half while trying to control the ball, and he left the pitch in tears [S2].\n\nThe Guardian tied the blow to an earlier setback, noting that Doué's injury came on top of Kvaratskhelia's, which happened last month [S2]. That is the detail that matters most, because it turns one absence into a pattern.\n\nThis is where squad depth gets tested, and that is where seasons are quietly decided. A creative player who can change a match in one moment leaves a hole that no bench fills neatly, and a thin bench is exactly what turns one blow into a crisis. The better sides keep producing even when their best attacking options are missing, and the ones that don't tend to drift.\n\nThe Touchline Take: how the squad copes will define the next month.",
+  "article_type": "explainer",
+  "league": "Ligue 1",
+  "teams": [
+    "Paris Saint-Germain"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cw0k6x0764ero?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/21/european-football-borussia-dortmund-psg-real-madrid",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: PSG's Doue to have surgery on ruptured ACL. Paris St-Germain forward Desire Doue will have surgery later this month after rupturing the anterior cruciate ligament in his right knee.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cw0k6x0764ero?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "The Guardian: European football: Doué carried off for PSG while Kane vows to return fresh. Doué injury adds to that of Kvaratskhelia last month. Nice 2-3 PSG; Lazio 3-0 Lecce; Gladbach 0-1 Dortmund. Désiré Doué was carried off in tears after suffering what looked like a nasty knee injury as Paris Saint-Germain beat Nice 3-2 in Ligue 1. Doué went down after twisting awkwardly late in the first half as he tried to control the ball, shortly after scoring to put PSG 2-1 ahead.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/21/european-football-borussia-dortmund-psg-real-madrid"
+    }
+  ],
+  "published_at": "2026-11-23T00:23:36+00:00",
+  "draft_id": "d2486b5dd9",
+  "story_ids": [
+    "d4b51a3fd76f"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
