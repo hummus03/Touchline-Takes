@@ -1,0 +1,45 @@
+{
+  "slug": "rangers-cifuentes-exit-talk-is-gossip-not-a-plan-2026-11-23",
+  "title": "Rangers' Cifuentes exit talk is gossip, not a plan",
+  "body": "BBC Sport reports that Rangers are planning to move midfielder Cifuentes on in January, but it files the story under gossip [S1]. Nothing has been agreed, so treat it as noise until something concrete lands.\n\nThe wider mood around the club is not calm. In the same BBC Sport item, a Hibs captain speaks of \"shame\" after a 4-0 home loss [S1]. A related BBC Sport piece says Rangers are exploring a return for Cerny, again filed as gossip [S2]. The same listing says two familiar wingers are linked with January returns to the club, and it mentions redraft proposals aimed at a youth development crisis [S2].\n\nThe material includes no form figures and no match predictions, so there are no hard numbers to test these links against [S1][S2]. What is on offer is a pile of linked names and loose talk, not confirmed moves.\n\nHere is the take. When a squad starts shuffling its midfield and reaching back for familiar faces, it says plenty about where the club thinks it is heading. The smart money is on patience, because rushed deals rarely age well, and a recycled name is no substitute for a plan.\n\nThe Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Scottish Premiership",
+  "teams": [
+    "Rangers"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c6jeqweg7j2eo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cq702kr3xd38o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Rangers plan January exit for Cifuentes - gossip. Rangers plan January exit for midfielder as Hibs captain speaks of \"shame\" after 4-0 home loss.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c6jeqweg7j2eo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Rangers explore return for Cerny - gossip. Two familiar wingers linked with Rangers returns in January as SFA redraft proposals to address youth development crisis...",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cq702kr3xd38o?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "published_at": "2026-11-23T19:20:00+00:00",
+  "draft_id": "b902e87bd8",
+  "story_ids": [
+    "cbfcdeb0829f"
+  ],
+  "mode": "llm",
+  "revision": 2
+}
