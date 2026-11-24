@@ -1,0 +1,57 @@
+{
+  "slug": "west-ham-s-freddie-potts-finds-life-at-brugge-before-liverpool-test-2026-11-24",
+  "title": "West Ham's Freddie Potts Finds Life at Brugge Before Liverpool Test",
+  "body": "Freddie Potts has gone from the bench at West Ham to a Champions League night against Liverpool with Club Brugge [S1]. The 23-year-old's rise has been quick, and it has come after a move that looked risky at the time [S1].\n\nIn April, Potts was taken off at half-time in West Ham's FA Cup quarter-final defeat by Leeds, and he was out of favour under Nuno Espírito Santo [S1]. He saw his minutes shrink during pre-season and decided to leave, with Brugge reportedly offering about £10m [S1]. BBC Sport framed the switch as the end of a 16-year association with West Ham [S2].\n\nThey have won four of their last five league matches, drawn none and lost one, collecting 12 points from 11 goals scored and 3 conceded [ST1]. Their run reads WWLWW [ST1]. That is a side travelling with momentum, and treating this trip as a formality would be a mistake.\n\nThe more interesting story is the player, not the scoreline. A man who was pushed to the margins has turned a difficult exit into a stage most people in his position would never reach.\n\nThe Touchline Take: one to keep an eye on as the season unfolds.",
+  "article_type": "explainer",
+  "league": "Champions League",
+  "teams": [
+    "West Ham"
+  ],
+  "sources": [
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/24/freddie-potts-brugge-champions-league-liverpool-west-ham",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cxe89j8gj96jo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "The Guardian: ‘I’m loving it at Brugge’: Freddie Potts on going from West Ham’s bench to Champions League. Midfielder is preparing to face Liverpool after leaving the club he loves and overcoming a tough start in Belgium. In April Freddie Potts was absorbing the disappointment of being substituted at half-time during West Ham’s FA Cup quarter-final defeat by Leeds. The midfielder was out of favour under Nuno Espírito Santo and could not have imagined that he would be preparing to face Liverpool in the Champions League seven months later. It is the 23-year-old’s reward for taking the difficult decision to leave his boyhood club last summer. Potts noticed his minutes were drying up in pre-season, even though West Ham were not exactly stocked with talent after relegation, and he was ready for a new challenge when Club Brugge offered about £10m to sign him.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/24/freddie-potts-brugge-champions-league-liverpool-west-ham"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Why Potts swapped West Ham for Club Brugge after 16 years. When Liverpool visit Club Brugge on Wendesday they are likely to come up against English midfelder Freddie Potts.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cxe89j8gj96jo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Liverpool last 5 league matches in Football-Data.co.uk results: 4 wins, 0 draws, 1 defeat, 12 points, 11 goals scored, 3 conceded (sequence WWLWW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-24T18:58:19+00:00",
+  "draft_id": "99d24d5b10",
+  "story_ids": [
+    "4e8d1563f83e"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
