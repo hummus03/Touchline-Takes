@@ -1,0 +1,65 @@
+{
+  "slug": "manchester-united-v-liverpool-anfield-defeat-leaves-hard-questions-2026-11-23",
+  "title": "Manchester United v Liverpool: Anfield Defeat Leaves Hard Questions",
+  "body": "Manchester United left Anfield on the wrong end of a 4-0 scoreline against Liverpool [S1]. The fallout is already moving beyond the result, with Mauricio Pochettino reported to have a verbal agreement in principle to take over as head coach [S2].\n\nThe bigger argument is about what came next. Pochettino argues that even a top side could have shipped four in those circumstances, while BBC Sport asks whether the Red Devils should have done more once the game slipped away [S1]. Sky Sports, meanwhile, reports that Carrick is set to depart as the Pochettino deal takes shape [S2].\n\nThe form book makes those questions harder to wave away. Over their last five league matches, Manchester United have 0 wins, 3 draws and 2 defeats, with 3 points, 6 goals scored and 11 conceded [ST1]. Liverpool's last five brought 3 wins, 0 draws and 2 defeats, with 9 points, 7 scored and 6 conceded [ST2]. Those figures point to a side that has been drawing its way through trouble while leaking goals at an alarming rate. The back line is the story, and no amount of sympathy covers it.\n\nThis was never going to be decided by tactics alone. It is the sort of defeat that reveals more about character than system: whether a group can keep standing when the floodlights are on and the scoreboard is cruel. The manager's answer will matter far more than any post-match excuse.\n\nThe Touchline Take: file this one under unfinished business, because a shrug and a comfortable quote will satisfy nobody.",
+  "article_type": "match_report",
+  "league": "Premier League",
+  "teams": [
+    "Manchester United",
+    "Liverpool"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cm782j80yypwo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13610949/mauricio-pochettino-man-utd-strike-agreement-with-michael-carricks-potential-successor",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: 'World's best could've lost 4-0' - but should Man Utd have done more at Anfield?. Mauricio Pochettino believes even the best team in the world could have conceded four goals at Liverpool in Manchester United's circumstances - but should the Red Devils have done more in defeat?",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cm782j80yypwo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "Sky Sports: Man Utd strike Pochettino agreement with Carrick set to depart. Manchester United have reached a verbal agreement in principle with Mauricio Pochettino to take over as head coach.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13610949/mauricio-pochettino-man-utd-strike-agreement-with-michael-carricks-potential-successor"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 3 draws, 2 defeats, 3 points, 6 goals scored, 11 conceded (sequence DDLLD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Liverpool last 5 league matches in Football-Data.co.uk results: 3 wins, 0 draws, 2 defeats, 9 points, 7 goals scored, 6 conceded (sequence LWWLW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-23T00:23:28+00:00",
+  "draft_id": "eae6f7b9d7",
+  "story_ids": [
+    "a6dd01275d08"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
