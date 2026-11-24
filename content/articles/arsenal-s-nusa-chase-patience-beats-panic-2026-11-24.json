@@ -1,0 +1,58 @@
+{
+  "slug": "arsenal-s-nusa-chase-patience-beats-panic-2026-11-24",
+  "title": "Arsenal's Nusa chase: patience beats panic",
+  "body": "Arsenal find themselves at the heart of the latest transfer gossip, with RB Leipzig winger Antonio Nusa the player being chased [S1]. Paris Saint-Germain are also looking at a move for him [S1], so this is not a quiet, one-club pursuit.\n\nThe price tag is the sticking point. BBC Sport reports that Arsenal could have to pay £66m for Nusa [S2]. The same roundup says Real Betis have rejected a Chelsea bid for Jose Morante [S2], while another item claims Xabi Alonso has backing from the Chelsea hierarchy [S1]. Liverpool are also opening contract talks with keeper Alisson Becker [S1], which shows how much movement there is across the market right now.\n\nThe league results give the club little reason to panic. Arsenal have won four, drawn one and lost none of their last five league matches, collecting 13 points from 7 goals scored and 2 conceded [ST1]. That is a settled run, not a side scrambling for answers.\n\nForm like that buys a club the luxury of waiting. Huge fees paid in a hurry often look like mistakes within a season, and the smart money is on patience over panic. A strong run gives the decision-makers time to check the numbers rather than chase the headline.\n\nTalk is cheap until the paperwork is signed, so treat every rumour with care. The Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Arsenal",
+    "Paris Saint-Germain"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cm8x0grpder5o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c6e9kgn532gxo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Arsenal and PSG keen on Nusa - Tuesday's gossip. Arsenal and PSG are both looking at a move for RB Leipzig winger Antonio Nusa, Xabi Alonso has Chelsea hierarchy backing, Liverpool open contract talks with keeper Alisson Becker, plus more.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cm8x0grpder5o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Arsenal target Nusa could cost £66m - Sunday's gossip. Arsenal could have to pay £66m for RB Leipzig's Antonio Nusa, Real Betis reject Chelsea's bid for Jose Morante, plus more.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c6e9kgn532gxo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Arsenal last 5 league matches in Football-Data.co.uk results: 4 wins, 1 draw, 0 defeats, 13 points, 7 goals scored, 2 conceded (sequence WWWWD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-24T04:21:38+00:00",
+  "draft_id": "8d5186a393",
+  "story_ids": [
+    "66ab1bea4c22"
+  ],
+  "mode": "llm",
+  "revision": 2
+}
