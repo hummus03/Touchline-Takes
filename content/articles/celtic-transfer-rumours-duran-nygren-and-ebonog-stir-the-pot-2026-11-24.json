@@ -1,0 +1,45 @@
+{
+  "slug": "celtic-transfer-rumours-duran-nygren-and-ebonog-stir-the-pot-2026-11-24",
+  "title": "Celtic transfer rumours: Duran, Nygren and Ebonog stir the pot",
+  "body": "Celtic are back in the gossip columns, with BBC Sport reporting that interest is building around Duran and Nygren [S1]. The story is filed under gossip, and that label tells you most of what you need to know about its weight right now [S1].\n\nThe detail is more specific. A Premier League club is reportedly keeping an eye on a Celtic summer signing, while Serie A sides are monitoring the champions' Swedish midfielder [S1]. BBC Sport also ran a separate story saying Celtic have their eye on midfielder Ebonog [S2]. That piece describes two possible January targets and says a Turkish club still maintains interest in a Rangers midfielder [S2].\n\nThere are no form numbers or predictions in the evidence to lean on, so the honest read is that these are names on a list, not players in the building. Every one of these links is a suitor, not a signing, and suitors come and go.\n\nStill, a club whose players and targets draw attention from several leagues is in a healthy spot. If any of these moves lands, it will say plenty about the direction the side believes it is heading. The trouble is that a lot of this talk never reaches a contract.\n\nThe Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Celtic"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c6d71gjnznz2o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cvglr4d04x2go?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Celtic duo Duran and Nygren attract interest - gossip. Premier League club keep an eye on Celtic summer signing as Serie A sides monitor the champion's Swedish midfielder...",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c6d71gjnznz2o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Celtic have eye on midfielder Ebonog - gossip. Two possible January targets for Celtic as Turkish club maintain interest in Rangers midfielder...",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cvglr4d04x2go?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "published_at": "2026-11-24T18:58:01+00:00",
+  "draft_id": "4b0533df34",
+  "story_ids": [
+    "0df4eb60c70b"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
