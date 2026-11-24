@@ -1,0 +1,64 @@
+{
+  "slug": "arsenal-face-goalkeeper-scare-as-raya-heads-for-scan-2026-11-22",
+  "title": "Arsenal Face Goalkeeper Scare as Raya Heads for Scan",
+  "body": "Arsenal have a worry to manage after David Raya went off injured in Saturday's 2-2 draw with Newcastle, and the goalkeeper is set for a scan on his shoulder [S1]. The question on everyone's lips is how much the side would miss him [S1].\n\nThe BBC framed the story around that exact question, weighing what losing their first-choice keeper would mean for the team [S1]. Sky Sports, meanwhile, reported that Arsenal are close to new deals for Raya, Jurrien Timber and Piero Hincapie [S2]. A club tying down its key players while one of them faces a medical check is a useful reminder of how much depends on the men in the middle of the squad.\n\nThe form guide makes the picture clearer. Arsenal's last five league matches have brought five wins, 15 points, 7 goals scored and 1 conceded [ST1]. Newcastle have been far shakier, with 1 win, 1 draw and 3 defeats from their last five, scoring 4 and conceding 7 [ST2]. That gap suggests the side has been in strong shape and has a cushion to absorb a setback, but cushions only last so long when the goalkeeper spot is in doubt.\n\nNobody wins anything in the treatment room, but plenty of seasons are lost there. This is where squad depth gets tested, and that is where seasons are quietly decided. The manager now has to prove the replacement can keep the defence as tight as the current run suggests it should be.\n\nThe Touchline Take: how the squad copes will define the next month.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Arsenal"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/ckx28w9ree9vo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13613327/arsenal-transfer-news-david-raya-jurrien-timber-and-piero-hincapie-close-to-finalising-new-contracts",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Raya set to have scan on injury - how much would Arsenal miss him?. Arsenal goalkeeper David Raya is set to have a scan on his shoulder after going off injured during Saturday's 2-2 draw with Newcastle.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/ckx28w9ree9vo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "Sky Sports: Arsenal close to new deals for Raya, Timber and Hincapie. Arsenal are close to finalising new deals with David Raya, Jurrien Timber and Piero Hincapie.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13613327/arsenal-transfer-news-david-raya-jurrien-timber-and-piero-hincapie-close-to-finalising-new-contracts"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Arsenal last 5 league matches in Football-Data.co.uk results: 5 wins, 0 draws, 0 defeats, 15 points, 7 goals scored, 1 conceded (sequence WWWWW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Newcastle last 5 league matches in Football-Data.co.uk results: 1 win, 1 draw, 3 defeats, 4 points, 4 goals scored, 7 conceded (sequence LLWLD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-22T15:28:51+00:00",
+  "draft_id": "6153acde42",
+  "story_ids": [
+    "d8ec63741be4"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
