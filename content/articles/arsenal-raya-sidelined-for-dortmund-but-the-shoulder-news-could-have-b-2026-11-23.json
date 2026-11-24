@@ -1,0 +1,57 @@
+{
+  "slug": "arsenal-raya-sidelined-for-dortmund-but-the-shoulder-news-could-have-b-2026-11-23",
+  "title": "Arsenal: Raya sidelined for Dortmund, but the shoulder news could have been far worse",
+  "body": "David Raya will sit out Arsenal's Champions League tie with Borussia Dortmund, but the shoulder problem will not need surgery [S1]. For a team with the goalkeeper's shoulder in doubt, that is the best outcome on offer.\n\nThe scare came at Newcastle, where a 2-2 draw ended with Raya forced off in the second half with a suspected dislocated shoulder [S2]. The Guardian's coverage calls the injury \"not too serious\" and says he could return for the City clash [S2]. Those are the details that matter, and they point to a short absence rather than a lengthy one.\n\nThe manager admitted the club had been worried, but said Raya is \"better than expected\" [S2]. The form behind that optimism is strong. Over their last five league matches, Arsenal have won four and drawn one, collecting 13 points from seven goals scored and two conceded [ST1]. That is a side with momentum, and momentum is the best painkiller a squad can have.\n\nNobody wins anything in the treatment room, but plenty of seasons are lost there. This is where squad depth gets tested, and that is where seasons are quietly decided. The reserve keeper now has a chance to prove that one injury cannot unsettle the whole operation, and the manager's rotation calls will be scrutinised as closely as the results.\n\nThe Touchline Take: a good prognosis buys time, but how the squad copes over the next month will decide whether this is a bump or a turning point.",
+  "article_type": "explainer",
+  "league": "Champions League",
+  "teams": [
+    "Borussia Dortmund"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cjx2rqpr7l9lo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/23/david-raya-shoulder-injury-arsenal-surgery-mikel-arteta",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Raya to miss Dortmund game but injury 'not serious'. Arsenal goalkeeper David Raya will miss Tuesday's Champions League game against Borussia Dortmund but his shoulder injury will not require an operation.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cjx2rqpr7l9lo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "The Guardian: David Raya’s shoulder injury ‘not too serious’ and no surgery needed for Arsenal goalkeeper. No 1 to miss Dortmund game but could return for City clash. ‘We were worried … he’s better than expected,’ says manager. Mikel Arteta is hopeful the ­shoulder injury David Raya sustained at Newcastle is not too serious, but confirmed the goalkeeper would miss Tuesday’s Champions League game against Borussia Dortmund. Raya was forced off in the ­second half of Saturday’s 2-2 draw with a ­suspected dislocated shoulder, ­raising fears he could be sidelined for an extended period.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/23/david-raya-shoulder-injury-arsenal-surgery-mikel-arteta"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Arsenal last 5 league matches in Football-Data.co.uk results: 4 wins, 1 draw, 0 defeats, 13 points, 7 goals scored, 2 conceded (sequence WWWWD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-23T19:20:07+00:00",
+  "draft_id": "1bc4db1b95",
+  "story_ids": [
+    "56de3d6b5144"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
