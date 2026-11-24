@@ -1,0 +1,57 @@
+{
+  "slug": "chelsea-carragher-s-centre-back-warning-meets-brady-boardroom-talk-2026-11-24",
+  "title": "Chelsea: Carragher's centre-back warning meets Brady boardroom talk",
+  "body": "Jamie Carragher has warned Chelsea that without a dominant centre-back they have little chance of achieving anything [S1]. Meanwhile, Tom Brady is reportedly in discussions about buying a small stake in Chelsea [S2].\n\nSources told The Guardian the move was meant to clear the way for investment at Stamford Bridge [S2]. He was also a Chelsea guest at the Club World Cup and is said to have a good relationship with Behdad Eghbali [S2].\n\nAcross their last five league matches, Chelsea have won two, drawn none and lost three, collecting six points from a WLWLL run [ST1]. In that spell they have scored five and conceded seven [ST1].\n\nA shareholder chasing a bigger voice says something about ambition, but it does nothing to stop the back line from bleeding. The side will be judged on the players who actually arrive and perform. The smart money backs patience, because rushed deals rarely age well.\n\nThe Touchline Take: judge the business when the window shuts, not before, and be wary of any deal that looks made for the cameras.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Chelsea"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13615767/chelsea-must-sign-centre-back-or-will-achieve-nothing-with-levi-colwill-and-wesley-fofana-says-jamie-carragher",
+      "kind": "story"
+    },
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/20/tom-brady-chelsea-talks-stake-birmingham-city",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Carra: Chelsea must sign centre-back or achieve nothing. Jamie Carragher believes Chelsea must sign a dominant centre-back or they will have \"no chance of achieving anything\".",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13615767/chelsea-must-sign-centre-back-or-will-achieve-nothing-with-levi-colwill-and-wesley-fofana-says-jamie-carragher"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "The Guardian: Tom Brady in talks over buying Chelsea stake after Birmingham City exit. NFL legend was Chelsea guest at Club World Cup. Brady has good relationship with Behdad Eghbali. Tom Brady is in discussions about buying a small stake in Chelsea. The NFL legend sold a minority share in Birmingham City after three years this month, a move sources have told the Guardian was to pave the way for investing at Stamford Bridge.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/20/tom-brady-chelsea-talks-stake-birmingham-city"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Chelsea last 5 league matches in Football-Data.co.uk results: 2 wins, 0 draws, 3 defeats, 6 points, 5 goals scored, 7 conceded (sequence WLWLL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-24T04:21:45+00:00",
+  "draft_id": "f6d38f127a",
+  "story_ids": [
+    "b1821e9dac2d"
+  ],
+  "mode": "llm",
+  "revision": 2
+}
