@@ -1,0 +1,45 @@
+{
+  "slug": "rangers-vs-aberdeen-nerves-first-then-the-freedom-2026-11-24",
+  "title": "Rangers vs Aberdeen: Nerves First, Then the Freedom",
+  "body": "Rangers host Aberdeen on Tuesday as the Scottish Premiership returns from the international break [S1][S2]. Celtic are trying to keep Rangers at arm's length in the title race, so every home result carries extra weight for the side in blue [S2]. Nobody is treating this as a routine midweek fixture.\n\nThe BBC has built its preview around a set of key questions for the night, and it is not a one-match story: Hibernian entertain Dundee in the same Premiership round [S1]. Sky Sports is focused on Aberdeen, who are starting a rebuild under Frick, which gives the visitors a storyline of their own [S2]. Two clubs in transition, one title race hanging over the top of the table, and a full evening of football to watch.\n\nThe evidence here includes no form tables and no predictions, so nobody should pretend a spreadsheet settles this. Form matters, but big games have a habit of ignoring the numbers and rewarding whoever wants it more on the day. A side coming off a poor run can still turn up with a plan and a point to prove, and a side riding high can freeze when the nerves arrive.\n\nExpect tension early. Both sides will be wary of making the first mistake, and the opening stages will likely be cagey, with more caution than craft. Once the first goal goes in, though, the picture changes. The team that scores first gets to play with freedom, the team chasing the game has to commit, and the manager who handles that shift best will walk away with the points.\n\nThe Touchline Take: one to circle in the diary.",
+  "article_type": "explainer",
+  "league": "Scottish Premiership",
+  "teams": [
+    "Rangers"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cqe9kvdr2mmyo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13614280/scottish-premiership-derek-mcinnes-rangers-on-sky-celtic-lead-the-way-as-aberdeen-begin-mario-frick-era",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Key questions as Rangers host Aberdeen & Dundee visit Hibs. What are the key things to look out for as Rangers host Aberdeen while Hibernian entertain Dundee in the Scottish Premiership on Tuesday?",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cqe9kvdr2mmyo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "Sky Sports: Celtic look to keep Rangers at bay in title race as Frick starts Aberdeen rebuild. The Scottish Premiership returns after the international break and with it comes the guaranteed drama.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13614280/scottish-premiership-derek-mcinnes-rangers-on-sky-celtic-lead-the-way-as-aberdeen-begin-mario-frick-era"
+    }
+  ],
+  "published_at": "2026-11-24T18:58:12+00:00",
+  "draft_id": "db5c04df18",
+  "story_ids": [
+    "1810c4c1f49c"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
