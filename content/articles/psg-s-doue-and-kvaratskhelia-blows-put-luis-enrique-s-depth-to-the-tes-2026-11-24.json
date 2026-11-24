@@ -1,0 +1,45 @@
+{
+  "slug": "psg-s-doue-and-kvaratskhelia-blows-put-luis-enrique-s-depth-to-the-tes-2026-11-24",
+  "title": "PSG's Doué and Kvaratskhelia Blows Put Luis Enrique's Depth to the Test",
+  "body": "Paris Saint-Germain have lost Désiré Doué to an ACL injury sustained in their 3-2 win at Nice [S1]. He joins Khvicha Kvaratskhelia on the treatment table, and Luis Enrique now has to manage without both for most of the rest of the season [S1].\n\nDoué was carried off in tears after twisting awkwardly late in the first half, moments after scoring to put his side 2-1 ahead [S2]. It follows Kvaratskhelia's injury last month, which makes the timing hard to swallow [S2]. Luis Enrique insists this is not new territory [S1]. The record gives him some support: since arriving in 2023, only three players have been sidelined for more than 100 days, and only Nuno Mendes is a key first-team figure among them [S1].\n\nA stray arm from Davide Frattesi knocked out one of his front teeth during France's defeat by Italy, which is why he wore a mouth guard [S1].\n\nThe attack looks ferocious on paper, but paper is cheap when two of the most dangerous names are on the physio's table. Nobody wins anything in the treatment room, yet plenty of seasons are lost there. This is where squad depth gets tested, and that is where seasons are quietly decided. The bench now has to earn its place, not just warm it.\n\nThe Touchline Take: how the squad copes over the next month will define the season.",
+  "article_type": "explainer",
+  "league": "International",
+  "teams": [
+    "Paris Saint-Germain"
+  ],
+  "sources": [
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/23/psg-best-attack-europe-desire-doue-acl-khvicha-kvaratskhelia-luis-enrique",
+      "kind": "story"
+    },
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/21/european-football-borussia-dortmund-psg-real-madrid",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "The Guardian: PSG had the best attack in Europe but Doué and Kvaratskhelia injuries will test Luis Enrique. Désiré Doué sustained an ACL injury in PSG’s 3-2 win at Nice and joins Khvicha Kvaratskhelia on the treatment table. By Get French Football News. Luis Enrique is in uncharted territory, even if he insists that “it isn’t a first”. Since arriving at Paris Saint-Germain in 2023, only three players have spent more than 100 days on the sideline – Nuno Mendes, Lucas Hernandez and Presnel Kimpembe – and only Mendes is an important first-team player. But for the remainder of the season, or at least the vast majority of it, Luis Enrique must do without two of his stars: Désiré Doué and Khvicha Kvaratskhelia. Doué arrived in Nice on Saturday evening already bearing scars. The PSG forward wore a mouth guard after Davide Frattesi had dislodged one of his front teeth with a stray arm during France’s defeat by Italy during the international break.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/23/psg-best-attack-europe-desire-doue-acl-khvicha-kvaratskhelia-luis-enrique"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "The Guardian: European football: Doué carried off for PSG while Kane vows to return fresh. Doué injury adds to that of Kvaratskhelia last month. Nice 2-3 PSG; Lazio 3-0 Lecce; Gladbach 0-1 Dortmund. Désiré Doué was carried off in tears after suffering what looked like a nasty knee injury as Paris Saint-Germain beat Nice 3-2 in Ligue 1. Doué went down after twisting awkwardly late in the first half as he tried to control the ball, shortly after scoring to put PSG 2-1 ahead.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/21/european-football-borussia-dortmund-psg-real-madrid"
+    }
+  ],
+  "published_at": "2026-11-24T04:21:49+00:00",
+  "draft_id": "c6739c3a0a",
+  "story_ids": [
+    "527adbcfd0a4"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
