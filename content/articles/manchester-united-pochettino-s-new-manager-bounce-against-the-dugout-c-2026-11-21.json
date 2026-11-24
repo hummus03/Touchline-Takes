@@ -1,0 +1,57 @@
+{
+  "slug": "manchester-united-pochettino-s-new-manager-bounce-against-the-dugout-c-2026-11-21",
+  "title": "Manchester United: Pochettino's new-manager bounce against the dugout churn",
+  "body": "Manchester United have turned to Mauricio Pochettino as their latest manager, and the real question is whether a fresh start can stop the slide [S1][S2]. The Guardian's Jonathan Wilson lays out the familiar script at Old Trafford: performances fade, results falter, and a title challenge shrinks into a scrap for the last Champions League place or a fight against relegation [S1]. Fans grumble, players look disaffected, and a dressing room, once lost, is rarely won back [S1]. BBC Sport, meanwhile, reports the club are targeting Como midfielder Nico Paz as the new manager prepares to receive backing in the transfer market [S2].\n\nThe recent numbers justify the alarm. In their last five league matches they have won none, drawn three and lost two, taking three points from six goals scored and 11 conceded [ST1]. That is not a wobble. It is a side leaking goals and running out of answers, and it needs fixing before anyone can talk about a bounce.\n\nThe sack is the easiest lever to pull and the hardest one to get right.\n\nThe next appointment matters far more than the timing of this one.\n\nThe Touchline Take: get the next appointment right and this is forgotten.",
+  "article_type": "explainer",
+  "league": "Champions League",
+  "teams": [
+    "Manchester United"
+  ],
+  "sources": [
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/21/pochettino-needs-new-manager-bounce-to-break-torrid-manchester-united-turnover",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cq39glw42xkjo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "The Guardian: Pochettino needs New Manager Bounce to break torrid Manchester United turnover | Jonathan Wilson. Latest hire will depend on fresh faces and time to bed in at Old Trafford where the dugout churn is hardest to budge. Everybody knows the pattern. Performances fade. Results falter. A title challenge becomes clinging on for the last Champions League spot becomes mid-table. Or a promising start becomes a troubling dip, becomes a full-on battle against relegation. Fans begin to grumble. The media wonder whether the spark has gone. Players look disaffected. A dressing room, once lost, is seldom rediscovered, and few managers are given the opportunity to find it again. A crisis in football, once acknowledged, is only ever resolved in one way: by the sacking of the manager.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/21/pochettino-needs-new-manager-bounce-to-break-torrid-manchester-united-turnover"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Man Utd want Paz, Chelsea target Kounde - Saturday's gossip. Manchester United are targeting Como midfielder Nico Paz as new manager Mauricio Pochettino prepares to receive backing in the transfer market at Old Trafford.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cq39glw42xkjo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 3 draws, 2 defeats, 3 points, 6 goals scored, 11 conceded (sequence DDLLD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-21T23:52:30+00:00",
+  "draft_id": "1eba53f785",
+  "story_ids": [
+    "7b63e9c55367"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
