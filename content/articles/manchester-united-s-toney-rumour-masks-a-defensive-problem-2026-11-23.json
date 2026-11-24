@@ -1,0 +1,64 @@
+{
+  "slug": "manchester-united-s-toney-rumour-masks-a-defensive-problem-2026-11-23",
+  "title": "Manchester United's Toney rumour masks a defensive problem",
+  "body": "Manchester United are reportedly eyeing a move for Al-Ahli striker Ivan Toney, one of several names in BBC Sport's Monday gossip column [S1]. The same column says Fulham are holding contract talks with Calvin Bassey, and that PSG could step up their pursuit of Eli Junior Kroupi [S1]. A companion piece casts United as targets for Bassey and Brentford's Nathan Collins [S2], while AC Milan want Real Madrid's Endrick on loan [S2].\n\nThe form table is where this gets uncomfortable. United's last five league games have brought no wins, three draws and two defeats, giving them 3 points, 6 scored and 11 conceded [ST1]. Fulham have been far steadier, with two wins, two draws and one defeat, collecting 8 points while conceding just 4 [ST2].\n\nAny rebuild should start at the back, not the transfer column.\n\nTalk is cheap until the paperwork is signed, so treat every rumour with care. If this one goes through, it says plenty about where the club thinks it is heading.\n\nThe Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester United"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/ck053nyl6399o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cklyegvq86w8o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Man Utd plotting Toney move - Monday's gossip. Manchester United eye move for Al-Ahli striker Ivan Toney, Fulham hold contract talks with Calvin Bassey and PSG could step up pursuit of Eli Junior Kroupi.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/ck053nyl6399o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Man Utd target Fulham's Bassey - Monday's gossip. Manchester United target Fulham's Calvin Bassey and Brentford's Nathan Collins, AC Milan want Real Madrid's Endrick on loan, plus more.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cklyegvq86w8o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 3 draws, 2 defeats, 3 points, 6 goals scored, 11 conceded (sequence DDLLD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Fulham last 5 league matches in Football-Data.co.uk results: 2 wins, 2 draws, 1 defeat, 8 points, 5 goals scored, 4 conceded (sequence LWWDD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-23T00:23:32+00:00",
+  "draft_id": "a058478c03",
+  "story_ids": [
+    "7b2497963a8e"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
