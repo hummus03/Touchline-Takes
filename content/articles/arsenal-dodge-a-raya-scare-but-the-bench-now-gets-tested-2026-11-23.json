@@ -1,0 +1,57 @@
+{
+  "slug": "arsenal-dodge-a-raya-scare-but-the-bench-now-gets-tested-2026-11-23",
+  "title": "Arsenal Dodge a Raya Scare, but the Bench Now Gets Tested",
+  "body": "Arsenal avoided the worst case with David Raya after a shoulder injury picked up at Newcastle raised fears of a long spell out [S1]. The goalkeeper was forced off in the second half of that 2-2 draw with a suspected dislocated shoulder [S1], and he had an MRI scan once the side was back in London and missed training on Monday [S1].\n\nThe relief is real. The shoulder is \"not too serious\" and will not need an operation [S1][S2]. The manager admitted they had been worried, but the picture looks better than expected [S1]. Raya will still miss the Champions League tie with Borussia Dortmund on Tuesday, with Kepa Arrizabalaga expected to deputise at home [S1]. A return for the City clash is possible [S1].\n\nThe form backs up the optimism. Over the last five league matches, the side have won four, drawn one and lost none, collecting 13 points while scoring seven and conceding two [ST1]. That kind of run gives a squad momentum, and momentum is exactly what a goalkeeper gap tests. It shows the team is playing well enough to absorb a blow without panicking.\n\nStill, this is exactly the kind of blow that exposes a thin bench. It asks the replacement to steady nerves and asks the defenders in front of him to communicate, cover and stay calm when the pressure is highest.\n\nNobody wins anything in the treatment room, but plenty of seasons are lost there. The side's response will define the weeks ahead far more than the diagnosis does.\n\nThe Touchline Take: the scare has passed, but the real test is whether the squad can cover the gap without flinching.",
+  "article_type": "explainer",
+  "league": "Champions League",
+  "teams": [
+    "Arsenal"
+  ],
+  "sources": [
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/23/david-raya-shoulder-injury-arsenal-surgery-mikel-arteta",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cjx2rqpr7l9lo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "The Guardian: David Raya’s shoulder injury ‘not too serious’ and no surgery needed for Arsenal goalkeeper. No 1 to miss Dortmund game but could return for City clash. ‘We were worried … he’s better than expected,’ says manager. Mikel Arteta is hopeful the ­shoulder injury David Raya sustained at Newcastle is not too serious, but confirmed the goalkeeper would miss Tuesday’s Champions League game against Borussia Dortmund. Raya was forced off in the ­second half of Saturday’s 2-2 draw with a ­suspected dislocated shoulder, ­raising fears he could be sidelined for an extended period. He had an MRI scan on Arsenal’s return to London and was absent from ­training on Monday. Kepa Arrizabalaga is expected to deputise at home to Dortmund.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/23/david-raya-shoulder-injury-arsenal-surgery-mikel-arteta"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Raya to miss Dortmund game but injury 'not serious'. Arsenal goalkeeper David Raya will miss Tuesday's Champions League game against Borussia Dortmund but his shoulder injury will not require an operation.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cjx2rqpr7l9lo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Arsenal last 5 league matches in Football-Data.co.uk results: 4 wins, 1 draw, 0 defeats, 13 points, 7 goals scored, 2 conceded (sequence WWWWD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-23T19:20:12+00:00",
+  "draft_id": "dcb4b0efec",
+  "story_ids": [
+    "1440e0917fe1"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
