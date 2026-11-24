@@ -1,0 +1,52 @@
+{
+  "slug": "coventry-city-and-everton-a-penalty-row-that-demands-clearer-refereein-2026-11-21",
+  "title": "Coventry City and Everton: a penalty row that demands clearer refereeing",
+  "body": "Coventry City boss Frank Lampard wants referees to take more care to get decisions right after his side were denied a penalty at Everton [S1]. The complaint is specific. Lampard's plea is for officials to spend time making sure their decisions are correct [S1]. A penalty call in a tight contest is no small thing, and it is fair to air this in public.\n\nThe row is also a reminder of how much the wider picture matters. The coverage centres on one incident at Everton, and the focus is on the process behind the decision rather than a wider attack on any official [S1]. That distinction matters, because the debate is about how calls are made and explained, not simply whether one call went the wrong way.\n\nForm adds some context. Coventry come into this on two wins, no draws and three defeats from their last five league matches, collecting six points from a WLLWL run [ST1]. Everton's last five have brought seven points from two wins, one draw and two defeats, with six goals scored and seven conceded [ST2]. Both sides are in mixed form, so a single contested decision can easily swing a run and a season's mood.\n\nEvery row like this sells, but clarity would serve the game far better. Whatever the technology, supporters deserve decisions that are consistent and explained. When a side loses out on a big call, they deserve a reason, not a shrug.\n\nThe Touchline Take: consistency, please. That is all anyone asks.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Coventry City"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c678299n1018o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Lampard calls for fairness after Coventry penalty row. Coventry boss Frank Lampard wants officials to spend time ensuring they get decisions correct in the wake of his side being denied a penalty at Everton.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c678299n1018o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Coventry City last 5 league matches in Football-Data.co.uk results: 2 wins, 0 draws, 3 defeats, 6 points, 9 goals scored, 9 conceded (sequence WLLWL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Everton last 5 league matches in Football-Data.co.uk results: 2 wins, 1 draw, 2 defeats, 7 points, 6 goals scored, 7 conceded (sequence DLLWW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-21T00:52:29+00:00",
+  "draft_id": "4193975925",
+  "story_ids": [
+    "d4b4a0b2b03c"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
