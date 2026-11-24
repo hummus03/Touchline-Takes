@@ -1,0 +1,57 @@
+{
+  "slug": "tottenham-s-williams-barnett-deal-is-a-vote-of-confidence-in-their-own-2026-11-23",
+  "title": "Tottenham's Williams-Barnett deal is a vote of confidence in their own",
+  "body": "Sky Sports reports that Williams-Barnett has agreed a long-term contract with the club [S1]. That is the headline fact, and it matters more than the noise around it.\n\nThe context comes from the pitch. BBC Sport describes Luca Williams-Barnett as a teenager who made a superb full Premier League debut for Spurs [S2]. Its headline was \"The world got to see today\" [S2]. That is a broadcaster saying the lad has announced himself, not just that he was handed a shirt.\n\nThe wider form is encouraging. Spurs have won four of their last five league games, with one defeat, collecting 12 points while scoring nine and conceding two [ST1]. The sequence reads WWWLW [ST1].\n\nA side on that kind of run can afford to be patient with its young players, and a long contract is a signal in both directions: to the player, and to anyone watching who might want to buy him. Talk is cheap until the paperwork is signed, so treat every rumour with care, and be wary of anyone who calls a deal done before it is. If this one goes through, it says plenty about where the club thinks it is heading, which is towards building around its own.\n\nThe Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Tottenham"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/live-blog/12040/12476234/transfer-centre-live-football-transfer-news-updates-and-rumours",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cm9d7jg50e12o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Transfer Centre LIVE! Williams-Barnett agrees long-term Spurs contract. Transfer Centre LIVE! Williams-Barnett agrees long-term Spurs contract",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/live-blog/12040/12476234/transfer-centre-live-football-transfer-news-updates-and-rumours"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: 'The world got to see today' - Williams-Barnett announces himself as Spurs star. BBC Sport looks at Tottenham's new teenage star after Luca Williams-Barnett makes a superb full Premier League debut for Spurs",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cm9d7jg50e12o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Tottenham last 5 league matches in Football-Data.co.uk results: 4 wins, 0 draws, 1 defeat, 12 points, 9 goals scored, 2 conceded (sequence WWWLW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-23T19:19:54+00:00",
+  "draft_id": "dfdee0de98",
+  "story_ids": [
+    "7bc983c786f5"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
