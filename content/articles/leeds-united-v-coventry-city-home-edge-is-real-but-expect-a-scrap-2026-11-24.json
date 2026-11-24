@@ -1,0 +1,75 @@
+{
+  "slug": "leeds-united-v-coventry-city-home-edge-is-real-but-expect-a-scrap-2026-11-24",
+  "title": "Leeds United v Coventry City: Home Edge Is Real, But Expect a Scrap",
+  "body": "Leeds United host Coventry City in the Premier League on 2026-11-28 [F1]. On the numbers, the home side should start as favourites, though the form behind those numbers is less tidy than the price suggests.\n\nThey beat Chelsea 2-0 at Stamford Bridge, their first win there since going top in December 1999 [S1]. The Guardian's report called Chelsea \"fragile\" after the defeat and noted that Chelsea are eighth but have lost more league games than Manchester United [S1]. That is a rough week for a side that was outplayed on its own ground, and it shows how quickly confidence can drain away.\n\nLeeds have 8 points from their last five league matches, scoring 6 and conceding 4, with a DDLWW run [ST1]. Coventry City have 6 points from their last five, with 8 scored and 10 conceded and an LLWLW sequence [ST2]. The Touchline Takes Analyst model makes the home side 58% to win, the draw 25% and the visitors 17% [M1]. Those figures point one way: the leaky visiting defence is the obvious weak spot, and the model sees the home side as the clear pick [M1][ST2].\n\nThis is the kind of fixture where one moment of quality settles everything. Expect nerves early and a lot more freedom once the first goal goes in. The side that gets its hands on the lead first will be the one that stops panicking, and the side that is conceding will have to chase the game.\n\nThe Touchline Take: back the home side to win, but do not be shocked if this gets messy.",
+  "article_type": "preview",
+  "league": "Premier League",
+  "teams": [
+    "Leeds United",
+    "Coventry City"
+  ],
+  "sources": [
+    {
+      "name": "football-data.org",
+      "url": "",
+      "kind": "fixture"
+    },
+    {
+      "name": "Touchline Takes Analyst model",
+      "url": "",
+      "kind": "model"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    },
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/21/chelsea-leeds-premier-league-match-report",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "F1",
+      "kind": "fixture",
+      "text": "Fixture: Leeds United v Coventry City, Premier League, 2026-11-28.",
+      "source": "football-data.org",
+      "url": ""
+    },
+    {
+      "id": "M1",
+      "kind": "model",
+      "text": "Touchline Takes Analyst model (logistic regression on Football-Data.co.uk results): Leeds United win 58%, draw 25%, Coventry City win 17%.",
+      "source": "Touchline Takes Analyst model",
+      "url": ""
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Leeds United last 5 league matches in Football-Data.co.uk results: 2 wins, 2 draws, 1 defeat, 8 points, 6 goals scored, 4 conceded (sequence DDLWW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Coventry City last 5 league matches in Football-Data.co.uk results: 2 wins, 0 draws, 3 defeats, 6 points, 8 goals scored, 10 conceded (sequence LLWLW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "The Guardian: ‘Fragile’ Chelsea must toughen up after Leeds humiliation, admits Xabi Alonso. Xabi Alonso is straying towards crisis territory. Here’s a mind-bending statistic: Chelsea are eighth but have now lost more league games than Manchester United. They were bullied by a rampant Leeds United, who fully merited their first win at Stamford Bridge since going top with a 2-0 victory in December 1999, and can look forward to another season with no European football if they do not sharpen up soon.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/21/chelsea-leeds-premier-league-match-report"
+    }
+  ],
+  "published_at": "2026-11-24T04:21:54+00:00",
+  "draft_id": "3e13dd236a",
+  "story_ids": [],
+  "mode": "llm",
+  "revision": 1
+}
