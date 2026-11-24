@@ -1,0 +1,58 @@
+{
+  "slug": "ac-milan-circle-bruno-fernandes-but-patience-should-rule-2026-11-22",
+  "title": "AC Milan Circle Bruno Fernandes, but Patience Should Rule",
+  "body": "AC Milan are monitoring Manchester United midfielder Bruno Fernandes [S1]. The same BBC Sport gossip column also said Arsenal's pair have yet to start talks on new deals, and that Trabzonspor have renewed interest in Tottenham forward Richarlison [S1].\n\nAnother BBC Sport round-up flagged Manchester United target Calvin Bassey of Fulham, with Brentford's Nathan Collins also on their list [S2]. It also reported that AC Milan want Real Madrid's Endrick on loan [S2].\n\nA side leaking goals at that rate should be fixing its back line before it goes shopping for glamour names.\n\nThe smart money is on patience.\n\nTalk is cheap until the paperwork is signed, so treat every rumour with care.\n\nThe Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "AC Milan",
+    "Manchester United"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cq8j4e8nlvm1o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cklyegvq86w8o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: AC Milan monitoring Man Utd's Fernandes - Sunday's gossip. AC Milan monitoring Manchester United midfielder Bruno Fernandes, Arsenal pair yet to start talks on new deals and Trabzonspor renew interest in Tottenham forward Richarlison, plus more.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cq8j4e8nlvm1o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Man Utd target Fulham's Bassey - Monday's gossip. Manchester United target Fulham's Calvin Bassey and Brentford's Nathan Collins, AC Milan want Real Madrid's Endrick on loan, plus more.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cklyegvq86w8o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 3 draws, 2 defeats, 3 points, 6 goals scored, 11 conceded (sequence DDLLD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-22T15:28:46+00:00",
+  "draft_id": "b22d61ad6a",
+  "story_ids": [
+    "8b3d47888d81"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
