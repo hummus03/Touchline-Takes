@@ -1,0 +1,65 @@
+{
+  "slug": "brentford-s-man-utd-target-story-patience-beats-panic-2026-11-24",
+  "title": "Brentford's Man Utd Target Story: Patience Beats Panic",
+  "body": "A Brentford defender has been reported as a Manchester United target, with the story tied to United's January budget [S1].\n\nThat tells you the market is busy, and that other clubs are protecting their own assets before the window even opens.\n\nThe form numbers tell the clearer story. Brentford have taken 7 points from their last five league games, with two wins, one draw and two defeats, scoring 8 and conceding 5 [ST1]. United have managed just 2 points from the same span, with no wins, two draws and three defeats, and they have conceded 14 [ST2]. That gap is the real story. One side is winning enough to be picky, while the other is leaking goals and needs fixing more than it needs headlines.\n\nIf this one goes through, it says plenty about where the club thinks it is heading. The smart money is on patience, because rushed deals rarely age well, and a side with a settled back line has less reason to panic-buy. Any move should be judged on whether it solves a real problem, not on how good it looks in a newspaper.\n\nThe Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Brentford",
+    "Manchester United"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13615837/man-utd-transfer-news-brentford-defender-nathan-collins-emerges-as-january-target-paper-talk",
+      "kind": "story"
+    },
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13614185/fulham-pushing-to-extend-contract-of-man-utd-target-calvin-bassey-paper-talk",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Papers: Brentford defender emerges as Man Utd target as January budget revealed. The top stories and transfer rumours from Tuesday's newspapers...",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13615837/man-utd-transfer-news-brentford-defender-nathan-collins-emerges-as-january-target-paper-talk"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "Sky Sports: Papers: Fulham pushing to extend contract of Man Utd target. The top stories and transfer rumours from Friday's newspapers...",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13614185/fulham-pushing-to-extend-contract-of-man-utd-target-calvin-bassey-paper-talk"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Brentford last 5 league matches in Football-Data.co.uk results: 2 wins, 1 draw, 2 defeats, 7 points, 8 goals scored, 5 conceded (sequence LDWLW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 2 draws, 3 defeats, 2 points, 5 goals scored, 14 conceded (sequence DLLDL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-24T04:21:34+00:00",
+  "draft_id": "9b191e890f",
+  "story_ids": [
+    "a83903f82b18"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
