@@ -1,0 +1,64 @@
+{
+  "slug": "manchester-united-win-yoro-appeal-but-the-refereeing-mess-lingers-2026-11-24",
+  "title": "Manchester United Win Yoro Appeal, But the Refereeing Mess Lingers",
+  "body": "Manchester United have had Leny Yoro's red card overturned on appeal, which clears him for Saturday's game against Brentford. [S1] The ruling came even though referees' chief Howard Webb had backed the original decision. [S1]\n\nThe dismissal came early at Anfield, after eight minutes, when Yoro was sent off for a Dogso offence: he fouled Alexander Isak as the forward was through on goal. [S1] Referee Sam Barrott made that call, and the video assistant referee did not seek a review. [S1] United told the FA they intended to appeal. [S2] Mauricio Pochettino, the club's new head coach, insisted the striker would never have reached the ball, so it was not a sending-off offence. [S1] An independent panel agreed, and Yoro no longer has to serve a one-match suspension. [S1] Webb's defence was that the call was \"certainly not clearly wrong\". [S1]\n\nThe form guide makes the context sharper. United's last five league matches brought a DLLDL sequence, two points, five goals scored and 14 conceded. [ST1] Brentford's last five produced LDWLW, seven points, eight goals scored and five conceded. [ST2] Those figures describe a side that has been leaking goals while the visitors have been tighter at the back and more productive in front of goal.\n\nWhatever the technology, supporters deserve decisions that are consistent and explained. A red card that gets overturned after the chief has publicly defended it does nothing for the fans who watched the original call and were told it was correct. The problem is not just one awful afternoon, but a system that lets the same type of incident produce different answers depending on who is arguing about it.\n\nThe Touchline Take: consistency, please. That is all anyone asks.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester United"
+  ],
+  "sources": [
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/23/manchester-united-appeal-leny-yoro-red-card-liverpool",
+      "kind": "story"
+    },
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13615539/manchester-united-to-appeal-leny-yoros-red-card-as-ex-pl-referee-dermot-gallagehr-casts-his-verdict",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "The Guardian: Manchester United win appeal over Yoro’s red card despite Webb backing decision. Player now eligible to face Brentford on Saturday. Referees’ chief Webb said it was ‘certainly not clearly wrong’ Manchester United have successfully appealed against Leny Yoro’s red card in their 4-0 defeat to Liverpool on the day referees’ chief Howard Webb gave his backing to the original decision. The defender was dismissed for denying an obvious goalscoring opportunity (Dogso) after eight minutes, but this was found to be incorrect. The Frenchman will no longer be required to serve a one-match suspension after a ruling by an independent panel. He fouled Alexander Isak when the Liverpool forward was through on goal in the early stages at Anfield but Mauricio Pochettino, United’s new head coach, insisted the striker would not have reached the ball, and therefore was not a sending-off offence. The referee Sam Barrott made a different assessment, for which the video assistant referee did not seek a review, a judgment supported by Pro Ref’s chief refereeing officer, Webb.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/23/manchester-united-appeal-leny-yoro-red-card-liverpool"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "Sky Sports: Man Utd to appeal Yoro red card. Manchester United have notified the FA of their intention to appeal Leny Yoro's red card against Liverpool.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13615539/manchester-united-to-appeal-leny-yoros-red-card-as-ex-pl-referee-dermot-gallagehr-casts-his-verdict"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 2 draws, 3 defeats, 2 points, 5 goals scored, 14 conceded (sequence DLLDL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Brentford last 5 league matches in Football-Data.co.uk results: 2 wins, 1 draw, 2 defeats, 7 points, 8 goals scored, 5 conceded (sequence LDWLW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-24T18:58:07+00:00",
+  "draft_id": "2cc52e229b",
+  "story_ids": [
+    "2fda23c17fe5"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
