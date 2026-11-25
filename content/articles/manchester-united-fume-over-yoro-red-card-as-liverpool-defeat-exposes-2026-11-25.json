@@ -1,0 +1,64 @@
+{
+  "slug": "manchester-united-fume-over-yoro-red-card-as-liverpool-defeat-exposes-2026-11-25",
+  "title": "Manchester United Fume Over Yoro Red Card as Liverpool Defeat Exposes Cracks",
+  "body": "Mauricio Pochettino was furious about Leny Yoro's red card in Manchester United's defeat to Liverpool [S1]. He also felt that Dominik Szoboszlai's opening goal should not have stood, which keeps the argument alive beyond the dismissal [S1].\n\nManchester United have notified the FA that they intend to appeal the red card [S2]. Sky Sports has also asked why the Szoboszlai free-kick was not ruled out, so the debate covers the goal as well as the sending-off [S1].\n\nThe league form shows why every point now matters. Over their last five league matches, Manchester United have no wins, two draws and three defeats, collecting 2 points while scoring 5 and conceding 14 [ST1]. Liverpool, across the same stretch, have four wins and one defeat, with 12 points, 11 scored and 3 conceded [ST2]. Those numbers point to a sustained slide, not one bad afternoon.\n\nThis is exactly the kind of blow that exposes a thin bench. When a side is already leaking goals, a sending-off turns a hard afternoon into a longer problem, and the manager needs answers quickly because the table does not wait for explanations.\n\nThe Touchline Take: fight the appeal, then fix the defending, because the next month will show whether this is a blip or a spiral.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester United"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13616388/dominik-szoboszlai-free-kick-for-liverpool-vs-man-utd-reveals-grey-area-as-mauricio-pochettino-questions-decision",
+      "kind": "story"
+    },
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13615539/manchester-united-to-appeal-leny-yoros-red-card-as-ex-pl-referee-dermot-gallagehr-casts-his-verdict",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Why wasn't Szoboszlai's free-kick ruled out vs Man Utd?. Mauricio Pochettino fumed over Leny Yoro's red card for Manchester United in their defeat to Liverpool, but also felt Dominik Szoboszlai's opener should not have stood – is he right?",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13616388/dominik-szoboszlai-free-kick-for-liverpool-vs-man-utd-reveals-grey-area-as-mauricio-pochettino-questions-decision"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "Sky Sports: Man Utd to appeal Yoro red card. Manchester United have notified the FA of their intention to appeal Leny Yoro's red card against Liverpool.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13615539/manchester-united-to-appeal-leny-yoros-red-card-as-ex-pl-referee-dermot-gallagehr-casts-his-verdict"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 2 draws, 3 defeats, 2 points, 5 goals scored, 14 conceded (sequence DLLDL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Liverpool last 5 league matches in Football-Data.co.uk results: 4 wins, 0 draws, 1 defeat, 12 points, 11 goals scored, 3 conceded (sequence WWLWW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-25T18:02:04+00:00",
+  "draft_id": "6d06a99d93",
+  "story_ids": [
+    "882aee9cabe8"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
