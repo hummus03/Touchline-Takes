@@ -1,0 +1,58 @@
+{
+  "slug": "arsenal-v-borussia-dortmund-wasteful-arsenal-held-to-a-1-1-draw-2026-11-25",
+  "title": "Arsenal v Borussia Dortmund: Wasteful Arsenal Held to a 1-1 Draw",
+  "body": "Arsenal had to settle for a 1-1 draw with Borussia Dortmund in the Champions League, and once again they were punished for failing to convert their chances [S1]. It is the second game in a row in which their finishing has cost them [S1].\n\nMaximilian Beier was the Dortmund player who secured the draw [S1]. Arsenal also have a selection headache, because goalkeeper David Raya will miss Tuesday's game with a shoulder injury [S2]. The early word is more reassuring, as BBC Sport reported that the injury will not require an operation [S2].\n\nThe wider picture is more encouraging. In their last five league matches, Arsenal have won four, drawn one and lost none, collecting 13 points from 7 goals scored and 2 conceded [ST1]. A run like that suggests a side that is winning games, not one that is falling apart. The problem looks like sharpness in front of goal rather than a lack of quality.\n\nThis was the kind of game that tells you more about character than tactics. The side showed enough resilience to avoid defeat, but the manager will know that a draw built on missed opportunities is not a performance to celebrate.\n\nThe Touchline Take: a point apiece and nobody fully satisfied, but the form says the sharpness is more likely to return than to vanish.",
+  "article_type": "match_report",
+  "league": "Champions League",
+  "teams": [
+    "Arsenal",
+    "Borussia Dortmund"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/arsenal-vs-borussia-dortmund/report/577669",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cjx2rqpr7l9lo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Wasteful Arsenal held by Borussia Dortmund. Arsenal were punished for failing to take their chances for the second game in a row as Maximilian Beier clinched a 1-1 draw for Borussia Dortmund in the Champions League.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/arsenal-vs-borussia-dortmund/report/577669"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Raya to miss Dortmund game but injury 'not serious'. Arsenal goalkeeper David Raya will miss Tuesday's Champions League game against Borussia Dortmund but his shoulder injury will not require an operation.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cjx2rqpr7l9lo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Arsenal last 5 league matches in Football-Data.co.uk results: 4 wins, 1 draw, 0 defeats, 13 points, 7 goals scored, 2 conceded (sequence WWWWD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-25T03:05:30+00:00",
+  "draft_id": "695e8ddd76",
+  "story_ids": [
+    "dfc033fee6d2"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
