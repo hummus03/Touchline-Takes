@@ -1,0 +1,58 @@
+{
+  "slug": "cherki-s-late-leveller-papers-over-cracks-in-manchester-city-v-napoli-2026-11-25",
+  "title": "Cherki's Late Leveller Papers Over Cracks in Manchester City v Napoli Draw",
+  "body": "Rayan Cherki's late strike rescued a 2-2 Champions League draw for Manchester City at home to Napoli [S1].\n\nEnzo Maresca's side again struggled to find their fluency [S1]. BBC Sport went further, describing a once slick footballing machine that looks to be running out of gears in a laborious display against Napoli [S2]. When the passing turns sideways and the tempo drops, the crowd feels it long before the scoreboard does.\n\nThe wider picture is worse than one disappointing night. In their last five league matches, Manchester City have won one, drawn one and lost three, collecting four points while scoring six and conceding nine, with a sequence of WLLLD [ST1]. Those figures tell a story of a defence that has been leaking and an attack that has been running dry.\n\nThat is the sort of afternoon that changes the mood around a dressing room. A rescue that arrives this late feels more like fortune than control, and the supporters will want answers rather than applause. There is no hiding from a scoreline like this one, and it will be picked apart all week.\n\nThe Touchline Take: a share of the spoils that flatters nobody, and a reminder that the machine needs oiling before the next big test.",
+  "article_type": "match_report",
+  "league": "Champions League",
+  "teams": [
+    "Napoli",
+    "Manchester City"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/manchester-city-vs-napoli/report/577674",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cj3vgdp2edpxo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Cherki salvages draw with Napoli but Man City frustrate. Rayan Cherki’s late strike salvaged a 2-2 draw for Manchester City at home to Napoli in the Champions League but Enzo Maresca’s side again struggled to find their fluency.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/manchester-city-vs-napoli/report/577674"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: 'Pass, pass, slow, slow' - Man City's slick machine grinding to a halt. Manchester City's slick footballing machine is starting to grind to a halt, as displayed in their laborious Champions League draw against Napoli.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cj3vgdp2edpxo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester City last 5 league matches in Football-Data.co.uk results: 1 win, 1 draw, 3 defeats, 4 points, 6 goals scored, 9 conceded (sequence WLLLD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-25T03:05:39+00:00",
+  "draft_id": "1a8bc18f80",
+  "story_ids": [
+    "4914f2addcf7"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
