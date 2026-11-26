@@ -1,0 +1,45 @@
+{
+  "slug": "burnley-stretch-record-home-drought-as-birmingham-win-at-turf-moor-2026-11-26",
+  "title": "Burnley Stretch Record Home Drought as Birmingham Win at Turf Moor",
+  "body": "Burnley have now gone a record run without a league win at home, and Birmingham were the side that made sure it continued with a 2-0 victory [S1]. The goals came from August Priske and an own goal by Jaydon Banel, and the win reaffirmed Birmingham's credentials in the Sky Bet Championship [S1]. The Guardian framed it as Birmingham condemning Burnley to a record drought, with the winless home run now at 24 matches [S2].\n\nElsewhere, the picture is very different at the top. Stoke climbed back into the promotion places after George Hirst scored both goals in a 2-1 win over Millwall [S2]. It was their fifth successive Championship win, and they now sit level on points with the leaders [S2].\n\nThere are no form tables or prediction figures in the notes for this one, so the read has to come from the scorelines and the streak itself. That is enough to see the shape of the problem.\n\nResults like this shape a season far more than any press conference will. A home drought this long is not bad luck; it is a habit, and habits get harder to break when the crowd starts counting every game. That is the sort of afternoon that changes the mood around a dressing room. The test now is whether the side can turn that gloom into a response on the pitch, rather than another round of explanations afterwards.\n\nThe Touchline Take: file this one under unfinished business.",
+  "article_type": "match_report",
+  "league": "Premier League",
+  "teams": [
+    "Burnley"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/burnley-vs-birmingham-city/report/560699",
+      "kind": "story"
+    },
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/25/championship-roundup-stoke-millwall-burnley-home-record-birmingham",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Burnley break winless home record as Birmingham win at Turf Moor. Burnley set a new record for the longest home run without a league win as Birmingham reaffirmed their Sky Bet Championship promotion credentials with a 2-0 victory at Turf Moor thanks to August Priske's strike and Jaydon Banel's own goal.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/burnley-vs-birmingham-city/report/560699"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "The Guardian: Championship roundup: Stoke rise to second, Birmingham condemn Burnley to record drought. George Hirst double earns Potters 2-1 win over Millwall. Burnley’s winless home run extends to 24 matches. George Hirst scored both goals as Stoke secured a fifth successive Championship win by beating Millwall 2-1 to go level on points with Middlesbrough at the top. The Scotland international scored his second goal for the Potters in the 1-0 win over Birmingham on Saturday and doubled his tally for the season to take Stoke back into the automatic promotion places.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/25/championship-roundup-stoke-millwall-burnley-home-record-birmingham"
+    }
+  ],
+  "published_at": "2026-11-26T02:17:54+00:00",
+  "draft_id": "1f0f226640",
+  "story_ids": [
+    "eb677671a243"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
