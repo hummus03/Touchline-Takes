@@ -1,0 +1,57 @@
+{
+  "slug": "manchester-united-s-chaotic-start-under-pochettino-is-a-warning-sign-2026-11-26",
+  "title": "Manchester United's Chaotic Start Under Pochettino Is a Warning Sign",
+  "body": "BBC Sport describes his first two matches in charge as chaotic and highlights the frustration around them [S1]. The question now is whether that noise is a passing blip or something more serious.\n\nThe longer view matters too. Sky Sports reported that the club and Mauricio Pochettino have agreed a two-and-a-half-year deal for him to take the job [S2]. That kind of contract signals a project meant to be built over time, so the early turbulence should be judged as a test of patience as much as a verdict.\n\nThe recent form is harder to excuse. In their last five league games, Manchester United have taken two points from two draws and three defeats, scoring five goals and conceding 14 [ST1]. The sequence reads defeat, defeat, draw, defeat, draw [ST1]. Those numbers suggest the leak at the back is the first thing that needs fixing, not the handful of goals the side is creating.\n\nPatience is a fair request, but it has to be earned with visible progress. The manager cannot lean on a long contract when the goals-against column looks like that. The side needs to show it can stop conceding before anyone starts talking about a long-term plan.\n\nThe Touchline Take: one to keep an eye on, because the next few results will show whether this chaos was a blip or a warning.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester United"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c6vg24l724l4o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13611745/mauricio-pochettino-manchester-united-agree-two-and-a-half-year-deal-with-usa-manager-to-replace-michael-carrick",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Frustration reigns for Pochettino in chaotic start to Man Utd job. What are the findings for Mauricio Pochettino after his first two matches as Manchester United manager?",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c6vg24l724l4o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "Sky Sports: Pochettino agrees two-and-a-half-year deal to become Man Utd boss. Manchester United and Mauricio Pochettino have agreed a deal for him to become the club's next head coach.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13611745/mauricio-pochettino-manchester-united-agree-two-and-a-half-year-deal-with-usa-manager-to-replace-michael-carrick"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 2 draws, 3 defeats, 2 points, 5 goals scored, 14 conceded (sequence DLLDL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-26T02:18:05+00:00",
+  "draft_id": "7539775f2b",
+  "story_ids": [
+    "2192c366cf3a"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
