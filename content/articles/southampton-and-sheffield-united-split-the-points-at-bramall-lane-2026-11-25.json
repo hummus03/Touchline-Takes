@@ -1,0 +1,33 @@
+{
+  "slug": "southampton-and-sheffield-united-split-the-points-at-bramall-lane-2026-11-25",
+  "title": "Southampton and Sheffield United Split the Points at Bramall Lane",
+  "body": "Southampton travelled to Bramall Lane and left with a 1-1 Championship draw against Sheffield United [S1]. The result was not settled until late, as Sheffield United came from behind to secure the point [S1].\n\nThe name that matters is Sydie Peck, who equalised in the 90th minute [S1]. Sky Sports ran it as a match story under the headline \"Southampton held at Sheffield United\" [S1]. That framing tells you where the report put the emphasis: a side that had to hold its nerve, and one that found a way back [S1].\n\nWithout any form run or prediction on file, the only honest measure is how the match ended. A goal that late does not just change a scoreline. It changes how a dressing room sees itself, and it changes how the supporters talk about the week ahead.\n\nThe side that was ahead will spend days asking how a lead slipped away. The side that came back will call it spirit, and both readings have something to them. The game rewarded the team that refused to fold, not the team that looked more polished on the ball.\n\nIt was the kind of game that tells you more about character than tactics, and character is what gets tested in the run-in, not in the headlines.\n\nThe Touchline Take: unfinished business for both camps, and the table will remember that last minute longer than either manager will admit.",
+  "article_type": "match_report",
+  "league": "Premier League",
+  "teams": [
+    "Southampton"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/sheffield-united-vs-southampton/report/560696",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Southampton held at Sheffield United. Sydie Peck equalised in the 90th minute as Sheffield United came from behind to secure a 1-1 Championship draw with Southampton at Bramall Lane.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/sheffield-united-vs-southampton/report/560696"
+    }
+  ],
+  "published_at": "2026-11-25T03:05:35+00:00",
+  "draft_id": "ce3cb6b119",
+  "story_ids": [
+    "94dd1cf1a7b7"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
