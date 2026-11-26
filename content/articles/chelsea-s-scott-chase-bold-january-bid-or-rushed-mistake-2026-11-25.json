@@ -1,0 +1,65 @@
+{
+  "slug": "chelsea-s-scott-chase-bold-january-bid-or-rushed-mistake-2026-11-25",
+  "title": "Chelsea's Scott chase: bold January bid or rushed mistake?",
+  "body": "Chelsea are being linked with a move for Bournemouth's Scott, and the report says they will push to sign him in January [S1].\n\nThe interest is not one-sided. A later round of newspaper coverage says Arsenal and Liverpool are also chasing the Bournemouth player [S2]. That makes this a crowded chase, and a crowded chase tends to push prices up and tempers up.\n\nThe form guide sharpens the picture. Chelsea have 2 wins and 3 defeats from their last five league games, collecting 6 points, scoring 5 and conceding 7 [ST1]. Bournemouth have won all five, taking 15 points, scoring 11 and conceding 1 [ST2]. The side pursuing the player is in a rough patch, while the club holding him is in fine fettle, so any bid has to be made from a position of need, not strength [ST1][ST2].\n\nIf this one goes through, it says plenty about where the club thinks it is heading. But the smart money is on patience.\n\nThe Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Chelsea",
+    "Bournemouth"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13616238/chelsea-transfer-news-blues-will-push-to-sign-bournemouth-midfielder-alex-scott-in-january-paper-talk",
+      "kind": "story"
+    },
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13611225/arsenal-chelsea-and-liverpool-chase-bournemouth-star-alex-scott-paper-talk",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Papers: Chelsea will push to sign Bournemouth's Scott in January. The top stories and transfer rumours from Tuesday's newspapers...",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13616238/chelsea-transfer-news-blues-will-push-to-sign-bournemouth-midfielder-alex-scott-in-january-paper-talk"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "Sky Sports: Papers: Arsenal, Chelsea and Liverpool chase Bournemouth star Scott. The top stories and transfer rumours from Thursday's newspapers...",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13611225/arsenal-chelsea-and-liverpool-chase-bournemouth-star-alex-scott-paper-talk"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Chelsea last 5 league matches in Football-Data.co.uk results: 2 wins, 0 draws, 3 defeats, 6 points, 5 goals scored, 7 conceded (sequence WLWLL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Bournemouth last 5 league matches in Football-Data.co.uk results: 5 wins, 0 draws, 0 defeats, 15 points, 11 goals scored, 1 conceded (sequence WWWWW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-25T18:01:58+00:00",
+  "draft_id": "596b0f3ab8",
+  "story_ids": [
+    "a7efaa37db0d"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
