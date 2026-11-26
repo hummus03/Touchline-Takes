@@ -1,0 +1,45 @@
+{
+  "slug": "west-ham-s-ffion-morgan-blow-turns-the-spotlight-on-squad-depth-2026-11-25",
+  "title": "West Ham's Ffion Morgan blow turns the spotlight on squad depth",
+  "body": "A knee operation appears to have ended Ffion Morgan's season, and the news hits West Ham and Wales at the same time [S1]. The BBC calls the injury serious and says she is likely to be sidelined until the campaign is over [S1]. This is no quick scare.\n\nThe absence cuts across club and country, so the disruption reaches well beyond one fixture list [S1]. The wider story is about how thin the options were. Seven months later he was preparing to face Liverpool in the Champions League [S2]. That tells you how little margin the squad had after relegation [S2].\n\nNobody wins anything in the treatment room, but plenty of seasons are lost there. When the players behind the starters are limited, one knee can reshape a whole month. No form numbers or predictions were supplied here, so the real question is what the squad can absorb, not what the table says.\n\nThis is where squad depth gets tested, and that is where seasons are quietly decided. If the replacements hold the line, this becomes a footnote. If they cannot, the knock-on effects will spread far beyond one player's recovery.\n\nThe Touchline Take: how the squad copes with this blow will define the next month.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "West Ham"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c920xdl6d6kpo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/24/freddie-potts-brugge-champions-league-liverpool-west-ham",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Wales and West Ham's Morgan suffers serious injury. Ffion Morgan looks set to miss the rest of the season for club and country following knee surgery.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c920xdl6d6kpo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "The Guardian: The midfielder was out of favour under Nuno Espírito Santo and could not have imagined that he would be preparing to face Liverpool in the Champions League seven months later. It is the 23-year-old’s reward for taking the difficult decision to leave his boyhood club last summer. Potts noticed his minutes were drying up in pre-season, even though West Ham were not exactly stocked with talent after relegation, and he was ready for a new challenge when Club Brugge offered about £10m to sign him.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/24/freddie-potts-brugge-champions-league-liverpool-west-ham"
+    }
+  ],
+  "published_at": "2026-11-25T18:02:10+00:00",
+  "draft_id": "1313521400",
+  "story_ids": [
+    "5e95fe9ec0a9"
+  ],
+  "mode": "llm",
+  "revision": 2
+}
