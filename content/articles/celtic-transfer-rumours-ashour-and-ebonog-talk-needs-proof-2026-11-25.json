@@ -1,0 +1,45 @@
+{
+  "slug": "celtic-transfer-rumours-ashour-and-ebonog-talk-needs-proof-2026-11-25",
+  "title": "Celtic Transfer Rumours: Ashour and Ebonog Talk Needs Proof",
+  "body": "Celtic are being linked with Ashour, an Egypt midfielder, in a BBC Sport story that also has Rangers preparing to offload a striker [S1]. It is a transfer piece built on talk rather than deals, and the broadcaster itself files it under gossip [S1].\n\nThe picture gets murkier from there. A follow-up BBC Sport report says Celtic have their eye on another midfielder, Ebonog [S2]. That report frames it as two possible January targets, and says a Turkish club is keeping its interest alive in a Rangers midfielder [S2].\n\nNothing supplied with these pieces tells us how any of these players are performing, so there are no form figures or forecasts to lean on [S1][S2]. That leaves the reporting as pure speculation, with no evidence on the pitch to test it against.\n\nTalk is cheap until the paperwork is signed, so treat every rumour with care. The side that chases a midfielder in public has to be judged on the signing, not the headline. If this one goes through, it says plenty about where the club thinks it is heading.\n\nThe Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Scottish Premiership",
+  "teams": [
+    "Celtic"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c6lymzn0lx02o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cvglr4d04x2go?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Celtic consider move for midfielder Ashour - gossip. Celtic linked with Egypt midfielder as Rangers prepare to offload striker...",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c6lymzn0lx02o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Celtic have eye on midfielder Ebonog - gossip. Two possible January targets for Celtic as Turkish club maintain interest in Rangers midfielder...",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cvglr4d04x2go?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "published_at": "2026-11-25T18:01:51+00:00",
+  "draft_id": "bbb40489ef",
+  "story_ids": [
+    "fbb6185adb75"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
