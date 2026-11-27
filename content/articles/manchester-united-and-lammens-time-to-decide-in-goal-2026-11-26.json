@@ -1,0 +1,57 @@
+{
+  "slug": "manchester-united-and-lammens-time-to-decide-in-goal-2026-11-26",
+  "title": "Manchester United and Lammens: time to decide in goal",
+  "body": "Manchester United goalkeeper Senne Lammens is under fire after two major mistakes in a 2-2 draw with Sporting [S1]. The question now is whether Mauricio Pochettino should drop him [S1].\n\nJamie Carragher has said Lammens' confidence is a real worry, and argued that one costly howler cost Pochettino a first win since taking charge [S2]. Sky Sports frames it differently, suggesting the manager will feel his side were robbed of a better result [S2]. Both takes point at the same problem: the goalkeeper is the one carrying the blame.\n\nThe wider form makes the debate harder to wave away. In their last five league matches, United have won none, drawn two and lost three, collecting just two points [ST1]. They have scored five and conceded 14 in that spell, a sequence of DLLDL [ST1]. Numbers like those do not hide behind one bad afternoon, and a leaking defence makes every goalkeeping wobble look louder.\n\nPatience has a shelf life, and this is where it starts running out. A rough patch becomes a habit very quickly between the posts, and the coach needs a settled answer rather than another week of guesswork.\n\nThe Touchline Take: confidence is the hardest thing to rebuild in goal, so the decision needs making before the next mistake makes it for them.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester United"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cmn4k7v93gvzo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13616618/man-utd-goalkeeper-senne-lammens-criticised-for-howler-in-sporting-draw-by-jamie-carragher",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Lammens - the Man Utd goalkeeper under scrutiny like never before. Manchester United goalkeeper Senne Lammens made two major mistakes in the 2-2 draw with Sporting - could Mauricio Pochettino drop his goalkeeper?",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cmn4k7v93gvzo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "Sky Sports: Carra: Lammens confidence worrying but Poch will feel Man Utd were robbed. Jamie Carragher says Manchester United goalkeeper Senne Lammens' confidence is a cause for concern after his howler cost Mauricio Pochettino a first win since taking charge.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13616618/man-utd-goalkeeper-senne-lammens-criticised-for-howler-in-sporting-draw-by-jamie-carragher"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 2 draws, 3 defeats, 2 points, 5 goals scored, 14 conceded (sequence DLLDL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-26T17:48:14+00:00",
+  "draft_id": "43c5e7abf6",
+  "story_ids": [
+    "d75d7ad6d690"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
