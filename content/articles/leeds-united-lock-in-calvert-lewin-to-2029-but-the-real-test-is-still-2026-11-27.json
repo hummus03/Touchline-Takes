@@ -1,0 +1,57 @@
+{
+  "slug": "leeds-united-lock-in-calvert-lewin-to-2029-but-the-real-test-is-still-2026-11-27",
+  "title": "Leeds United lock in Calvert-Lewin to 2029, but the real test is still ahead",
+  "body": "Leeds United have tied down Dominic Calvert-Lewin on a fresh contract that keeps him at the club until 2029. [S1] Sky Sports ran the same news, so the story travelled beyond one outlet. [S2]\n\nThe England international is now signed until the summer of 2029. [S2] BBC Sport framed it as a new deal rather than a rumour. [S1] That distinction matters, because a signed contract is a settled fact in a window full of noise.\n\nThe wider picture is less glowing. Across their last five league matches, Leeds United have taken 8 points from 2 wins and 2 draws, with 1 defeat, scoring 6 and conceding 4. [ST1] The run reads DDLWW, which looks more like steady ground than a surge. [ST1]\n\nA new contract is good housekeeping, not proof that the side has turned a corner. A deal tells you who the club wants to keep, not how the football will look once the fixtures pile up.\n\nThe smart money is on patience, because rushed deals rarely age well. Every rumour deserves suspicion until the paperwork is signed, and talk is cheap until then.\n\nThe Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Leeds United"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cx62pnz1evv4o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13616913/dominic-calvert-lewis-leeds-striker-signs-new-deal-until-2029-with-premier-league-club",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Calvert-Lewin signs new Leeds deal until 2029. England international Dominic Calvert-Lewin signs a new contract to stay with Leeds United until 2029.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cx62pnz1evv4o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "Sky Sports: Calvert-Lewin signs new Leeds deal. Dominic Calvert-Lewin has signed a new deal at Leeds, keeping him at the club until the summer of 2029.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13616913/dominic-calvert-lewis-leeds-striker-signs-new-deal-until-2029-with-premier-league-club"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Leeds United last 5 league matches in Football-Data.co.uk results: 2 wins, 2 draws, 1 defeat, 8 points, 6 goals scored, 4 conceded (sequence DDLWW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-27T02:18:06+00:00",
+  "draft_id": "87ab07d442",
+  "story_ids": [
+    "c7c83803e750"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
