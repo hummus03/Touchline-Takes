@@ -109,3 +109,27 @@ def test_fixture_team_names_are_resolved(settings, db):
     assert agent.resolve("Manchester City") == "Man City"   # directory, not 'Manchester'
     assert agent.resolve("Notts County") is None            # unknown club: no guess
     assert agent.predict_fixture("Leicester City", "Nottingham Forest") is not None
+
+
+def test_sample_fixtures_are_always_upcoming():
+    """Bundled sample fixtures are moved to start two days from today, keeping their
+    spacing, so demo mode always has upcoming fixtures to show."""
+    from datetime import date  # pylint: disable=import-outside-toplevel
+    client = FixturesClient(Settings().fixtures_path)
+    later = client.load_sample(today=date(2031, 6, 1))
+    dates = sorted(f["date"] for f in later)
+    assert dates[0] == "2031-06-03"
+    assert dates[-1] > dates[0]
+    original = sorted(f["date"] for f in json_fixtures())
+    gaps = [(date.fromisoformat(b) - date.fromisoformat(a)).days
+            for a, b in zip(original, original[1:])]
+    assert gaps == [(date.fromisoformat(b) - date.fromisoformat(a)).days
+                    for a, b in zip(dates, dates[1:])]
+    assert all(f["source"] for f in later)
+
+
+def json_fixtures():
+    """The bundled sample file as written."""
+    import json  # pylint: disable=import-outside-toplevel
+    from pathlib import Path  # pylint: disable=import-outside-toplevel
+    return json.loads(Path(Settings().fixtures_path).read_text(encoding="utf-8"))

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import logging
+from datetime import date, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -49,10 +50,19 @@ class FixturesClient:
                     "source": "football-data.org"})
         return fixtures
 
-    def load_sample(self) -> list[dict[str, Any]]:
-        """Bundled sample fixtures."""
+    def load_sample(self, today: date | None = None) -> list[dict[str, Any]]:
+        """Bundled sample fixtures, moved so the first one is two days from ``today``.
+
+        The file's dates are kept only for their spacing: fixed dates go stale, and the
+        home page shows upcoming fixtures only, so a demo would show none once they passed.
+        """
         data = json.loads(self.sample_path.read_text(encoding="utf-8"))
-        return [{**f, "source": f.get("source", "sample fixtures")} for f in data]
+        dated = [date.fromisoformat(f["date"]) for f in data if f.get("date")]
+        start = (today or date.today()) + timedelta(days=2)
+        shift = (start - min(dated)) if dated else timedelta(0)
+        return [{**f, "source": f.get("source", "sample fixtures"),
+                 **({"date": (date.fromisoformat(f["date"]) + shift).isoformat()}
+                    if f.get("date") else {})} for f in data]
 
     def upcoming(self, offline: bool = False, allow_fallback: bool = True
                  ) -> tuple[list[dict[str, Any]], bool]:
