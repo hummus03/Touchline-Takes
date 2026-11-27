@@ -1,0 +1,45 @@
+{
+  "slug": "tottenham-s-savio-blow-tests-a-side-on-a-roll-2026-11-27",
+  "title": "Tottenham's Savio blow tests a side on a roll",
+  "body": "Winger Savio will miss the club's Christmas fixtures after an injury setback [S1]. Any winger ruled out at this time of year is more than a line on a team sheet.\n\nThe absence could run to as long as 80 days [S1]. That is not a short knock. It is the kind of spell that reshapes a squad's plans for weeks.\n\nThe wider picture is encouraging. Across their last five league matches, Tottenham have won four, lost one and collected 12 points, scoring 9 and conceding 2 [ST1]. Their run reads WWWLW [ST1]. That is a side with momentum, which makes this timing more awkward than it would be for a team in a slump.\n\nThis is exactly the kind of blow that exposes a thin bench. Nobody wins anything in the treatment room, but plenty of seasons are lost there. The manager's real test is whether the replacements can keep the current shape without the winger's pace, and whether the squad treats this as a rotation problem rather than a crisis.\n\nThe Touchline Take: depth is the story now, and how the squad copes will define the next month.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Tottenham"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cw4gnm4p3zxlo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Spurs' Savio to miss festive fixtures after injury setback. Tottenham winger Savio will miss the club's Christmas fixtures with injury and could be out for up to 80 days, manager Roberto de Zerbi confirms.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cw4gnm4p3zxlo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Tottenham last 5 league matches in Football-Data.co.uk results: 4 wins, 0 draws, 1 defeat, 12 points, 9 goals scored, 2 conceded (sequence WWWLW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-27T17:31:45+00:00",
+  "draft_id": "3d2d3e3494",
+  "story_ids": [
+    "e0f58b20076d"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
