@@ -1,0 +1,45 @@
+{
+  "slug": "bayern-munich-must-stop-treating-jamal-musiala-s-seizures-as-a-contrac-2026-11-26",
+  "title": "Bayern Munich must stop treating Jamal Musiala's seizures as a contract problem",
+  "body": "Bayern Munich lost 2-1 to Lille on Wednesday, but the bigger storm is happening off the pitch [S1]. Jamal Musiala has a neurological condition that causes seizures, and senior figures at the club have publicly questioned his performances and his contract [S1].\n\nTwo of those seizures happened on the field during pre-season games [S1]. The players' union Fifpro says it is concerned by the club's comments about his contract [S2]. Joshua Kimmich, the vice-captain, has spoken out, calling the treatment \"not Bayern-like\" and warning that it risks undermining the club's family image [S1].\n\nWhen a body lets a player down in front of a crowd, the last thing he needs is his employer auditing his value. A side that sells togetherness at every press conference cannot file a teammate's seizures under performance review.\n\nNobody wins anything in the treatment room, but plenty of seasons are lost there. How this gets handled will tell the dressing room far more than any scoreline, and trust is what is really on the line.\n\nThe vice-captain speaking out was the right call, because silence would have been read as agreement [S1]. The Touchline Take: the club can still repair this, but only by treating the player as a person first and a contract question second.",
+  "article_type": "explainer",
+  "league": "Bundesliga",
+  "teams": [
+    "Bayern Munich"
+  ],
+  "sources": [
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/26/bayern-munich-joshua-kimmich-jamal-musiala",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c9x2evr1rg85o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "The Guardian: ‘Not Bayern-like’: Joshua Kimmich fumes at club’s treatment of Jamal Musiala. Bundesliga champions lost 2-1 to Lille on Wednesday. Kimmich defends Musiala’s neurological condition. The Bayern Munich midfielder Joshua Kimmich has launched a stinging attack on the club’s “not Bayern-like” treatment of his teammate Jamal Musiala, who has a condition which causes seizures. Senior Bayern figures have publicly questioned Musiala’s performances and contract after repeated seizures caused by a neurological condition, including two on the field in pre-season games, drawing protests from the players’ union Fifpro. Now Kimmich, the club’s vice-captain, has spoken out and warned Bayern risked undermining their family image.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/26/bayern-munich-joshua-kimmich-jamal-musiala"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Fifpro criticises Bayern Munich for Musiala comments. Football players' union Fifpro says it is concerned by German club Bayern Munich's comments about Jamal Musiala's contract.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c9x2evr1rg85o?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "published_at": "2026-11-26T17:48:09+00:00",
+  "draft_id": "0187999dc5",
+  "story_ids": [
+    "c020fbf31d35"
+  ],
+  "mode": "llm",
+  "revision": 2
+}
