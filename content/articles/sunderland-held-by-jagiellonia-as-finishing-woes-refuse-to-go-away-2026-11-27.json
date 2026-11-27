@@ -1,0 +1,57 @@
+{
+  "slug": "sunderland-held-by-jagiellonia-as-finishing-woes-refuse-to-go-away-2026-11-27",
+  "title": "Sunderland Held by Jagiellonia as Finishing Woes Refuse to Go Away",
+  "body": "Sunderland were held to a 1-1 draw by Jagiellonia Bialystok in the Europa League at the Stadium of Light [S1]. The Guardian pointed to a Reinildo error as extending Sunderland's woe [S2].\n\nThe night had an off-field problem too. Banned travelling fans were ejected, but some Jagiellonia supporters were still seen in home areas, and Sunderland said they were disappointed [S1]. Jagiellonia's head coach, Adrian Siemieniec, had already celebrated a Polish title and called the trip to Wearside one of the biggest highlights of his career [S2].\n\nThe league numbers are the bigger worry. In their last five league matches Sunderland have won one, drawn two and lost two, collecting five points while scoring twice and conceding five [ST1]. The run reads LDLWD [ST1].\n\nThey made intelligent defending the centrepiece and enjoyed highlighting Sunderland's struggles in front of goal [S2]. That is how a home side gets strangled: the visitors spot the hesitation and turn it into the story. A side that scores this rarely cannot wait for the bounce to come back.\n\nBut there is no hiding from a scoreline, and this one will be picked apart all week. The goal-shy run is now a pattern, not a blip, and the fans will notice that before the manager does.\n\nThe Touchline Take: file this one under unfinished business.",
+  "article_type": "match_report",
+  "league": "Europa League",
+  "teams": [
+    "Sunderland"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/sunderland-vs-jagiellonia-bialystok/report/577827",
+      "kind": "story"
+    },
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/26/sunderland-jagiellonia-bialystok-europa-league-match-report",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Sunderland held by Jagiellonia as banned travelling fans ejected. Sunderland have expressed their disappointment after some Jagiellonia Bialystok fans were in attendance in home areas during their 1-1 Europa League draw at the Stadium of Light.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/sunderland-vs-jagiellonia-bialystok/report/577827"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "The Guardian: Reinildo error extends Sunderland woe as Jagiellonia grab Europa League draw. Jagiellonia Bialystok’s head coach, Adrian Siemieniec, claimed this trip to Wearside to face Premier League opposition represented one of the biggest highlights of a career in which he has already celebrated a Polish title. His players did everything to guarantee it was not an anticlimax as they revelled in highlighting Sunderland’s struggles in front of goal courtesy of some intelligent defending.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/26/sunderland-jagiellonia-bialystok-europa-league-match-report"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Sunderland last 5 league matches in Football-Data.co.uk results: 1 win, 2 draws, 2 defeats, 5 points, 2 goals scored, 5 conceded (sequence LDLWD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-27T02:17:57+00:00",
+  "draft_id": "60093f4c8a",
+  "story_ids": [
+    "fef411ebb39b"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
