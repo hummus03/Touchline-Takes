@@ -1,0 +1,45 @@
+{
+  "slug": "everton-weigh-renewed-richarlison-and-zirkzee-bids-as-the-defence-leak-2026-11-26",
+  "title": "Everton Weigh Renewed Richarlison and Zirkzee Bids as the Defence Leaks",
+  "body": "Sky Sports asks whether Everton are exploring renewed January bids for Richarlison and Zirkzee, and the question mark in the headline matters [S1]. This is a story about options being weighed, not a deal agreed.\n\nThe wider backdrop is a side that has not been in comfortable form. Everton have taken six points from their last five league matches, with two wins, three defeats and no draws [ST1]. They have scored four and conceded nine, and the sequence reads LLWWL [ST1].\n\nThe defensive figures are the real alarm bell, and the attack's modest return only sharpens the point. Any transfer talk that focuses only on the forward line risks missing where the damage is being done.\n\nThe Touchline Take: the bids may grab the headlines, but the leaky back line is the real story to watch.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Everton"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/live-blog/12040/13279303/everton-transfers-latest-news-rumours-and-gossip-live-updates-goals-and-highlights",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Everton latest: Renewed January bids for Richarlison & Zirkzee explored?. Everton latest: Renewed January bids for Richarlison & Zirkzee explored?",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/live-blog/12040/13279303/everton-transfers-latest-news-rumours-and-gossip-live-updates-goals-and-highlights"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Everton last 5 league matches in Football-Data.co.uk results: 2 wins, 0 draws, 3 defeats, 6 points, 4 goals scored, 9 conceded (sequence LLWWL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-26T17:48:19+00:00",
+  "draft_id": "8bd1ff1931",
+  "story_ids": [
+    "298b0f723b30"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
