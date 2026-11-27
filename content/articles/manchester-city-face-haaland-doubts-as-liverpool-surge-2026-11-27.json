@@ -1,0 +1,64 @@
+{
+  "slug": "manchester-city-face-haaland-doubts-as-liverpool-surge-2026-11-27",
+  "title": "Manchester City Face Haaland Doubts as Liverpool Surge",
+  "body": "BBC Sport reports that Erling Haaland is considering leaving Manchester City [S1]. A striker of that calibre hearing exit whispers is the kind of story that unsettles a dressing room before a ball is kicked.\n\nThe wider gossip is busy. BBC Sport also says Liverpool are exploring a deal for Jamal Musiala [S1], and Manchester United are eyeing Maxi Araujo [S1]. Elsewhere, Manchester United and Manchester City are competing for Chelsea defender Malo Gusto [S2], while Leeds United are pursuing Will Lankshear [S2]. Everyone wants a bargain, and when rivals circle the same targets, patience becomes a harder sell.\n\nThe form guide should set the mood. Our Football-Data.co.uk record shows Manchester City with one win, one draw and three defeats from their last five league games, a run that has brought four points, six goals scored and nine conceded [ST1]. Liverpool's last five tell a different story: four wins and one defeat, 12 points from 11 goals scored and three conceded [ST2]. One side is building momentum while the other is leaking goals and points, and that gap explains why every rumour about a departure carries extra weight.\n\nThe smart money is on patience.\n\nThe Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester City"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c9zr568gje67o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cmp86enlly13o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Haaland considers Man City exit - Friday's gossip. Erling Haaland considers Manchester City exit, Liverpool explore Jamal Musiala deal and Manchester United eye move for Maxi Araujo, plus more.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c9zr568gje67o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Man Utd & Man City in Gusto battle - Friday's gossip. Manchester United and Manchester City are going head-to-head for Chelsea defender Malo Gusto and Leeds United pursue Will Lankshear, plus more.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cmp86enlly13o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester City last 5 league matches in Football-Data.co.uk results: 1 win, 1 draw, 3 defeats, 4 points, 6 goals scored, 9 conceded (sequence WLLLD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Liverpool last 5 league matches in Football-Data.co.uk results: 4 wins, 0 draws, 1 defeat, 12 points, 11 goals scored, 3 conceded (sequence WWLWW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-27T02:18:02+00:00",
+  "draft_id": "ebcc67ac46",
+  "story_ids": [
+    "2184db4d79b4"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
