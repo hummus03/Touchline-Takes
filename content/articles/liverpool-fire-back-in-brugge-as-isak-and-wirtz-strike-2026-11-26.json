@@ -1,0 +1,64 @@
+{
+  "slug": "liverpool-fire-back-in-brugge-as-isak-and-wirtz-strike-2026-11-26",
+  "title": "Liverpool Fire Back in Brugge as Isak and Wirtz Strike",
+  "body": "Isak and Wirtz both scored as they beat Club Brugge, a win that moved them closer to automatic qualification from the Champions League group [S1]. Sky had it as a 3-0 win, a comfortable night after the side had bounced back from a shock defeat to Fenerbahce [S2].\n\nThe Guardian framed the result as the latest step in a run that followed a 4-0 win over Manchester United, and it described a week that was supposed to test Liverpool's credentials [S1]. The same report said the momentum is building, from big-money individuals to the collective effort, ahead of Sunday's Merseyside derby [S1]. Our sources cover matches, not deals, so anything said about the transfer market here is judgement rather than reporting.\n\nThe form tables tell the same story. Liverpool's last five league games brought four wins, one defeat, 12 points, 11 goals scored and 3 conceded [ST1]. Manchester United's last five produced two draws, three defeats and two points, with 14 conceded [ST2]. One side is keeping clean sheets and winning, while the other is leaking goals and struggling to get results.\n\nThat gap matters for the bigger picture. If a signing lands this window, it says plenty about where the club thinks it is heading. The side does not need a panic buy to look dangerous, though, and that is the awkward truth for anyone demanding a headline move.\n\nThe smart money is on patience. Let the window close, look at the squad that is left, and only then decide whether the club got it right.\n\nThe Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Champions League",
+  "teams": [
+    "Liverpool"
+  ],
+  "sources": [
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/25/club-brugge-liverpool-champions-league-match-report",
+      "kind": "story"
+    },
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/club-brugge-vs-liverpool/report/577679",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "The Guardian: Isak and Wirtz on target as resurgent Liverpool sweep aside Club Brugge. Liverpool, from big money individuals to the collective, are building formidable momentum. On a bitterly cold night in Belgium, Andoni Iraola’s team delivered an accomplished away display to bring Club Brugge’s impressive run to a halt and step closer to automatic qualification from the Champions League group. A week that supposedly represented a test of Liverpool’s credentials has brought rich encouragement before Sunday’s Merseyside derby. Following the 4-0 destruction of Manchester United there was another display of outstanding finishing from Alexander Isak and Florian Wirtz.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/25/club-brugge-liverpool-champions-league-match-report"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "Sky Sports: Isak and Wirtz power Liverpool to easy victory at Club Brugge. Liverpool recovered from their shock defeat to Fenerbahce in their last Champions League outing to beat Club Brugge 3-0 and improve their chances of a top-eight league phase finish.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/club-brugge-vs-liverpool/report/577679"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Liverpool last 5 league matches in Football-Data.co.uk results: 4 wins, 0 draws, 1 defeat, 12 points, 11 goals scored, 3 conceded (sequence WWLWW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 2 draws, 3 defeats, 2 points, 5 goals scored, 14 conceded (sequence DLLDL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-26T02:18:00+00:00",
+  "draft_id": "9a56009f37",
+  "story_ids": [
+    "bcb3b86bbda7"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
