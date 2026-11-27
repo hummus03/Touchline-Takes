@@ -1,0 +1,46 @@
+{
+  "slug": "bayern-munich-lose-2-1-at-lille-as-barcelona-rout-sabah-4-1-s1-2026-11-26",
+  "title": "Bayern Munich Lose 2-1 at Lille as Barcelona Rout Sabah 4-1 [S1]",
+  "body": "Bayern Munich's unbeaten run in all competitions ended on Wednesday with a 2-1 defeat at Lille in the Champions League [S1]. It was their first loss of the season, and it arrived in a week that was already going badly for the German giants [S1].\n\nDayot Upamecano gave Bayern the lead, and Ayase Ueda levelled for Lille before Aleksandar Pavlovic turned the ball into his own net to hand the hosts victory [S1]. Lille had kicked off the league phase in 35th place [S1]. Elsewhere, Barcelona thrashed Sabah 4-1, and the headline credits Gordon with leading the rout [S1]. BBC Sport separately covered Fifpro's concern over Bayern's comments about Jamal Musiala's contract [S2].\n\nThere is no hiding from a result like this, and the side will be picking through it all week. A defeat to a team that was never supposed to trouble them exposes nerves, not just tactics, and the questions will keep coming until the answers arrive on the pitch.\n\nThat is the sort of night that changes the mood around a dressing room. The players will feel it more than the fans do, and the manager will need to win back belief quickly before the next test arrives.\n\nThe Touchline Take: file this one under unfinished business, because a side with this much pedigree should not be explaining away a night like this.",
+  "article_type": "match_report",
+  "league": "Champions League",
+  "teams": [
+    "Bayern Munich",
+    "Barcelona"
+  ],
+  "sources": [
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/25/champions-league-barcelona-psg-roma-lille-bayern-munich-villarreal",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c9x2evr1rg85o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "The Guardian: Champions League: Lille comeback adds to Bayern woes, Gordon leads Barcelona rout. Lille 2-1 Bayern Munich, Sabah 1-4 Barcelona. Malen penalty earns Roma 2-2 draw at PSG. Bayern Munich endured their first defeat of the season on Wednesday, losing 2-1 at Lille in the Champions League as a tough week for the German giants worsened. Dayot Upamecano opened the scoring for Bayern but Ayase Ueda levelled for Lille before a horror Aleksandar Pavlovic own goal gifted the hosts victory. Bayern’s unbeaten record in all competitions was ended by a Lille side who kicked off in 35th place in the tournament’s league phase.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/25/champions-league-barcelona-psg-roma-lille-bayern-munich-villarreal"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Fifpro criticises Bayern Munich for Musiala comments. Football players' union Fifpro says it is concerned by German club Bayern Munich's comments about Jamal Musiala's contract.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c9x2evr1rg85o?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "published_at": "2026-11-26T02:17:49+00:00",
+  "draft_id": "cd714e61d2",
+  "story_ids": [
+    "014befb3f459"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
