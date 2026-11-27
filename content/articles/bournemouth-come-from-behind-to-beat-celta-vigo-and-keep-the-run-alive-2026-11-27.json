@@ -1,0 +1,57 @@
+{
+  "slug": "bournemouth-come-from-behind-to-beat-celta-vigo-and-keep-the-run-alive-2026-11-27",
+  "title": "Bournemouth Come From Behind to Beat Celta Vigo and Keep the Run Alive",
+  "body": "Bournemouth recovered from a deficit to beat Celta Vigo 2-1 [S1].\n\nSky Sports framed the result around European history, saying the win created two bits of history [S1]. BBC Sport focused on the streak, reporting a ninth successive win under new manager Marco Rose, with Evanilson again central to the story [S2]. A run that long stops looking like a lucky patch and starts looking like an identity.\n\nThe form backs that up. Across their last five league matches they have won all five, collecting 15 points, scoring 11 and conceding just one [ST1]. A side that leaks almost nothing while scoring freely is hard to bet against, and the defensive record deserves as much credit as the goals.\n\nThat is the sort of afternoon that changes the mood around a dressing room. There is no hiding from a scoreline, and this one will be picked apart all week, but the pressure now sits with the next opponent to find a way to stop this momentum.\n\nThe Touchline Take: file this one under unfinished business, because a run this sharp has not yet peaked.",
+  "article_type": "match_report",
+  "league": "Premier League",
+  "teams": [
+    "Bournemouth"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/celta-vigo-vs-bournemouth/report/577814",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c6p9d102k4mdo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Bournemouth make European history after coming from behind to beat Celta Vigo. Bournemouth continued their magnificent run of form with a 2-1 victory against Celta Vigo, creating two bits of history in the process.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/celta-vigo-vs-bournemouth/report/577814"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Nine wins in a row - Bournemouth & Evanilson continue to make history. With a ninth successive win, Bournemouth continue to make history under new manager Marco Rose.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c6p9d102k4mdo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Bournemouth last 5 league matches in Football-Data.co.uk results: 5 wins, 0 draws, 0 defeats, 15 points, 11 goals scored, 1 conceded (sequence WWWWW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-27T02:17:50+00:00",
+  "draft_id": "47c587f07a",
+  "story_ids": [
+    "326410d19718"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
