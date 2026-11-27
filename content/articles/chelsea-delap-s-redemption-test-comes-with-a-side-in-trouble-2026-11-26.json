@@ -1,0 +1,57 @@
+{
+  "slug": "chelsea-delap-s-redemption-test-comes-with-a-side-in-trouble-2026-11-26",
+  "title": "Chelsea: Delap's redemption test comes with a side in trouble",
+  "body": "Liam Delap joined Chelsea in the summer of 2025 with serious ambitions, and Sky Sports now frames his next outing as a chance at redemption against a side it calls toothless [S1]. The report suggests he once hoped to establish himself as an elite Premier League No 9, and perhaps even succeed Harry Kane as England's main striker [S1].\n\nThe numbers behind the noise are not kind. In their last five league matches they have won two, lost three and taken six points, scoring five and conceding seven, with the results running WLWLL [ST1].\n\nNobody gets a clean run at redemption when the back line is shipping goals and the dressing room is dealing with leaks. The striker can make all the runs he likes, but the side needs a stable base before any individual story can land. Results like these make every missed chance look bigger than it is.\n\nThe fix is not complicated, though it is not quick either.\n\nThe Touchline Take: one to keep an eye on as the season unfolds, because the striker's redemption and the side's form are now tied together.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Chelsea"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13615913/liam-delap-has-a-chance-to-show-chelsea-what-theyre-missing-when-they-travel-to-nottingham-forest",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c98rzr51rlvpo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Delap's chance at redemption against toothless Chelsea. When Liam Delap joined Chelsea in the summer of 2025, he probably had ambitions of cementing himself as an elite Premier League No 9. Perhaps even positioning himself to be the heir to Harry Kane's throne for England.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13615913/liam-delap-has-a-chance-to-show-chelsea-what-theyre-missing-when-they-travel-to-nottingham-forest"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Chelsea staff warned over Fantasy Premier League use. Chelsea warn staff to be careful about revealing team news through Fantasy Premier League after Joao Pedro's injury appeared to have been inadvertently disclosed through team selections.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c98rzr51rlvpo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Chelsea last 5 league matches in Football-Data.co.uk results: 2 wins, 0 draws, 3 defeats, 6 points, 5 goals scored, 7 conceded (sequence WLWLL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-26T17:48:24+00:00",
+  "draft_id": "773a586c03",
+  "story_ids": [
+    "0e2534317145"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
