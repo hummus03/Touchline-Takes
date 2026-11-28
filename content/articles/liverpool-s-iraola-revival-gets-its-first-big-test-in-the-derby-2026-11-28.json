@@ -1,0 +1,57 @@
+{
+  "slug": "liverpool-s-iraola-revival-gets-its-first-big-test-in-the-derby-2026-11-28",
+  "title": "Liverpool's Iraola revival gets its first big test in the derby",
+  "body": "Liverpool are rediscovering belief under Andoni Iraola, with the forwards clicking at last and the back line steadier, just as a derby arrives [S1]. The mood has shifted quickly, and the question now is whether it can last.\n\nThe most eye-catching story is about Florian Wirtz, who credits Iraola and Klopp for returning him to the level that made him one of Europe's most sought-after players [S2]. He joined Liverpool in 2025 in a deal reported at up to £116m [S2]. His first season under Arne Slot was difficult, and he also struggled in the early weeks of Iraola's reign, which makes his current claim that this is his best Liverpool form more striking [S2].\n\nThe results back up the change in feeling. Across the last five league matches, Liverpool have won four and lost one, collecting 12 points while scoring 11 and conceding just 3, with the sequence reading WWLWW [ST1]. That is the profile of a side that has stopped leaking goals without going quiet in attack.\n\nThe sceptics have a fair point. The early struggles were real [S2], and BBC Sport's own framing of the moment as \"work in progress\" is the honest read [S1]. A reinvention built on a handful of results is still a work in progress, and the manager has yet to prove the changes survive pressure.\n\nThat is why the derby matters more than the headlines. If the new shape holds against a rival in a high-stakes fixture, this becomes a genuine turnaround. If it wobbles, the belief that has returned will be tested immediately.\n\nThe Touchline Take: one to keep an eye on as the season unfolds.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Liverpool"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cmn4k7vdqx4vo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/24/florian-wirtz-hails-iraola-and-klopp-as-he-reaches-new-levels-for-liverpool",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Work in progress but Liverpool find belief again with Iraola. With the attack finally firing and Liverpool looking more solid at the back, Andoni Iraola has got the fans believing again. Just in time for derby day.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cmn4k7vdqx4vo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "The Guardian: Florian Wirtz hails Iraola and Klopp as he reaches new levels for Liverpool. Playmaker in best form since moving to Anfield. ‘I am really enjoying playing under Iraola’ Florian Wirtz has credited Andoni Iraola with helping him recapture the form that made him one of the most coveted players in Europe when he joined Liverpool in a deal worth up to £116m in 2025. The Germany international believes he is in the best form of his Liverpool career, having had a difficult debut season under Arne Slot and also struggled in the early weeks of Iraola’s reign.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/24/florian-wirtz-hails-iraola-and-klopp-as-he-reaches-new-levels-for-liverpool"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Liverpool last 5 league matches in Football-Data.co.uk results: 4 wins, 0 draws, 1 defeat, 12 points, 11 goals scored, 3 conceded (sequence WWLWW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-28T16:17:36+00:00",
+  "draft_id": "a577bd9cb4",
+  "story_ids": [
+    "c974271e572b"
+  ],
+  "mode": "llm",
+  "revision": 2
+}
