@@ -1,0 +1,57 @@
+{
+  "slug": "manchester-united-tie-bruno-fernandes-down-to-2028-as-the-results-sour-2026-11-28",
+  "title": "Manchester United tie Bruno Fernandes down to 2028 as the results sour",
+  "body": "Manchester United have activated a clause extending captain Bruno Fernandes' contract to the summer of 2028 [S1]. Sky Sports described it as triggering a 12-month option [S2]. It is a sensible piece of damage control, but it is a holding move, not a fix.\n\nThe deal was due to expire in June, and the option stopped him from agreeing a pre-contract with a club abroad that could have let him leave for nothing next summer [S1]. He had turned down two earlier United offers and had said talks on a longer deal were paused because of the wider situation at the club [S1]. Further talks with him are still planned [S1].\n\nThe recent form makes that context harder to ignore. In their last five league matches, Manchester United have won none, drawn two and lost three, scoring five and conceding 14 [ST1]. A side leaking goals at that rate does not need a contract signed in a hurry. It needs a back line that holds.\n\nMauricio Pochettino has warned his players not to expect him to be \"nice\" as he tries to turn the club's fortunes around [S1]. That is a manager asking for accountability, not applause, and the squad should hear it that way. Pressure is useful only if it produces performances on the pitch.\n\nThe smart money is on patience, because rushed deals rarely age well. Talk is cheap until the paperwork is signed, so treat every rumour with care. The Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Manchester United"
+  ],
+  "sources": [
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/27/manchester-united-bruno-fernandes-contract-2028-activate-option-mauricio-pochettino",
+      "kind": "story"
+    },
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13617215/bruno-fernandes-man-utd-activate-captains-12-month-option-to-extend-contract-which-now-ends-in-2028",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "The Guardian: Manchester United extend Fernandes contract until 2028 to stop free transfer. Club activate option and plan further talks with captain. ‘I am not nice,’ says Pochettino as he targets improvement. Manchester United have triggered a clause to extend the captain Bruno Fernandes’ contract until the summer of 2028 on a day when Mauricio Pochettino warned his players they should not expect him to be “nice” in his attempts to turn around the club’s fortunes. Fernandes’ deal was due to expire in June and by exercising the option United have avoided the risk from January that he could negotiate a pre-contract agreement with a club abroad to join on a free next summer. Fernandes said this month that talks over a longer extension were on hold “because of the context of the team and the club”. He has turned down two United contract offers.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/27/manchester-united-bruno-fernandes-contract-2028-activate-option-mauricio-pochettino"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "Sky Sports: Man Utd activate Fernandes contract extension clause. Manchester United have triggered their 12-month option to extend captain Bruno Fernandes' contract.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13617215/bruno-fernandes-man-utd-activate-captains-12-month-option-to-extend-contract-which-now-ends-in-2028"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 2 draws, 3 defeats, 2 points, 5 goals scored, 14 conceded (sequence DLLDL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-28T02:03:52+00:00",
+  "draft_id": "0c5903339b",
+  "story_ids": [
+    "da4900f5ecfe"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
