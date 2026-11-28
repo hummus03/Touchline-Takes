@@ -1,0 +1,82 @@
+{
+  "slug": "ipswich-vs-aston-villa-villa-have-the-edge-but-expect-a-messy-night-2026-11-28",
+  "title": "Ipswich vs Aston Villa: Villa have the edge, but expect a messy night",
+  "body": "Ipswich host Aston Villa in the Premier League on 2026-11-28 [F1]. The home side are desperate to escape a poor run that has brought them only two points from their last five league games [ST1].\n\nVilla's most recent match was a goalless-looking grind at home to Sunderland, which The Guardian framed as a painful stalemate for the hosts and a triumph of sorts for Sunderland's manager, Régis Le Bris [S1]. The visitors' finishing was the real problem. Most of their shots on target came from distance, and the only one from inside the box, by Ian Maatsen, was poor [S1].\n\nThe numbers still point one way. Ipswich have no wins, two draws and three defeats from their last five, scoring six and conceding ten [ST1]. Aston Villa have two wins and three draws over the same span with no defeats, collecting nine points, scoring eight and conceding six [ST2]. The Touchline Takes Analyst model gives Villa a 62% chance of winning, with the draw at 24% and Ipswich at 14% [M1]. The last meeting, on 2025-02-15, ended Aston Villa 1-1 Ipswich [ST3].\n\nForm matters, but big games have a habit of ignoring the spreadsheet. A side that has been sloppy in front of goal can still find a way to win, and a strong run can be undone by a single defensive slip. The team with more quality in the key areas usually gets the edge when that moment arrives.\n\nThis is the kind of fixture where one moment of quality settles everything. The side with the better shape and the stronger record should edge it, but a tight, scrappy contest would not be a surprise.\n\nThe Touchline Take: back the visitors, but do not be shocked if this gets messy.",
+  "article_type": "preview",
+  "league": "Premier League",
+  "teams": [
+    "Ipswich",
+    "Aston Villa"
+  ],
+  "sources": [
+    {
+      "name": "football-data.org",
+      "url": "",
+      "kind": "fixture"
+    },
+    {
+      "name": "Touchline Takes Analyst model",
+      "url": "",
+      "kind": "model"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    },
+    {
+      "name": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/21/aston-villa-sunderland-premier-league-match-report",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "F1",
+      "kind": "fixture",
+      "text": "Fixture: Ipswich v Aston Villa, Premier League, 2026-11-28.",
+      "source": "football-data.org",
+      "url": ""
+    },
+    {
+      "id": "M1",
+      "kind": "model",
+      "text": "Touchline Takes Analyst model (logistic regression on Football-Data.co.uk results): Ipswich win 14%, draw 24%, Aston Villa win 62%.",
+      "source": "Touchline Takes Analyst model",
+      "url": ""
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Ipswich last 5 league matches in Football-Data.co.uk results: 0 wins, 2 draws, 3 defeats, 2 points, 6 goals scored, 10 conceded (sequence LDDLL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Aston Villa last 5 league matches in Football-Data.co.uk results: 2 wins, 3 draws, 0 defeats, 9 points, 8 goals scored, 6 conceded (sequence WWDDD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST3",
+      "kind": "stats",
+      "text": "Last meeting in Football-Data.co.uk results: 2025-02-15, Aston Villa 1-1 Ipswich.",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "The Guardian: Aston Villa held at home as dogged Sunderland battle for Régis Le Bris. For Aston Villa , a painful stalemate at home to Sunderland, but for Régis Le Bris and his players, this was another triumph of sorts. The raw numbers spoke volumes of Villa’s struggles against a defence that backed themselves to keep Unai Emery’s side at bay. All but one of Villa’s seven shots on target came from outside the visitors’ box and the one inside it, courtesy of Ian Maatsen, was forgettable.",
+      "source": "The Guardian",
+      "url": "https://www.theguardian.com/football/2026/nov/21/aston-villa-sunderland-premier-league-match-report"
+    }
+  ],
+  "published_at": "2026-11-28T16:17:48+00:00",
+  "draft_id": "d1b5b600d2",
+  "story_ids": [],
+  "mode": "llm",
+  "revision": 2
+}
