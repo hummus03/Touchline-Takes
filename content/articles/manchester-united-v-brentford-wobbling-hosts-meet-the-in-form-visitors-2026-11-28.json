@@ -1,0 +1,82 @@
+{
+  "slug": "manchester-united-v-brentford-wobbling-hosts-meet-the-in-form-visitors-2026-11-28",
+  "title": "Manchester United v Brentford: Wobbling Hosts Meet the In-Form Visitors",
+  "body": "Manchester United host Brentford in the Premier League on 2026-11-28 [F1]. The home side have no wins from their last five league matches, with two points from two draws and three defeats [ST1].\n\nThe wider story is whether that slide is becoming a pattern. BBC Sport has asked whether Manchester United are this season's Tottenham, a reference to Spurs escaping relegation on the final day last season [S1]. The last meeting went Manchester United's way, 2-1 on 2026-04-27 [ST3].\n\nThey have two wins, a draw and two defeats from their last five league games, with seven points, eight goals scored and five conceded [ST2]. Set against Manchester United's record over the same spell [ST1], that is the stronger form on paper. Our model gives Brentford a 49% chance, Manchester United 31% and a draw 19% [M1].\n\nForm matters, but big games have a habit of ignoring the spreadsheet. This is the kind of fixture where one moment of quality settles everything. A side on a poor run can find that moment in a flash of brilliance, or lose it to one defensive mix-up. Expect nerves, a tight opening and a finish nobody saw coming.\n\nThe Touchline Take: back the away side on the numbers [M1], but do not be shocked if this gets messy.",
+  "article_type": "preview",
+  "league": "Premier League",
+  "teams": [
+    "Manchester United",
+    "Brentford"
+  ],
+  "sources": [
+    {
+      "name": "football-data.org",
+      "url": "",
+      "kind": "fixture"
+    },
+    {
+      "name": "Touchline Takes Analyst model",
+      "url": "",
+      "kind": "model"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cj4gndepk312o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "F1",
+      "kind": "fixture",
+      "text": "Fixture: Manchester United v Brentford, Premier League, 2026-11-28.",
+      "source": "football-data.org",
+      "url": ""
+    },
+    {
+      "id": "M1",
+      "kind": "model",
+      "text": "Touchline Takes Analyst model (logistic regression on Football-Data.co.uk results): Manchester United win 31%, draw 19%, Brentford win 49%.",
+      "source": "Touchline Takes Analyst model",
+      "url": ""
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Manchester United last 5 league matches in Football-Data.co.uk results: 0 wins, 2 draws, 3 defeats, 2 points, 5 goals scored, 14 conceded (sequence DLLDL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Brentford last 5 league matches in Football-Data.co.uk results: 2 wins, 1 draw, 2 defeats, 7 points, 8 goals scored, 5 conceded (sequence LDWLW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST3",
+      "kind": "stats",
+      "text": "Last meeting in Football-Data.co.uk results: 2026-04-27, Manchester United 2-1 Brentford.",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Are Manchester United this season's Tottenham?. Tottenham escaped an unthinkable Premier League relegation last season on the final day, but are Manchester United in danger of being the new Spurs?",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cj4gndepk312o?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "published_at": "2026-11-28T02:04:00+00:00",
+  "draft_id": "2ef383801f",
+  "story_ids": [],
+  "mode": "llm",
+  "revision": 1
+}
