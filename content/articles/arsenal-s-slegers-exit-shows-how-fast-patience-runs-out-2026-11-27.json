@@ -1,0 +1,45 @@
+{
+  "slug": "arsenal-s-slegers-exit-shows-how-fast-patience-runs-out-2026-11-27",
+  "title": "Arsenal's Slegers exit shows how fast patience runs out",
+  "body": "Arsenal have ended Renee Slegers' time as head coach, with both sides agreeing to part ways after a slow start to the season [S1]. The move is a clear sign of how little time a new man in the hot seat gets when results dip early.\n\nThe BBC Sport report places the decision against a disappointing opening stretch, and that framing is what makes it land so hard [S1]. A departure this early in the campaign shows the club was not prepared to wait out the bad spell.\n\nThe results table complicates that story. Arsenal have won four and drawn one of their last five league matches, collecting 13 points from a run that reads WWWWD [ST1]. They have scored 7 and conceded just 2 across those games [ST1]. A side producing that return does not look broken, so the timing is the real talking point.\n\nEvery board loves a fresh start, but fans only want a plan that survives a bad month. The sack is the easiest lever to pull and the hardest one to get right.\n\nThe Touchline Take: get the next appointment right and this is forgotten.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Arsenal"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cmy49d5kpw78o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Arsenal head coach Slegers leaves by mutual consent. Arsenal part company with head coach Renee Slegers by mutual consent after a disappointing start to the season.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cmy49d5kpw78o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Arsenal last 5 league matches in Football-Data.co.uk results: 4 wins, 1 draw, 0 defeats, 13 points, 7 goals scored, 2 conceded (sequence WWWWD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-27T17:31:29+00:00",
+  "draft_id": "97295f5541",
+  "story_ids": [
+    "8df9f4ee63d4"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
