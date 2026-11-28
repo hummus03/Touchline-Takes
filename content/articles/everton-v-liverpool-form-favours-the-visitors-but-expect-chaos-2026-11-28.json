@@ -1,0 +1,82 @@
+{
+  "slug": "everton-v-liverpool-form-favours-the-visitors-but-expect-chaos-2026-11-28",
+  "title": "Everton v Liverpool: Form Favours the Visitors, but Expect Chaos",
+  "body": "Everton host Liverpool in the Premier League on 2026-11-29 [F1]. The last meeting, on 2026-04-19, ended Everton 1-2 Liverpool [ST3].\n\nEverton have won two and lost three of their last five league games, collecting six points while scoring four and conceding nine [ST1]. Liverpool have won four of their last five, with one defeat, taking 12 points while scoring 11 and conceding three [ST2]. That is a side searching for consistency against one that has found its rhythm, and the gap at the back is hard to ignore.\n\nThe Touchline Takes Analyst model makes Liverpool the favourite, with a 50% chance of victory [M1]. It gives Everton a 27% chance of winning and a 23% chance of a draw [M1]. The numbers and the recent form point the same way, which is not what the home crowd wants to hear.\n\nSky Sports' latest Everton item asks whether renewed January bids for Richarlison and Zirkzee are being explored [S1]. Any distraction in the build-up gives the visitors another reason to feel relaxed.\n\nThis is the kind of fixture where one moment of quality settles everything. Expect nerves early, then a lot more freedom once the first goal goes in. The side that scores first will look far more comfortable, and the other will be forced to chase the game.\n\nThe Touchline Take: back the visitors' quality, but do not be shocked if this gets messy.",
+  "article_type": "preview",
+  "league": "Premier League",
+  "teams": [
+    "Everton",
+    "Liverpool"
+  ],
+  "sources": [
+    {
+      "name": "football-data.org",
+      "url": "",
+      "kind": "fixture"
+    },
+    {
+      "name": "Touchline Takes Analyst model",
+      "url": "",
+      "kind": "model"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    },
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/live-blog/12040/13279303/everton-transfers-latest-news-rumours-and-gossip-live-updates-goals-and-highlights",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "F1",
+      "kind": "fixture",
+      "text": "Fixture: Everton v Liverpool, Premier League, 2026-11-29.",
+      "source": "football-data.org",
+      "url": ""
+    },
+    {
+      "id": "M1",
+      "kind": "model",
+      "text": "Touchline Takes Analyst model (logistic regression on Football-Data.co.uk results): Everton win 27%, draw 23%, Liverpool win 50%.",
+      "source": "Touchline Takes Analyst model",
+      "url": ""
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Everton last 5 league matches in Football-Data.co.uk results: 2 wins, 0 draws, 3 defeats, 6 points, 4 goals scored, 9 conceded (sequence LLWWL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Liverpool last 5 league matches in Football-Data.co.uk results: 4 wins, 0 draws, 1 defeat, 12 points, 11 goals scored, 3 conceded (sequence WWLWW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST3",
+      "kind": "stats",
+      "text": "Last meeting in Football-Data.co.uk results: 2026-04-19, Everton 1-2 Liverpool.",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Everton latest: Renewed January bids for Richarlison & Zirkzee explored?. Everton latest: Renewed January bids for Richarlison & Zirkzee explored?",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/live-blog/12040/13279303/everton-transfers-latest-news-rumours-and-gossip-live-updates-goals-and-highlights"
+    }
+  ],
+  "published_at": "2026-11-28T16:17:53+00:00",
+  "draft_id": "d80b314473",
+  "story_ids": [],
+  "mode": "llm",
+  "revision": 1
+}
