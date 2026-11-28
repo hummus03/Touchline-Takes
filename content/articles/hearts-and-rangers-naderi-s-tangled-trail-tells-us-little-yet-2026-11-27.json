@@ -1,0 +1,46 @@
+{
+  "slug": "hearts-and-rangers-naderi-s-tangled-trail-tells-us-little-yet-2026-11-27",
+  "title": "Hearts and Rangers: Naderi's Tangled Trail Tells Us Little Yet",
+  "body": "Sky Sports reports that Derek McInnes has revealed Hearts were interested in Ryan Naderi before Rangers moved in, and that a new deal was being discussed [S1]. When two sides chase the same player, the paperwork gets messy and the rumours multiply.\n\nMcInnes hoped the signing would fall through ten months earlier [S1]. That is a striking admission, and it shows how long this story has been simmering. BBC Sport, meanwhile, framed Naderi's contribution as a \"lucky punch\" that kept Rangers in touch on a Saturday full of Scottish Premiership goals [S2].\n\nThe on-pitch evidence is thin. By BBC's account, Naderi's moment was far from the most impressive of the day, yet it still mattered [S2]. One decisive moment is not a body of work, and it should not settle a debate about a player's future or a club's judgement of him.\n\nThe smart money is on patience. Fans love a bidding war and a rival's regret, but those are sideshows to what the player delivers over a season.\n\nThe Touchline Take: judge the business when the window shuts, not before.",
+  "article_type": "explainer",
+  "league": "Scottish Premiership",
+  "teams": [
+    "Hearts",
+    "Rangers"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13617211/ryan-naderi-rangers-manager-derek-mcinnes-hopes-to-tie-down-striker-as-jamestown-analytics-search-revealed",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/ckzd930mjp1po?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: McInnes reveals Hearts Naderi interest before Rangers move as new deal discussed. Derek McInnes hoped the signing of Ryan Naderi would fall through 10 months ago.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13617211/ryan-naderi-rangers-manager-derek-mcinnes-hopes-to-tie-down-striker-as-jamestown-analytics-search-revealed"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Naderi's 'lucky punch' keeps Rangers in touch. On a Saturday laden with Scottish Premiership goals, Ryan Naderi's was far from the most impressive - but vital for Rangers all the same.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/ckzd930mjp1po?at_medium=RSS&at_campaign=rss"
+    }
+  ],
+  "published_at": "2026-11-27T17:31:40+00:00",
+  "draft_id": "0478c8a377",
+  "story_ids": [
+    "48bbc99afc8c"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
