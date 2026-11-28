@@ -1,0 +1,64 @@
+{
+  "slug": "chelsea-unravel-at-forest-as-alonso-s-pressure-mounts-2026-11-28",
+  "title": "Chelsea Unravel at Forest as Alonso's Pressure Mounts",
+  "body": "Chelsea went to Nottingham Forest talking about getting back to basics, and they came away beaten 3-2 after being outworked and outclassed [S1]. A pre-match plea for fundamentals means little when the effort never shows up on the pitch.\n\nMorgan Gibbs-White scored twice in Forest's win at the City Ground [S2], and Sky Sports framed the result as deepening a crisis for Xabi Alonso [S2]. The same coverage noted that Fofana was booed [S2]. When a crowd turns on a player that quickly, the mood around the whole project has shifted.\n\nThe numbers back up the sense of drift. Chelsea's last five league matches brought two wins, three defeats, six points, five goals scored and seven conceded, with a sequence of WLWLL [ST1]. Forest's last five brought one win, one draw, three defeats, four points, four goals scored and seven conceded, with a run of LDLWL [ST2]. Neither side is in form to look down on anyone, and both have been leaking goals at a similar rate, which suggests the defensive discipline being demanded is still missing.\n\nThe pundit's read is simpler than the headlines. This is less about one bad afternoon and more about whether the dressing room responds. The pressure sits squarely on the manager, and the next few results will show whether the team can turn talk of fundamentals into performances.\n\nThe Touchline Take: one to keep an eye on, because the coming weeks will reveal whether this slide is a blip or a trend.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Chelsea"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13617391/xabi-alonso-called-for-chelsea-to-get-back-to-fundamentals-before-slipping-to-new-low-at-nottingham-forest",
+      "kind": "story"
+    },
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/nottingham-forest-vs-chelsea/report/559562",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: What went wrong for Alonso's Chelsea at Forest?. Xabi Alonso called for his Chelsea side to get back to the fundamentals before kick-off - and then watched on as they were outworked and outclassed on their way to a miserable 3-2 defeat at Nottingham Forest.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/news/12040/13617391/xabi-alonso-called-for-chelsea-to-get-back-to-fundamentals-before-slipping-to-new-low-at-nottingham-forest"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "Sky Sports: Forest beat Chelsea to heap pressure on Alonso as Fofana is booed. Morgan Gibbs-White scored two in Nottingham Forest’s 3-2 win over Chelsea at the City Ground as the crisis deepened for Xabi Alonso.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/nottingham-forest-vs-chelsea/report/559562"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Chelsea last 5 league matches in Football-Data.co.uk results: 2 wins, 0 draws, 3 defeats, 6 points, 5 goals scored, 7 conceded (sequence WLWLL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Nottingham Forest last 5 league matches in Football-Data.co.uk results: 1 win, 1 draw, 3 defeats, 4 points, 4 goals scored, 7 conceded (sequence LDLWL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-28T02:03:56+00:00",
+  "draft_id": "472ee0bacc",
+  "story_ids": [
+    "257847c76a23"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
