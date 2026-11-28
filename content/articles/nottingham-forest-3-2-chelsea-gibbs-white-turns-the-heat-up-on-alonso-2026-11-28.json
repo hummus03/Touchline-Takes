@@ -1,0 +1,65 @@
+{
+  "slug": "nottingham-forest-3-2-chelsea-gibbs-white-turns-the-heat-up-on-alonso-2026-11-28",
+  "title": "Nottingham Forest 3-2 Chelsea: Gibbs-White Turns the Heat Up on Alonso",
+  "body": "Morgan Gibbs-White scored twice as Forest beat Chelsea 3-2 at the City Ground, adding to the pressure on Xabi Alonso [S1]. Gibbs-White's two goals were the centre of the afternoon [S1][S2].\n\nThis was Forest's first win over Chelsea at the City Ground since 1997 [S2]. Fofana was booed during the game, which made the afternoon even harder for the visitors [S1]. BBC Sport's player ratings singled out Gibbs-White as the star and Fofana as the player who struggled [S2].\n\nThe recent form makes the result more striking. Chelsea have 6 points from their last five league matches, with 2 wins, no draws and 3 defeats, scoring 5 and conceding 7 [ST1]. Forest have 4 points from the same number of games, with 1 win, 1 draw and 3 defeats, scoring 4 and conceding 7 [ST2]. Neither side arrived in form to fear, so this reads as a jolt rather than a shock.\n\nThat is the sort of afternoon that changes the mood in a dressing room. A side that has been shipping goals and losing games needs a result like this to believe in itself again. The team on the wrong end will feel every minute of it.\n\nThere is no hiding from a scoreline, and this one will be picked apart all week. One win does not fix a bad run, and the next few results will decide whether this was a turning point or just a good day.\n\nThe Touchline Take: they earned this one, and now they have to back it up.",
+  "article_type": "match_report",
+  "league": "Premier League",
+  "teams": [
+    "Chelsea",
+    "Nottingham Forest"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/nottingham-forest-vs-chelsea/report/559562",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cmwy85xxjgxvo?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Forest beat Chelsea to heap pressure on Alonso as Fofana is booed. Morgan Gibbs-White scored two in Nottingham Forest’s 3-2 win over Chelsea at the City Ground as the crisis deepened for Xabi Alonso.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/nottingham-forest-vs-chelsea/report/559562"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Gibbs-White stars, Fofana struggles - player ratings for Forest v Chelsea. Morgan Gibbs-White scored twice as Nottingham Forest beat Chelsea 3-2 at the City Ground for the first time since 1997.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cmwy85xxjgxvo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Chelsea last 5 league matches in Football-Data.co.uk results: 2 wins, 0 draws, 3 defeats, 6 points, 5 goals scored, 7 conceded (sequence WLWLL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Nottingham Forest last 5 league matches in Football-Data.co.uk results: 1 win, 1 draw, 3 defeats, 4 points, 4 goals scored, 7 conceded (sequence LDLWL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-28T02:03:41+00:00",
+  "draft_id": "13911eff6d",
+  "story_ids": [
+    "a44fa46d4bb0"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
