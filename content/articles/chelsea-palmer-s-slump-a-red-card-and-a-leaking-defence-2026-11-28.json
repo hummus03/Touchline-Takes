@@ -1,0 +1,64 @@
+{
+  "slug": "chelsea-palmer-s-slump-a-red-card-and-a-leaking-defence-2026-11-28",
+  "title": "Chelsea: Palmer's Slump, a Red Card and a Leaking Defence",
+  "body": "Chelsea's Cole Palmer is back in the spotlight, with BBC Sport asking whether the player from his 2024 form can return [S1]. The question is tied to the side's wider slump, which has seen results drift as the season goes on [S1].\n\nThe frustration is the telling detail. It was evident after the defeat against Leeds [S1]. A separate BBC Sport explainer has also covered his red card suspension, which it says will not rule him out of the Premier League match against Manchester United [S2]. Two stories about one player, and they point in different directions.\n\nThe numbers back up the mood. Chelsea's last five league games read WLWLL: two wins, three defeats, six points, five scored and seven conceded [ST1]. Leeds United, over their last five, have collected eight points from DDLWW, with six scored and four conceded [ST2]. Those figures show a side that is giving away too much at both ends.\n\nThe suspension is the smaller problem. The bigger one is a team that cannot protect a lead or close out a game, and a manager who needs answers on the pitch rather than in press conferences.\n\nThe Touchline Take: one to keep an eye on.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Chelsea"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cwzd9yj44190o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cm4g1q54pj20o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Will 2024 version of Palmer ever re-emerge for Chelsea?. Cole Palmer's dip in form mirrors Chelsea's recent slump and his frustration was evident after his side's recent defeat against Leeds - but will he ever get back to his best?",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cwzd9yj44190o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "S2",
+      "kind": "story",
+      "text": "BBC Sport: Which game will Chelsea's Palmer miss after red card?. BBC Sport's Ask Me Anything team explains why Cole Palmer's red card suspension will not rule him out of Chelsea's Premier League match against Manchester United.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cm4g1q54pj20o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Chelsea last 5 league matches in Football-Data.co.uk results: 2 wins, 0 draws, 3 defeats, 6 points, 5 goals scored, 7 conceded (sequence WLWLL).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    },
+    {
+      "id": "ST2",
+      "kind": "stats",
+      "text": "Leeds United last 5 league matches in Football-Data.co.uk results: 2 wins, 2 draws, 1 defeat, 8 points, 6 goals scored, 4 conceded (sequence DDLWW).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-28T16:17:42+00:00",
+  "draft_id": "2500370702",
+  "story_ids": [
+    "743f137007b6"
+  ],
+  "mode": "llm",
+  "revision": 1
+}
