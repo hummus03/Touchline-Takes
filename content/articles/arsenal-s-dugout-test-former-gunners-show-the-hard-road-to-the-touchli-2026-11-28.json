@@ -1,0 +1,45 @@
+{
+  "slug": "arsenal-s-dugout-test-former-gunners-show-the-hard-road-to-the-touchli-2026-11-28",
+  "title": "Arsenal's Dugout Test: Former Gunners Show the Hard Road to the Touchline",
+  "body": "Two former Arsenal midfielders, Jack Wilshere and Aaron Ramsey, are now meeting as managers, and the story is being framed as two legends following similar paths into coaching [S1]. It is a neat headline, but there is more to it than nostalgia.\n\nEighteen years ago, the pair made their Premier League debuts within minutes of each other [S1]. That shared start is the detail that sticks. A common origin is a fun fact, but it is not a coaching qualification, and the bench rewards different skills from the ones that won a player his shirt.\n\nTheir last five league matches brought four wins and one draw with no defeats [ST1]. That run produced 13 points, 7 goals scored and 2 conceded [ST1]. Those figures describe a side that is settled, not one in crisis.\n\nEvery board loves a fresh start. Fans, though, only want a plan that survives a bad month. The sack is the easiest lever to pull and the hardest to pull well, and the clubs that panic after one poor result usually end up with a worse replacement and a longer rebuild. A calm, clear idea beats a flashy name every time.\n\nThe Touchline Take: get the next appointment right and this whole managerial debate gets forgotten.",
+  "article_type": "explainer",
+  "league": "Premier League",
+  "teams": [
+    "Arsenal"
+  ],
+  "sources": [
+    {
+      "name": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cm1dvn9w1px4o?at_medium=RSS&at_campaign=rss",
+      "kind": "story"
+    },
+    {
+      "name": "Football-Data.co.uk results",
+      "url": "",
+      "kind": "stats"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "BBC Sport: Wilshere v Ramsey - Arsenal legends treading similar managerial paths. Eighteen years after making their Premier League debuts two minutes apart, Jack Wilshere and Aaron Ramsey meet as managers.",
+      "source": "BBC Sport",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cm1dvn9w1px4o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "id": "ST1",
+      "kind": "stats",
+      "text": "Arsenal last 5 league matches in Football-Data.co.uk results: 4 wins, 1 draw, 0 defeats, 13 points, 7 goals scored, 2 conceded (sequence WWWWD).",
+      "source": "Football-Data.co.uk results",
+      "url": ""
+    }
+  ],
+  "published_at": "2026-11-28T02:03:47+00:00",
+  "draft_id": "56d1791943",
+  "story_ids": [
+    "d78cc9877c26"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
