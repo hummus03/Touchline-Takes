@@ -1,0 +1,33 @@
+{
+  "slug": "wolves-held-goalless-by-managerless-lincoln-2026-11-28",
+  "title": "Wolves Held Goalless by Managerless Lincoln",
+  "body": "Wolves were held to a 0-0 draw by Lincoln, who currently have no manager, in a Championship match covered by Sky Sports [S1]. Lincoln took a point that the report calls valuable, against a Wolves side it describes as high-flying [S1].\n\nThe detail that stands out is that Lincoln arrived at this game on a bad run, having lost five straight matches before this stalemate ended it [S1]. That is what makes the result more than a footnote. A side coming out of a losing streak that restores some belief has gained something a scoreline alone does not show [S1].\n\nThe evidence gives no form figures or predictions for either side, so there is no table or forecast to measure this result against. That absence matters. Without a pre-match expectation to frame it, the draw is just a draw, and for a team with bigger ambitions, that is exactly where the frustration lives.\n\nHere is the opinion. A point that stops a slide can mean more than a comfortable win for a side that cannot find its rhythm. The mood in any dressing room shifts after an afternoon like this, and there is no hiding from a goalless scoreline. It will be picked apart all week, and the questions about chances created and chances missed will come first.\n\nThe Touchline Take: file this one under unfinished business.",
+  "article_type": "match_report",
+  "league": "Premier League",
+  "teams": [
+    "Wolves"
+  ],
+  "sources": [
+    {
+      "name": "Sky Sports",
+      "url": "https://www.skysports.com/football/lincoln-city-vs-wolverhampton-wanderers/report/560705",
+      "kind": "story"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S1",
+      "kind": "story",
+      "text": "Sky Sports: Wolves held by managerless Lincoln. Lincoln ended a run of five straight defeats as they held high-flying Wolves to a 0-0 stalemate to earn a valuable Championship point.",
+      "source": "Sky Sports",
+      "url": "https://www.skysports.com/football/lincoln-city-vs-wolverhampton-wanderers/report/560705"
+    }
+  ],
+  "published_at": "2026-11-28T16:17:25+00:00",
+  "draft_id": "0cd63f89d5",
+  "story_ids": [
+    "ec24a46c8b95"
+  ],
+  "mode": "llm",
+  "revision": 0
+}
